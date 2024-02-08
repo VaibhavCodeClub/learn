@@ -1,0 +1,124 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "iPhone 13",
+            "desc": "The latest iPhone with advanced features",
+            "price": 99999,
+            "color": "#C0C0C0",
+            "image": "https://imgs.search.brave.com/P2Z5xIaiFoZuELsPILaagfvr2j0O7LapajPZ696oRcc/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9mZG4y/LmdzbWFyZW5hLmNv/bS92di9iaWdwaWMv/YXBwbGUtaXBob25l/LTEzLmpwZw"
+        },
+        {
+            "id": 2,
+            "name": "Samsung Galaxy S21",
+            "desc": "Powerful Android flagship phone",
+            "price": 89999,
+            "color": "#2F4F4F",
+            "image": "https://imgs.search.brave.com/we0WULoafNZxW2hT9Fz3QMr-K1S51ZLTWrSjp3OJRnw/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9mZG4y/LmdzbWFyZW5hLmNv/bS92di9iaWdwaWMv/c2Ftc3VuZy1nYWxh/eHktYTM0LmpwZw"
+        },
+        {
+            "id": 3,
+            "name": "Google Pixel 6",
+            "desc": "High-quality camera and pure Android experience",
+            "price": 79999,
+            "color": "#000000",
+            "image": "https://imgs.search.brave.com/v7RuKeXxYlBv7k3u8e-5yW52F8f8Oo8wfS-39zZ0oSo/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9mZG4y/LmdzbWFyZW5hLmNv/bS92di9iaWdwaWMv/Z29vZ2xlLXBpeGVs/LTYuanBn"
+        },
+        {
+            "id": 4,
+            "name": "OnePlus 9 Pro",
+            "desc": "Flagship killer with fast performance",
+            "price": 89999,
+            "color": "#8B4513",
+            "image": "https://imgs.search.brave.com/ds8hBlo75cr4EvDJle0ZTOgTe_OkU3DVZKMNZ_VoxSE/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9mZG4y/LmdzbWFyZW5hLmNv/bS92di9iaWdwaWMv/b25lcGx1cy05LXBy/by0uanBn"
+        },
+        {
+            "id": 5,
+            "name": "Xiaomi Mi 11",
+            "desc": "Affordable flagship with impressive specs",
+            "price": 69999,
+            "color": "#191970",
+            "image": "https://imgs.search.brave.com/xtfVXANU50lNqp3B3AiKRYsWpzPJcPe0NtrvjDyc7mk/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9mZG4y/LmdzbWFyZW5hLmNv/bS92di9iaWdwaWMv/eGlhb21pLW1pMTEu/anBn"
+        },
+        {
+            "id": 6,
+            "name": "Apple iPhone SE",
+            "desc": "Compact iPhone with a powerful A15 Bionic chip",
+            "price": 49999,
+            "color": "#FF4500",
+            "image": "https://imgs.search.brave.com/xtfVXANU50lNqp3B3AiKRYsWpzPJcPe0NtrvjDyc7mk/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9mZG4y/LmdzbWFyZW5hLmNv/bS92di9iaWdwaWMv/eGlhb21pLW1pMTEu/anBn"
+        },
+        {
+            "id": 7,
+            "name": "Samsung Galaxy A52",
+            "desc": "Mid-range phone with a versatile camera",
+            "price": 34999,
+            "color": "#1E90FF",
+            "image": "https://imgs.search.brave.com/lQZZnr5uI1yQV9_7XwNGPtkoqyKBZdY7G9oU_Oc4fNI/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9mZG4y/LmdzbWFyZW5hLmNv/bS92di9iaWdwaWMv/c2Ftc3VuZy1nYWxh/eHktYTUyLTRnLmpw/Zw"
+        },
+        {
+            "id": 8,
+            "name": "Google Pixel 5a",
+            "desc": "Affordable Pixel with excellent camera capabilities",
+            "price": 44999,
+            "color": "#000000",
+            "image": "https://imgs.search.brave.com/lQZZnr5uI1yQV9_7XwNGPtkoqyKBZdY7G9oU_Oc4fNI/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9mZG4y/LmdzbWFyZW5hLmNv/bS92di9iaWdwaWMv/c2Ftc3VuZy1nYWxh/eHktYTUyLTRnLmpw/Zw"
+        },
+        {
+            "id": 9,
+            "name": "OnePlus Nord 2",
+            "desc": "Mid-range OnePlus phone with 5G support",
+            "price": 49999,
+            "color": "#483D8B",
+            "image": "https://imgs.search.brave.com/lQZZnr5uI1yQV9_7XwNGPtkoqyKBZdY7G9oU_Oc4fNI/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9mZG4y/LmdzbWFyZW5hLmNv/bS92di9iaWdwaWMv/c2Ftc3VuZy1nYWxh/eHktYTUyLTRnLmpw/Zw"
+        },
+        {
+            "id": 10,
+            "name": "Xiaomi Redmi Note 10",
+            "desc": "Budget-friendly phone with a large display",
+            "price": 24999,
+            "color": "#00CED1",
+            "image": "https://imgs.search.brave.com/lQZZnr5uI1yQV9_7XwNGPtkoqyKBZdY7G9oU_Oc4fNI/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9mZG4y/LmdzbWFyZW5hLmNv/bS92di9iaWdwaWMv/c2Ftc3VuZy1nYWxh/eHktYTUyLTRnLmpw/Zw"
+        },
+        {
+            "id": 11,
+            "name": "iPhone 12 Mini",
+            "desc": "Compact iPhone with 5G capabilities",
+            "price": 69999,
+            "color": "#008000",
+            "image": "https://imgs.search.brave.com/v7RuKeXxYlBv7k3u8e-5yW52F8f8Oo8wfS-39zZ0oSo/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9mZG4y/LmdzbWFyZW5hLmNv/bS92di9iaWdwaWMv/Z29vZ2xlLXBpeGVs/LTYuanBn"
+        },
+        {
+            "id": 12,
+            "name": "Samsung Galaxy Z Flip 3",
+            "desc": "Foldable phone with a stylish design",
+            "price": 109999,
+            "color": "#FFF8DC",
+            "image": "https://imgs.search.brave.com/v7RuKeXxYlBv7k3u8e-5yW52F8f8Oo8wfS-39zZ0oSo/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9mZG4y/LmdzbWFyZW5hLmNv/bS92di9iaWdwaWMv/Z29vZ2xlLXBpeGVs/LTYuanBn"
+        },
+        {
+            "id": 13,
+            "name": "Google Pixel 4a",
+            "desc": "Budget-friendly Pixel with a great camera",
+            "price": 34999,
+            "color": "#000000",
+            "image": "https://imgs.search.brave.com/v7RuKeXxYlBv7k3u8e-5yW52F8f8Oo8wfS-39zZ0oSo/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9mZG4y/LmdzbWFyZW5hLmNv/bS92di9iaWdwaWMv/Z29vZ2xlLXBpeGVs/LTYuanBn"
+        },
+        {
+            "id": 14,
+            "name": "OnePlus 8T",
+            "desc": "Flagship performance with a smooth 120Hz display",
+            "price": 79999,
+            "color": "#7FFFD4",
+            "image": "https://imgs.search.brave.com/v7RuKeXxYlBv7k3u8e-5yW52F8f8Oo8wfS-39zZ0oSo/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9mZG4y/LmdzbWFyZW5hLmNv/bS92di9iaWdwaWMv/Z29vZ2xlLXBpeGVs/LTYuanBn"
+        },
+        {
+            "id": 15,
+            "name": "Xiaomi Poco X3",
+            "desc": "Mid-range phone with a high-refresh-rate display",
+            "price": 29999,
+            "color": "#708090",
+            "image": "https://imgs.search.brave.com/v7RuKeXxYlBv7k3u8e-5yW52F8f8Oo8wfS-39zZ0oSo/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9mZG4y/LmdzbWFyZW5hLmNv/bS92di9iaWdwaWMv/Z29vZ2xlLXBpeGVs/LTYuanBn"
+        }
+    ]
+}
