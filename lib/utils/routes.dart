@@ -12,7 +12,7 @@
 class AllRoutes {
   static String loginRoute = "/login";
   static String homeRoute = "/home";
-  static String profileRoute = "/profile";
+  static String animalRoute = "/animals";
   static String skillsRoute = "/skills";
   static String educationRoute = "/education";
   static String projectsRoute = "/projects";

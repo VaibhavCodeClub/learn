@@ -4,7 +4,7 @@ import 'package:learn/pages/contact.dart';
 import 'package:learn/pages/education.dart';
 import 'package:learn/pages/experience.dart';
 import 'package:learn/pages/home.dart';
-import 'package:learn/pages/profile.dart';
+import 'package:learn/pages/animals.dart';
 import 'package:learn/pages/projects.dart';
 import 'package:learn/pages/skills.dart';
 import 'package:learn/utils/routes.dart';
@@ -16,8 +16,8 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({
-    super.key,
-  });
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +25,8 @@ class MyApp extends StatelessWidget {
       theme: MyTheme.lightTheme(context),
       initialRoute: AllRoutes.homeRoute,
       routes: {
-          AllRoutes.homeRoute: (context) => const Home(),
-        AllRoutes.profileRoute: (context) => ProfilePage(),
+        AllRoutes.homeRoute: (context) => const Home(),
+        AllRoutes.animalRoute: (context) => AnimalsPage(),
         AllRoutes.skillsRoute: (context) => SkillsPage(),
         AllRoutes.educationRoute: (context) => EducationPage(),
         AllRoutes.projectsRoute: (context) => const ProjectsPage(),

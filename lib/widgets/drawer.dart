@@ -13,15 +13,20 @@ class MyDrawer extends StatelessWidget {
           children: [
             const DrawerHeader(
               padding: EdgeInsets.all(0),
-              decoration: BoxDecoration(color: Colors.blue),
+              decoration:
+                  BoxDecoration(color: Color.fromARGB(255, 255, 255, 255)),
               child: UserAccountsDrawerHeader(
                 margin: EdgeInsets.all(0),
-                decoration: BoxDecoration(color: Colors.blue),
-                accountName: Text("Sapate Vaibhav"),
-                accountEmail: Text("sapatevaibhav@duck.com"),
-                currentAccountPicture: CircleAvatar(
-                  backgroundImage: AssetImage("assets/images/vaibhav.png"),
+                decoration:
+                    BoxDecoration(color: Color.fromARGB(255, 255, 255, 255)),
+                accountName: Text(
+                  "Learning App for kids",
+                  style: TextStyle(fontWeight: FontWeight.bold),
                 ),
+                accountEmail: Text("Made by sapatevaibhav"),
+                // currentAccountPicture: CircleAvatar(
+                //   backgroundImage: AssetImage("assets/images/vaibhav.png"),
+                // ),
               ),
             ),
             _buildListTile(
@@ -42,7 +47,7 @@ class MyDrawer extends StatelessWidget {
               icon: Icons.pest_control_rodent_outlined,
               title: "Animals",
               onTap: () {
-                Navigator.pushReplacementNamed(context, AllRoutes.profileRoute);
+                Navigator.pushReplacementNamed(context, AllRoutes.animalRoute);
               },
             ),
             _buildListTile(
