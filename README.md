@@ -1,16 +1,25 @@
 # learn
 
-A new Flutter project.
+English Learning app for kids
 
-## Getting Started
+## What is in it
 
-This project is a starting point for a Flutter application.
+This flutter application contains the basics which are essential for the kids like.
 
-A few resources to get you started if this is your first Flutter project:
+- A - Z alphabets with pronounciation and picture.
+- Animals with picture and their sounds.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Planned activities.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Birds and their sounds.
+- Shapes.
+- Body Parts.
+- Solar system.
+- Translation to various languages.
+
+<img src="readme/one.png" alt="home" width="200px">
+<img src="readme/two.png" alt="alt text" width="200px">
+<img src="readme/three.png" alt="alt text" width="200px">
+<img src="readme/four.png" alt="alt text" width="200px">
+<img src="readme/five.png" alt="alt text" width="200px">
+<img src="readme/six.png" alt="alt text"width="200px">
