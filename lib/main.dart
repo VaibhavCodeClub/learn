@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:learn/pages/atoz.dart';
-import 'package:learn/pages/contact.dart';
-import 'package:learn/pages/education.dart';
-import 'package:learn/pages/experience.dart';
+import 'package:learn/pages/birds.dart';
 import 'package:learn/pages/home.dart';
 import 'package:learn/pages/animals.dart';
-import 'package:learn/pages/projects.dart';
-import 'package:learn/pages/skills.dart';
+import 'package:learn/pages/parts.dart';
+import 'package:learn/pages/shapes.dart';
+import 'package:learn/pages/solar.dart';
 import 'package:learn/utils/routes.dart';
 import 'package:learn/widgets/theme.dart';
+import 'package:learn/pages/about.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,12 +27,12 @@ class MyApp extends StatelessWidget {
       routes: {
         AllRoutes.homeRoute: (context) => const Home(),
         AllRoutes.animalRoute: (context) => AnimalsPage(),
-        AllRoutes.skillsRoute: (context) => SkillsPage(),
-        AllRoutes.educationRoute: (context) => EducationPage(),
-        AllRoutes.projectsRoute: (context) => const ProjectsPage(),
-        AllRoutes.experienceRoute: (context) => const ExperiencePage(),
         AllRoutes.atozRoute: (context) => const AtoZ(),
-        AllRoutes.contactRoute: (context) => const ContactPage(),
+        AllRoutes.birdsRoute: (context) => const BirdsPage(),
+        AllRoutes.shapesRoute: (context) => const ShapesPage(),
+        AllRoutes.partsRoute: (context) =>  const PartsPage(),
+        AllRoutes.solarRoute: (context) => const SolarPage(),
+        AllRoutes.aboutRoute: (context) => const AboutPage(),
       },
       debugShowCheckedModeBanner: false,
     );
