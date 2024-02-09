@@ -1,8 +1,9 @@
 # learn
 
-English Learning app for kids
+English Learning app for kids.
+With interactive images sounds and colorful design.
 
-## What is in it
+## What is in
 
 This flutter application contains the basics which are essential for the kids like.
 
