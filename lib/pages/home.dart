@@ -10,7 +10,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  bool _isImageClicked = false;
+  bool _isImageClicked1 = false;
+  bool _isImageClicked2 = false;
 
   @override
   Widget build(BuildContext context) {
@@ -21,50 +22,91 @@ class _HomeState extends State<Home> {
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(38.0),
-        child: Column(
-          children: [
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  _isImageClicked = !_isImageClicked;
-                });
-                Future.delayed(const Duration(milliseconds: 300), () {
-                  Navigator.pushNamed(context, AllRoutes.atozRoute);
-                });
-              },
-              child: AnimatedContainer(
-                duration: const Duration(milliseconds: 300),
-                curve: Curves.easeInOut,
-                height: _isImageClicked ? 300 : 350,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(
-                      color: Colors.black, width: 2), 
-                  boxShadow: [
-                    BoxShadow(
-                      color:
-                          Colors.black.withOpacity(0.2), 
-                      spreadRadius: 2,
-                      blurRadius: 5,
-                      offset: const Offset(0, 3), 
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(38.0),
+          child: Column(
+            children: [
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _isImageClicked1 = !_isImageClicked1;
+                  });
+                  Future.delayed(const Duration(milliseconds: 300), () {
+                    Navigator.pushNamed(context, AllRoutes.atozRoute);
+                  });
+                },
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeInOut,
+                  height: _isImageClicked1 ? 325 : 350,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: Colors.black, width: 2),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.2),
+                        spreadRadius: 2,
+                        blurRadius: 5,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                    image: const DecorationImage(
+                      image: AssetImage('assets/images/alphabets.jpg'),
+                      fit: BoxFit.cover,
                     ),
-                  ],
-                  image: const DecorationImage(
-                    image: AssetImage('assets/images/alphabets.jpg'),
-                    fit: BoxFit.cover,
                   ),
                 ),
               ),
-            ),
-            const SizedBox(height: 20),
-            const Text(
-              'ALPHABETS',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            const Text("Learn A to Z with pronunciation and an example"),
-          ],
+              const SizedBox(height: 20),
+              const Text(
+                'ALPHABETS',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              const Text("Learn A to Z with pronunciation and an example"),
+              const SizedBox(
+                height: 20,
+              ),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _isImageClicked2 = !_isImageClicked2;
+                  });
+                  Future.delayed(const Duration(milliseconds: 300), () {
+                    Navigator.pushNamed(context, AllRoutes.animalRoute);
+                  });
+                },
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeInOut,
+                  height: _isImageClicked2 ? 325 : 350,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: Colors.black, width: 2),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.2),
+                        spreadRadius: 2,
+                        blurRadius: 5,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                    image: const DecorationImage(
+                      image: AssetImage(
+                          'assets/images/animals.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              const Text(
+                'ANIMALS',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              const Text("Learn about animals and their voices"),
+            ],
+          ),
         ),
       ),
       drawer: const MyDrawer(),
