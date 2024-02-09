@@ -47,7 +47,6 @@ class ItemTileState extends State<ItemTile> {
       color: widget.backgroundColor,
       child: InkWell(
         onTap: () {
-          // _speakText(widget.title);
           _speakText(widget.description);
           showModalBottomSheet(
             context: context,

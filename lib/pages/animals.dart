@@ -1,10 +1,9 @@
-// ignore_for_file: use_build_context_synchronously
+// ignore_for_file: use_build_context_synchronously, library_private_types_in_public_api, deprecated_member_use
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:learn/widgets/drawer.dart';
 
 class Animal {
   final String name;
@@ -117,22 +116,26 @@ class AnimalsPage extends StatelessWidget {
       svgAsset: 'assets/images/dog.svg',
       soundAsset: 'assets/sounds/dog_sound.mp3',
       backgroundColor: const Color.fromARGB(193, 33, 149, 243),
-    ),Animal(
+    ),
+    Animal(
       name: 'Elephant',
       svgAsset: 'assets/images/elephant.svg',
       soundAsset: 'assets/sounds/elephant_sound.mp3',
       backgroundColor: const Color.fromARGB(193, 182, 221, 252),
-    ),Animal(
+    ),
+    Animal(
       name: 'Horse',
       svgAsset: 'assets/images/horse.svg',
       soundAsset: 'assets/sounds/horse_sound.mp3',
       backgroundColor: const Color.fromARGB(98, 243, 201, 33),
-    ),Animal(
+    ),
+    Animal(
       name: 'Lion',
       svgAsset: 'assets/images/lion.svg',
       soundAsset: 'assets/sounds/lion_sound.mp3',
       backgroundColor: const Color.fromARGB(193, 43, 197, 35),
-    ),Animal(
+    ),
+    Animal(
       name: 'Rabbit',
       svgAsset: 'assets/images/rabbit.svg',
       soundAsset: 'assets/sounds/rabbit_sound.mp3',
@@ -196,7 +199,8 @@ class AnimalsPage extends StatelessWidget {
 
   Future<void> _showAnimalPopup(BuildContext context, Animal animal) async {
     await flutterTts.setVolume(1.0);
-    await flutterTts.setSpeechRate(0.5);
+    await flutterTts.setSpeechRate(.5);
+    await flutterTts.setLanguage("EN-IN");
     await flutterTts.setPitch(1.0);
 
     showDialog(

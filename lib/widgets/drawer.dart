@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learn/utils/routes.dart';
 
 class MyDrawer extends StatelessWidget {
-  const MyDrawer({Key? key});
+  const MyDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
