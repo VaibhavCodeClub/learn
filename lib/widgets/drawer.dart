@@ -24,9 +24,9 @@ class MyDrawer extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 accountEmail: Text("Made by sapatevaibhav"),
-                // currentAccountPicture: CircleAvatar(
-                //   backgroundImage: AssetImage("assets/images/vaibhav.png"),
-                // ),
+                currentAccountPicture: CircleAvatar(
+                  backgroundImage: AssetImage("assets/images/dp.png"),
+                ),
               ),
             ),
             _buildListTile(

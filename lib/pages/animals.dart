@@ -191,7 +191,6 @@ class AnimalsPage extends StatelessWidget {
           );
         },
       ),
-      drawer: const MyDrawer(),
     );
   }
 
