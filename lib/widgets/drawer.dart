@@ -47,45 +47,42 @@ class MyDrawer extends StatelessWidget {
               icon: Icons.pest_control_rodent_outlined,
               title: "Animals",
               onTap: () {
-                Navigator.pushReplacementNamed(context, AllRoutes.animalRoute);
+                Navigator.pushNamed(context, AllRoutes.animalRoute);
               },
             ),
             _buildListTile(
               icon: Icons.egg,
               title: "Birds",
               onTap: () {
-                Navigator.pushReplacementNamed(context, AllRoutes.skillsRoute);
+                Navigator.pushReplacementNamed(context, AllRoutes.birdsRoute);
               },
             ),
             _buildListTile(
               icon: Icons.pentagon_outlined,
               title: "Shapes",
               onTap: () {
-                Navigator.pushReplacementNamed(
-                    context, AllRoutes.educationRoute);
+                Navigator.pushReplacementNamed(context, AllRoutes.shapesRoute);
               },
             ),
             _buildListTile(
               icon: Icons.back_hand_rounded,
               title: "Body parts",
               onTap: () {
-                Navigator.pushReplacementNamed(
-                    context, AllRoutes.projectsRoute);
+                Navigator.pushReplacementNamed(context, AllRoutes.partsRoute);
               },
             ),
             _buildListTile(
               icon: Icons.sunny,
               title: "Solar System",
               onTap: () {
-                Navigator.pushReplacementNamed(
-                    context, AllRoutes.experienceRoute);
+                Navigator.pushReplacementNamed(context, AllRoutes.solarRoute);
               },
             ),
             _buildListTile(
               icon: Icons.question_mark_outlined,
               title: "About us",
               onTap: () {
-                Navigator.pushReplacementNamed(context, AllRoutes.contactRoute);
+                Navigator.pushNamed(context, AllRoutes.aboutRoute);
               },
             ),
           ],
