@@ -39,6 +39,7 @@ dependencies:
   url_launcher: ^6.2.4
   flutter_svg: ^2.0.9
   just_audio: ^0.9.36
+  flutter_tts: ^3.8.5
 
 dev_dependencies:
   flutter_test:
