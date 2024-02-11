@@ -1,5 +1,6 @@
 # learn
 ![IzzyOnDroid](https://img.shields.io/endpoint?url=https://apt.izzysoft.de/fdroid/api/v1/shield/vdrs.sappu.lafk.learn) <br>
+[![Get it](readme/IzzyOnDroid.png)](https://android.izzysoft.de/repo/apk/vdrs.sappu.lafk.learn)
 English Learning app for kids.
 With interactive images sounds and colorful design.
 
