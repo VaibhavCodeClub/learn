@@ -209,7 +209,7 @@ class AnimalsPage extends StatelessWidget {
         return AnimalPopup(
           animal: animal,
           flutterTts: flutterTts,
-          audioPlayer: audioPlayer,
+          audioPlayer: audioPlayer, animals: animals,
         );
       },
     );
@@ -217,15 +217,17 @@ class AnimalsPage extends StatelessWidget {
 }
 
 class AnimalPopup extends StatefulWidget {
-  final Animal animal;
+  Animal animal;
   final FlutterTts flutterTts;
   final AudioPlayer audioPlayer;
+  final List<Animal> animals; // Add animals parameter here
 
-  const AnimalPopup({
+   AnimalPopup({
     Key? key,
     required this.animal,
     required this.flutterTts,
     required this.audioPlayer,
+    required this.animals, // Initialize animals parameter here
   }) : super(key: key);
 
   @override
@@ -234,6 +236,7 @@ class AnimalPopup extends StatefulWidget {
 
 class _AnimalPopupState extends State<AnimalPopup> {
   bool isTapped = false;
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -241,9 +244,21 @@ class _AnimalPopupState extends State<AnimalPopup> {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          IconButton(
+            onPressed: () {
+              _navigateToPreviousAnimal();
+            },
+            icon: const Icon(Icons.arrow_back),
+          ),
           Text(
             widget.animal.name,
             style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
+          IconButton(
+            onPressed: () {
+              _navigateToNextAnimal();
+            },
+            icon: const Icon(Icons.arrow_forward),
           ),
           IconButton(
             onPressed: () {
@@ -291,6 +306,25 @@ class _AnimalPopupState extends State<AnimalPopup> {
       ],
     );
   }
+
+  void _navigateToPreviousAnimal() {
+    setState(() {
+      currentIndex = (currentIndex - 1) % widget.animals.length;
+      if (currentIndex < 0) {
+        currentIndex = widget.animals.length - 1;
+      }
+      widget.animal = widget.animals[currentIndex];
+    });
+  }
+
+  void _navigateToNextAnimal() {
+    setState(() {
+      currentIndex = (currentIndex + 1) % widget.animals.length;
+      widget.animal = widget.animals[currentIndex];
+    });
+  }
+
+
 
   Future<void> _playAnimalSound(String soundAsset) async {
     await widget.audioPlayer.setAsset(soundAsset);
