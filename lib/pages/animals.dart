@@ -221,14 +221,14 @@ class AnimalPopup extends StatefulWidget {
   Animal animal;
   final FlutterTts flutterTts;
   final AudioPlayer audioPlayer;
-  final List<Animal> animals; // Add animals parameter here
+  final List<Animal> animals; 
 
-  AnimalPopup({
+   AnimalPopup({
     Key? key,
     required this.animal,
     required this.flutterTts,
     required this.audioPlayer,
-    required this.animals, // Initialize animals parameter here
+    required this.animals, 
   }) : super(key: key);
 
   @override
@@ -306,13 +306,13 @@ class _AnimalPopupState extends State<AnimalPopup> {
       actions: [
         ElevatedButton(
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.amber),
+            backgroundColor: MaterialStateProperty.all(Colors.red),
           ),
           onPressed: () {
             _stopAnimalSound();
             Navigator.of(context).pop();
           },
-          child: const Text('Close'),
+          child: const Text('Close',style: TextStyle(color: Colors.white),),
         ),
       ],
     );
