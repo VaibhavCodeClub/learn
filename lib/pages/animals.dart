@@ -1,4 +1,4 @@
-// ignore_for_file: use_build_context_synchronously, library_private_types_in_public_api, deprecated_member_use
+// ignore_for_file: use_build_context_synchronously, library_private_types_in_public_api, deprecated_member_use, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -209,7 +209,8 @@ class AnimalsPage extends StatelessWidget {
         return AnimalPopup(
           animal: animal,
           flutterTts: flutterTts,
-          audioPlayer: audioPlayer, animals: animals,
+          audioPlayer: audioPlayer,
+          animals: animals,
         );
       },
     );
@@ -222,7 +223,7 @@ class AnimalPopup extends StatefulWidget {
   final AudioPlayer audioPlayer;
   final List<Animal> animals; // Add animals parameter here
 
-   AnimalPopup({
+  AnimalPopup({
     Key? key,
     required this.animal,
     required this.flutterTts,
@@ -244,21 +245,9 @@ class _AnimalPopupState extends State<AnimalPopup> {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          IconButton(
-            onPressed: () {
-              _navigateToPreviousAnimal();
-            },
-            icon: const Icon(Icons.arrow_back),
-          ),
           Text(
             widget.animal.name,
             style: const TextStyle(fontWeight: FontWeight.bold),
-          ),
-          IconButton(
-            onPressed: () {
-              _navigateToNextAnimal();
-            },
-            icon: const Icon(Icons.arrow_forward),
           ),
           IconButton(
             onPressed: () {
@@ -293,10 +282,32 @@ class _AnimalPopupState extends State<AnimalPopup> {
             },
             child: const Text('Play Sound'),
           ),
+          Row(
+            children: [
+              IconButton(
+                onPressed: () {
+                  _navigateToPreviousAnimal();
+                },
+                icon: const Icon(Icons.arrow_back),
+              ),
+              const SizedBox(
+                width: 135,
+              ),
+              IconButton(
+                onPressed: () {
+                  _navigateToNextAnimal();
+                },
+                icon: const Icon(Icons.arrow_forward),
+              ),
+            ],
+          )
         ],
       ),
       actions: [
-        TextButton(
+        ElevatedButton(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(Colors.amber),
+          ),
           onPressed: () {
             _stopAnimalSound();
             Navigator.of(context).pop();
@@ -323,8 +334,6 @@ class _AnimalPopupState extends State<AnimalPopup> {
       widget.animal = widget.animals[currentIndex];
     });
   }
-
-
 
   Future<void> _playAnimalSound(String soundAsset) async {
     await widget.audioPlayer.setAsset(soundAsset);
