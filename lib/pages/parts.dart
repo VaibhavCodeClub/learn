@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
   runApp(
-    MaterialApp(
+    const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: PartsPage(),
     ),
@@ -155,9 +155,7 @@ class _PartsPagePageState extends State<PartsPage> {
     int currentIndex,
     CardSwiperDirection direction,
   ) {
-    debugPrint(
-      'The card $currentIndex was undone from the ${direction.name}',
-    );
+   
 
     if (previousIndices.isNotEmpty) {
       setState(() {
