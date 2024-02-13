@@ -267,7 +267,7 @@ class AtoZ extends StatefulWidget {
 }
 
 class _AtoZState extends State<AtoZ> {
-  bool isTimerEnabled = true;
+  bool isTimerEnabled = false;
   @override
   Widget build(BuildContext context) {
     List<ItemData> items = [
