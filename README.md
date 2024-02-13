@@ -1,6 +1,6 @@
 # learn
 ![IzzyOnDroid](https://img.shields.io/endpoint?url=https://apt.izzysoft.de/fdroid/api/v1/shield/vdrs.sappu.lafk.learn)
-[![made-with-flutter](https://img.shields.io/badge/Made%20with-Flutter-1f425f.svg)](https://flutter.dev/)  <br>
+[![made-with-flutter](https://img.shields.io/badge/Made%20with-Flutter-1f425f.svg)](https://flutter.dev/) ![Release](https://img.shields.io/github/v/release/VaibhavCodeClub/learn)  <br>
 <!--
 [![Get it](readme/IzzyOnDroid.png)](https://android.izzysoft.de/repo/apk/vdrs.sappu.lafk.learn)-->
 <a href="https://android.izzysoft.de/repo/apk/vdrs.sappu.lafk.learn"> <img src='/readme/IzzyOnDroid.png' width='200'/> </a> 
