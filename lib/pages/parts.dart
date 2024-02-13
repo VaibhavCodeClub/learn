@@ -23,7 +23,35 @@ class PartsPage extends StatefulWidget {
 class _PartsPagePageState extends State<PartsPage> {
   final CardSwiperController controller = CardSwiperController();
 
-  final cards = candidates.map((name) => PartsPageCard(name: name)).toList();
+  late List<PartsPageCard> cards;
+
+  @override
+  void initState() {
+    super.initState();
+    cards = generateCards();
+  }
+
+  List<PartsPageCard> generateCards() {
+    return candidates.asMap().entries.map((entry) {
+      final index = entry.key;
+      final name = entry.value;
+      final color = getCardColor(index);
+      return PartsPageCard(name: name, color: color);
+    }).toList();
+  }
+Color getCardColor(int index) {
+    final int red =
+        (index * 30) % 256; // Increment red component by 30 for each card
+    final int green = ((index * 50) + 100) %
+        256; // Increment green component by 50 for each card
+    final int blue = ((index * 70) + 200) %
+        256; // Increment blue component by 70 for each card
+    // debugPrint(
+    //   'The red = $red green = $green blue = $blue ',
+    // );
+    return Color.fromRGBO(red, green, blue, 1.0);
+  }
+
 
   @override
   void dispose() {
@@ -62,34 +90,33 @@ class _PartsPagePageState extends State<PartsPage> {
                 children: [
                   FloatingActionButton(
                     onPressed: controller.undo,
-                    child: const Icon(Icons.rotate_left),
                     heroTag: "undo_button",
+                    child: const Icon(Icons.rotate_left),
                   ),
                   FloatingActionButton(
                     onPressed: () => controller.swipe(CardSwiperDirection.left),
-                    child: const Icon(Icons.keyboard_arrow_left),
                     heroTag: "left_swipe_button",
+                    child: const Icon(Icons.keyboard_arrow_left),
                   ),
                   FloatingActionButton(
                     onPressed: () =>
                         controller.swipe(CardSwiperDirection.right),
-                    child: const Icon(Icons.keyboard_arrow_right),
                     heroTag: "right_swipe_button",
+                    child: const Icon(Icons.keyboard_arrow_right),
                   ),
                   FloatingActionButton(
                     onPressed: () => controller.swipe(CardSwiperDirection.top),
-                    child: const Icon(Icons.keyboard_arrow_up),
                     heroTag: "up_swipe_button",
+                    child: const Icon(Icons.keyboard_arrow_up),
                   ),
                   FloatingActionButton(
                     onPressed: () =>
                         controller.swipe(CardSwiperDirection.bottom),
-                    child: const Icon(Icons.keyboard_arrow_down),
                     heroTag: "down_swipe_button",
+                    child: const Icon(Icons.keyboard_arrow_down),
                   ),
                 ],
               ),
-
             ),
           ],
         ),
@@ -123,29 +150,41 @@ class _PartsPagePageState extends State<PartsPage> {
 class PartsPageCard extends StatelessWidget {
   final String name;
   final double height;
+  final Color color;
 
   const PartsPageCard({
     Key? key,
     required this.name,
-    this.height = 200, // Default height
+    this.height = 300,
+    required this.color,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Container(
-        height: height, // Set the height here
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SvgPicture.asset(
-              "assets/body/$name.svg", // Assuming SVG files are in "assets/svg" directory
-              width: double.infinity, // Expand SVG to fit container width
-              height: height * 0.8, // Adjust SVG height as needed
-            ),
-            SizedBox(height: height * 0.1), // Adjust spacing based on height
-            Text(name),
-          ],
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.black, width: 2.0),
+      ),
+      child: Card(
+        color: color,
+        child: SizedBox(
+          width: 300,
+          height: 300,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SvgPicture.asset(
+                "assets/body/$name.svg",
+                width: 200,
+                height: 200,
+              ),
+              const SizedBox(height: 10),
+              Text(
+                name,
+                style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -157,4 +196,31 @@ final List<String> candidates = [
   "eye",
   "lips",
   "ankle",
+  "arm",
+  "back",
+  "belly",
+  "cheek",
+  "chest",
+  "chin",
+  "ear",
+  "elbow",
+  "foot",
+  "fingers",
+  "hair",
+  "hips",
+  "knee",
+  "leg",
+  "nail",
+  "neck",
+  "nose",
+  "palm",
+  "shoulder",
+  "stomach",
+  "teeth",
+  "thigh",
+  "thumb",
+  "toe",
+  "tongue",
+  "waist",
+  "wrist",
 ];
