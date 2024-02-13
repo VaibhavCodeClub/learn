@@ -95,13 +95,15 @@ class _PartsPagePageState extends State<PartsPage> {
                     Text(
                       cards[topCardIndex].name,
                       style: const TextStyle(
-                          fontSize: 24, fontWeight: FontWeight.bold),
+                          fontSize: 50, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 10),
                     const SizedBox(height: 5),
                     Text(
-                      'Description: ${getDescription(cards[topCardIndex].name)}',
-                      style: const TextStyle(fontSize: 16),
+                      getDescription(cards[topCardIndex].name),
+                      style: const TextStyle(
+                        fontSize: 25,
+                      ),
                     ),
                   ],
                 ),
@@ -169,66 +171,66 @@ class _PartsPagePageState extends State<PartsPage> {
   String getDescription(String name) {
     switch (name) {
       case "Eye":
-        return "The eye is an organ that reacts to light and allows vision.\nThe eye helps you see things.";
+        return "Like two windows to see the world! They help you see colors, shapes, and all your friends.\nThe eye is an organ that reacts to light and allows vision.";
       case "Lips":
-        return "The lips are a visible body part at the mouth.\nLips help you talk and eat.";
+        return "Help you talk, smile, and give yummy kisses! They can taste sweet and sour things too.\nThe lips are a visible body part at the mouth.";
       case "Ankle":
-        return "The ankle is the joint between the foot and the leg.\nAnkles help you walk and run.";
+        return "Connects your foot and leg like a hinge. It helps you jump, hop, and run around!\nThe ankle is the joint between the foot and the leg.";
       case "Arm":
-        return "Arms help you lift and carry things.\nThe arm is the part of the upper limb between the shoulder and the elbow joint.";
+        return "Like two long branches that help you hug, wave, and hold toys. They bend at the elbow like magic!\nArms help you lift and carry things.";
       case "Back":
-        return "Your back helps you stand up straight and move.\nThe back is the posterior side of the human body, between the neck and the pelvis.";
+        return "The big, strong wall at the back of your body. It helps you stand tall and straight, and holds everything inside safe.\nYour back helps you stand up straight and move.";
       case "Belly":
-        return "Your belly helps you digest food.\nThe belly is the region of the body between the chest and pelvis.";
+        return "Like a big balloon that holds your food until your body uses it for energy to play!\nYour belly helps you digest food.";
       case "Cheek":
-        return "Cheeks help shape your face and smile.\nThe cheek is the soft skin on each side of the face, below the eyes.";
+        return "The soft, squishy parts on your face, perfect for smiling and cuddling with loved ones.\nCheeks help shape your face and smile.";
       case "Chest":
-        return "Your chest helps you breathe.\nThe chest is the area of the body between the neck and the abdomen, including the heart and lungs.";
+        return "The front of your body, where your heart beats strong and keeps you going all day.\nYour chest helps you breathe.";
       case "Chin":
-        return "Your chin is the bottom of your face.\nThe chin is the protruding part of the lower jaw.";
+        return "The pointy bone below your lips, like a little shelf for your smile to rest on.\nYour chin is the bottom of your face.";
       case "Ear":
-        return "Ears help you hear sounds.\nThe ear is the organ of hearing and balance.";
+        return "Like two funnels on the sides of your head that help you hear music, voices, and laughter.\nEars help you hear sounds.";
       case "Elbow":
-        return "Elbows help you bend your arms.\nThe elbow is the joint between the upper arm and the forearm.";
+        return "The bendy joint in the middle of your arm, like a magic hinge that helps you reach and play.\nElbows help you bend your arms.";
       case "Foot":
-        return "Feet help you walk and run.\nThe foot is the terminal portion of the leg, below the ankle joint.";
+        return "Like two strong platforms that help you walk, run, and jump! They have wiggly toes to grip the ground.\nFeet help you walk and run.";
       case "Fingers":
-        return "Fingers help you pick up and touch things.\nFingers are the digits of the hand, typically excluding the thumb.";
+        return "Five little helpers at the end of your hands, perfect for grabbing, pointing, and tickling!\nFingers help you pick up and touch things.";
       case "Hair":
-        return "Hair grows on your head and body.\nHair is a protein filament that grows from follicles found in the dermis.";
+        return "Grows on your head like tiny grass, and can be straight, curly, or in between! You can style it in fun ways!\nHair grows on your head and body.";
       case "Hips":
-        return "Hips help you move your legs and body.\nThe hips are the sides of the body below the waist.";
+        return "The bony part below your belly, that helps your legs move and hold your body up.\nHips help you move your legs and body.";
       case "Knee":
-        return "Knees help you bend your legs.\nThe knee is the joint between the thigh and the lower leg in humans.";
+        return "The bendy joint in the middle of your leg, like a hinge that helps you walk, run, and kneel down.\nKnees help you bend your legs.";
       case "Leg":
-        return "Legs help you walk and run.\nThe leg is the lower limb of the body.";
+        return "Two strong pillars that help you walk, run, jump, and dance! They bend at the knee and ankle.\nLegs help you walk and run.";
       case "Nail":
-        return "Nails cover the ends of your fingers and toes.\nA nail is a horn-like envelope covering the tips of the fingers and toes in humans.";
+        return "The hard, white caps on your fingers and toes, like tiny shields that protect them.\nNails cover the ends of your fingers and toes.";
       case "Neck":
-        return "The neck connects your head to your body.\nThe neck is the part of the body that connects the head to the torso.";
+        return "Connects your head to your body and helps you move your head around to see and hear everything.\nThe neck connects your head to your body.";
       case "Nose":
-        return "Noses help you smell things and breathe.\nThe nose is the organ responsible for the sense of smell and for breathing.";
+        return "Sticks out from your face and helps you smell yummy things like cookies and flowers.\nNoses help you smell things and breathe.";
       case "Palm":
-        return "Palms are the inside part of your hands.\nThe palm is the central region of the front of the hand.";
+        return "The flat part of your hand, with lines that make your handprint unique! It helps you hold things.\nPalms are the inside part of your hands.";
       case "Shoulder":
-        return "Shoulders help you lift and carry things.\nThe shoulder is the region of the body where the arm attaches to the torso.";
+        return "Where your arm meets your body, like a special socket that helps you move your arm freely.\nShoulders help you lift and carry things.";
       case "Stomach":
-        return "The stomach helps digest food.\nThe stomach is a muscular organ located on the left side of the upper abdomen.";
+        return "The part below your chest, where your food goes after you eat. It helps your body get the energy it needs.\nThe stomach helps digest food.";
       case "Teeth":
-        return "Teeth help you chew food.\nTeeth are hard, mineralized structures found in the mouths of many vertebrates.";
+        return "Hard, white tools in your mouth that help you chew food and smile brightly!\nTeeth help you chew food.";
       case "Thigh":
-        return "Thighs help you walk and run.\nThe thigh is the part of the lower limb between the hip and the knee.";
+        return "The thick part of your upper leg, like a strong pillar that helps you walk, run, and jump.\nThighs help you walk and run.";
       case "Thumb":
-        return "Thumbs help you grip and hold things.\nThe thumb is the first digit of the hand, set apart from the other four by its opposable nature.";
+        return "The big, special finger on your hand, that helps you grip things tightly and do cool pinches.\nThumbs help you grip and hold things.";
       case "Toe":
-        return "Toes help you balance and walk.\nA toe is one of the five digits of the foot.";
+        return "The five little wigglers on your foot, that help you balance and grip the ground when you walk and run.\nToes help you balance and walk.";
       case "Tongue":
-        return "The tongue helps you taste and talk.\nThe tongue is a muscular organ in the mouth responsible for tasting, swallowing, and speaking.";
+        return "The fun, muscley friend in your mouth that helps you taste food, talk, and lick yummy treats!\nThe tongue helps you taste and talk.";
       case "Waist":
-        return "The waist is the middle part of your body.\nThe waist is the narrowing of the body between the ribs and the hips.";
+        return "The middle part of your body, between your chest and hips. It helps your body bend and move.\nThe waist is the middle part of your body.";
       case "Wrist":
-        return "Wrists help you move your hands.\nThe wrist is the joint connecting the hand to the forearm.";
-           default:
+        return "The bendy joint between your hand and arm, like a hinge that helps you move your hand freely.\nWrists help you move your hands.";
+      default:
         return "Sorry, we don't have information about that organ.";
     }
   }
@@ -266,11 +268,6 @@ class PartsPageCard extends StatelessWidget {
                 height: 200,
               ),
               const SizedBox(height: 10),
-              Text(
-                name,
-                style:
-                    const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-              ),
             ],
           ),
         ),
