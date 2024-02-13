@@ -24,6 +24,7 @@ class _PartsPagePageState extends State<PartsPage> {
   final CardSwiperController controller = CardSwiperController();
 
   late List<PartsPageCard> cards;
+  int topCardIndex = 0;
 
   @override
   void initState() {
@@ -39,19 +40,14 @@ class _PartsPagePageState extends State<PartsPage> {
       return PartsPageCard(name: name, color: color);
     }).toList();
   }
-Color getCardColor(int index) {
-    final int red =
-        (index * 30) % 256; // Increment red component by 30 for each card
-    final int green = ((index * 50) + 100) %
-        256; // Increment green component by 50 for each card
-    final int blue = ((index * 70) + 200) %
-        256; // Increment blue component by 70 for each card
-    // debugPrint(
-    //   'The red = $red green = $green blue = $blue ',
-    // );
+
+  Color getCardColor(int index) {
+    final int red = (index * 25) % 256;
+    final int green = ((index * 50) + 100) % 256;
+    final int blue = ((index * 70) + 200) % 256;
+
     return Color.fromRGBO(red, green, blue, 1.0);
   }
-
 
   @override
   void dispose() {
@@ -69,7 +65,12 @@ Color getCardColor(int index) {
               child: CardSwiper(
                 controller: controller,
                 cardsCount: cards.length,
-                onSwipe: _onSwipe,
+                onSwipe: (prevIndex, currentIndex, direction) {
+                  setState(() {
+                    topCardIndex = currentIndex ?? 0;
+                  });
+                  return true;
+                },
                 onUndo: _onUndo,
                 numberOfCardsDisplayed: 3,
                 backCardOffset: const Offset(40, 40),
@@ -81,6 +82,31 @@ Color getCardColor(int index) {
                   verticalThresholdPercentage,
                 ) =>
                     cards[index],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    const Text(
+                      'Top Card Information',
+                      style:
+                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      'Name: ${cards[topCardIndex].name}',
+                      style: const TextStyle(fontSize: 20),
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      'Description: ${getDescription(cards[topCardIndex].name)}',
+                      style: const TextStyle(fontSize: 16),
+                    ),
+                  ],
+                ),
               ),
             ),
             Padding(
@@ -124,17 +150,6 @@ Color getCardColor(int index) {
     );
   }
 
-  bool _onSwipe(
-    int previousIndex,
-    int? currentIndex,
-    CardSwiperDirection direction,
-  ) {
-    debugPrint(
-      'The card $previousIndex was swiped to the ${direction.name}. Now the card $currentIndex is on top',
-    );
-    return true;
-  }
-
   bool _onUndo(
     int? previousIndex,
     int currentIndex,
@@ -144,6 +159,20 @@ Color getCardColor(int index) {
       'The card $currentIndex was undod from the ${direction.name}',
     );
     return true;
+  }
+
+  String getDescription(String name) {
+    switch (name) {
+      case "Eye":
+        return "The eye is an organ that reacts to light and allows vision.";
+      case "Lips":
+        return "The lips are a visible body part at the mouth of many animals, including humans.";
+      case "Ankle":
+        return "The ankle is the joint between the foot and the leg.";
+
+      default:
+        return "Description not available";
+    }
   }
 }
 
@@ -181,7 +210,8 @@ class PartsPageCard extends StatelessWidget {
               const SizedBox(height: 10),
               Text(
                 name,
-                style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
             ],
           ),
@@ -191,36 +221,35 @@ class PartsPageCard extends StatelessWidget {
   }
 }
 
-
 final List<String> candidates = [
-  "eye",
-  "lips",
-  "ankle",
-  "arm",
-  "back",
-  "belly",
-  "cheek",
-  "chest",
-  "chin",
-  "ear",
-  "elbow",
-  "foot",
-  "fingers",
-  "hair",
-  "hips",
-  "knee",
-  "leg",
-  "nail",
-  "neck",
-  "nose",
-  "palm",
-  "shoulder",
-  "stomach",
-  "teeth",
-  "thigh",
-  "thumb",
-  "toe",
-  "tongue",
-  "waist",
-  "wrist",
+  "Eye",
+  "Lips",
+  "Ankle",
+  "Arm",
+  "Back",
+  "Belly",
+  "Cheek",
+  "Chest",
+  "Chin",
+  "Ear",
+  "Elbow",
+  "Foot",
+  "Fingers",
+  "Hair",
+  "Hips",
+  "Knee",
+  "Leg",
+  "Nail",
+  "Neck",
+  "Nose",
+  "Palm",
+  "Shoulder",
+  "Stomach",
+  "Teeth",
+  "Thigh",
+  "Thumb",
+  "Toe",
+  "Tongue",
+  "Waist",
+  "Wrist"
 ];
