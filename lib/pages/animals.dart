@@ -162,7 +162,7 @@ class AnimalsPage extends StatelessWidget {
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
-              _showAnimalPopup(context, animals[index]);
+              _showAnimalPopup(context, animals[index],index);
             },
             child: Container(
               margin: const EdgeInsets.all(5.0),
@@ -197,7 +197,7 @@ class AnimalsPage extends StatelessWidget {
     );
   }
 
-  Future<void> _showAnimalPopup(BuildContext context, Animal animal) async {
+  Future<void> _showAnimalPopup(BuildContext context, Animal animal, int currentIndex) async {
     await flutterTts.setVolume(1.0);
     await flutterTts.setSpeechRate(.5);
     await flutterTts.setLanguage("EN-IN");
@@ -211,6 +211,7 @@ class AnimalsPage extends StatelessWidget {
           flutterTts: flutterTts,
           audioPlayer: audioPlayer,
           animals: animals,
+          currentIndex: currentIndex,
         );
       },
     );
@@ -221,14 +222,17 @@ class AnimalPopup extends StatefulWidget {
   Animal animal;
   final FlutterTts flutterTts;
   final AudioPlayer audioPlayer;
-  final List<Animal> animals; 
+  final List<Animal> animals;
 
-   AnimalPopup({
+  int currentIndex;
+
+  AnimalPopup({
     Key? key,
     required this.animal,
     required this.flutterTts,
     required this.audioPlayer,
-    required this.animals, 
+    required this.animals,
+    required this.currentIndex,
   }) : super(key: key);
 
   @override
@@ -237,7 +241,6 @@ class AnimalPopup extends StatefulWidget {
 
 class _AnimalPopupState extends State<AnimalPopup> {
   bool isTapped = false;
-  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -312,28 +315,32 @@ class _AnimalPopupState extends State<AnimalPopup> {
             _stopAnimalSound();
             Navigator.of(context).pop();
           },
-          child: const Text('Close',style: TextStyle(color: Colors.white),),
+          child: const Text(
+            'Close',
+            style: TextStyle(color: Colors.white),
+          ),
         ),
       ],
     );
   }
 
-  void _navigateToPreviousAnimal() {
+void _navigateToPreviousAnimal() {
     setState(() {
-      currentIndex = (currentIndex - 1) % widget.animals.length;
-      if (currentIndex < 0) {
-        currentIndex = widget.animals.length - 1;
+      widget.currentIndex = (widget.currentIndex - 1) % widget.animals.length;
+      if (widget.currentIndex < 0) {
+        widget.currentIndex = widget.animals.length - 1;
       }
-      widget.animal = widget.animals[currentIndex];
+      widget.animal = widget.animals[widget.currentIndex];
     });
   }
 
   void _navigateToNextAnimal() {
     setState(() {
-      currentIndex = (currentIndex + 1) % widget.animals.length;
-      widget.animal = widget.animals[currentIndex];
+      widget.currentIndex = (widget.currentIndex + 1) % widget.animals.length;
+      widget.animal = widget.animals[widget.currentIndex];
     });
   }
+
 
   Future<void> _playAnimalSound(String soundAsset) async {
     await widget.audioPlayer.setAsset(soundAsset);
