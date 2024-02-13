@@ -104,6 +104,46 @@ class _HomeState extends State<Home> {
                 'ANIMALS',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
+              const Text("Learn about animals and their voices"),const SizedBox(
+                height: 20,
+              ),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _isImageClicked2 = !_isImageClicked2;
+                  });
+                  Future.delayed(const Duration(milliseconds: 300), () {
+                    Navigator.pushNamed(context, AllRoutes.partsRoute);
+                  });
+                },
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeInOut,
+                  height: _isImageClicked2 ? 325 : 350,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: Colors.black, width: 2),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.2),
+                        spreadRadius: 2,
+                        blurRadius: 5,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                    image: const DecorationImage(
+                      image: AssetImage(
+                          'assets/images/animals.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              const Text(
+                'ANIMALS',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
               const Text("Learn about animals and their voices"),
             ],
           ),
