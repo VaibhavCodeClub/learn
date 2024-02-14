@@ -1,0 +1,4 @@
+1.0.10
+Change log:
+- Fixed animals popup behaviour.
+- Added body parts page.
