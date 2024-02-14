@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
 void main() {
   runApp(
@@ -22,6 +23,7 @@ class PartsPage extends StatefulWidget {
 
 class _PartsPagePageState extends State<PartsPage> {
   final CardSwiperController controller = CardSwiperController();
+  late FlutterTts flutterTts;
 
   late List<PartsPageCard> cards;
   List<int> previousIndices = [];
@@ -29,6 +31,8 @@ class _PartsPagePageState extends State<PartsPage> {
 
   @override
   void initState() {
+    flutterTts = FlutterTts();
+
     super.initState();
     cards = generateCards();
   }
@@ -59,6 +63,12 @@ class _PartsPagePageState extends State<PartsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Body Parts',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+      ),
       body: SafeArea(
         child: Column(
           children: [
@@ -97,51 +107,47 @@ class _PartsPagePageState extends State<PartsPage> {
                       style: const TextStyle(
                           fontSize: 50, fontWeight: FontWeight.bold),
                     ),
+                    const SizedBox(
+                      width: 150,
+                    ),
+                    Row(
+                      children: [
+                        IconButton(
+                          icon: const Icon(
+                            Icons.volume_up,
+                            color: Colors.black,
+                            size: 40,
+                          ),
+                          onPressed: () {
+                            _speakText(cards[topCardIndex].name);
+                          },
+                        ),
+                        IconButton(
+                          onPressed: controller.undo,
+                          icon: const Icon(
+                            Icons.rotate_left,
+                            color: Colors.black,
+                            size: 40,
+                          ),
+                        ),
+                      ],
+                    ),
                     const SizedBox(height: 10),
                     const SizedBox(height: 5),
-                    Text(
-                      getDescription(cards[topCardIndex].name),
-                      style: const TextStyle(
-                        fontSize: 25,
+                    SizedBox(
+                      height: 200,
+                      child: SingleChildScrollView(
+                        clipBehavior: Clip.hardEdge,
+                        child: Text(
+                          getDescription(cards[topCardIndex].name),
+                          style: const TextStyle(
+                            fontSize: 25,
+                          ),
+                        ),
                       ),
                     ),
                   ],
                 ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  FloatingActionButton(
-                    onPressed: controller.undo,
-                    heroTag: "undo_button",
-                    child: const Icon(Icons.rotate_left),
-                  ),
-                  FloatingActionButton(
-                    onPressed: () => controller.swipe(CardSwiperDirection.left),
-                    heroTag: "left_swipe_button",
-                    child: const Icon(Icons.keyboard_arrow_left),
-                  ),
-                  FloatingActionButton(
-                    onPressed: () =>
-                        controller.swipe(CardSwiperDirection.right),
-                    heroTag: "right_swipe_button",
-                    child: const Icon(Icons.keyboard_arrow_right),
-                  ),
-                  FloatingActionButton(
-                    onPressed: () => controller.swipe(CardSwiperDirection.top),
-                    heroTag: "up_swipe_button",
-                    child: const Icon(Icons.keyboard_arrow_up),
-                  ),
-                  FloatingActionButton(
-                    onPressed: () =>
-                        controller.swipe(CardSwiperDirection.bottom),
-                    heroTag: "down_swipe_button",
-                    child: const Icon(Icons.keyboard_arrow_down),
-                  ),
-                ],
               ),
             ),
           ],
@@ -150,13 +156,17 @@ class _PartsPagePageState extends State<PartsPage> {
     );
   }
 
+  Future<void> _speakText(String text) async {
+    await flutterTts.setLanguage("EN-IN");
+
+    await flutterTts.speak(text);
+  }
+
   bool _onUndo(
     int? previousIndex,
     int currentIndex,
     CardSwiperDirection direction,
   ) {
-   
-
     if (previousIndices.isNotEmpty) {
       setState(() {
         topCardIndex = previousIndices.removeLast();
