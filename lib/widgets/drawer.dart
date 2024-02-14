@@ -68,7 +68,7 @@ class MyDrawer extends StatelessWidget {
               icon: Icons.back_hand_rounded,
               title: "Body parts",
               onTap: () {
-                Navigator.pushReplacementNamed(context, AllRoutes.partsRoute);
+                Navigator.pushNamed(context, AllRoutes.partsRoute);
               },
             ),
             _buildListTile(
