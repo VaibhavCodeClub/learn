@@ -12,6 +12,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   bool _isImageClicked1 = false;
   bool _isImageClicked2 = false;
+  bool _isImageClicked3 = false;
 
   @override
   Widget build(BuildContext context) {
@@ -92,8 +93,7 @@ class _HomeState extends State<Home> {
                       ),
                     ],
                     image: const DecorationImage(
-                      image: AssetImage(
-                          'assets/images/animals.jpg'),
+                      image: AssetImage('assets/images/animals.jpg'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -104,13 +104,14 @@ class _HomeState extends State<Home> {
                 'ANIMALS',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-              const Text("Learn about animals and their voices"),const SizedBox(
+              const Text("Learn about animals and their voices"),
+              const SizedBox(
                 height: 20,
               ),
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    _isImageClicked2 = !_isImageClicked2;
+                    _isImageClicked3 = !_isImageClicked3;
                   });
                   Future.delayed(const Duration(milliseconds: 300), () {
                     Navigator.pushNamed(context, AllRoutes.partsRoute);
@@ -119,7 +120,7 @@ class _HomeState extends State<Home> {
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 300),
                   curve: Curves.easeInOut,
-                  height: _isImageClicked2 ? 325 : 350,
+                  height: _isImageClicked3 ? 325 : 350,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(color: Colors.black, width: 2),
@@ -132,8 +133,7 @@ class _HomeState extends State<Home> {
                       ),
                     ],
                     image: const DecorationImage(
-                      image: AssetImage(
-                          'assets/images/animals.jpg'),
+                      image: AssetImage('assets/body/body.jpg'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -141,10 +141,10 @@ class _HomeState extends State<Home> {
               ),
               const SizedBox(height: 20),
               const Text(
-                'ANIMALS',
+                'BODY PARTS',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-              const Text("Learn about animals and their voices"),
+              const Text("Know about body parts and their pronunciation."),
             ],
           ),
         ),
