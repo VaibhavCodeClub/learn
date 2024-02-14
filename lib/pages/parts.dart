@@ -122,6 +122,9 @@ class _PartsPagePageState extends State<PartsPage> {
                             _speakText(cards[topCardIndex].name);
                           },
                         ),
+                        const SizedBox(
+                          width: 25,
+                        ),
                         IconButton(
                           onPressed: controller.undo,
                           icon: const Icon(
