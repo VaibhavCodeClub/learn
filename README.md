@@ -4,7 +4,7 @@
 <!--
 [![Get it](readme/IzzyOnDroid.png)](https://android.izzysoft.de/repo/apk/vdrs.sappu.lafk.learn)-->
 <a href="https://android.izzysoft.de/repo/apk/vdrs.sappu.lafk.learn"> <img src='readme/IzzyOnDroid.png' width='200'/> </a> 
-<a href="https://github.com/VaibhavCodeClub/learn/releases"> <img src='readme/IzzyOnDroid.png' width='200'/> </a> <br>
+<a href="https://github.com/VaibhavCodeClub/learn/releases"> <img src='readme/GitHub.png' width='200'/> </a> <br>
 
 English Learning app for kids.
 With interactive images sounds and colorful design.
