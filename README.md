@@ -5,7 +5,7 @@
 <a href="https://android.izzysoft.de/repo/apk/vdrs.sappu.lafk.learn"> <img src='readme/IzzyOnDroid.png' width='200'/> </a> 
 <a href="https://github.com/VaibhavCodeClub/learn/releases"> <img src='readme/GitHub.png' width='200'/> </a> <br>
 
-# Learn - Flutter Learning App
+# Learn 
 
 Welcome to **Learn**, a simple learning app built using Flutter for kids. This app is designed to provide an engaging learning experience for children, covering a wide range of topics including:
 
@@ -26,7 +26,7 @@ git clone https://github.com/VaibhavCodeClub/learn
 ```
 ### Run the Flutter Project
 
-Ensure you have Flutter installed. If not, you can follow the instructions on Flutter.dev to get it installed on your machine.
+Ensure you have Flutter installed. If not, you can follow the instructions on [Flutter.dev](https://flutter.dev/) to get it installed on your machine.
 
 Navigate to the project directory using the terminal.
 
@@ -40,6 +40,8 @@ flutter run
 ```
 That's it! The app should now be running on your device/emulator.
 
+### Screenshots
+
 <img src='readme/one.png' width='200'/> <img src='readme/two.png' width='200'/> <img src='readme/three.png' width='200'/> <img src='readme/four.png' width='200'/><img src='readme/five.png' width='200'/> <img src='readme/six.png' width='200'/>
 
 
@@ -47,4 +49,4 @@ That's it! The app should now be running on your device/emulator.
 
 Made with ❤️ by [sapatevaibhav](https://github.com/sapatevaibhav).
 
-Don't forget to star the repository if you find it useful!
+Don't forget to star ⭐ the repository if you find it useful!
