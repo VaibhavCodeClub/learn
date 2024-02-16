@@ -42,7 +42,6 @@ class MyApp extends StatelessWidget {
           AllRoutes.solarRoute: (context) => const SolarPage(),
           AllRoutes.animalRoute: (context) => AnimalsPage(),
           AllRoutes.aboutRoute: (context) => const AboutPage(),
-          // Define other routes as well
         },
       ),
     );
