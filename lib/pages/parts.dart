@@ -115,7 +115,7 @@ class _PartsPagePageState extends State<PartsPage> {
                         IconButton(
                           icon: const Icon(
                             Icons.volume_up,
-                            color: Colors.black,
+                            // color: Colors.black,
                             size: 40,
                           ),
                           onPressed: () {
@@ -129,7 +129,7 @@ class _PartsPagePageState extends State<PartsPage> {
                           onPressed: controller.undo,
                           icon: const Icon(
                             Icons.rotate_left,
-                            color: Colors.black,
+                            // color: Colors.black,
                             size: 40,
                           ),
                         ),
@@ -261,7 +261,10 @@ class PartsPageCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.black, width: 2.0),
+        border: Border.all(
+          color: const Color.fromARGB(255, 158, 155, 155),
+          width: 2.0,
+        ),
       ),
       child: Card(
         color: color,

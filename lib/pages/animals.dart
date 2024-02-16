@@ -61,7 +61,7 @@ class AnimalsPage extends StatelessWidget {
       name: 'Goat',
       svgAsset: 'assets/images/goat.svg',
       soundAsset: 'assets/sounds/goat_sound.mp3',
-      backgroundColor: const Color.fromARGB(139, 23, 31, 23),
+      backgroundColor: const Color.fromARGB(138, 48, 59, 48),
     ),
     Animal(
       name: 'Kangaroo',
@@ -91,7 +91,7 @@ class AnimalsPage extends StatelessWidget {
       name: 'Snake',
       svgAsset: 'assets/images/snake.svg',
       soundAsset: 'assets/sounds/snake_sound.mp3',
-      backgroundColor: const Color.fromARGB(193, 134, 228, 137),
+      backgroundColor: const Color.fromARGB(193, 125, 176, 127),
     ),
     Animal(
       name: 'Squirrel',
@@ -139,7 +139,7 @@ class AnimalsPage extends StatelessWidget {
       name: 'Rabbit',
       svgAsset: 'assets/images/rabbit.svg',
       soundAsset: 'assets/sounds/rabbit_sound.mp3',
-      backgroundColor: const Color.fromARGB(193, 243, 33, 236),
+      backgroundColor: const Color.fromARGB(156, 243, 33, 236),
     ),
   ];
 
