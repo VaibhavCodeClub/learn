@@ -6,31 +6,29 @@ class MyDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
     return Drawer(
       child: Container(
-        color: theme.canvasColor,
+        color: Theme.of(context).canvasColor,
         child: Column(
           children: [
             DrawerHeader(
-              padding: EdgeInsets.all(0),
-              decoration: BoxDecoration(color: theme.canvasColor),
+              padding: const EdgeInsets.all(0),
+              decoration: BoxDecoration(color: Theme.of(context).canvasColor),
               child: UserAccountsDrawerHeader(
-                margin: EdgeInsets.all(0),
-                decoration: BoxDecoration(color: theme.canvasColor),
+                margin: const EdgeInsets.all(0),
+                decoration: BoxDecoration(color: Theme.of(context).canvasColor),
                 accountName: Text(
                   "Learning App for kids",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: theme.textTheme.headline6
-                          ?.color), // Use theme's text color
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleLarge
+                      ?.copyWith(fontWeight: FontWeight.bold),
                 ),
-                accountEmail: Text("Made by sapatevaibhav",
-                    style: TextStyle(
-                        color: theme.textTheme.bodyText1
-                            ?.color)), // Use theme's text color
-                currentAccountPicture: CircleAvatar(
+                accountEmail: Text(
+                  "Made by sapatevaibhav",
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+                currentAccountPicture: const CircleAvatar(
                   backgroundImage: AssetImage("assets/images/dp.png"),
                 ),
               ),
@@ -106,7 +104,7 @@ class MyDrawer extends StatelessWidget {
   }
 
   Widget _buildListTile({
-    required BuildContext context, // Receive the context here
+    required BuildContext context,
     required IconData icon,
     required String title,
     required VoidCallback onTap,
@@ -115,7 +113,7 @@ class MyDrawer extends StatelessWidget {
       leading: Icon(icon),
       title: Text(
         title,
-        style: TextStyle(color: Theme.of(context).textTheme.bodyText1?.color),
+        style: Theme.of(context).textTheme.bodyLarge,
       ),
       onTap: onTap,
     );
