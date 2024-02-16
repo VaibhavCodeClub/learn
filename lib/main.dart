@@ -29,12 +29,12 @@ class MyApp extends StatelessWidget {
       initial: savedThemeMode ?? AdaptiveThemeMode.light,
       builder: (theme, darkTheme) => MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Your App Title',
+        title: 'Home',
         theme: theme,
         darkTheme: darkTheme,
-        home: MyHomePage(),
+        home: const MyHomePage(),
         routes: {
-          AllRoutes.homeRoute: (context) => MyHomePage(),
+          AllRoutes.homeRoute: (context) => const MyHomePage(),
           AllRoutes.atozRoute: (context) => const AtoZ(),
           AllRoutes.birdsRoute: (context) => const BirdsPage(),
           AllRoutes.shapesRoute: (context) => const ShapesPage(),
@@ -59,15 +59,24 @@ class _MyHomePageState extends State<MyHomePage> {
   bool _isImageClicked1 = false;
   bool _isImageClicked2 = false;
   bool _isImageClicked3 = false;
+  bool _isDarkTheme = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home'),
+        title: const Text(
+          'Home',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         actions: [
           IconButton(
-            icon: Icon(Icons.lightbulb_outline),
+            icon: Icon(
+              _isDarkTheme ? Icons.dark_mode : Icons.light_mode,
+            ),
             onPressed: () {
+              setState(() {
+                _isDarkTheme = !_isDarkTheme;
+              });
               final themeMode = Theme.of(context).brightness == Brightness.dark
                   ? AdaptiveThemeMode.light
                   : AdaptiveThemeMode.dark;
