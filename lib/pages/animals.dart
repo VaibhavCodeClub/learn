@@ -185,7 +185,7 @@ class AnimalsPage extends StatelessWidget {
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 30.0,
-                      fontFamily: 'Comic Sans MS',
+                      fontFamily: 'Comic',
                     ),
                   ),
                 ],
