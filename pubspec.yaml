@@ -1,5 +1,5 @@
 name: learn
-description: "A new Flutter project."
+description: "Learning app for kids"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -41,6 +41,7 @@ dependencies:
   flutter_tts: ^3.8.5
   card_swiper: ^3.0.1
   flutter_card_swiper: ^7.0.0
+  adaptive_theme: ^3.6.0
 
 dev_dependencies:
   flutter_test:
