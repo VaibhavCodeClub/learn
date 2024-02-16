@@ -2,28 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:learn/utils/routes.dart';
 
 class MyDrawer extends StatelessWidget {
-  const MyDrawer({super.key});
+  const MyDrawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Drawer(
       child: Container(
-        color: Colors.white,
+        color: theme.canvasColor,
         child: Column(
           children: [
-            const DrawerHeader(
+            DrawerHeader(
               padding: EdgeInsets.all(0),
-              decoration:
-                  BoxDecoration(color: Color.fromARGB(255, 255, 255, 255)),
+              decoration: BoxDecoration(color: theme.canvasColor),
               child: UserAccountsDrawerHeader(
                 margin: EdgeInsets.all(0),
-                decoration:
-                    BoxDecoration(color: Color.fromARGB(255, 255, 255, 255)),
+                decoration: BoxDecoration(color: theme.canvasColor),
                 accountName: Text(
                   "Learning App for kids",
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: theme.textTheme.headline6
+                          ?.color), // Use theme's text color
                 ),
-                accountEmail: Text("Made by sapatevaibhav"),
+                accountEmail: Text("Made by sapatevaibhav",
+                    style: TextStyle(
+                        color: theme.textTheme.bodyText1
+                            ?.color)), // Use theme's text color
                 currentAccountPicture: CircleAvatar(
                   backgroundImage: AssetImage("assets/images/dp.png"),
                 ),
@@ -35,6 +41,7 @@ class MyDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacementNamed(context, AllRoutes.homeRoute);
               },
+              context: context,
             ),
             _buildListTile(
               icon: Icons.text_fields,
@@ -42,6 +49,7 @@ class MyDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.pushNamed(context, AllRoutes.atozRoute);
               },
+              context: context,
             ),
             _buildListTile(
               icon: Icons.pest_control_rodent_outlined,
@@ -49,6 +57,7 @@ class MyDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.pushNamed(context, AllRoutes.animalRoute);
               },
+              context: context,
             ),
             _buildListTile(
               icon: Icons.egg,
@@ -56,6 +65,7 @@ class MyDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacementNamed(context, AllRoutes.birdsRoute);
               },
+              context: context,
             ),
             _buildListTile(
               icon: Icons.pentagon_outlined,
@@ -63,6 +73,7 @@ class MyDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacementNamed(context, AllRoutes.shapesRoute);
               },
+              context: context,
             ),
             _buildListTile(
               icon: Icons.back_hand_rounded,
@@ -70,6 +81,7 @@ class MyDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.pushNamed(context, AllRoutes.partsRoute);
               },
+              context: context,
             ),
             _buildListTile(
               icon: Icons.sunny,
@@ -77,6 +89,7 @@ class MyDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacementNamed(context, AllRoutes.solarRoute);
               },
+              context: context,
             ),
             _buildListTile(
               icon: Icons.question_mark_outlined,
@@ -84,6 +97,7 @@ class MyDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.pushNamed(context, AllRoutes.aboutRoute);
               },
+              context: context,
             ),
           ],
         ),
@@ -92,13 +106,17 @@ class MyDrawer extends StatelessWidget {
   }
 
   Widget _buildListTile({
+    required BuildContext context, // Receive the context here
     required IconData icon,
     required String title,
     required VoidCallback onTap,
   }) {
     return ListTile(
       leading: Icon(icon),
-      title: Text(title),
+      title: Text(
+        title,
+        style: TextStyle(color: Theme.of(context).textTheme.bodyText1?.color),
+      ),
       onTap: onTap,
     );
   }
