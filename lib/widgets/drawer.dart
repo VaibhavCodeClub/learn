@@ -61,7 +61,7 @@ class MyDrawer extends StatelessWidget {
               icon: Icons.egg,
               title: "Birds",
               onTap: () {
-                Navigator.pushReplacementNamed(context, AllRoutes.birdsRoute);
+                Navigator.pushNamed(context, AllRoutes.birdsRoute);
               },
               context: context,
             ),

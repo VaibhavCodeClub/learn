@@ -1,5 +1,3 @@
-// ignore_for_file: use_build_context_synchronously, library_private_types_in_public_api, depreSparrowed_member_use, must_be_immutable
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tts/flutter_tts.dart';
@@ -20,7 +18,7 @@ class Bird {
 }
 
 class BirdsPage extends StatelessWidget {
-  final List<Bird> birds = [
+   final List<Bird> birds = [
     Bird(
       name: 'Sparrow',
       svgAsset: 'assets/birds/Sparrow.svg',
@@ -106,12 +104,6 @@ class BirdsPage extends StatelessWidget {
       backgroundColor: const Color.fromARGB(193, 187, 74, 178),
     ),
     Bird(
-      name: 'Falcon',
-      svgAsset: 'assets/birds/Falcon.svg',
-      soundAsset: 'assets/birds/Falcon.mp3',
-      backgroundColor: const Color.fromARGB(193, 33, 149, 243),
-    ),
-    Bird(
       name: 'Ostrich',
       svgAsset: 'assets/birds/Ostrich.svg',
       soundAsset: 'assets/birds/Ostrich.mp3',
@@ -127,31 +119,31 @@ class BirdsPage extends StatelessWidget {
       name: 'Maina',
       svgAsset: 'assets/birds/Maina.svg',
       soundAsset: 'assets/birds/Maina.mp3',
-      backgroundColor: Color.fromARGB(193, 252, 252, 252),
+      backgroundColor: Color.fromARGB(255, 73, 179, 63),
     ),
     Bird(
       name: 'Bulbul',
       svgAsset: 'assets/birds/Bulbul.svg',
       soundAsset: 'assets/birds/Bulbul.mp3',
-      backgroundColor: Color.fromARGB(156, 91, 47, 3),
+      backgroundColor: Color.fromARGB(156, 128, 222, 243),
     ),
     Bird(
       name: 'Koel',
       svgAsset: 'assets/birds/Koel.svg',
       soundAsset: 'assets/birds/Koel.mp3',
-      backgroundColor: Color.fromARGB(97, 96, 243, 33),
-    ), 
+      backgroundColor: Color.fromARGB(232, 141, 255, 93),
+    ),
     Bird(
       name: 'Baya',
       svgAsset: 'assets/birds/Baya.svg',
       soundAsset: 'assets/birds/Baya.mp3',
-      backgroundColor: const Color.fromARGB(193, 43, 197, 35),
+      backgroundColor: Color.fromARGB(193, 106, 190, 101),
     ),
     Bird(
       name: 'Bagula',
       svgAsset: 'assets/birds/Bagula.svg',
       soundAsset: 'assets/birds/Bagula.mp3',
-      backgroundColor: Color.fromARGB(156, 255, 255, 255),
+      backgroundColor: Color.fromARGB(156, 248, 248, 248),
     ),
   ];
 
@@ -169,202 +161,113 @@ class BirdsPage extends StatelessWidget {
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
-      body: ListView.builder(
-        itemCount: birds.length,
-        itemBuilder: (context, index) {
-          return GestureDetector(
-            onTap: () {
-              _showBirdPopup(context, birds[index], index);
-            },
-            child: Container(
-              margin: const EdgeInsets.all(5.0),
-              padding: const EdgeInsets.all(8.0),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.black, width: 1.0),
-                borderRadius: BorderRadius.circular(8.0),
-                color: birds[index].backgroundColor,
-              ),
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 50,
-                    height: 50,
-                    child: SvgPicture.asset(birds[index].svgAsset),
-                  ),
-                  const SizedBox(width: 28.0),
-                  Text(
-                    birds[index].name,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
-                      fontFamily: 'Comic',
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          );
-        },
+      body: Center(
+        child: BirdWidget(
+          birds: birds,
+          flutterTts: flutterTts,
+          audioPlayer: audioPlayer,
+        ),
       ),
     );
   }
-
-  Future<void> _showBirdPopup(
-      BuildContext context, Bird bird, int currentIndex) async {
-    await flutterTts.setVolume(1.0);
-    await flutterTts.setSpeechRate(.5);
-    await flutterTts.setLanguage("EN-IN");
-    await flutterTts.setPitch(1.0);
-
-    showDialog(
-      barrierColor: Colors.white .withOpacity(.3),
-      context: context,
-      builder: (BuildContext context) {
-        return BirdPopup(
-          bird: bird,
-          flutterTts: flutterTts,
-          audioPlayer: audioPlayer,
-          birds: birds,
-          currentIndex: currentIndex,
-        );
-      },
-    );
-  }
 }
 
-class BirdPopup extends StatefulWidget {
-  Bird bird;
+class BirdWidget extends StatefulWidget {
+  final List<Bird> birds;
   final FlutterTts flutterTts;
   final AudioPlayer audioPlayer;
-  final List<Bird> birds;
 
-  int currentIndex;
-
-  BirdPopup({
-    Key? key,
-    required this.bird,
+  BirdWidget({
+    required this.birds,
     required this.flutterTts,
     required this.audioPlayer,
-    required this.birds,
-    required this.currentIndex,
-  }) : super(key: key);
+  });
 
   @override
-  _BirdPopupState createState() => _BirdPopupState();
+  _BirdWidgetState createState() => _BirdWidgetState();
 }
 
-class _BirdPopupState extends State<BirdPopup> {
-  bool isTapped = false;
+class _BirdWidgetState extends State<BirdWidget> {
+  int currentIndex = 0;
+
+  void _navigateToNextBird() {
+    setState(() {
+      currentIndex = (currentIndex + 1) % widget.birds.length;
+    });
+  }
+
+  void _navigateToPreviousBird() {
+    setState(() {
+      currentIndex =
+          (currentIndex - 1 + widget.birds.length) % widget.birds.length;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            widget.bird.name,
-            style: const TextStyle(fontWeight: FontWeight.bold),
-          ),
-          IconButton(
-            onPressed: () {
-              _speakBirdName(widget.bird.name);
-            },
-            icon: const Icon(Icons.volume_up),
-          ),
-        ],
-      ),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          GestureDetector(
-            onTap: () {
-              setState(() {
-                isTapped = !isTapped;
-              });
-            },
-            child: SizedBox(
-              width: 200,
-              height: 200,
-              child: SvgPicture.asset(
-                widget.bird.svgAsset,
-                color: isTapped ? const Color.fromARGB(81, 118, 96, 94) : null,
-              ),
+    Bird bird = widget.birds[currentIndex];
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        GestureDetector(
+          onTap: _navigateToNextBird,
+          child: Container(
+            width: 375,
+            height: 375,
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.black),
+              borderRadius: BorderRadius.circular(8.0),
+              color: bird.backgroundColor,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 350,
+                  height: 350,
+                  child: SvgPicture.asset(bird.svgAsset),
+                ),
+              ],
             ),
           ),
-          const SizedBox(height: 16),
-          ElevatedButton(
-            onPressed: () {
-              _playBirdSound(widget.bird.soundAsset);
-            },
-            child: const Text('Play Sound'),
+        ),
+        const SizedBox(height: 20),
+        Text(
+          bird.name,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 60,
+            fontFamily: 'Comic',
           ),
-          Row(
-            children: [
-              IconButton(
-                onPressed: () {
-                  _navigateToPreviousBird();
-                },
-                icon: const Icon(Icons.arrow_back),
-              ),
-              const SizedBox(
-                width: 135,
-              ),
-              IconButton(
-                onPressed: () {
-                  _navigateToNextBird();
-                },
-                icon: const Icon(Icons.arrow_forward),
-              ),
-            ],
-          )
-        ],
-      ),
-      actions: [
-        ElevatedButton(
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.red),
-          ),
-          onPressed: () {
-            _stopBirdSound();
-            Navigator.of(context).pop();
-          },
-          child: const Text(
-            'Close',
-            style: TextStyle(color: Colors.white),
-          ),
+        ),
+        const SizedBox(height: 20),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            IconButton(
+              onPressed: _navigateToPreviousBird,
+              icon: const Icon(Icons.arrow_back),
+            ),
+            const SizedBox(width: 20),
+            ElevatedButton(
+              onPressed: () {
+                _playBirdSound(bird.soundAsset);
+              },
+              child: const Text('Play Sound'),
+            ),
+            const SizedBox(width: 20),
+            IconButton(
+              onPressed: _navigateToNextBird,
+              icon: const Icon(Icons.arrow_forward),
+            ),
+          ],
         ),
       ],
     );
   }
 
-  void _navigateToPreviousBird() {
-    setState(() {
-      widget.currentIndex = (widget.currentIndex - 1) % widget.birds.length;
-      if (widget.currentIndex < 0) {
-        widget.currentIndex = widget.birds.length - 1;
-      }
-      widget.bird = widget.birds[widget.currentIndex];
-    });
-  }
-
-  void _navigateToNextBird() {
-    setState(() {
-      widget.currentIndex = (widget.currentIndex + 1) % widget.birds.length;
-      widget.bird = widget.birds[widget.currentIndex];
-    });
-  }
-
   Future<void> _playBirdSound(String soundAsset) async {
     await widget.audioPlayer.setAsset(soundAsset);
     await widget.audioPlayer.play();
-  }
-
-  Future<void> _stopBirdSound() async {
-    await widget.audioPlayer.stop();
-  }
-
-  Future<void> _speakBirdName(String name) async {
-    await widget.flutterTts.speak(name);
   }
 }
