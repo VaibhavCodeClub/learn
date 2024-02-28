@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api, use_key_in_widget_constructors, prefer_const_constructors_in_immutables
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tts/flutter_tts.dart';
@@ -18,7 +20,7 @@ class Bird {
 }
 
 class BirdsPage extends StatelessWidget {
-   final List<Bird> birds = [
+  final List<Bird> birds = [
     Bird(
       name: 'Sparrow',
       svgAsset: 'assets/birds/Sparrow.svg',
@@ -119,31 +121,31 @@ class BirdsPage extends StatelessWidget {
       name: 'Maina',
       svgAsset: 'assets/birds/Maina.svg',
       soundAsset: 'assets/birds/Maina.mp3',
-      backgroundColor: Color.fromARGB(255, 73, 179, 63),
+      backgroundColor: const Color.fromARGB(255, 73, 179, 63),
     ),
     Bird(
       name: 'Bulbul',
       svgAsset: 'assets/birds/Bulbul.svg',
       soundAsset: 'assets/birds/Bulbul.mp3',
-      backgroundColor: Color.fromARGB(156, 128, 222, 243),
+      backgroundColor: const Color.fromARGB(156, 128, 222, 243),
     ),
     Bird(
       name: 'Koel',
       svgAsset: 'assets/birds/Koel.svg',
       soundAsset: 'assets/birds/Koel.mp3',
-      backgroundColor: Color.fromARGB(232, 141, 255, 93),
+      backgroundColor: const Color.fromARGB(232, 141, 255, 93),
     ),
     Bird(
       name: 'Baya',
       svgAsset: 'assets/birds/Baya.svg',
       soundAsset: 'assets/birds/Baya.mp3',
-      backgroundColor: Color.fromARGB(193, 106, 190, 101),
+      backgroundColor: const Color.fromARGB(193, 106, 190, 101),
     ),
     Bird(
       name: 'Bagula',
       svgAsset: 'assets/birds/Bagula.svg',
       soundAsset: 'assets/birds/Bagula.mp3',
-      backgroundColor: Color.fromARGB(156, 248, 248, 248),
+      backgroundColor: const Color.fromARGB(156, 248, 248, 248),
     ),
   ];
 
@@ -206,68 +208,84 @@ class _BirdWidgetState extends State<BirdWidget> {
   @override
   Widget build(BuildContext context) {
     Bird bird = widget.birds[currentIndex];
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        GestureDetector(
-          onTap: _navigateToNextBird,
-          child: Container(
-            width: 375,
-            height: 375,
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.black),
-              borderRadius: BorderRadius.circular(8.0),
-              color: bird.backgroundColor,
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  width: 350,
-                  height: 350,
-                  child: SvgPicture.asset(bird.svgAsset),
-                ),
-              ],
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          GestureDetector(
+            onTap: _navigateToNextBird,
+            child: Container(
+              width: 375,
+              height: 375,
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black),
+                borderRadius: BorderRadius.circular(8.0),
+                color: bird.backgroundColor,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 350,
+                    height: 350,
+                    child: SvgPicture.asset(bird.svgAsset),
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-        const SizedBox(height: 20),
-        Text(
-          bird.name,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 60,
-            fontFamily: 'Comic',
+          const SizedBox(height: 20),
+          IconButton.outlined(
+            highlightColor: Colors.amber,
+            onPressed: () {
+              readName(
+                bird.name,
+              );
+            },
+            icon: const Icon(Icons.volume_up_outlined),
           ),
-        ),
-        const SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            IconButton(
-              onPressed: _navigateToPreviousBird,
-              icon: const Icon(Icons.arrow_back),
+          Text(
+            bird.name,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 60,
+              fontFamily: 'Comic',
             ),
-            const SizedBox(width: 20),
-            ElevatedButton(
-              onPressed: () {
-                _playBirdSound(bird.soundAsset);
-              },
-              child: const Text('Play Sound'),
-            ),
-            const SizedBox(width: 20),
-            IconButton(
-              onPressed: _navigateToNextBird,
-              icon: const Icon(Icons.arrow_forward),
-            ),
-          ],
-        ),
-      ],
+          ),
+          const SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                onPressed: _navigateToPreviousBird,
+                icon: const Icon(Icons.arrow_back),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  _playBirdSound(bird.soundAsset);
+                },
+                child: const Text('Play Sound'),
+              ),
+              const SizedBox(width: 20),
+              IconButton(
+                onPressed: _navigateToNextBird,
+                icon: const Icon(Icons.arrow_forward),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 
   Future<void> _playBirdSound(String soundAsset) async {
     await widget.audioPlayer.setAsset(soundAsset);
     await widget.audioPlayer.play();
+  }
+
+  Future<void> readName(String name) async {
+    await widget.flutterTts.setLanguage("EN-IN");
+    await widget.flutterTts.speak(name);
   }
 }
