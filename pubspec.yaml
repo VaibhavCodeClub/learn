@@ -88,9 +88,9 @@ flutter:
       fonts:
         - asset: assets/fonts/comic-sans-ms/ComicSansMS3.ttf
 
-    - family: MaterialIcons
-      fonts:
-        - asset: assets/fonts/MaterialIcons-Regular.ttf
+    # - family: MaterialIcons
+    #   fonts:
+    #     - asset: assets/fonts/MaterialIcons-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
