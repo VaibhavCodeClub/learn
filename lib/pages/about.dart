@@ -65,6 +65,9 @@ class AboutPage extends StatelessWidget {
                 'assets/images/git.svg',
                 width: 32.0,
                 height: 32.0,
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? Colors.white
+                    : Colors.black,
               ),
             ),
             const SizedBox(height: 16.0),
@@ -85,6 +88,9 @@ class AboutPage extends StatelessWidget {
                     'assets/images/github.svg',
                     width: 32.0,
                     height: 32.0,
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Colors.white
+                        : Colors.black,
                   ),
                 ),
                 const SizedBox(width: 16.0),
@@ -96,6 +102,9 @@ class AboutPage extends StatelessWidget {
                     'assets/images/email.svg',
                     width: 32.0,
                     height: 32.0,
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Colors.white
+                        : Colors.black ,
                   ),
                 ),
                 const SizedBox(width: 16.0),
@@ -119,6 +128,9 @@ class AboutPage extends StatelessWidget {
                     'assets/images/instagram.svg',
                     width: 32.0,
                     height: 32.0,
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Colors.white
+                        : Colors.black,
                   ),
                 ),
               ],
