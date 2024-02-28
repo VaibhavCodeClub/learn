@@ -59,6 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
   bool _isImageClicked1 = false;
   bool _isImageClicked2 = false;
   bool _isImageClicked3 = false;
+  bool _isImageClicked4 = false;
   bool _isDarkTheme = false;
   @override
   Widget build(BuildContext context) {
@@ -207,6 +208,44 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               const Text("Know about body parts and their pronunciation."),
+              const SizedBox(height: 20),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _isImageClicked4 = !_isImageClicked4;
+                  });
+                  Future.delayed(const Duration(milliseconds: 300), () {
+                    Navigator.pushNamed(context, AllRoutes.birdsRoute);
+                  });
+                },
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeInOut,
+                  height: _isImageClicked4 ? 325 : 350,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: Colors.black, width: 2),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.2),
+                        spreadRadius: 2,
+                        blurRadius: 5,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                    image: const DecorationImage(
+                      image: AssetImage('assets/images/birds.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              const Text(
+                'BIRDS',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              const Text("Look out for Birds with their sounds."),
             ],
           ),
         ),
