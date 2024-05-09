@@ -50,3 +50,5 @@ That's it! The app should now be running on your device/emulator.
 Made with ❤️ by [sapatevaibhav](https://github.com/sapatevaibhav).
 
 Don't forget to star ⭐ the repository if you find it useful!
+<!-- Hits since 10 May 2024 00:20 IST -->
+![visitors](https://hits.sh/github.com/sapatevaibhav.learn/hits.svg)
