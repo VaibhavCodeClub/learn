@@ -146,7 +146,7 @@ class _PopupContentState extends State<_PopupContent> {
           bottom: MediaQuery.of(context).viewInsets.bottom,
         ),
         child: Container(
-          color: currentItem.backgroundColor,
+          color: Colors.transparent,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5),
             child: SizedBox(
@@ -429,12 +429,13 @@ class _AtoZState extends State<AtoZ> {
     return Scaffold(
       appBar: AppBar(
         title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             const Text(
               'A-Z',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            const SizedBox(width: 10),
+            // const SizedBox(width: 10),
             Expanded(
               child: Align(
                 alignment: Alignment.centerRight,
