@@ -9,6 +9,7 @@ import 'package:learn/pages/shapes.dart';
 import 'package:learn/pages/solar.dart';
 import 'package:learn/utils/routes.dart';
 import 'package:learn/widgets/drawer.dart';
+import 'package:learn/pages/colours.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
           AllRoutes.partsRoute: (context) => const PartsPage(),
           AllRoutes.solarRoute: (context) => const SolarPage(),
           AllRoutes.animalRoute: (context) => AnimalsPage(),
+          AllRoutes.colourRoute: (context) => ColoursPage(),
           AllRoutes.aboutRoute: (context) => const AboutPage(),
         },
       ),
