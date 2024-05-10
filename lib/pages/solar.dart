@@ -43,7 +43,7 @@ class HomeScreen extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            Navigator.pushNamed(context, '/planets');
+            Navigator.pushNamed(context, '/home');
           },
           child: const Text('Go to Planets'),
         ),
@@ -126,7 +126,7 @@ class PlanetsPage extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.pop(context); 
+            Navigator.pushNamed(context, '/home');
           },
         ),
       ),
@@ -146,14 +146,14 @@ class PlanetWidget extends StatefulWidget {
   final FlutterTts flutterTts;
   final AudioPlayer audioPlayer;
 
-  const PlanetWidget({super.key, 
+  const PlanetWidget({
+    super.key,
     required this.planets,
     required this.flutterTts,
     required this.audioPlayer,
   });
 
   @override
-  
   _PlanetWidgetState createState() => _PlanetWidgetState();
 }
 
@@ -185,7 +185,7 @@ class _PlanetWidgetState extends State<PlanetWidget> {
           onTap: _navigateToNextPlanet,
           child: AnimatedContainer(
             duration: _animationDuration,
-            width: double.infinity,
+            width: 350,
             height: MediaQuery.of(context).size.height * 0.6,
             decoration: BoxDecoration(
               border: Border.all(color: Colors.black),
@@ -209,7 +209,6 @@ class _PlanetWidgetState extends State<PlanetWidget> {
           style: const TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
-            
           ),
           textAlign: TextAlign.center,
         ),
