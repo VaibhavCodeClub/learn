@@ -165,14 +165,12 @@ class _PopupContentState extends State<_PopupContent> {
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 40,
-                            // color: Colors.black,
                           ),
                         ),
                       ),
                       IconButton(
                         icon: const Icon(
                           Icons.volume_up,
-                          // color: Colors.black,
                           size: 40,
                         ),
                         onPressed: () {
