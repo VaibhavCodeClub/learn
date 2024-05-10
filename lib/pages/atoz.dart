@@ -165,14 +165,14 @@ class _PopupContentState extends State<_PopupContent> {
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 40,
-                            color: Colors.black,
+                            // color: Colors.black,
                           ),
                         ),
                       ),
                       IconButton(
                         icon: const Icon(
                           Icons.volume_up,
-                          color: Colors.black,
+                          // color: Colors.black,
                           size: 40,
                         ),
                         onPressed: () {
@@ -199,7 +199,7 @@ class _PopupContentState extends State<_PopupContent> {
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontSize: 28,
-                      color: Colors.black,
+                      // color: Colors.black,
                     ),
                   ),
                   const SizedBox(height: 20),
