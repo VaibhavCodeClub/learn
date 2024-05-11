@@ -90,6 +90,14 @@ class MyDrawer extends StatelessWidget {
               context: context,
             ),
             _buildListTile(
+              icon: Icons.palette,
+              title: "Colours",
+              onTap: () {
+                Navigator.pushNamed(context, AllRoutes.colourRoute);
+              },
+              context: context,
+            ),
+            _buildListTile(
               icon: Icons.question_mark_outlined,
               title: "About us",
               onTap: () {
