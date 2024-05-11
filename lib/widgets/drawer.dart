@@ -37,7 +37,6 @@ class MyDrawer extends StatelessWidget {
               icon: Icons.home,
               title: "Home",
               onTap: () {
-                
                 Navigator.pushReplacementNamed(context, AllRoutes.homeRoute);
               },
               context: context,
