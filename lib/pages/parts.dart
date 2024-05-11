@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
@@ -68,7 +69,7 @@ class _PartsPagePageState extends State<PartsPage> {
       body: SafeArea(
         child: Column(
           children: [
-            Flexible(
+            Expanded(
               child: ResponsiveScreenProvider.isMobileScreen(context)?CardSwiper(
           controller: controller,
           cardsCount: cards.length,
@@ -93,7 +94,8 @@ class _PartsPagePageState extends State<PartsPage> {
         ) :
               Center(
                 child: SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.4,
+                  height: MediaQuery.of(context).size.height * 0.4,
+                  width: MediaQuery.of(context).size.height * 0.6,
                   child: CardSwiper(
                     controller: controller,
                     cardsCount: cards.length,
@@ -119,61 +121,63 @@ class _PartsPagePageState extends State<PartsPage> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Text(
-                      cards[topCardIndex].name,
-                      style: const TextStyle(
-                          fontSize: 50, fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(
-                      width: 150,
-                    ),
-                    Row(
-                      children: [
-                        IconButton(
-                          icon: const Icon(
-                            Icons.volume_up,
-                            // color: Colors.black,
-                            size: 40,
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text(
+                        cards[topCardIndex].name,
+                        style: const TextStyle(
+                            fontSize: 50, fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(
+                        width: 150,
+                      ),
+                      Row(
+                        children: [
+                          IconButton(
+                            icon: const Icon(
+                              Icons.volume_up,
+                              // color: Colors.black,
+                              size: 40,
+                            ),
+                            onPressed: () {
+                              _speakText(cards[topCardIndex].name);
+                            },
                           ),
-                          onPressed: () {
-                            _speakText(cards[topCardIndex].name);
-                          },
-                        ),
-                        const SizedBox(
-                          width: 25,
-                        ),
-                        IconButton(
-                          onPressed: controller.undo,
-                          icon: const Icon(
-                            Icons.rotate_left,
-                            // color: Colors.black,
-                            size: 40,
+                          const SizedBox(
+                            width: 25,
                           ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 10),
-                    const SizedBox(height: 5),
-                    SizedBox(
-                      height: 200,
-                      child: SingleChildScrollView(
-                        clipBehavior: Clip.hardEdge,
-                        child: Text(
-                          AppFunctions()
-                              .getDescription(cards[topCardIndex].name),
-                          style: const TextStyle(
-                            fontSize: 25,
+                          IconButton(
+                            onPressed: controller.undo,
+                            icon: const Icon(
+                              Icons.rotate_left,
+                              // color: Colors.black,
+                              size: 40,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 10),
+                      const SizedBox(height: 5),
+                      SizedBox(
+                        height: 200,
+                        child: SingleChildScrollView(
+                          clipBehavior: Clip.hardEdge,
+                          child: Text(
+                            AppFunctions()
+                                .getDescription(cards[topCardIndex].name),
+                            style: const TextStyle(
+                              fontSize: 25,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
