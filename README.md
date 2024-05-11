@@ -36,17 +36,17 @@
 <a href="https://android.izzysoft.de/repo/apk/vdrs.sappu.lafk.learn"> <img src='readme/IzzyOnDroid.png' width='200'/> </a> 
 <a href="https://github.com/VaibhavCodeClub/learn/releases"> <img src='readme/GitHub.png' width='200'/> </a> <br>
 </div>
-Welcome to **Learn**, a simple learning app built using Flutter for kids. This app is designed to provide an engaging learning experience for children, covering a wide range of topics including:
+Welcome to **Learn**, a simple learning app built using Flutter for kids. This app is designed to provide an engaging learning experience for children, covering a wide range of topics including :
 
-- A-Z Alphabets with examples and pronunciation
-- Animals and their pronunciation along with their voices
-- Body parts and their pronunciation with Short information on various topics
+- A-Z Alphabets with examples and pronunciation.
+- Animals and their pronunciation along with their voices.
+- Body parts and their pronunciation with Short information on various topics.
 
 More exciting features are planned for future updates, such as birds and their voices, information on the solar system, knowledge of shapes, and much more!
 
 ### Getting Started
 
-To get started with the **Learn** app, follow these simple steps:
+To get started with the **Learn** app, follow these simple steps :
 
 ### Clone the Git Repository
 
@@ -55,7 +55,7 @@ git clone https://github.com/VaibhavCodeClub/learn
 ```
 ### Run the Flutter Project
 
-Ensure you have Flutter installed. If not, you can follow the instructions on [Flutter.dev](https://flutter.dev/) to get it installed on your machine.
+Please ensure you have Flutter installed. If not, you can follow the instructions on [Flutter.dev](https://flutter.dev/) to get it installed on your machine.
 
 Navigate to the project directory using the terminal.
 
@@ -63,7 +63,7 @@ Run the following command to fetch the dependencies:
 ```bash 
 flutter pub get
 ```
-Once the dependencies are fetched, run the app on your preferred device using:
+Once the dependencies are fetched, run the app on your preferred device using :
 ```bash
 flutter run
 ```
