@@ -22,14 +22,19 @@ class ItemTile extends StatelessWidget {
       color: item.backgroundColor,
       child: InkWell(
         onTap: () {
-          showModalBottomSheet(
+          showDialog(
             context: context,
-            isScrollControlled: true,
+            // isScrollControlled: true,
             builder: (BuildContext context) {
-              return _PopupContent(
-                items: items,
-                currentIndex: index,
-                isAutoNextEnabled: isTimerEnabled,
+              return Dialog(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                child: _PopupContent(
+                  items: items,
+                  currentIndex: index,
+                  isAutoNextEnabled: isTimerEnabled,
+                ),
               );
             },
           );
@@ -142,101 +147,96 @@ class _PopupContentState extends State<_PopupContent> {
   @override
   Widget build(BuildContext context) {
     final currentItem = widget.items[currentIndex];
-    return SingleChildScrollView(
-      child: Container(
-        padding: EdgeInsets.only(
-          bottom: MediaQuery.of(context).viewInsets.bottom,
-        ),
-        child: Container(
-          color: currentItem.backgroundColor,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5),
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.7,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  const SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 5),
-                        child: Text(
-                          currentItem.title,
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 40,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                      IconButton(
-                        icon: const Icon(
-                          Icons.volume_up,
-                          color: Colors.black,
-                          size: 40,
-                        ),
-                        onPressed: () {
-                          _speakText(currentItem.title);
-                        },
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 20),
-                  GestureDetector(
-                    onTap: () {
-                      _speakText(currentItem.description);
-                    },
-                    child: SvgPicture.asset(
-                      currentItem.iconAsset,
-                      width: 200,
-                      height: 200,
-                      alignment: Alignment.center,
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  Text(
-                    currentItem.description,
-                    textAlign: TextAlign.center,
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.7,
+      padding: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        color: currentItem.backgroundColor,
+        borderRadius: BorderRadius.circular(25),
+      ),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 5),
+                  child: Text(
+                    currentItem.title,
                     style: const TextStyle(
-                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 40,
                       color: Colors.black,
                     ),
                   ),
-                  const SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      ElevatedButton(
-                        onPressed: _previousItem,
-                        child: const Text('Prev'),
-                      ),
-                      ElevatedButton(
-                        onPressed: _nextItem,
-                        child: const Text('Next'),
-                      ),
-                    ],
+                ),
+                IconButton(
+                  icon: const Icon(
+                    Icons.volume_up,
+                    color: Colors.black,
+                    size: 40,
                   ),
-                  const SizedBox(height: 20),
-                  ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(
-                          const Color.fromARGB(216, 233, 101, 92)),
-                    ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: const Text(
-                      'Close',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                  const SizedBox(height: 50),
-                ],
+                  onPressed: () {
+                    _speakText(currentItem.title);
+                  },
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            GestureDetector(
+              onTap: () {
+                _speakText(currentItem.description);
+              },
+              child: SvgPicture.asset(
+                currentItem.iconAsset,
+                width: 200,
+                height: 200,
+                alignment: Alignment.center,
               ),
             ),
-          ),
+            const SizedBox(height: 20),
+            Text(
+              currentItem.description,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 28,
+                color: Colors.black,
+              ),
+            ),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: _previousItem,
+                  child: const Text('Prev'),
+                ),
+                ElevatedButton(
+                  onPressed: _nextItem,
+                  child: const Text('Next'),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(
+                    const Color.fromARGB(216, 233, 101, 92)),
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text(
+                'Close',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            const SizedBox(height: 20),
+          ],
         ),
       ),
     );
