@@ -29,6 +29,7 @@ class MyDrawer extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 currentAccountPicture: const CircleAvatar(
+
                   backgroundImage: AssetImage("assets/images/dp.png"),
                 ),
               ),
