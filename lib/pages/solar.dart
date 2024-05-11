@@ -80,19 +80,13 @@ class PlanetsPage extends StatelessWidget {
   final AudioPlayer audioPlayer = AudioPlayer();
  
   PlanetsPage({Key? key}) : super(key: key);
-
-import 'package:learn/utils/constants.dart';
-import 'package:learn/widgets/drawer.dart';
-
-class SolarPage extends StatelessWidget {
-  const SolarPage({Key? key}) : super(key: key);
-
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          AppConstants.solar,
+          'Solar System',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
@@ -179,7 +173,6 @@ class _PlanetWidgetState extends State<PlanetWidget> {
               onPressed: _navigateToPreviousPlanet,
               icon: const Icon(Icons.arrow_back),
             ),
-
             const SizedBox(width: 20),
             ElevatedButton(
               onPressed: () {
@@ -191,14 +184,6 @@ class _PlanetWidgetState extends State<PlanetWidget> {
             IconButton(
               onPressed: _navigateToNextPlanet,
               icon: const Icon(Icons.arrow_forward),
-            const SizedBox(height: 20),
-            const Text(
-              AppConstants.underConstruction,
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
             ),
           ],
         ),
