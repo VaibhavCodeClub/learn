@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:learn/utils/responsive_screen_provider.dart';
 
 void main() {
   runApp(
@@ -73,27 +75,54 @@ class _PartsPagePageState extends State<PartsPage> {
         child: Column(
           children: [
             Flexible(
-              child: CardSwiper(
-                controller: controller,
-                cardsCount: cards.length,
-                onSwipe: (prevIndex, currentIndex, direction) {
-                  setState(() {
-                    previousIndices.add(topCardIndex);
-                    topCardIndex = currentIndex ?? 0;
-                  });
-                  return true;
-                },
-                onUndo: _onUndo,
-                numberOfCardsDisplayed: 3,
-                backCardOffset: const Offset(40, 40),
-                padding: const EdgeInsets.all(24.0),
-                cardBuilder: (
-                  context,
-                  index,
-                  horizontalThresholdPercentage,
-                  verticalThresholdPercentage,
-                ) =>
-                    cards[index],
+              child: ResponsiveScreenProvider.isMobileScreen(context)?CardSwiper(
+          controller: controller,
+          cardsCount: cards.length,
+          onSwipe: (prevIndex, currentIndex, direction) {
+            setState(() {
+              previousIndices.add(topCardIndex);
+              topCardIndex = currentIndex ?? 0;
+            });
+            return true;
+          },
+          onUndo: _onUndo,
+          numberOfCardsDisplayed: 3,
+          backCardOffset: const Offset(40, 40),
+          padding: const EdgeInsets.all(24.0),
+          cardBuilder: (
+              context,
+              index,
+              horizontalThresholdPercentage,
+              verticalThresholdPercentage,
+              ) =>
+          cards[index],
+        ) :
+              Center(
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.4,
+                  child: CardSwiper(
+                    controller: controller,
+                    cardsCount: cards.length,
+                    onSwipe: (prevIndex, currentIndex, direction) {
+                      setState(() {
+                        previousIndices.add(topCardIndex);
+                        topCardIndex = currentIndex ?? 0;
+                      });
+                      return true;
+                    },
+                    onUndo: _onUndo,
+                    numberOfCardsDisplayed: 3,
+                    backCardOffset: const Offset(40, 40),
+                    padding: const EdgeInsets.all(24.0),
+                    cardBuilder: (
+                      context,
+                      index,
+                      horizontalThresholdPercentage,
+                      verticalThresholdPercentage,
+                    ) =>
+                        cards[index],
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -274,10 +303,12 @@ class PartsPageCard extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SvgPicture.asset(
-                "assets/body/$name.svg",
-                width: 250,
-                height: 250,
+              Expanded(
+                child: SvgPicture.asset(
+                  "assets/body/$name.svg",
+                  width: 250,
+                  height: 250,
+                ),
               ),
               const SizedBox(height: 10),
             ],
