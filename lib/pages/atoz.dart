@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:async';
 import 'package:flutter_tts/flutter_tts.dart';
-import 'package:learn/utils/constants.dart';
 
 class ItemTile extends StatelessWidget {
   final int index;
@@ -247,8 +246,9 @@ class AtoZ extends StatefulWidget {
 class _AtoZState extends State<AtoZ> {
   bool isTimerEnabled = false;
 
-
   List<ItemData> items = [
+    // Add your ItemData list here
+    // Example:
     ItemData(
       iconAsset: 'assets/images/apple.svg',
       title: 'A',
@@ -407,7 +407,6 @@ class _AtoZState extends State<AtoZ> {
     ),
   ];
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -416,7 +415,7 @@ class _AtoZState extends State<AtoZ> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             const Text(
-              AppConstants.a_z,
+              'A-Z',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             Expanded(
@@ -446,9 +445,8 @@ class _AtoZState extends State<AtoZ> {
       body: Padding(
         padding: const EdgeInsets.all(9),
         child: GridView.count(
-
-          crossAxisCount: MediaQuery.of(context).size.width ~/ 200, 
-          childAspectRatio: 1.0, 
+          crossAxisCount: MediaQuery.of(context).size.width ~/ 200, // Adjust the value based on screen width
+          childAspectRatio: 1.0, // Aspect ratio of items
           children: List.generate(
             items.length,
             (index) => ItemTile(
@@ -457,17 +455,6 @@ class _AtoZState extends State<AtoZ> {
               isTimerEnabled: isTimerEnabled,
             ),
           ),
-
-          crossAxisCount: 2,
-          children: [
-            for (int i = 0; i < AppConstants.items.length; i++)
-              ItemTile(
-                index: i,
-                items: AppConstants.items,
-                isTimerEnabled: isTimerEnabled,
-              ),
-          ],
-
         ),
       ),
     );
