@@ -49,11 +49,13 @@ class ItemTile extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 3),
-              SvgPicture.asset(
-                item.iconAsset,
-                width: 100,
-                height: 100,
-                alignment: Alignment.center,
+              Expanded(
+                child: SvgPicture.asset(
+                  item.iconAsset,
+                  width: 100,
+                  height: 100,
+                  alignment: Alignment.center,
+                ),
               ),
               const SizedBox(height: 3),
               Text(item.description, textAlign: TextAlign.center),
