@@ -71,6 +71,7 @@ flutter:
     - assets/sounds/
     - assets/body/
     - assets/birds/
+    - assets/solar/
     - assets/images/colours/
 
   # An image asset can refer to one or more resolution-specific "variants", see
