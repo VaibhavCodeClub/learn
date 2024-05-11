@@ -93,7 +93,7 @@ class MyDrawer extends StatelessWidget {
               icon: Icons.palette,
               title: "Colours",
               onTap: () {
-                Navigator.pushReplacementNamed(context, AllRoutes.colourRoute);
+                Navigator.pushNamed(context, AllRoutes.colourRoute);
               },
               context: context,
             ),
