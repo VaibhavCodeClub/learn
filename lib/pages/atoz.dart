@@ -158,7 +158,6 @@ class _PopupDialogState extends State<_PopupDialog> {
               Text(
                 currentItem.title,
                 style: const TextStyle(
-                  
                   fontWeight: FontWeight.bold,
                   fontSize: 40,
                 ),
