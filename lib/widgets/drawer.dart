@@ -85,7 +85,7 @@ class MyDrawer extends StatelessWidget {
               icon: Icons.sunny,
               title: "Solar System",
               onTap: () {
-                Navigator.pushReplacementNamed(context, AllRoutes.solarRoute);
+                Navigator.pushNamed(context, AllRoutes.solarRoute);
               },
               context: context,
             ),

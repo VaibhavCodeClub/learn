@@ -2,24 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:learn/main.dart';
-
-void main() {
-  runApp(MaterialApp(
-    title: 'Planets App',
-    initialRoute: '/',
-    routes: {
-      '/': (context) => const MyHomePage(),
-      '/planets': (context) => PlanetsPage(),
-    },
-  ));
-}
-
+ 
 class Planet {
   final String name;
   final String svgAsset;
   final String description;
   final Color backgroundColor;
-
+ 
   Planet({
     required this.name,
     required this.svgAsset,
@@ -27,31 +16,7 @@ class Planet {
     required this.backgroundColor,
   });
 }
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Home',
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pushNamed(context, '/home');
-          },
-          child: const Text('Go to Planets'),
-        ),
-      ),
-    );
-  }
-}
-
+ 
 class PlanetsPage extends StatelessWidget {
   final List<Planet> planets = [
     Planet(
@@ -109,12 +74,12 @@ class PlanetsPage extends StatelessWidget {
       backgroundColor: const Color.fromARGB(255, 64, 90, 200),
     ),
   ];
-
+ 
   final FlutterTts flutterTts = FlutterTts();
   final AudioPlayer audioPlayer = AudioPlayer();
-
+ 
   PlanetsPage({Key? key}) : super(key: key);
-
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -126,7 +91,7 @@ class PlanetsPage extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.pushNamed(context, '/home');
+            Navigator.pop(context);
           },
         ),
       ),
@@ -140,41 +105,28 @@ class PlanetsPage extends StatelessWidget {
     );
   }
 }
-
+ 
 class PlanetWidget extends StatefulWidget {
   final List<Planet> planets;
   final FlutterTts flutterTts;
   final AudioPlayer audioPlayer;
-
+ 
   const PlanetWidget({
-    super.key,
+    Key? key,
     required this.planets,
     required this.flutterTts,
     required this.audioPlayer,
-  });
-
+  }) : super(key: key);
+ 
   @override
   _PlanetWidgetState createState() => _PlanetWidgetState();
 }
-
+ 
 class _PlanetWidgetState extends State<PlanetWidget> {
   int currentIndex = 0;
-
+ 
   final _animationDuration = const Duration(milliseconds: 500);
-
-  void _navigateToNextPlanet() {
-    setState(() {
-      currentIndex = (currentIndex + 1) % widget.planets.length;
-    });
-  }
-
-  void _navigateToPreviousPlanet() {
-    setState(() {
-      currentIndex =
-          (currentIndex - 1 + widget.planets.length) % widget.planets.length;
-    });
-  }
-
+ 
   @override
   Widget build(BuildContext context) {
     Planet planet = widget.planets[currentIndex];
@@ -237,7 +189,20 @@ class _PlanetWidgetState extends State<PlanetWidget> {
       ],
     );
   }
-
+ 
+  void _navigateToNextPlanet() {
+    setState(() {
+      currentIndex = (currentIndex + 1) % widget.planets.length;
+    });
+  }
+ 
+  void _navigateToPreviousPlanet() {
+    setState(() {
+      currentIndex =
+          (currentIndex - 1 + widget.planets.length) % widget.planets.length;
+    });
+  }
+ 
   Future<void> _playPlanetName(String name) async {
     await widget.flutterTts.setLanguage("en-US");
     await widget.flutterTts.speak(name);
