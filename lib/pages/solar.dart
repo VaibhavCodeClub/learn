@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn/utils/constants.dart';
 import 'package:learn/widgets/drawer.dart';
 
 class SolarPage extends StatelessWidget {
@@ -9,7 +10,7 @@ class SolarPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Solar System',
+          AppConstants.solar,
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
@@ -23,7 +24,7 @@ class SolarPage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             const Text(
-              'Page Under Construction.\nIt will not take much time.',
+              AppConstants.underConstruction,
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
