@@ -37,10 +37,10 @@ class MyApp extends StatelessWidget {
         routes: {
           AllRoutes.homeRoute: (context) => const MyHomePage(),
           AllRoutes.atozRoute: (context) => const AtoZ(),
-          AllRoutes.birdsRoute: (context) =>  BirdsPage(),
+          AllRoutes.birdsRoute: (context) => BirdsPage(),
           AllRoutes.shapesRoute: (context) => const ShapesPage(),
           AllRoutes.partsRoute: (context) => const PartsPage(),
-          AllRoutes.solarRoute: (context) => const SolarPage(),
+          AllRoutes.solarRoute: (context) => PlanetsPage(),
           AllRoutes.animalRoute: (context) => AnimalsPage(),
           AllRoutes.colourRoute: (context) => const ColoursPage(),
           AllRoutes.aboutRoute: (context) => const AboutPage(),

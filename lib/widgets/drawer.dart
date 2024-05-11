@@ -29,6 +29,7 @@ class MyDrawer extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 currentAccountPicture: const CircleAvatar(
+
                   backgroundImage: AssetImage("assets/images/dp.png"),
                 ),
               ),
@@ -85,7 +86,7 @@ class MyDrawer extends StatelessWidget {
               icon: Icons.sunny,
               title: "Solar System",
               onTap: () {
-                Navigator.pushReplacementNamed(context, AllRoutes.solarRoute);
+                Navigator.pushNamed(context, AllRoutes.solarRoute);
               },
               context: context,
             ),
