@@ -248,7 +248,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               const Text("Look out for Birds with their sounds."),
-              //start
+              
               const SizedBox(height: 20),
               GestureDetector(
                 onTap: () {
