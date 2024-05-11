@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:learn/utils/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AboutPage extends StatelessWidget {
@@ -46,7 +47,7 @@ class AboutPage extends StatelessWidget {
             ),
             const SizedBox(height: 8.0),
             const Text(
-              'Interactive app to let your kids learn various things like\n\n - A - Z alphabets.\n - Animals and their sounds.\n - Birds and their sounds.\n - Various shapes.\n - Body parts.\n - Solar system.\n',
+              AppConstants.description,
               style: TextStyle(fontSize: 18.0),
             ),
             const SizedBox(height: 6.0),

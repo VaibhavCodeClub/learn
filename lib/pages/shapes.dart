@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn/utils/constants.dart';
 import 'package:learn/widgets/drawer.dart';
 
 class ShapesPage extends StatelessWidget {
@@ -9,7 +10,7 @@ class ShapesPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Shapes',
+          AppConstants.shape,
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
@@ -23,7 +24,7 @@ class ShapesPage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             const Text(
-              'Page Under Construction.\nIt will not take much time.',
+              AppConstants.underConstruction,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
           ],
