@@ -12,7 +12,7 @@
 <a href="https://github.com/VaibhavCodeClub/learn"><img src="https://sloc.xyz/github/VaibhavCodeClub/learn" alt="Lines of Code"/></a>
 &nbsp;
 <a href="https://github.com/VaibhavCodeClub/learn/stargazers"><img src="https://img.shields.io/github/stars/VaibhavCodeClub/learn" alt="Stars Badge"/></a>
-&nbsp;<a href="https://github.com/VaibhavCodeClub/learn.git/network/members"><img src="https://img.shields.io/github/forks/VaibhavCodeClub/learn" alt="Forks Badge"/></a>
+&nbsp;<a href="https://github.com/VaibhavCodeClub/learn/network/members"><img src="https://img.shields.io/github/forks/VaibhavCodeClub/learn" alt="Forks Badge"/></a>
 &nbsp; <br>
 ![GitHub contributors](https://img.shields.io/github/contributors/VaibhavCodeClub/learn?color=blue)
 &nbsp;
