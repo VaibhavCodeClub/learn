@@ -42,6 +42,7 @@ dependencies:
   card_swiper: ^3.0.1
   flutter_card_swiper: ^7.0.0
   adaptive_theme: ^3.6.0
+  fluttertoast: ^8.2.5
 
 dev_dependencies:
   flutter_test:
