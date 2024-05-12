@@ -4,6 +4,7 @@ import 'package:learn/pages/about.dart';
 import 'package:learn/pages/atoz.dart';
 import 'package:learn/pages/birds.dart';
 import 'package:learn/pages/animals.dart';
+import 'package:learn/pages/flowers.dart';
 import 'package:learn/pages/parts.dart';
 import 'package:learn/pages/shapes.dart';
 import 'package:learn/pages/solar.dart';
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
           AllRoutes.solarRoute: (context) => PlanetsPage(),
           AllRoutes.animalRoute: (context) => AnimalsPage(),
           AllRoutes.colourRoute: (context) => const ColoursPage(),
+          AllRoutes.flowerRoute: (context) => const FlowerPage(),
           AllRoutes.aboutRoute: (context) => const AboutPage(),
         },
       ),
