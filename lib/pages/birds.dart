@@ -21,8 +21,6 @@ class Bird {
 }
 
 class BirdsPage extends StatelessWidget {
-
-
   final FlutterTts flutterTts = FlutterTts();
   final AudioPlayer audioPlayer = AudioPlayer();
 
@@ -134,7 +132,7 @@ class _BirdWidgetState extends State<BirdWidget> {
                 onPressed: _navigateToPreviousBird,
                 icon: const Icon(Icons.arrow_back),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(width: 20),
               ElevatedButton(
                 onPressed: () {
                   _playBirdSound(bird.soundAsset);
