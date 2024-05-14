@@ -1,5 +1,8 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
+import 'package:learn/pages/fruits.dart';
+
 import '../pages/animals.dart';
 import '../pages/atoz.dart';
 import '../pages/birds.dart';
@@ -448,6 +451,104 @@ class AppConstants {
       backgroundColor: const Color.fromARGB(156, 248, 248, 248),
     ),
   ];
+  static List<Fruit> Fruits = [
+    Fruit(
+      name: 'Apple',
+      svgAsset: 'assets/fruitsVeges/apple.svg',
+      backgroundColor: Colors.white,
+      isfruit: true,
+    ),
+    Fruit(
+      name: 'Banana',
+      svgAsset: 'assets/fruitsVeges/banana.svg',
+      backgroundColor: Colors.white,
+      isfruit: true,
+    ),
+    Fruit(
+      name: 'Carrot',
+      svgAsset: 'assets/fruitsVeges/carrot.svg',
+      backgroundColor: Colors.white,
+      isfruit: false,
+    ),
+    Fruit(
+      name: 'Red Chilli',
+      svgAsset: 'assets/fruitsVeges/chilli.svg',
+      backgroundColor: Colors.white,
+      isfruit: false,
+    ),
+    Fruit(
+      name: 'Eggplant',
+      svgAsset: 'assets/fruitsVeges/eggplant.svg',
+      backgroundColor: Colors.white,
+      isfruit: false,
+    ),
+    Fruit(
+      name: 'Ginger',
+      svgAsset: 'assets/fruitsVeges/ginger.svg',
+      backgroundColor: Colors.white,
+      isfruit: false,
+    ),
+    Fruit(
+      name: 'Grapes',
+      svgAsset: 'assets/fruitsVeges/grapes.svg',
+      backgroundColor: Colors.white,
+      isfruit: true,
+    ),
+    Fruit(
+      name: 'Kiwi',
+      svgAsset: 'assets/fruitsVeges/kiwi.svg',
+      backgroundColor: Colors.white,
+      isfruit: true,
+    ),
+    Fruit(
+      name: 'Okra',
+      svgAsset: 'assets/fruitsVeges/okra.svg',
+      backgroundColor: Colors.white,
+      isfruit: false,
+    ),
+    Fruit(
+      name: 'Onion',
+      svgAsset: 'assets/fruitsVeges/onion.svg',
+      backgroundColor: Colors.white,
+      isfruit: false,
+    ),
+    Fruit(
+      name: 'Orange',
+      svgAsset: 'assets/fruitsVeges/orange.svg',
+      backgroundColor: Colors.white,
+      isfruit: true,
+    ),
+    Fruit(
+      name: 'Pineapple',
+      svgAsset: 'assets/fruitsVeges/pineapple.svg',
+      backgroundColor: Colors.white,
+      isfruit: true,
+    ),
+    Fruit(
+      name: 'potato',
+      svgAsset: 'assets/fruitsVeges/potato.svg',
+      backgroundColor: Colors.white,
+      isfruit: false,
+    ),
+    Fruit(
+      name: 'Strawberry',
+      svgAsset: 'assets/fruitsVeges/strawberry.svg',
+      backgroundColor: Colors.white,
+      isfruit: true,
+    ),
+    Fruit(
+      name: 'tomato',
+      svgAsset: 'assets/fruitsVeges/tomato.svg',
+      backgroundColor: Colors.white,
+      isfruit: false,
+    ),
+    Fruit(
+      name: 'Watermelon',
+      svgAsset: 'assets/fruitsVeges/watermelon.svg',
+      backgroundColor: Colors.white,
+      isfruit: true,
+    ),
+  ];
 
   static const String underConstruction =
       'Page Under Construction.\nIt will not take much time.';
@@ -458,6 +559,7 @@ class AppConstants {
   static const String parts = 'Body Parts';
   static const String shape = 'Shapes';
   static const String solar = 'Solar System';
+  static const String fruit = 'Fruits & Vegetables';
   static const String description =
       'Interactive app to let your kids learn various things like\n\n - A - Z alphabets.\n - Animals and their sounds.\n - Birds and their sounds.\n - Various shapes.\n - Body parts.\n - Solar system.\n';
 }
