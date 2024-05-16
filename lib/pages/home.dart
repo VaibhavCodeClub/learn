@@ -5,6 +5,7 @@ import 'package:learn/main.dart';
 
 import '../utils/routes.dart';
 import '../widgets/drawer.dart';
+import 'modules/animals.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);

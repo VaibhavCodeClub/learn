@@ -9,10 +9,30 @@ class ExplorePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text("Explore Page"),
-      )
+    return SafeArea(
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Text(
+                  "Explore",
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleLarge!
+                      .copyWith(fontWeight: FontWeight.bold, fontSize: 30.0),
+                ),
+                ListView.builder(
+                  itemBuilder: (context, index) {
+                    return ListTile(title: Text("Module $index"), onTap: () {});
+                  },
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

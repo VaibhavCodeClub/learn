@@ -1,10 +1,64 @@
 import 'dart:ui';
 
+import 'package:learn/utils/routes.dart';
+
+import '../model/module.dart';
 import '../pages/modules/animals.dart';
 import '../pages/modules/atoz.dart';
 import '../pages/modules/birds.dart';
 
 class AppConstants {
+  static List<Module> modules = [
+    Module(
+      name: 'A-Z',
+      description: 'Learn A to Z with production and an example',
+      thumbnailPath: 'assets/images/alphabets.jpg',
+      route: AllRoutes.atozRoute,
+      backgroundColor: const Color.fromARGB(193, 76, 175, 79),
+    ),
+    Module(
+      name: 'Animals',
+      description: 'Learn about animals and their sounds',
+      thumbnailPath: 'assets/images/animals.jpg',
+      route: AllRoutes.animalRoute,
+      backgroundColor: const Color.fromARGB(194, 157, 82, 222),
+    ),
+    Module(
+      name: 'Birds',
+      description: 'Look out for Birds with their sounds',
+      thumbnailPath: 'assets/images/birds.jpg',
+      route: AllRoutes.birdsRoute,
+      backgroundColor: const Color.fromARGB(193, 76, 207, 222),
+    ),
+    Module(
+        name: "Colors",
+        description: "Explore and Learn about the colors",
+        thumbnailPath: "assets/colors/colors-cover.png",
+        route: "route",
+        backgroundColor: const Color.fromARGB(193, 21, 234, 28)),
+    Module(
+      name: 'Body Parts',
+      description: 'Know about body parts and their pronunciation.',
+      thumbnailPath: 'assets/body/body.jpg',
+      route: AllRoutes.partsRoute,
+      backgroundColor: const Color.fromARGB(157, 251, 0, 0),
+    ),
+    Module(
+      name: 'Shapes',
+      description: 'Learn about shapes',
+      thumbnailPath: 'assets/images/shape.gif',
+      route: AllRoutes.shapesRoute,
+      backgroundColor: const Color.fromARGB(193, 21, 234, 28),
+    ),
+    Module(
+      name: 'Solar System',
+      description: 'Learn about the solar system',
+      thumbnailPath: 'assets/images/solar.gif',
+      route: AllRoutes.solarRoute,
+      backgroundColor: const Color.fromARGB(193, 226, 221, 70),
+    ),
+  ];
+
   static const List<String> candidates = [
     "Eye",
     "Lips",
