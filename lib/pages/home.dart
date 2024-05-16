@@ -251,7 +251,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ],
                       image: const DecorationImage(
                         image: AssetImage(
-                            'assets/images/colours/colors-cover.png'),
+                            'assets/colours/colours-cover.png'),
                         fit: BoxFit.cover,
                       ),
                     ),
