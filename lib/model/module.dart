@@ -1,10 +1,10 @@
-import 'dart:ui';
+import 'package:flutter/material.dart';
 
 class Module {
   final String name;
   final String description;
   final String thumbnailPath;
-  final String route;
+  final MaterialPageRoute route;
   Color backgroundColor;
 
   Module({

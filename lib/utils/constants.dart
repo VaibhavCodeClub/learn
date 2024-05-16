@@ -1,11 +1,16 @@
 import 'dart:ui';
 
-import 'package:learn/utils/routes.dart';
+import 'package:flutter/material.dart';
+import 'package:learn/pages/modules/colours.dart';
+import 'package:learn/pages/modules/parts.dart';
+import 'package:learn/pages/modules/planets.dart';
+import 'package:learn/pages/modules/shapes.dart';
 
 import '../model/module.dart';
 import '../pages/modules/animals.dart';
 import '../pages/modules/atoz.dart';
 import '../pages/modules/birds.dart';
+import 'routes.dart';
 
 class AppConstants {
   static List<Module> modules = [
@@ -13,48 +18,48 @@ class AppConstants {
       name: 'A-Z',
       description: 'Learn A to Z with production and an example',
       thumbnailPath: 'assets/images/alphabets.jpg',
-      route: AllRoutes.atozRoute,
+      route: MaterialPageRoute(builder: (context) => const AtoZ()),
       backgroundColor: const Color.fromARGB(193, 76, 175, 79),
     ),
     Module(
       name: 'Animals',
       description: 'Learn about animals and their sounds',
       thumbnailPath: 'assets/images/animals.jpg',
-      route: AllRoutes.animalRoute,
+      route: MaterialPageRoute(builder: (context) => AnimalsPage()),
       backgroundColor: const Color.fromARGB(194, 157, 82, 222),
     ),
     Module(
       name: 'Birds',
       description: 'Look out for Birds with their sounds',
       thumbnailPath: 'assets/images/birds.jpg',
-      route: AllRoutes.birdsRoute,
+      route: MaterialPageRoute(builder: (context) => BirdsPage() ),
       backgroundColor: const Color.fromARGB(193, 76, 207, 222),
     ),
     Module(
         name: "Colors",
         description: "Explore and Learn about the colors",
-        thumbnailPath: "assets/colors/colors-cover.png",
-        route: "route",
+        thumbnailPath: "assets/colours/colours-cover.png",
+        route: MaterialPageRoute(builder: (context) => const ColoursPage()),
         backgroundColor: const Color.fromARGB(193, 21, 234, 28)),
     Module(
       name: 'Body Parts',
       description: 'Know about body parts and their pronunciation.',
       thumbnailPath: 'assets/body/body.jpg',
-      route: AllRoutes.partsRoute,
+      route: MaterialPageRoute(builder: (context) => const PartsPage() ),
       backgroundColor: const Color.fromARGB(157, 251, 0, 0),
     ),
     Module(
       name: 'Shapes',
       description: 'Learn about shapes',
       thumbnailPath: 'assets/images/shape.gif',
-      route: AllRoutes.shapesRoute,
+      route: MaterialPageRoute(builder: (context) => const ShapesPage() ),
       backgroundColor: const Color.fromARGB(193, 21, 234, 28),
     ),
     Module(
       name: 'Solar System',
       description: 'Learn about the solar system',
       thumbnailPath: 'assets/images/solar.gif',
-      route: AllRoutes.solarRoute,
+      route: MaterialPageRoute(builder: (context) => PlanetsPage()),
       backgroundColor: const Color.fromARGB(193, 226, 221, 70),
     ),
   ];
