@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:learn/cubit/index_cubit.dart';
 import 'package:learn/pages/about.dart';
+import 'package:learn/pages/flowers.dart';
 import 'package:learn/pages/modules/atoz.dart';
 import 'package:learn/pages/modules/birds.dart';
 import 'package:learn/pages/modules/animals.dart';
@@ -12,11 +12,10 @@ import 'package:learn/pages/modules/parts.dart';
 import 'package:learn/pages/modules/shapes.dart';
 import 'package:learn/pages/modules/solar.dart';
 import 'package:learn/utils/routes.dart';
-import 'package:learn/widgets/drawer.dart';
 import 'package:learn/pages/modules/colours.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:learn/widgets/navbar/navbar.dart';
 
+import 'cubit/index_cubit.dart';
 import 'pages/home.dart';
 
 DateTime? currentBackPressTime;
@@ -66,6 +65,7 @@ class MyApp extends StatelessWidget {
                 AllRoutes.animalRoute: (context) => AnimalsPage(),
                 AllRoutes.colourRoute: (context) => const ColoursPage(),
                 AllRoutes.aboutRoute: (context) => const AboutPage(),
+                AllRoutes.flowerRoute: (context) => const FlowerPage(),
                 AllRoutes.exploreRoute: (context) => const ExplorePage(),
                 AllRoutes.favoriteRoute: (context) => const FavoritePage(),
               },
