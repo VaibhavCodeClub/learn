@@ -16,6 +16,7 @@ import 'package:learn/pages/modules/colours.dart';
 import 'package:learn/widgets/navbar/navbar.dart';
 
 import 'cubit/index_cubit.dart';
+import 'explore/quiz.dart';
 import 'pages/home.dart';
 
 DateTime? currentBackPressTime;
@@ -68,6 +69,7 @@ class MyApp extends StatelessWidget {
                 AllRoutes.flowerRoute: (context) => const FlowerPage(),
                 AllRoutes.exploreRoute: (context) => const ExplorePage(),
                 AllRoutes.favoriteRoute: (context) => const FavoritePage(),
+                AllRoutes.quizRoute: (context) => QuizPage(),
               },
             );
           },
@@ -76,6 +78,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
-
