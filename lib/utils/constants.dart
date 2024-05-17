@@ -1,8 +1,8 @@
 import 'dart:ui';
 
-import '../pages/animals.dart';
-import '../pages/atoz.dart';
-import '../pages/birds.dart';
+import '../pages/modules/animals.dart';
+import '../pages/modules/atoz.dart';
+import '../pages/modules/birds.dart';
 
 class AppConstants {
   static const List<String> candidates = [

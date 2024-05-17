@@ -2,6 +2,8 @@
 class AllRoutes {
   static String loginRoute = "/login";
   static String homeRoute = "/home";
+  static String exploreRoute = "/explore";
+  static String favoriteRoute = "/favorite";
   static String animalRoute = "/animals";
   static String birdsRoute = "/birds";
   static String shapesRoute = "/shapes";
