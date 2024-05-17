@@ -9,6 +9,7 @@ import 'package:learn/pages/modules/animals.dart';
 import 'package:learn/pages/explore.dart';
 import 'package:learn/pages/favorite.dart';
 import 'package:learn/pages/modules/parts.dart';
+import 'package:learn/pages/modules/seasons.dart';
 import 'package:learn/pages/modules/shapes.dart';
 import 'package:learn/pages/modules/solar.dart';
 import 'package:learn/utils/routes.dart';
@@ -68,6 +69,7 @@ class MyApp extends StatelessWidget {
                 AllRoutes.flowerRoute: (context) => const FlowerPage(),
                 AllRoutes.exploreRoute: (context) => const ExplorePage(),
                 AllRoutes.favoriteRoute: (context) => const FavoritePage(),
+                AllRoutes.seasonRoute: (context) => SeasonsPage(),
               },
             );
           },
@@ -76,6 +78,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
-
