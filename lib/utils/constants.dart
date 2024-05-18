@@ -1,12 +1,14 @@
 import 'dart:ui';
 
+import 'package:learn/models/animal_model.dart';
+import 'package:learn/models/bird_model.dart';
+import 'package:learn/models/itemdata_model.dart';
+import 'package:learn/models/occupation_model.dart';
+import 'package:learn/models/season_model.dart';
+
 import '../explore/quiz.dart';
 import 'package:flutter/material.dart';
-import '../pages/modules/animals.dart';
-import '../pages/modules/atoz.dart';
-import '../pages/modules/birds.dart';
-import '../pages/modules/seasons.dart';
-import '../pages/modules/occupation.dart';
+
 
 class AppConstants {
   static const List<String> candidates = [

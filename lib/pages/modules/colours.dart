@@ -1,20 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:learn/models/colours_model.dart';
 
-class Colours {
-  final String name;
-  final String jpgAsset;
-  final Color bgColor;
-  final Color fontColor;
-
-  Colours({
-    required this.name,
-    required this.jpgAsset,
-    required this.bgColor,
-    required this.fontColor,
-  });
-}
 
 class ColoursPage extends StatefulWidget {
   const ColoursPage({Key? key}) : super(key: key);

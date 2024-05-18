@@ -2,20 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:just_audio/just_audio.dart';
-
-class Planet {
-  final String name;
-  final String svgAsset;
-  final String description;
-  final Color backgroundColor;
-
-  Planet({
-    required this.name,
-    required this.svgAsset,
-    required this.description,
-    required this.backgroundColor,
-  });
-}
+import 'package:learn/models/planet_model.dart';
 
 class PlanetsPage extends StatelessWidget {
   final List<Planet> planets = [
