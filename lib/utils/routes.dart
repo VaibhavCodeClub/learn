@@ -13,4 +13,5 @@ class AllRoutes {
   static String colourRoute = "/colours";
   static String flowerRoute = "/flowers";
   static String quizRoute = "/quiz";
+  static String seasonRoute = "/seasons";
 }

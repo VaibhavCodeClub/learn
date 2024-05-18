@@ -78,6 +78,7 @@ flutter:
     - assets/images/colours/
     - assets/images/flowers/
     - assets/explore/
+    - assets/seasons/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,9 +1,11 @@
 import 'dart:ui';
 
 import '../explore/quiz.dart';
+import 'package:flutter/material.dart';
 import '../pages/modules/animals.dart';
 import '../pages/modules/atoz.dart';
 import '../pages/modules/birds.dart';
+import '../pages/modules/seasons.dart';
 
 class AppConstants {
   static const List<String> candidates = [
@@ -535,6 +537,37 @@ class AppConstants {
       question: "In which season do we often see snow?",
       options: ["Winter", "Spring", "Autumn", "Summer"],
       correctAnswerIndex: 0,
+    ),
+  ];
+    
+  static List<Season> seasons = [
+    Season(
+      name: 'Spring',
+      description:
+          'Spring is the season of new beginnings. Fresh buds bloom and animals awaken.',
+      imageAsset: 'assets/seasons/spring.svg',
+      backgroundColor: Colors.lightGreen,
+    ),
+    Season(
+      name: 'Summer',
+      description:
+          'Summer is the hottest of the four temperate seasons, falling after spring and before autumn.',
+      imageAsset: 'assets/seasons/summer.svg',
+      backgroundColor: Colors.yellowAccent.shade400,
+    ),
+    Season(
+      name: 'Autumn',
+      description:
+          'Autumn is the season of the year between summer and winter, during which temperatures gradually decrease.',
+      imageAsset: 'assets/seasons/autumn.svg',
+      backgroundColor: Colors.orangeAccent,
+    ),
+    Season(
+      name: 'Winter',
+      description:
+          'Winter is the coldest season of the year in polar and temperate zones.',
+      imageAsset: 'assets/seasons/winter.svg',
+      backgroundColor: Colors.lightBlue,
     ),
   ];
 
