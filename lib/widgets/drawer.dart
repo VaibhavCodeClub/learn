@@ -83,6 +83,14 @@ class MyDrawer extends StatelessWidget {
               context: context,
             ),
             _buildListTile(
+              icon: Icons.work,
+              title: "Occupations",
+              onTap: () {
+                Navigator.pushNamed(context, AllRoutes.occupationRoute);
+              },
+              context: context,
+            ),
+            _buildListTile(
               icon: Icons.sunny,
               title: "Solar System",
               onTap: () {

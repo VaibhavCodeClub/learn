@@ -8,6 +8,7 @@ import 'package:learn/pages/modules/birds.dart';
 import 'package:learn/pages/modules/animals.dart';
 import 'package:learn/pages/explore.dart';
 import 'package:learn/pages/favorite.dart';
+import 'package:learn/pages/modules/occupation.dart';
 import 'package:learn/pages/modules/parts.dart';
 import 'package:learn/pages/modules/shapes.dart';
 import 'package:learn/pages/modules/solar.dart';
@@ -68,6 +69,7 @@ class MyApp extends StatelessWidget {
                 AllRoutes.aboutRoute: (context) => const AboutPage(),
                 AllRoutes.exploreRoute: (context) => const ExplorePage(),
                 AllRoutes.favoriteRoute: (context) => const FavoritePage(),
+                AllRoutes.occupationRoute: (context) => OccupationPage(),
               },
             );
           },
