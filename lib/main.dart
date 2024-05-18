@@ -8,6 +8,7 @@ import 'package:learn/pages/modules/birds.dart';
 import 'package:learn/pages/modules/animals.dart';
 import 'package:learn/pages/explore.dart';
 import 'package:learn/pages/favorite.dart';
+import 'package:learn/pages/modules/occupation.dart';
 import 'package:learn/pages/modules/parts.dart';
 import 'package:learn/pages/modules/seasons.dart';
 import 'package:learn/pages/modules/shapes.dart';
@@ -70,6 +71,7 @@ class MyApp extends StatelessWidget {
                 AllRoutes.exploreRoute: (context) => const ExplorePage(),
                 AllRoutes.favoriteRoute: (context) => const FavoritePage(),
                 AllRoutes.seasonRoute: (context) => SeasonsPage(),
+                AllRoutes.occupationRoute: (context) => OccupationPage(),
               },
             );
           },
