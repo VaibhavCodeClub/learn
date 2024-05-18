@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:learn/main.dart';
- 
+
 class Planet {
   final String name;
   final String svgAsset;
   final String description;
   final Color backgroundColor;
- 
+
   Planet({
     required this.name,
     required this.svgAsset,
@@ -17,7 +16,7 @@ class Planet {
     required this.backgroundColor,
   });
 }
- 
+
 class PlanetsPage extends StatelessWidget {
   final List<Planet> planets = [
     Planet(
@@ -75,12 +74,12 @@ class PlanetsPage extends StatelessWidget {
       backgroundColor: const Color.fromARGB(255, 64, 90, 200),
     ),
   ];
- 
+
   final FlutterTts flutterTts = FlutterTts();
   final AudioPlayer audioPlayer = AudioPlayer();
- 
+
   PlanetsPage({Key? key}) : super(key: key);
- 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -106,28 +105,28 @@ class PlanetsPage extends StatelessWidget {
     );
   }
 }
- 
+
 class PlanetWidget extends StatefulWidget {
   final List<Planet> planets;
   final FlutterTts flutterTts;
   final AudioPlayer audioPlayer;
- 
+
   const PlanetWidget({
     Key? key,
     required this.planets,
     required this.flutterTts,
     required this.audioPlayer,
   }) : super(key: key);
- 
+
   @override
   _PlanetWidgetState createState() => _PlanetWidgetState();
 }
- 
+
 class _PlanetWidgetState extends State<PlanetWidget> {
   int currentIndex = 0;
- 
+
   final _animationDuration = const Duration(milliseconds: 500);
- 
+
   @override
   Widget build(BuildContext context) {
     Planet planet = widget.planets[currentIndex];
@@ -190,20 +189,20 @@ class _PlanetWidgetState extends State<PlanetWidget> {
       ],
     );
   }
- 
+
   void _navigateToNextPlanet() {
     setState(() {
       currentIndex = (currentIndex + 1) % widget.planets.length;
     });
   }
- 
+
   void _navigateToPreviousPlanet() {
     setState(() {
       currentIndex =
           (currentIndex - 1 + widget.planets.length) % widget.planets.length;
     });
   }
- 
+
   Future<void> _playPlanetName(String name) async {
     await widget.flutterTts.setLanguage("en-US");
     await widget.flutterTts.speak(name);
