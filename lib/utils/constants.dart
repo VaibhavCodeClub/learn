@@ -1,11 +1,14 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+
+import 'package:flutter/material.dart';
 import 'package:learn/pages/modules/occupation.dart';
 
 import '../pages/modules/animals.dart';
 import '../pages/modules/atoz.dart';
 import '../pages/modules/birds.dart';
+import '../pages/modules/seasons.dart';
 
 class AppConstants {
   static const List<String> candidates = [
@@ -559,6 +562,37 @@ class AppConstants {
     ),
   ];
 
+  static List<Season> seasons = [
+    Season(
+      name: 'Spring',
+      description:
+          'Spring is the season of new beginnings. Fresh buds bloom and animals awaken.',
+      imageAsset: 'assets/seasons/spring.svg',
+      backgroundColor: Colors.lightGreen,
+    ),
+    Season(
+      name: 'Summer',
+      description:
+          'Summer is the hottest of the four temperate seasons, falling after spring and before autumn.',
+      imageAsset: 'assets/seasons/summer.svg',
+      backgroundColor: Colors.yellowAccent.shade400,
+    ),
+    Season(
+      name: 'Autumn',
+      description:
+          'Autumn is the season of the year between summer and winter, during which temperatures gradually decrease.',
+      imageAsset: 'assets/seasons/autumn.svg',
+      backgroundColor: Colors.orangeAccent,
+    ),
+    Season(
+      name: 'Winter',
+      description:
+          'Winter is the coldest season of the year in polar and temperate zones.',
+      imageAsset: 'assets/seasons/winter.svg',
+      backgroundColor: Colors.lightBlue,
+    ),
+  ];
+
   static const String underConstruction =
       'Page Under Construction.\nIt will not take much time.';
 
@@ -568,6 +602,7 @@ class AppConstants {
   static const String parts = 'Body Parts';
   static const String shape = 'Shapes';
   static const String solar = 'Solar System';
+  static const String flowers = 'Flowers';
   static const String description =
       'Interactive app to let your kids learn various things like\n\n - A - Z alphabets.\n - Animals and their sounds.\n - Birds and their sounds.\n - Various shapes.\n - Body parts.\n - Solar system.\n';
 }

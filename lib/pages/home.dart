@@ -18,6 +18,7 @@ class _MyHomePageState extends State<MyHomePage> {
   bool _isImageClicked2 = false;
   bool _isImageClicked3 = false;
   bool _isImageClicked4 = false;
+  bool _isImageClicked5 = false;
   bool _isDarkTheme = false;
 
   Future<bool> _onBackPressed() {
@@ -262,6 +263,44 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 const Text("Explore and learn about the colours!"),
+                const SizedBox(height: 20),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _isImageClicked5 = !_isImageClicked5;
+                    });
+                    Future.delayed(const Duration(milliseconds: 300), () {
+                      Navigator.pushNamed(context, AllRoutes.flowerRoute);
+                    });
+                  },
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.easeInOut,
+                    height: _isImageClicked5 ? 325 : 350,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: Colors.black, width: 2),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.2),
+                          spreadRadius: 2,
+                          blurRadius: 5,
+                          offset: const Offset(0, 3),
+                        ),
+                      ],
+                      image: const DecorationImage(
+                        image: AssetImage('assets/images/flowers/flower_banner.jpeg'),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                const Text(
+                  'FLOWERS',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                const Text("Explore beauty of nature flowers."),
               ],
             ),
           ),

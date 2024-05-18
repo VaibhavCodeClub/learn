@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:learn/utils/assets_path.dart';
 import 'package:learn/utils/routes.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -29,7 +31,6 @@ class MyDrawer extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 currentAccountPicture: const CircleAvatar(
-
                   backgroundImage: AssetImage("assets/images/dp.png"),
                 ),
               ),
@@ -63,6 +64,14 @@ class MyDrawer extends StatelessWidget {
               title: "Birds",
               onTap: () {
                 Navigator.pushNamed(context, AllRoutes.birdsRoute);
+              },
+              context: context,
+            ),
+            _buildListTile(
+              icon: Icons.cloud,
+              title: "Seasons",
+              onTap: () {
+                Navigator.pushNamed(context, AllRoutes.seasonRoute);
               },
               context: context,
             ),
@@ -106,6 +115,14 @@ class MyDrawer extends StatelessWidget {
               },
               context: context,
             ),
+            _buildListTileSVG(
+              icon: AssetsPath.getFlowerImage('flower-icon.svg'),
+              title: "Flowers",
+              onTap: () {
+                Navigator.pushNamed(context, AllRoutes.flowerRoute);
+              },
+              context: context,
+            ),
             _buildListTile(
               icon: Icons.question_mark_outlined,
               title: "About us",
@@ -128,6 +145,27 @@ class MyDrawer extends StatelessWidget {
   }) {
     return ListTile(
       leading: Icon(icon),
+      title: Text(
+        title,
+        style: Theme.of(context).textTheme.bodyLarge,
+      ),
+      onTap: onTap,
+    );
+  }
+
+  Widget _buildListTileSVG({
+    required BuildContext context,
+    required String icon,
+    required String title,
+    required VoidCallback onTap,
+  }) {
+    return ListTile(
+      leading: SvgPicture.asset(
+        icon,
+        height: 24,
+        width: 24,
+        color: const Color(0xFF49454f),
+      ),
       title: Text(
         title,
         style: Theme.of(context).textTheme.bodyLarge,
