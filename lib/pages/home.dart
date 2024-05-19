@@ -134,8 +134,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           offset: const Offset(0, 3),
                         ),
                       ],
-                      image: const DecorationImage(
-                        image: AssetImage('assets/images/animals.jpg'),
+                      image:  DecorationImage(
+                        image: AssetImage(AssetsPath.getAnimalImage(Animals.animals)),
                         fit: BoxFit.cover,
                       ),
                     ),

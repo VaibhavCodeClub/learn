@@ -96,3 +96,50 @@ class Alphabets{
   static const String yellow = 'yellow.svg';
   static const String zero = 'zero.svg';
 }
+
+class Animals{
+  static const String animals = 'animals.jpg';
+  static const String bear = 'bear.svg';
+  static const String cat = 'cat.svg';
+  static const String cow = 'cow.svg';
+  static const String deer = 'deer.svg';
+  static const String dog = 'dog.svg';
+  static const String elephant = 'elephant.svg';
+  static const String fox = 'fox.svg';
+  static const String giraffe = 'giraffe.svg';
+  static const String goat = 'goat.svg';
+  static const String horse = 'horse.svg';
+  static const String kangaroo = 'kangaroo.svg';
+  static const String lion = 'lion.svg';
+  static const String monkey = 'monkey.svg';
+  static const String pig = 'pig.svg';
+  static const String rabbit = 'rabbit.svg';
+  static const String sheep = 'sheep.svg';
+  static const String snake = 'snake.svg';
+  static const String squirrel = 'squirrel.svg';
+  static const String tiger = 'tiger.svg';
+  static const String zebra = 'zebra.svg';
+
+  //sound
+  static const String bearSound = 'bear_sound.mp3';
+  static const String catSound = 'cat_sound.wav';
+  static const String cowSound = 'cow_sound.mp3';
+  static const String deerSound = 'deer_sound.mp3';
+  static const String dogSound = 'dog_sound.mp3';
+  static const String elephantSound = 'elephant_sound.mp3';
+  static const String foxSound = 'fox_sound.mp3';
+  static const String giraffeSound = 'giraffe_sound.mp3';
+  static const String goatSound = 'goat_sound.mp3';
+  static const String horseSound = 'horse_sound.mp3';
+  static const String kangarooSound = 'kangaroo_sound.mp3';
+  static const String lionSound = 'lion_sound.mp3';
+  static const String monkeySound = 'monkey_sound.mp3';
+  static const String pigSound = 'pig_sound.mp3';
+  static const String rabbitSound = 'rabbit_sound.mp3';
+  static const String sheepSound = 'sheep_sound.mp3';
+  static const String snakeSound = 'snake_sound.mp3';
+  static const String squirrelSound = 'squirrel_sound.mp3';
+  static const String tigerSound = 'tiger_sound.mp3';
+  static const String zebraSound = 'zebra_sound.mp3';
+
+}
