@@ -7,7 +7,7 @@ class AssetsPath {
   static const String _birdImages = 'assets/images/birds/';
   static const String _bodyImages = 'assets/images/body/';
   static const String _solarImages = 'assets/images/solar/';
-  static const String _coloursImages = 'assets/images/colours/';
+  static const String _coloursImages = 'assets/colours/';
 
   //Sound assets
   static const String _sounds = 'assets/sounds/';
@@ -230,7 +230,7 @@ class Body {
 }
 
 class ColorImages{
-  static const String colorsCover = 'colors-cover.png';
+  static const String colorsCover = 'colours-cover.png';
   static const String black = 'black.svg';
   static const String blue = 'blue.svg';
   static const String brown = 'brown.svg';
