@@ -6,7 +6,13 @@ import 'package:learn/pages/fruits.dart';
 import 'package:flutter/material.dart';
 import 'package:learn/pages/fruits.dart';
 
-import '../explore/quiz.dart';
+import 'package:flutter/material.dart';
+import 'package:learn/pages/fruits.dart';
+
+import 'package:flutter/material.dart';
+import 'package:learn/pages/fruits.dart';
+
+import '../pages/explore/quiz.dart';
 import 'package:flutter/material.dart';
 import 'package:learn/pages/modules/colours.dart';
 import 'package:learn/pages/modules/parts.dart';
