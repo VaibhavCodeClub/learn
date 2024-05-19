@@ -5,6 +5,7 @@ import 'package:learn/main.dart';
 
 import '../utils/routes.dart';
 import '../widgets/drawer.dart';
+import 'modules/animals.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -251,7 +252,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ],
                       image: const DecorationImage(
                         image: AssetImage(
-                            'assets/images/colours/colors-cover.png'),
+                            'assets/colours/colours-cover.png'),
                         fit: BoxFit.cover,
                       ),
                     ),

@@ -12,7 +12,7 @@ import 'package:learn/pages/modules/occupation.dart';
 import 'package:learn/pages/modules/parts.dart';
 import 'package:learn/pages/modules/seasons.dart';
 import 'package:learn/pages/modules/shapes.dart';
-import 'package:learn/pages/modules/solar.dart';
+import 'package:learn/pages/modules/planets.dart';
 import 'package:learn/utils/routes.dart';
 import 'package:learn/pages/modules/colours.dart';
 import 'package:learn/widgets/navbar/navbar.dart';
