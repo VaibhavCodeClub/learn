@@ -78,10 +78,11 @@ flutter:
     - assets/images/body/
     - assets/images/birds/
     - assets/images/solar/
-    - assets/images/colours/
+    - assets/colours/
     - assets/images/flowers/
     - assets/explore/
     - assets/seasons/
+    - assets/occupations/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

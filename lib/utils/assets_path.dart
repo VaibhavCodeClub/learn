@@ -259,3 +259,15 @@ class Flowers {
   static const String tulip = 'tulip.svg';
 
 }
+
+class SolarSystem {
+  static const String sun = 'sun.svg';
+  static const String earth = 'earth.svg';
+  static const String jupiter = 'jupiter.svg';
+  static const String mars = 'mars.svg';
+  static const String mercury = 'mercury.svg';
+  static const String neptune = 'neptune.svg';
+  static const String saturn = 'saturn.svg';
+  static const String uranus = 'uranus.svg';
+  static const String venus = 'venus.svg';
+}
