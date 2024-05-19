@@ -11,4 +11,8 @@ class AllRoutes {
   static const String atozRoute = "/atoz";
   static const String aboutRoute = "/about";
   static const String colourRoute = "/colours";
+  static const String flowerRoute = "/flowers";
+  static const String quizRoute = "/quiz";
+  static const String seasonRoute = "/seasons";
+  static const String occupationRoute = '/occupations';
 }
