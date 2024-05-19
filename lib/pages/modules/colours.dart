@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:learn/utils/assets_path.dart';
 
 class Colours {
   final String name;
@@ -27,61 +28,61 @@ class _ColoursPageState extends State<ColoursPage> {
   final List<Colours> colours = [
     Colours(
       name: 'Blue',
-      jpgAsset: 'assets/images/colours/blue.svg',
+      jpgAsset: AssetsPath.getColoursImage(ColorImages.blue),
       bgColor: Colors.lightBlueAccent,
       fontColor: Colors.lightBlueAccent,
     ),
     Colours(
       name: 'Yellow',
-      jpgAsset: 'assets/images/colours/yellow.svg',
+      jpgAsset: AssetsPath.getColoursImage(ColorImages.yellow),
       bgColor: Colors.yellow.shade600,
       fontColor: Colors.yellow.shade600,
     ),
     Colours(
       name: 'Black',
-      jpgAsset: 'assets/images/colours/black.svg',
+      jpgAsset: AssetsPath.getColoursImage(ColorImages.black),
       bgColor: Colors.black,
       fontColor: Colors.black,
     ),
     Colours(
       name: 'Green',
-      jpgAsset: 'assets/images/colours/green.svg',
+      jpgAsset: AssetsPath.getColoursImage(ColorImages.green),
       bgColor: Colors.green,
       fontColor: Colors.green,
     ),
     Colours(
       name: 'Pink',
-      jpgAsset: 'assets/images/colours/pink.svg',
+      jpgAsset: AssetsPath.getColoursImage(ColorImages.pink),
       bgColor: Colors.pink.shade300,
       fontColor: Colors.pink.shade300,
     ),
     Colours(
       name: 'White',
-      jpgAsset: 'assets/images/colours/white.svg',
+      jpgAsset: AssetsPath.getColoursImage(ColorImages.white),
       bgColor: Colors.grey.shade400,
       fontColor: Colors.grey.shade400,
     ),
     Colours(
       name: 'Red',
-      jpgAsset: 'assets/images/colours/red.svg',
+      jpgAsset: AssetsPath.getColoursImage(ColorImages.red),
       bgColor: Colors.red,
       fontColor: Colors.red,
     ),
     Colours(
       name: 'Violet',
-      jpgAsset: 'assets/images/colours/violet.svg',
+      jpgAsset: AssetsPath.getColoursImage(ColorImages.violet),
       bgColor: Colors.deepPurple,
       fontColor: Colors.deepPurple,
     ),
     Colours(
       name: 'Brown',
-      jpgAsset: 'assets/images/colours/brown.svg',
+      jpgAsset: AssetsPath.getColoursImage(ColorImages.brown),
       bgColor: const Color(0xFF964B00),
       fontColor: const Color(0xFF964B00),
     ),
     Colours(
       name: 'Orange',
-      jpgAsset: 'assets/images/colours/orange.svg',
+      jpgAsset: AssetsPath.getColoursImage(ColorImages.orange),
       bgColor: Colors.orange,
       fontColor: Colors.orange,
     ),

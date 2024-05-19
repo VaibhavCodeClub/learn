@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:learn/utils/assets_path.dart';
 import 'package:learn/utils/constants.dart';
 import 'package:learn/utils/functions.dart';
 import 'package:learn/utils/responsive_screen_provider.dart';
@@ -237,7 +238,7 @@ class PartsPageCard extends StatelessWidget {
             children: [
               Expanded(
                 child: SvgPicture.asset(
-                  "assets/body/$name.svg",
+                  AssetsPath.getBodyImage("$name.svg"),
                   width: 250,
                   height: 250,
                 ),

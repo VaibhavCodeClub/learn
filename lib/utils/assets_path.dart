@@ -143,3 +143,102 @@ class Animals{
   static const String zebraSound = 'zebra_sound.mp3';
 
 }
+
+class Birds{
+  static const String birds = 'birds.jpg';
+  static const String bagula = 'Bagula.svg';
+  static const String baya = 'Baya.svg';
+  static const String bulbul = 'Bulbul.svg';
+  static const String crow = 'Crow.svg';
+  static const String duck = 'Duck.svg';
+  static const String eagle = 'Eagle.svg';
+  static const String goose = 'Goose.svg';
+  static const String hen = 'Hen.svg';
+  static const String hummingbird = 'Hummingbird.svg';
+  static const String kingfisher = 'Kingfisher.svg';
+  static const String koel = 'Koel.svg';
+  static const String maina = 'Maina.svg';
+  static const String ostrich = 'Ostrich.svg';
+  static const String owl = 'Owl.svg';
+  static const String parrot = 'Parrot.svg';
+  static const String pigeon = 'Pigeon.svg';
+  static const String robin = 'Robin.svg';
+  static const String seagull = 'Seagull.svg';
+  static const String sparrow = 'Sparrow.svg';
+  static const String swan = 'Swan.svg';
+  static const String vulture = 'Vulture.svg';
+  static const String woodpecker = 'Woodpecker.svg';
+
+  //sound
+
+  static const String bagulaSound = 'Bagula.mp3';
+  static const String bayaSound = 'Baya.mp3';
+  static const String bulbulSound = 'Bulbul.mp3';
+  static const String crowSound = 'Crow.mp3';
+  static const String duckSound = 'Duck.mp3';
+  static const String eagleSound = 'Eagle.mp3';
+  static const String gooseSound = 'Goose.mp3';
+  static const String henSound = 'Hen.mp3';
+  static const String hummingbirdSound = 'Hummingbird.mp3';
+  static const String kingfisherSound = 'Kingfisher.mp3';
+  static const String koelSound = 'Koel.mp3';
+  static const String mainaSound = 'Maina.mp3';
+  static const String ostrichSound = 'Ostrich.mp3';
+  static const String owlSound = 'Owl.mp3';
+  static const String parrotSound = 'Parrot.mp3';
+  static const String pigeonSound = 'Pigeon.mp3';
+  static const String robinSound = 'Robin.mp3';
+  static const String seagullSound = 'Seagull.mp3';
+  static const String sparrowSound = 'Sparrow.mp3';
+  static const String swanSound = 'Swan.mp3';
+  static const String vultureSound = 'Vulture.mp3';
+  static const String woodpeckerSound = 'Woodpecker.mp3';
+}
+
+class Body {
+  static const String body = 'body.jpg';
+  static const String ankle = 'Ankle.svg';
+  static const String arm = 'Arm.svg';
+  static const String back = 'Back.svg';
+  static const String bally = 'Belly.svg';
+  static const String cheek = 'Cheek.svg';
+  static const String chest = 'Chest.svg';
+  static const String chin = 'Chin.svg';
+  static const String ear = 'Ear.svg';
+  static const String elbow = 'Elbow.svg';
+  static const String eye = 'Eye.svg';
+  static const String finger = 'Finger.svg';
+  static const String foot = 'Foot.svg';
+  static const String hair = 'Hair.svg';
+  static const String hips = 'Hips.svg';
+  static const String knee = 'Knee.svg';
+  static const String leg = 'Leg.svg';
+  static const String lips = 'Lips.svg';
+  static const String nail = 'Nail.svg';
+  static const String neck = 'Neck.svg';
+  static const String nose = 'Nose.svg';
+  static const String palm = 'Palm.svg';
+  static const String shoulder = 'Shoulder.svg';
+  static const String stomach = 'Stomach.svg';
+  static const String teeth = 'Teeth.svg';
+  static const String thigh = 'Thigh.svg';
+  static const String thumb = 'Thumb.svg';
+  static const String toe = 'Toe.svg';
+  static const String tongue = 'Tongue.svg';
+  static const String waist = 'Waist.svg';
+  static const String wrist = 'Wrist.svg';
+}
+
+class ColorImages{
+  static const String colorsCover = 'colors-cover.png';
+  static const String black = 'black.svg';
+  static const String blue = 'blue.svg';
+  static const String brown = 'brown.svg';
+  static const String green = 'green.svg';
+  static const String orange = 'orange.svg';
+  static const String pink = 'pink.svg';
+  static const String red = 'red.svg';
+  static const String violet = 'violet.svg';
+  static const String white = 'white.svg';
+  static const String yellow = 'yellow.svg';
+}

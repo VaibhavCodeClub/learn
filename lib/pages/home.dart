@@ -174,8 +174,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           offset: const Offset(0, 3),
                         ),
                       ],
-                      image: const DecorationImage(
-                        image: AssetImage('assets/body/body.jpg'),
+                      image:  DecorationImage(
+                        image: AssetImage(AssetsPath.getBodyImage(Body.body)),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -212,8 +212,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           offset: const Offset(0, 3),
                         ),
                       ],
-                      image: const DecorationImage(
-                        image: AssetImage('assets/images/birds.jpg'),
+                      image:  DecorationImage(
+                        image: AssetImage(AssetsPath.getBirdImage(Birds.birds)),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -250,9 +250,9 @@ class _MyHomePageState extends State<MyHomePage> {
                           offset: const Offset(0, 3),
                         ),
                       ],
-                      image: const DecorationImage(
+                      image:  DecorationImage(
                         image: AssetImage(
-                            'assets/images/colours/colors-cover.png'),
+                            AssetsPath.getColoursImage(ColorImages.colorsCover)),
                         fit: BoxFit.cover,
                       ),
                     ),
