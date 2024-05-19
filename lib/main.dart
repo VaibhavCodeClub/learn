@@ -75,6 +75,7 @@ class MyApp extends StatelessWidget {
                 AllRoutes.quizRoute: (context) => QuizPage(),
                 AllRoutes.seasonRoute: (context) => SeasonsPage(),
                 AllRoutes.occupationRoute: (context) => OccupationPage(),
+                AllRoutes.fruitRoute: (context) => FruitsPage(),
               },
             );
           },
