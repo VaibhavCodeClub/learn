@@ -242,3 +242,20 @@ class ColorImages{
   static const String white = 'white.svg';
   static const String yellow = 'yellow.svg';
 }
+
+class Flowers {
+  static const String flowerBanner = 'flower_banner.jpeg';
+  static const String flowerIcon = 'flower-icon.svg';
+  static const String carnation = 'carnation.svg';
+  static const String daffodil = 'daffodil.svg';
+  static const String daisy = 'daisy.svg';
+  static const String hibiscus = 'hibiscus.svg';
+  static const String lavender = 'lavender.svg';
+  static const String lily = 'lily.svg';
+  static const String marigold = 'marigold.svg';
+  static const String poppy = 'poppy.svg';
+  static const String rose = 'rose.svg';
+  static const String sunflower = 'sunflower.svg';
+  static const String tulip = 'tulip.svg';
+
+}
