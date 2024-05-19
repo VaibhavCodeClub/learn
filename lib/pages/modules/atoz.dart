@@ -460,7 +460,3 @@ class _AtoZState extends State<AtoZ> {
     );
   }
 }
-
-void main() {
-  runApp(const AtoZ());
-}
