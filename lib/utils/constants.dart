@@ -3,11 +3,75 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:learn/pages/fruits.dart';
 
-import '../pages/animals.dart';
-import '../pages/atoz.dart';
-import '../pages/birds.dart';
+import 'package:flutter/material.dart';
+import 'package:learn/pages/fruits.dart';
+
+import '../explore/quiz.dart';
+import 'package:flutter/material.dart';
+import 'package:learn/pages/modules/colours.dart';
+import 'package:learn/pages/modules/parts.dart';
+import 'package:learn/pages/modules/planets.dart';
+import 'package:learn/pages/modules/shapes.dart';
+
+import '../model/module.dart';
+import '../pages/modules/animals.dart';
+import '../pages/modules/atoz.dart';
+import '../pages/modules/birds.dart';
+import '../pages/modules/seasons.dart';
+import '../pages/modules/occupation.dart';
 
 class AppConstants {
+  static List<Module> modules = [
+    Module(
+      name: 'A-Z',
+      description: 'Learn A to Z with production and an example',
+      thumbnailPath: 'assets/images/alphabets.jpg',
+      route: MaterialPageRoute(builder: (context) => const AtoZ()),
+      backgroundColor: const Color.fromARGB(193, 76, 175, 79),
+    ),
+    Module(
+      name: 'Animals',
+      description: 'Learn about animals and their sounds',
+      thumbnailPath: 'assets/images/animals.jpg',
+      route: MaterialPageRoute(builder: (context) => AnimalsPage()),
+      backgroundColor: const Color.fromARGB(194, 157, 82, 222),
+    ),
+    Module(
+      name: 'Birds',
+      description: 'Look out for Birds with their sounds',
+      thumbnailPath: 'assets/images/birds.jpg',
+      route: MaterialPageRoute(builder: (context) => BirdsPage()),
+      backgroundColor: const Color.fromARGB(193, 76, 207, 222),
+    ),
+    Module(
+        name: "Colors",
+        description: "Explore and Learn about the colors",
+        thumbnailPath: "assets/colours/colours-cover.png",
+        route: MaterialPageRoute(builder: (context) => const ColoursPage()),
+        backgroundColor: const Color.fromARGB(193, 21, 234, 28)),
+    Module(
+      name: 'Body Parts',
+      description: 'Know about body parts and their pronunciation.',
+      thumbnailPath: 'assets/body/body.jpg',
+      route: MaterialPageRoute(builder: (context) => const PartsPage()),
+      backgroundColor: const Color.fromARGB(157, 251, 0, 0),
+    ),
+    Module(
+      name: 'Shapes',
+      description: 'Learn about shapes',
+      thumbnailPath: 'assets/images/shape.gif',
+      route: MaterialPageRoute(builder: (context) => const ShapesPage()),
+      backgroundColor: const Color.fromARGB(193, 21, 234, 28),
+    ),
+    Module(
+      name: 'Solar System',
+      description: 'Learn about the solar system',
+      thumbnailPath: 'assets/images/solar.gif',
+      route: MaterialPageRoute(builder: (context) => PlanetsPage()),
+      backgroundColor: const Color.fromARGB(193, 226, 221, 70),
+    ),
+  ];
+
   static const List<String> candidates = [
     "Eye",
     "Lips",
@@ -451,6 +515,232 @@ class AppConstants {
       backgroundColor: const Color.fromARGB(156, 248, 248, 248),
     ),
   ];
+
+  static List<QuizQuestion> quizQuestions = [
+    // Animal Questions
+    QuizQuestion(
+      question: "What sound does a cat make?",
+      options: ["Meow", "Woof", "Moo", "Roar"],
+      correctAnswerIndex: 0,
+    ),
+    QuizQuestion(
+      question: "Which animal is known as the king of the jungle?",
+      options: ["Elephant", "Lion", "Tiger", "Deer"],
+      correctAnswerIndex: 1,
+    ),
+    QuizQuestion(
+      question: "Which animal has a long neck and eats leaves?",
+      options: ["Giraffe", "Bear", "Monkey", "Rabbit"],
+      correctAnswerIndex: 0,
+    ),
+    QuizQuestion(
+      question: "Which animal says 'Moo'?",
+      options: ["Pig", "Dog", "Cow", "Cat"],
+      correctAnswerIndex: 2,
+    ),
+    QuizQuestion(
+      question: "What color are zebra's stripes?",
+      options: [
+        "Black and White",
+        "Brown and White",
+        "Black and Yellow",
+        "Gray and White"
+      ],
+      correctAnswerIndex: 0,
+    ),
+
+    // Bird Questions
+    QuizQuestion(
+      question: "Which bird is known for its beautiful singing?",
+      options: ["Crow", "Sparrow", "Duck", "Robin"],
+      correctAnswerIndex: 3,
+    ),
+    QuizQuestion(
+      question: "Which bird is known to peck wood?",
+      options: ["Eagle", "Owl", "Woodpecker", "Parrot"],
+      correctAnswerIndex: 2,
+    ),
+    QuizQuestion(
+      question: "Which bird can mimic human speech?",
+      options: ["Duck", "Parrot", "Swan", "Eagle"],
+      correctAnswerIndex: 1,
+    ),
+    QuizQuestion(
+      question: "Which bird is known for its colorful feathers?",
+      options: ["Penguin", "Crow", "Peacock", "Hummingbird"],
+      correctAnswerIndex: 3,
+    ),
+    QuizQuestion(
+      question: "Which bird is a common pet known for singing?",
+      options: ["Ostrich", "Canary", "Sparrow", "Eagle"],
+      correctAnswerIndex: 1,
+    ),
+
+    // Season Questions
+    QuizQuestion(
+      question: "In which season do flowers bloom?",
+      options: ["Winter", "Spring", "Autumn", "Summer"],
+      correctAnswerIndex: 1,
+    ),
+    QuizQuestion(
+      question: "Which season is the hottest?",
+      options: ["Winter", "Spring", "Autumn", "Summer"],
+      correctAnswerIndex: 3,
+    ),
+    QuizQuestion(
+      question: "During which season do leaves fall from trees?",
+      options: ["Winter", "Spring", "Autumn", "Summer"],
+      correctAnswerIndex: 2,
+    ),
+    QuizQuestion(
+      question: "Which season is the coldest?",
+      options: ["Winter", "Spring", "Autumn", "Summer"],
+      correctAnswerIndex: 0,
+    ),
+    QuizQuestion(
+      question: "In which season do we often see snow?",
+      options: ["Winter", "Spring", "Autumn", "Summer"],
+      correctAnswerIndex: 0,
+    ),
+  ];
+
+  static List<Season> seasons = [
+    Season(
+      name: 'Spring',
+      description:
+          'Spring is the season of new beginnings. Fresh buds bloom and animals awaken.',
+      imageAsset: 'assets/seasons/spring.svg',
+      backgroundColor: Colors.lightGreen,
+    ),
+    Season(
+      name: 'Summer',
+      description:
+          'Summer is the hottest of the four temperate seasons, falling after spring and before autumn.',
+      imageAsset: 'assets/seasons/summer.svg',
+      backgroundColor: Colors.yellowAccent.shade400,
+    ),
+    Season(
+      name: 'Autumn',
+      description:
+          'Autumn is the season of the year between summer and winter, during which temperatures gradually decrease.',
+      imageAsset: 'assets/seasons/autumn.svg',
+      backgroundColor: Colors.orangeAccent,
+    ),
+    Season(
+      name: 'Winter',
+      description:
+          'Winter is the coldest season of the year in polar and temperate zones.',
+      imageAsset: 'assets/seasons/winter.svg',
+      backgroundColor: Colors.lightBlue,
+    ),
+  ];
+
+  static final List<Occupation> occupations = [
+    Occupation(
+      name: "Doctor",
+      description:
+          "A doctor works in a hospital and helps people get better when they are sick.",
+      svgAsset: "assets/occupations/doctor.svg",
+      backgroundColor: Colors.lightBlue.shade200,
+    ),
+    Occupation(
+      name: "Teacher",
+      description:
+          "A teacher works in a school and teaches children how to read and write.",
+      svgAsset: "assets/occupations/teacher.svg",
+      backgroundColor: Colors.yellow.shade100,
+    ),
+    Occupation(
+      name: "Police Officer",
+      description:
+          "A police officer works in the police station and catches thieves.",
+      svgAsset: "assets/occupations/police.svg",
+      backgroundColor: Colors.green.shade200,
+    ),
+    Occupation(
+      name: "Engineer",
+      description:
+          "An engineer works in many places and build machines, buildings and bridges.",
+      svgAsset: "assets/occupations/engineer.svg",
+      backgroundColor: Colors.red.shade200,
+    ),
+    Occupation(
+      name: "Pilot",
+      description:
+          "A pilot flies airplanes to take people to different places in the world.",
+      svgAsset: "assets/occupations/pilot.svg",
+      backgroundColor: Colors.white,
+    ),
+    Occupation(
+      name: "Artist",
+      description:
+          "An artist works in a studio and makes beautiful pictures and sculptures.",
+      svgAsset: "assets/occupations/artist.svg",
+      backgroundColor: Colors.grey.shade300,
+    ),
+    Occupation(
+      name: "Author",
+      description:
+          "An author works at home or in an office and writes books and stories for people to read.",
+      svgAsset: "assets/occupations/author.svg",
+      backgroundColor: Colors.grey.shade300,
+    ),
+    Occupation(
+      name: "Photographer",
+      description:
+          "A photographer works in different places and takes pictures of people, places, and things.",
+      svgAsset: "assets/occupations/photographer.svg",
+      backgroundColor: Colors.lightBlue.shade100,
+    ),
+    Occupation(
+      name: "Vet",
+      description:
+          "A veterinarian works in an animal hospital and helps pets and other animals when they are sick.",
+      svgAsset: "assets/occupations/vet.svg",
+      backgroundColor: Colors.cyan.shade200,
+    ),
+    Occupation(
+      name: "Farmer",
+      description:
+          "A farmer works on a farm and grows vegetables and fruits that we eat.",
+      svgAsset: "assets/occupations/farmer.svg",
+      backgroundColor: Colors.yellow.shade700,
+    ),
+    Occupation(
+      name: "Carpenter",
+      description:
+          "A carpenter works in workshops and makes furniture for our houses.",
+      svgAsset: "assets/occupations/carpenter.svg",
+      backgroundColor: Colors.orange.shade100,
+    ),
+    Occupation(
+      name: "Electrician",
+      description:
+          "An electrician works in homes and fixes electrical wires and lights.",
+      svgAsset: "assets/occupations/electrician.svg",
+      backgroundColor: Colors.lightBlue.shade200,
+    ),
+    Occupation(
+      name: "Barber",
+      description: "A barber works in a barbershop and cuts hair.",
+      svgAsset: "assets/occupations/barber.svg",
+      backgroundColor: Colors.lightBlue.shade200,
+    ),
+    Occupation(
+      name: "Dentist",
+      description:
+          "A dentist works in a dental hospital and helps keep our teeth clean and healthy.",
+      svgAsset: "assets/occupations/dentist.svg",
+      backgroundColor: Colors.white,
+    ),
+    Occupation(
+      name: "Lawyer",
+      description:
+          "A lawyer works in an office and helps people understand and follow the law.",
+      svgAsset: "assets/occupations/lawyer.svg",
+      backgroundColor: Colors.brown.shade300,
+    ),
+  ];
   static List<Fruit> Fruits = [
     Fruit(
       name: 'Apple',
@@ -559,6 +849,7 @@ class AppConstants {
   static const String parts = 'Body Parts';
   static const String shape = 'Shapes';
   static const String solar = 'Solar System';
+  static const String flowers = 'Flowers';
   static const String fruit = 'Fruits & Vegetables';
   static const String description =
       'Interactive app to let your kids learn various things like\n\n - A - Z alphabets.\n - Animals and their sounds.\n - Birds and their sounds.\n - Various shapes.\n - Body parts.\n - Solar system.\n';

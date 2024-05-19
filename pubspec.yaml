@@ -42,6 +42,9 @@ dependencies:
   card_swiper: ^3.0.1
   flutter_card_swiper: ^7.0.0
   adaptive_theme: ^3.6.0
+  fluttertoast: ^8.2.5
+  google_nav_bar: ^5.0.6
+  flutter_bloc: ^8.1.5
 
 dev_dependencies:
   flutter_test:
@@ -72,7 +75,10 @@ flutter:
     - assets/body/
     - assets/birds/
     - assets/solar/
-    - assets/images/colours/
+    - assets/images/flowers/
+    - assets/explore/
+    - assets/seasons/
+
     - assets/fruitsVeges/
 
   # An image asset can refer to one or more resolution-specific "variants", see

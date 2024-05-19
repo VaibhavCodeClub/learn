@@ -36,7 +36,7 @@
 <a href="https://android.izzysoft.de/repo/apk/vdrs.sappu.lafk.learn"> <img src='readme/IzzyOnDroid.png' width='200'/> </a> 
 <a href="https://github.com/VaibhavCodeClub/learn/releases"> <img src='readme/GitHub.png' width='200'/> </a> <br>
 </div>
-Welcome to **Learn**, a simple learning app built using Flutter for kids. This app is designed to provide an engaging learning experience for children, covering a wide range of topics including :
+Welcome to <strong>Learn</strong>, a simple learning app built using Flutter for kids. This app is designed to provide an engaging learning experience for children, covering a wide range of topics including :
 
 - A-Z Alphabets with examples and pronunciation.
 - Animals and their pronunciation along with their voices.
