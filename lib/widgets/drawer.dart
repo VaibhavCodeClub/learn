@@ -31,7 +31,6 @@ class MyDrawer extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 currentAccountPicture: const CircleAvatar(
-
                   backgroundImage: AssetImage("assets/images/dp.png"),
                 ),
               ),
@@ -69,6 +68,14 @@ class MyDrawer extends StatelessWidget {
               context: context,
             ),
             _buildListTile(
+              icon: Icons.cloud,
+              title: "Seasons",
+              onTap: () {
+                Navigator.pushNamed(context, AllRoutes.seasonRoute);
+              },
+              context: context,
+            ),
+            _buildListTile(
               icon: Icons.pentagon_outlined,
               title: "Shapes",
               onTap: () {
@@ -81,6 +88,14 @@ class MyDrawer extends StatelessWidget {
               title: "Body parts",
               onTap: () {
                 Navigator.pushNamed(context, AllRoutes.partsRoute);
+              },
+              context: context,
+            ),
+            _buildListTile(
+              icon: Icons.work,
+              title: "Occupations",
+              onTap: () {
+                Navigator.pushNamed(context, AllRoutes.occupationRoute);
               },
               context: context,
             ),
@@ -137,6 +152,7 @@ class MyDrawer extends StatelessWidget {
       onTap: onTap,
     );
   }
+
   Widget _buildListTileSVG({
     required BuildContext context,
     required String icon,
@@ -144,7 +160,12 @@ class MyDrawer extends StatelessWidget {
     required VoidCallback onTap,
   }) {
     return ListTile(
-      leading: SvgPicture.asset(icon,height: 24,width: 24,color: const Color(0xFF49454f),),
+      leading: SvgPicture.asset(
+        icon,
+        height: 24,
+        width: 24,
+        color: const Color(0xFF49454f),
+      ),
       title: Text(
         title,
         style: Theme.of(context).textTheme.bodyLarge,

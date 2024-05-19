@@ -1,17 +1,18 @@
-
 class AllRoutes {
-  static String loginRoute = "/login";
-  static String homeRoute = "/home";
-  static String exploreRoute = "/explore";
-  static String favoriteRoute = "/favorite";
-  static String animalRoute = "/animals";
-  static String birdsRoute = "/birds";
-  static String shapesRoute = "/shapes";
-  static String partsRoute = "/parts";
-  static String solarRoute = "/solar";
-  static String atozRoute = "/atoz";
-  static String aboutRoute = "/about";
-  static String colourRoute = "/colours";
-  static String flowerRoute = "/flowers";
-
+  static const String loginRoute = "/login";
+  static const String homeRoute = "/home";
+  static const String exploreRoute = "/explore";
+  static const String favoriteRoute = "/favorite";
+  static const String animalRoute = "/animals";
+  static const String birdsRoute = "/birds";
+  static const String shapesRoute = "/shapes";
+  static const String partsRoute = "/parts";
+  static const String solarRoute = "/solar";
+  static const String atozRoute = "/atoz";
+  static const String aboutRoute = "/about";
+  static const String colourRoute = "/colours";
+  static const String flowerRoute = "/flowers";
+  static const String quizRoute = "/quiz";
+  static const String seasonRoute = "/seasons";
+  static const String occupationRoute = '/occupations';
 }
