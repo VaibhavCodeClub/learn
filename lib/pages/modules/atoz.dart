@@ -147,9 +147,8 @@ class _PopupDialogState extends State<_PopupDialog> {
         padding: EdgeInsets.zero,
         width: MediaQuery.of(context).size.width * 0.7,
         decoration: BoxDecoration(
-          color: currentItem.backgroundColor,
-          borderRadius: BorderRadius.circular(15)
-        ),
+            color: currentItem.backgroundColor,
+            borderRadius: BorderRadius.circular(15)),
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(
@@ -445,7 +444,8 @@ class _AtoZState extends State<AtoZ> {
       body: Padding(
         padding: const EdgeInsets.all(9),
         child: GridView.count(
-          crossAxisCount: MediaQuery.of(context).size.width ~/ 200, // Adjust the value based on screen width
+          crossAxisCount: MediaQuery.of(context).size.width ~/
+              200, // Adjust the value based on screen width
           childAspectRatio: 1.0, // Aspect ratio of items
           children: List.generate(
             items.length,

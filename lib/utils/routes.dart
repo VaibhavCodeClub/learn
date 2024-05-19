@@ -15,4 +15,5 @@ class AllRoutes {
   static const String quizRoute = "/quiz";
   static const String seasonRoute = "/seasons";
   static const String occupationRoute = '/occupations';
+  static const String fruitRoute = "/fruit";
 }
