@@ -47,23 +47,20 @@ class _MyHomePageState extends State<MyHomePage> {
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           actions: [
-            Padding(
-              padding: const EdgeInsets.only(right: 16, top:1),
-              child: IconButton(
-                icon: Icon(
-                  _isDarkTheme ? Icons.dark_mode : Icons.light_mode,
-                ),
-                onPressed: () {
-                  setState(() {
-                    _isDarkTheme = !_isDarkTheme;
-                  });
-                  final themeMode =
-                      Theme.of(context).brightness == Brightness.dark
-                          ? AdaptiveThemeMode.light
-                          : AdaptiveThemeMode.dark;
-                  AdaptiveTheme.of(context).setThemeMode(themeMode);
-                },
+            IconButton(
+              icon: Icon(
+                _isDarkTheme ? Icons.dark_mode : Icons.light_mode,
               ),
+              onPressed: () {
+                setState(() {
+                  _isDarkTheme = !_isDarkTheme;
+                });
+                final themeMode =
+                    Theme.of(context).brightness == Brightness.dark
+                        ? AdaptiveThemeMode.light
+                        : AdaptiveThemeMode.dark;
+                AdaptiveTheme.of(context).setThemeMode(themeMode);
+              },
             ),
           ],
         ),
