@@ -2,6 +2,7 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:learn/main.dart';
+import 'package:learn/utils/assets_path.dart';
 
 import '../utils/routes.dart';
 import '../widgets/drawer.dart';
@@ -93,8 +94,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           offset: const Offset(0, 3),
                         ),
                       ],
-                      image: const DecorationImage(
-                        image: AssetImage('assets/images/alphabets.jpg'),
+                      image: DecorationImage(
+                        image: AssetImage(AssetsPath.getAlphabetImage(Alphabets.alphabets)),
                         fit: BoxFit.cover,
                       ),
                     ),

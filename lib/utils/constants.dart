@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:learn/utils/assets_path.dart';
+
 import '../pages/modules/animals.dart';
 import '../pages/modules/atoz.dart';
 import '../pages/modules/birds.dart';
@@ -38,159 +40,159 @@ class AppConstants {
     "Wrist"
   ];
 
-  static List<ItemData> items = [
+  static List<ItemData> alphabetItems = [
     ItemData(
-      iconAsset: 'assets/images/apple.svg',
+      iconAsset: AssetsPath.getAlphabetImage(Alphabets.apple),
       title: 'A',
       description: 'Apple',
       backgroundColor: const Color.fromARGB(115, 171, 171, 171),
     ),
     ItemData(
-      iconAsset: 'assets/images/ball.svg',
+      iconAsset: AssetsPath.getAlphabetImage(Alphabets.ball),
       title: 'B',
       description: 'Ball',
       backgroundColor: const Color.fromARGB(115, 215, 118, 118),
     ),
     ItemData(
-      iconAsset: 'assets/images/cat.svg',
+      iconAsset: AssetsPath.getAlphabetImage(Alphabets.cat),
       title: 'C',
       description: 'Cat',
       backgroundColor: const Color.fromARGB(194, 130, 243, 69),
     ),
     ItemData(
-      iconAsset: 'assets/images/dog.svg',
+      iconAsset: AssetsPath.getAlphabetImage(Alphabets.dog),
       title: 'D',
       description: 'Dog',
       backgroundColor: const Color.fromARGB(115, 215, 199, 118),
     ),
     ItemData(
-      iconAsset: 'assets/images/elephant.svg',
+      iconAsset: AssetsPath.getAlphabetImage(Alphabets.elephant),
       title: 'E',
       description: 'Elephant',
       backgroundColor: const Color.fromARGB(115, 118, 215, 173),
     ),
     ItemData(
-      iconAsset: 'assets/images/fish.svg',
+      iconAsset: AssetsPath.getAlphabetImage(Alphabets.fish),
       title: 'F',
       description: 'Fish',
       backgroundColor: const Color.fromARGB(115, 150, 118, 215),
     ),
     ItemData(
-      iconAsset: 'assets/images/grapes.svg',
+      iconAsset: AssetsPath.getAlphabetImage(Alphabets.grapes),
       title: 'G',
       backgroundColor: const Color.fromARGB(115, 215, 118, 175),
       description: 'Grapes',
     ),
     ItemData(
-      iconAsset: 'assets/images/horse.svg',
+      iconAsset: AssetsPath.getAlphabetImage(Alphabets.horse),
       title: 'H',
       backgroundColor: const Color.fromARGB(115, 157, 215, 118),
       description: 'Horse',
     ),
     ItemData(
-      iconAsset: 'assets/images/icecream.svg',
+      iconAsset: AssetsPath.getAlphabetImage(Alphabets.icecream),
       title: 'I',
       backgroundColor: const Color.fromARGB(221, 176, 102, 220),
       description: 'Ice-Cream',
     ),
     ItemData(
-      iconAsset: 'assets/images/joker.svg',
+      iconAsset: AssetsPath.getAlphabetImage(Alphabets.joker),
       title: 'J',
       description: 'Joker',
       backgroundColor: const Color.fromARGB(208, 112, 181, 206),
     ),
     ItemData(
-      iconAsset: 'assets/images/king.svg',
+      iconAsset: AssetsPath.getAlphabetImage(Alphabets.king),
       title: 'K',
       backgroundColor: const Color.fromARGB(115, 171, 215, 118),
       description: 'King',
     ),
     ItemData(
-      iconAsset: 'assets/images/lion.svg',
+      iconAsset: AssetsPath.getAlphabetImage(Alphabets.lion),
       title: 'L',
       description: 'Lion',
       backgroundColor: const Color.fromARGB(236, 235, 229, 53),
     ),
     ItemData(
-      iconAsset: 'assets/images/money.svg',
+      iconAsset: AssetsPath.getAlphabetImage(Alphabets.money),
       title: 'M',
       description: 'Money',
       backgroundColor: const Color.fromARGB(115, 118, 189, 215),
     ),
     ItemData(
-      iconAsset: 'assets/images/nest.svg',
+      iconAsset: AssetsPath.getAlphabetImage(Alphabets.nest),
       title: 'N',
       description: 'Nest',
       backgroundColor: const Color.fromARGB(115, 118, 215, 121),
     ),
     ItemData(
-      iconAsset: 'assets/images/orange.svg',
+      iconAsset: AssetsPath.getAlphabetImage(Alphabets.orange),
       title: 'O',
       description: 'Orange',
       backgroundColor: const Color.fromARGB(115, 215, 189, 118),
     ),
     ItemData(
-      iconAsset: 'assets/images/parrot.svg',
+      iconAsset: AssetsPath.getAlphabetImage(Alphabets.parrot),
       title: 'P',
       backgroundColor: const Color.fromARGB(115, 120, 118, 215),
       description: 'Parrot',
     ),
     ItemData(
-      iconAsset: 'assets/images/queen.svg',
+      iconAsset: AssetsPath.getAlphabetImage(Alphabets.queen),
       title: 'Q',
       backgroundColor: const Color.fromARGB(115, 215, 118, 118),
       description: 'Queen',
     ),
     ItemData(
-      iconAsset: 'assets/images/rabbit.svg',
+      iconAsset: AssetsPath.getAlphabetImage(Alphabets.rabbit),
       title: 'R',
       description: 'Rabbit',
       backgroundColor: const Color.fromARGB(174, 134, 218, 191),
     ),
     ItemData(
-      iconAsset: 'assets/images/shiva.svg',
+      iconAsset: AssetsPath.getAlphabetImage(Alphabets.shiva),
       title: 'S',
       backgroundColor: const Color.fromARGB(170, 156, 216, 145),
       description: 'Shiva',
     ),
     ItemData(
-      iconAsset: 'assets/images/table.svg',
+      iconAsset: AssetsPath.getAlphabetImage(Alphabets.table),
       title: 'T',
       backgroundColor: const Color.fromARGB(180, 138, 64, 228),
       description: 'Table',
     ),
     ItemData(
-      iconAsset: 'assets/images/umbrella.svg',
+      iconAsset: AssetsPath.getAlphabetImage(Alphabets.umbrella),
       title: 'U',
       backgroundColor: const Color.fromARGB(189, 212, 127, 220),
       description: 'Umbrella',
     ),
     ItemData(
-      iconAsset: 'assets/images/van.svg',
+      iconAsset: AssetsPath.getAlphabetImage(Alphabets.van),
       title: 'V',
       backgroundColor: const Color.fromARGB(115, 215, 118, 118),
       description: 'Van',
     ),
     ItemData(
-      iconAsset: 'assets/images/window.svg',
+      iconAsset: AssetsPath.getAlphabetImage(Alphabets.window),
       title: 'W',
       backgroundColor: const Color.fromARGB(246, 255, 194, 25),
       description: 'Window',
     ),
     ItemData(
-      iconAsset: 'assets/images/xerox.svg',
+      iconAsset: AssetsPath.getAlphabetImage(Alphabets.xerox),
       title: 'X',
       backgroundColor: const Color.fromARGB(115, 0, 236, 71),
       description: 'Xerox',
     ),
     ItemData(
-      iconAsset: 'assets/images/yellow.svg',
+      iconAsset: AssetsPath.getAlphabetImage(Alphabets.yellow),
       title: 'Y',
       backgroundColor: const Color.fromARGB(115, 9, 255, 230),
       description: 'Yellow',
     ),
     ItemData(
-      iconAsset: 'assets/images/zero.svg',
+      iconAsset: AssetsPath.getAlphabetImage(Alphabets.zero),
       title: 'Z',
       backgroundColor: const Color.fromARGB(155, 81, 0, 255),
       description: 'Zero',
