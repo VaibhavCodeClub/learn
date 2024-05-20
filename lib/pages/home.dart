@@ -2,6 +2,7 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:learn/main.dart';
+import 'package:learn/utils/assets_path.dart';
 
 import '../utils/routes.dart';
 import '../widgets/drawer.dart';
@@ -96,8 +97,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           offset: const Offset(0, 3),
                         ),
                       ],
-                      image: const DecorationImage(
-                        image: AssetImage('assets/images/alphabets.jpg'),
+                      image: DecorationImage(
+                        image: AssetImage(AssetsPath.getAlphabetImage(Alphabets.alphabets)),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -136,8 +137,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           offset: const Offset(0, 3),
                         ),
                       ],
-                      image: const DecorationImage(
-                        image: AssetImage('assets/images/animals.jpg'),
+                      image:  DecorationImage(
+                        image: AssetImage(AssetsPath.getAnimalImage(Animals.animals)),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -176,8 +177,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           offset: const Offset(0, 3),
                         ),
                       ],
-                      image: const DecorationImage(
-                        image: AssetImage('assets/body/body.jpg'),
+                      image:  DecorationImage(
+                        image: AssetImage(AssetsPath.getBodyImage(Body.body)),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -214,8 +215,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           offset: const Offset(0, 3),
                         ),
                       ],
-                      image: const DecorationImage(
-                        image: AssetImage('assets/images/birds.jpg'),
+                      image:  DecorationImage(
+                        image: AssetImage(AssetsPath.getBirdImage(Birds.birds)),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -252,8 +253,9 @@ class _MyHomePageState extends State<MyHomePage> {
                           offset: const Offset(0, 3),
                         ),
                       ],
-                      image: const DecorationImage(
-                        image: AssetImage('assets/colours/colours-cover.png'),
+                      image:  DecorationImage(
+                        image: AssetImage(
+                            AssetsPath.getColoursImage(ColorImages.colorsCover)),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -290,9 +292,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           offset: const Offset(0, 3),
                         ),
                       ],
-                      image: const DecorationImage(
-                        image: AssetImage(
-                            'assets/images/flowers/flower_banner.jpeg'),
+                      image:  DecorationImage(
+                        image: AssetImage(AssetsPath.getFlowerImage(Flowers.flowerBanner)),
                         fit: BoxFit.cover,
                       ),
                     ),

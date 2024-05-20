@@ -23,17 +23,17 @@ class FlowerPage extends StatefulWidget {
 class _FlowerPageState extends State<FlowerPage> {
 
   final List<Flower> flowers = [
-    Flower(name: "Rose", resource: AssetsPath.getFlowerImage("rose.svg"), background: Colors.redAccent),
-    Flower(name: "Sunflower", resource: AssetsPath.getFlowerImage("sunflower.svg"), background: Colors.yellowAccent),
-    Flower(name: "Lily", resource: AssetsPath.getFlowerImage("lily.svg"), background: Colors.greenAccent),
-    Flower(name: "Marigold", resource: AssetsPath.getFlowerImage("marigold.svg"), background: Colors.yellow),
-    Flower(name: "Carnation", resource: AssetsPath.getFlowerImage("carnation.svg"), background: Colors.redAccent),
-    Flower(name: "Daffodil", resource: AssetsPath.getFlowerImage("daffodil.svg"), background: Colors.purpleAccent),
-    Flower(name: "Daisy", resource: AssetsPath.getFlowerImage("daisy.svg"), background: Colors.green),
-    Flower(name: "Poppy", resource: AssetsPath.getFlowerImage("poppy.svg"), background: Colors.redAccent),
-    Flower(name: "Tulip", resource: AssetsPath.getFlowerImage("tulip.svg"), background: Colors.pink),
-    Flower(name: "Lavender", resource: AssetsPath.getFlowerImage("lavender.svg"), background: Colors.purple),
-    Flower(name: "Hibiscus", resource: AssetsPath.getFlowerImage("hibiscus.svg"), background: Colors.red),
+    Flower(name: "Rose", resource: AssetsPath.getFlowerImage(Flowers.rose), background: Colors.redAccent),
+    Flower(name: "Sunflower", resource: AssetsPath.getFlowerImage(Flowers.sunflower), background: Colors.yellowAccent),
+    Flower(name: "Lily", resource: AssetsPath.getFlowerImage(Flowers.lily), background: Colors.greenAccent),
+    Flower(name: "Marigold", resource: AssetsPath.getFlowerImage(Flowers.marigold), background: Colors.yellow),
+    Flower(name: "Carnation", resource: AssetsPath.getFlowerImage(Flowers.carnation), background: Colors.redAccent),
+    Flower(name: "Daffodil", resource: AssetsPath.getFlowerImage(Flowers.daffodil), background: Colors.purpleAccent),
+    Flower(name: "Daisy", resource: AssetsPath.getFlowerImage(Flowers.daisy), background: Colors.green),
+    Flower(name: "Poppy", resource: AssetsPath.getFlowerImage(Flowers.poppy), background: Colors.redAccent),
+    Flower(name: "Tulip", resource: AssetsPath.getFlowerImage(Flowers.tulip), background: Colors.pink),
+    Flower(name: "Lavender", resource: AssetsPath.getFlowerImage(Flowers.lavender), background: Colors.purple),
+    Flower(name: "Hibiscus", resource: AssetsPath.getFlowerImage(Flowers.hibiscus), background: Colors.red),
 
   ];
 
