@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:learn/pages/about.dart';
-import 'package:learn/pages/flowers.dart';
+import 'package:learn/pages/modules/flowers.dart';
 import 'package:learn/pages/modules/atoz.dart';
 import 'package:learn/pages/modules/birds.dart';
 import 'package:learn/pages/modules/animals.dart';
-import 'package:learn/pages/explore.dart';
+import 'package:learn/pages/fruits.dart';
+import 'package:learn/pages/explore/explore.dart';
 import 'package:learn/pages/favorite.dart';
 import 'package:learn/pages/modules/occupation.dart';
 import 'package:learn/pages/modules/parts.dart';
@@ -18,7 +19,7 @@ import 'package:learn/pages/modules/colours.dart';
 import 'package:learn/widgets/navbar/navbar.dart';
 
 import 'cubit/index_cubit.dart';
-import 'explore/quiz.dart';
+import 'pages/explore/quiz.dart';
 import 'pages/home.dart';
 
 DateTime? currentBackPressTime;
@@ -74,6 +75,7 @@ class MyApp extends StatelessWidget {
                 AllRoutes.quizRoute: (context) => QuizPage(),
                 AllRoutes.seasonRoute: (context) => SeasonsPage(),
                 AllRoutes.occupationRoute: (context) => OccupationPage(),
+                AllRoutes.fruitRoute: (context) => FruitsPage(),
               },
             );
           },
