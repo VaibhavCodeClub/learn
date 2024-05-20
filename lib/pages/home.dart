@@ -4,6 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:learn/main.dart';
 import 'package:learn/utils/assets_path.dart';
 
+import '../utils/const_dimensions.dart';
 import '../utils/routes.dart';
 import '../widgets/drawer.dart';
 
@@ -104,14 +105,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: ConstantDimensions.heightMedium),
                 const Text(
                   'ALPHABETS',
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 const Text("Learn A to Z with pronunciation and an example"),
                 const SizedBox(
-                  height: 20,
+                  height: ConstantDimensions.heightMedium,
                 ),
                 GestureDetector(
                   onTap: () {
@@ -144,14 +145,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: ConstantDimensions.heightMedium),
                 const Text(
                   'ANIMALS',
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 const Text("Learn about animals and their voices"),
                 const SizedBox(
-                  height: 20,
+                  height: ConstantDimensions.heightMedium,
                 ),
                 GestureDetector(
                   onTap: () {
@@ -184,13 +185,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: ConstantDimensions.heightMedium),
                 const Text(
                   'BODY PARTS',
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 const Text("Know about body parts and their pronunciation."),
-                const SizedBox(height: 20),
+                const SizedBox(height: ConstantDimensions.heightMedium),
                 GestureDetector(
                   onTap: () {
                     setState(() {
@@ -222,13 +223,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: ConstantDimensions.heightMedium),
                 const Text(
                   'BIRDS',
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 const Text("Look out for Birds with their sounds."),
-                const SizedBox(height: 20),
+                const SizedBox(height: ConstantDimensions.heightMedium),
                 GestureDetector(
                   onTap: () {
                     setState(() {
@@ -261,13 +262,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: ConstantDimensions.heightMedium),
                 const Text(
                   'COLOURS',
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 const Text("Explore and learn about the colours!"),
-                const SizedBox(height: 20),
+                const SizedBox(height: ConstantDimensions.heightMedium),
                 GestureDetector(
                   onTap: () {
                     setState(() {
@@ -299,13 +300,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: ConstantDimensions.heightMedium),
                 const Text(
                   'FLOWERS',
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 const Text("Explore beauty of nature flowers."),
-                const SizedBox(height: 20),
+                const SizedBox(height: ConstantDimensions.heightMedium),
                 GestureDetector(
                   onTap: () {
                     setState(() {
@@ -337,7 +338,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: ConstantDimensions.heightMedium),
                 const Text(
                   'Fruits & Vegetables',
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),

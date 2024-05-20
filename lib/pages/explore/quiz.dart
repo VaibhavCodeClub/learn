@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:learn/utils/constants.dart';
+
+import '../../utils/const_dimensions.dart';
 
 class QuizQuestion {
   final String question;
@@ -91,7 +92,7 @@ class _QuizPageState extends State<QuizPage> {
                         fontSize: 24, fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: ConstantDimensions.heightMedium),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pop();
@@ -108,12 +109,12 @@ class _QuizPageState extends State<QuizPage> {
                     style: const TextStyle(
                         fontSize: 22, fontWeight: FontWeight.bold),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: ConstantDimensions.heightMedium),
                   Text(
                     _questions[_currentQuestionIndex].question,
                     style: const TextStyle(fontSize: 18),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: ConstantDimensions.heightMedium),
                   Column(
                     children: List.generate(
                       _questions[_currentQuestionIndex].options.length,
@@ -130,12 +131,12 @@ class _QuizPageState extends State<QuizPage> {
                           child: Row(
                             children: [
                               SizedBox(
-                                width: 30,
-                                height: 30,
+                                width: ConstantDimensions.widthLarge,
+                                height: ConstantDimensions.heightLarge,
                                 child:
                                     SvgPicture.asset('assets/explore/dot.svg'),
                               ),
-                              const SizedBox(width: 12.0),
+                              const SizedBox(width: ConstantDimensions.heightExtraSmall * 2),
                               Expanded(
                                 child: Text(
                                   _questions[_currentQuestionIndex]
@@ -149,7 +150,7 @@ class _QuizPageState extends State<QuizPage> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: ConstantDimensions.heightMedium),
                   if (_feedbackMessage.isNotEmpty)
                     Container(
                       padding: const EdgeInsets.all(12.0),
@@ -167,7 +168,7 @@ class _QuizPageState extends State<QuizPage> {
                         ),
                       ),
                     ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: ConstantDimensions.heightMedium),
                   if (_answered && !_quizCompleted)
                     ElevatedButton(
                       onPressed: _nextQuestion,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:async';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:learn/utils/const_dimensions.dart';
 import 'package:learn/utils/constants.dart';
 
 class ItemTile extends StatelessWidget {
@@ -49,14 +50,14 @@ class ItemTile extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 3),
+              const SizedBox(height: ConstantDimensions.heightExtraSmall / 2),
               SvgPicture.asset(
                 item.iconAsset,
                 width: MediaQuery.of(context).size.width * 0.3,
                 height: MediaQuery.of(context).size.width * 0.3,
                 alignment: Alignment.center,
               ),
-              const SizedBox(height: 3),
+              const SizedBox(height: ConstantDimensions.heightExtraSmall / 2),
               Text(item.description, textAlign: TextAlign.center),
             ],
           ),
@@ -164,7 +165,7 @@ class _PopupDialogState extends State<_PopupDialog> {
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: ConstantDimensions.heightMedium),
               GestureDetector(
                 onTap: () {
                   _speakText(currentItem.description);
@@ -176,7 +177,7 @@ class _PopupDialogState extends State<_PopupDialog> {
                   alignment: Alignment.center,
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: ConstantDimensions.heightMedium),
               Text(
                 currentItem.description,
                 textAlign: TextAlign.center,
@@ -184,7 +185,7 @@ class _PopupDialogState extends State<_PopupDialog> {
                   fontSize: 28,
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: ConstantDimensions.heightMedium),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -198,7 +199,7 @@ class _PopupDialogState extends State<_PopupDialog> {
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: ConstantDimensions.heightMedium),
               ElevatedButton(
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(
@@ -213,7 +214,7 @@ class _PopupDialogState extends State<_PopupDialog> {
                   style: TextStyle(color: Colors.white),
                 ),
               ),
-              const SizedBox(height: 50),
+              const SizedBox(height: ConstantDimensions.heightExtraLarge),
             ],
           ),
         ),

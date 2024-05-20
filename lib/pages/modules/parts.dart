@@ -9,6 +9,8 @@ import 'package:learn/utils/constants.dart';
 import 'package:learn/utils/functions.dart';
 import 'package:learn/utils/responsive_screen_provider.dart';
 
+import '../../utils/const_dimensions.dart';
+
 void main() {
   runApp(
     const MaterialApp(
@@ -135,7 +137,7 @@ class _PartsPagePageState extends State<PartsPage> {
                             fontSize: 50, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(
-                        width: 150,
+                        width: ConstantDimensions.widthExtraLarge * 3,
                       ),
                       Row(
                         children: [
@@ -150,7 +152,7 @@ class _PartsPagePageState extends State<PartsPage> {
                             },
                           ),
                           const SizedBox(
-                            width: 25,
+                            width: ConstantDimensions.widthExtraLarge / 2,
                           ),
                           IconButton(
                             onPressed: controller.undo,
@@ -162,10 +164,10 @@ class _PartsPagePageState extends State<PartsPage> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 10),
-                      const SizedBox(height: 5),
+                      const SizedBox(height: ConstantDimensions.heightSmall),
+                      SizedBox(height: ConstantDimensions.exceptions[2]),
                       SizedBox(
-                        height: 200,
+                        height: ConstantDimensions.heightExtraLarge * 4,
                         child: SingleChildScrollView(
                           clipBehavior: Clip.hardEdge,
                           child: Text(
@@ -231,19 +233,19 @@ class PartsPageCard extends StatelessWidget {
       child: Card(
         color: color,
         child: SizedBox(
-          width: 300,
-          height: 300,
+          width: ConstantDimensions.widthExtraLarge * 6,
+          height: ConstantDimensions.heightExtraLarge * 6,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Expanded(
                 child: SvgPicture.asset(
                   AssetsPath.getBodyImage("$name.svg"),
-                  width: 250,
-                  height: 250,
+                  width: ConstantDimensions.widthExtraLarge * 5,
+                  height: ConstantDimensions.heightExtraLarge * 5,
                 ),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: ConstantDimensions.heightSmall),
             ],
           ),
         ),
