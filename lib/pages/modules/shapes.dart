@@ -15,19 +15,21 @@ class ShapesPage extends StatelessWidget {
         ),
       ),
       backgroundColor: const Color.fromARGB(255, 0, 187, 238),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              'assets/images/shape.gif',
-            ),
-            const SizedBox(height: 20),
-            const Text(
-              AppConstants.underConstruction,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-          ],
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                'assets/images/shape.gif',
+              ),
+              const SizedBox(height: 20),
+              const Text(
+                AppConstants.underConstruction,
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
         ),
       ),
       drawer: const MyDrawer(),

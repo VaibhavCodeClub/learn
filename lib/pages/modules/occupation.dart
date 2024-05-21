@@ -70,70 +70,72 @@ class _OccupationWidgetState extends State<OccupationWidget> {
   @override
   Widget build(BuildContext context) {
     Occupation occupation = widget.occupations[currentIndex];
-    return Column(
-      children: [
-        const SizedBox(height: 10.0),
-        Container(
-          width: 350,
-          height: MediaQuery.of(context).size.height / 2,
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.black),
-            borderRadius: BorderRadius.circular(8.0),
-            color: occupation.backgroundColor,
-          ),
-          child: AnimatedSize(
-            duration: const Duration(milliseconds: 500),
-            child: SvgPicture.asset(
-              occupation.svgAsset,
-              fit: BoxFit.contain,
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          const SizedBox(height: 10.0),
+          Container(
+            width: 350,
+            height: MediaQuery.of(context).size.height / 2,
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.black),
+              borderRadius: BorderRadius.circular(8.0),
+              color: occupation.backgroundColor,
+            ),
+            child: AnimatedSize(
+              duration: const Duration(milliseconds: 500),
+              child: SvgPicture.asset(
+                occupation.svgAsset,
+                fit: BoxFit.contain,
+              ),
             ),
           ),
-        ),
-        const SizedBox(height: 20.0),
-        Text(
-          occupation.name,
-          style: const TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        const SizedBox(height: 10.0),
-        Padding(
-          padding: const EdgeInsets.only(
-            right: 8.0,
-            left: 8.0,
-          ),
-          child: Text(
-            occupation.description,
-            textAlign: TextAlign.center,
+          const SizedBox(height: 20.0),
+          Text(
+            occupation.name,
             style: const TextStyle(
-              fontSize: 22.0,
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
             ),
           ),
-        ),
-        const SizedBox(height: 30.0),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            IconButton(
-              onPressed: _previousOccupation,
-              icon: const Icon(Icons.arrow_back),
+          const SizedBox(height: 10.0),
+          Padding(
+            padding: const EdgeInsets.only(
+              right: 8.0,
+              left: 8.0,
             ),
-            const SizedBox(width: 20.0),
-            ElevatedButton(
-              onPressed: () {
-                _playOccupationName(occupation.name);
-              },
-              child: const Text("Play Sound"),
+            child: Text(
+              occupation.description,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 22.0,
+              ),
             ),
-            const SizedBox(width: 20.0),
-            IconButton(
-              onPressed: _nextOccupation,
-              icon: const Icon(Icons.arrow_forward),
-            ),
-          ],
-        ),
-      ],
+          ),
+          const SizedBox(height: 30.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                onPressed: _previousOccupation,
+                icon: const Icon(Icons.arrow_back),
+              ),
+              const SizedBox(width: 20.0),
+              ElevatedButton(
+                onPressed: () {
+                  _playOccupationName(occupation.name);
+                },
+                child: const Text("Play Sound"),
+              ),
+              const SizedBox(width: 20.0),
+              IconButton(
+                onPressed: _nextOccupation,
+                icon: const Icon(Icons.arrow_forward),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 

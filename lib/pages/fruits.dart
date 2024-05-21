@@ -51,104 +51,106 @@ class _FruitsPageState extends State<FruitsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: bgColor,
-      appBar: AppBar(
-        title: const Text(
-          AppConstants.fruit,
-          style: TextStyle(fontWeight: FontWeight.bold),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: bgColor,
+        appBar: AppBar(
+          title: const Text(
+            AppConstants.fruit,
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
         ),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            GestureDetector(
-              onTap: _navigateToNextBird,
-              child: Container(
-                width: 375,
-                height: 375,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black),
-                  borderRadius: BorderRadius.circular(8.0),
-                  color: AppConstants.Fruits[_currentIndex].backgroundColor,
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 350,
-                      height: 350,
-                      child: SvgPicture.asset(
-                          AppConstants.Fruits[_currentIndex].svgAsset),
-                    ),
-                  ],
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              GestureDetector(
+                onTap: _navigateToNextBird,
+                child: Container(
+                  width: 375,
+                  height: 375,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black),
+                    borderRadius: BorderRadius.circular(8.0),
+                    color: AppConstants.Fruits[_currentIndex].backgroundColor,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: 350,
+                        height: 350,
+                        child: SvgPicture.asset(
+                            AppConstants.Fruits[_currentIndex].svgAsset),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 20),
-            IconButton.outlined(
-              onPressed: () {
-                readName(
-                  AppConstants.Fruits[_currentIndex].name,
-                );
-              },
-              icon: const Icon(Icons.volume_up_outlined),
-            ),
-            Text(
-              AppConstants.Fruits[_currentIndex].name,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 60,
-                fontFamily: 'Comic',
+              const SizedBox(height: 20),
+              IconButton.outlined(
+                onPressed: () {
+                  readName(
+                    AppConstants.Fruits[_currentIndex].name,
+                  );
+                },
+                icon: const Icon(Icons.volume_up_outlined),
               ),
-            ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                IconButton(
-                  onPressed: _navigateToPrevBird,
-                  icon: const Icon(Icons.arrow_back),
+              Text(
+                AppConstants.Fruits[_currentIndex].name,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 60,
+                  fontFamily: 'Comic',
                 ),
-                ElevatedButton(
-                  style: ButtonStyle(
-                      fixedSize: MaterialStateProperty.all(
-                          Size(MediaQuery.of(context).size.width * .3, 50))),
-                  onPressed: () {
-                    if (AppConstants.Fruits[_currentIndex].isfruit == true) {
-                      bgColor = Colors.green;
-                      setState(() {});
-                    } else {
-                      bgColor = Colors.red;
-                      setState(() {});
-                    }
-                    // _playBirdSound(bird.soundAsset);
-                  },
-                  child: const Text('Fruit'),
-                ),
-                ElevatedButton(
-                  style: ButtonStyle(
-                      fixedSize: MaterialStateProperty.all(
-                          Size(MediaQuery.of(context).size.width * .3, 50))),
-                  onPressed: () {
-                    if (AppConstants.Fruits[_currentIndex].isfruit == false) {
-                      bgColor = Colors.green;
-                      setState(() {});
-                    } else {
-                      bgColor = Colors.red;
-                      setState(() {});
-                    }
-                  },
-                  child: const Text('Vegetable'),
-                ),
-                IconButton(
-                  onPressed: _navigateToNextBird,
-                  icon: const Icon(Icons.arrow_forward),
-                ),
-              ],
-            ),
-          ],
+              ),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  IconButton(
+                    onPressed: _navigateToPrevBird,
+                    icon: const Icon(Icons.arrow_back),
+                  ),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                        fixedSize: MaterialStateProperty.all(
+                            Size(MediaQuery.of(context).size.width * .3, 50))),
+                    onPressed: () {
+                      if (AppConstants.Fruits[_currentIndex].isfruit == true) {
+                        bgColor = Colors.green;
+                        setState(() {});
+                      } else {
+                        bgColor = Colors.red;
+                        setState(() {});
+                      }
+                      // _playBirdSound(bird.soundAsset);
+                    },
+                    child: const Text('Fruit'),
+                  ),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                        fixedSize: MaterialStateProperty.all(
+                            Size(MediaQuery.of(context).size.width * .3, 50))),
+                    onPressed: () {
+                      if (AppConstants.Fruits[_currentIndex].isfruit == false) {
+                        bgColor = Colors.green;
+                        setState(() {});
+                      } else {
+                        bgColor = Colors.red;
+                        setState(() {});
+                      }
+                    },
+                    child: const Text('Vegetable'),
+                  ),
+                  IconButton(
+                    onPressed: _navigateToNextBird,
+                    icon: const Icon(Icons.arrow_forward),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
