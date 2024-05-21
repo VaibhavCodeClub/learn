@@ -51,27 +51,27 @@ class AboutPage extends StatelessWidget {
               style: TextStyle(fontSize: 18.0),
             ),
             const SizedBox(height: 6.0),
-            const Text(
-              'Source code:',
-              style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                _launchURL(context, "https://github.com/VaibhavCodeClub/learn");
-              },
-              child: SvgPicture.asset(
-                'assets/images/git.svg',
-                width: 32.0,
-                height: 32.0,
-                color: Theme.of(context).brightness == Brightness.dark
-                    ? Colors.white
-                    : Colors.black,
-              ),
-            ),
-            const SizedBox(height: 16.0),
+            // const Text(
+            //   'Source code:',
+            //   style: TextStyle(
+            //     fontSize: 20.0,
+            //     fontWeight: FontWeight.bold,
+            //   ),
+            // ),
+            // GestureDetector(
+            //   onTap: () {
+            //     _launchURL(context, "https://github.com/VaibhavCodeClub/learn");
+            //   },
+            //   child: SvgPicture.asset(
+            //     'assets/images/git.svg',
+            //     width: 32.0,
+            //     height: 32.0,
+            //     color: Theme.of(context).brightness == Brightness.dark
+            //         ? Colors.white
+            //         : Colors.black,
+            //   ),
+            // ),
+            // const SizedBox(height: 16.0),
             const Text(
               'Connect:',
               style: TextStyle(
@@ -105,7 +105,7 @@ class AboutPage extends StatelessWidget {
                     height: 32.0,
                     color: Theme.of(context).brightness == Brightness.dark
                         ? Colors.white
-                        : Colors.black ,
+                        : Colors.black,
                   ),
                 ),
                 const SizedBox(width: 16.0),

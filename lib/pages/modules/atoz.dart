@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:async';
@@ -36,7 +35,7 @@ class ItemTile extends StatelessWidget {
           );
         },
         child: Padding(
-          padding: const EdgeInsets.all(6),
+          padding: const EdgeInsets.all(5),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -52,8 +51,8 @@ class ItemTile extends StatelessWidget {
               const SizedBox(height: 3),
               SvgPicture.asset(
                 item.iconAsset,
-                width: MediaQuery.of(context).size.width * 0.3,
-                height: MediaQuery.of(context).size.width * 0.3,
+                width: MediaQuery.of(context).size.width * 0.25,
+                height: MediaQuery.of(context).size.width * 0.25,
                 alignment: Alignment.center,
               ),
               const SizedBox(height: 3),
