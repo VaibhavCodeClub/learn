@@ -17,7 +17,7 @@ class ExplorePage extends StatelessWidget {
           title: Padding(
             padding: const EdgeInsets.fromLTRB(0, 12, 16, 4),
             child: Text(
-              "Explore", 
+              "Explore",
               style: Theme.of(context)
                   .textTheme
                   .headlineLarge!
@@ -34,8 +34,8 @@ class ExplorePage extends StatelessWidget {
                   AppConstants.modules[index].route,
                 ),
                 child: Container(
-                    margin:
-                        const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                    margin: const EdgeInsets.symmetric(
+                        horizontal: 24, vertical: 12),
                     height: 200,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),

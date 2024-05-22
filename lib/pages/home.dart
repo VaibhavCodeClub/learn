@@ -2,10 +2,10 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:learn/main.dart';
+import 'package:learn/utils/assets_path.dart';
 
 import '../utils/routes.dart';
 import '../widgets/drawer.dart';
-import 'modules/animals.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -49,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           actions: [
             Padding(
-              padding: const EdgeInsets.only(right: 16, top:1),
+              padding: const EdgeInsets.only(right: 16, top: 1),
               child: IconButton(
                 icon: Icon(
                   _isDarkTheme ? Icons.dark_mode : Icons.light_mode,
@@ -97,8 +97,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           offset: const Offset(0, 3),
                         ),
                       ],
-                      image: const DecorationImage(
-                        image: AssetImage('assets/images/alphabets.jpg'),
+                      image: DecorationImage(
+                        image: AssetImage(AssetsPath.getAlphabetImage(Alphabets.alphabets)),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -137,8 +137,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           offset: const Offset(0, 3),
                         ),
                       ],
-                      image: const DecorationImage(
-                        image: AssetImage('assets/images/animals.jpg'),
+                      image:  DecorationImage(
+                        image: AssetImage(AssetsPath.getAnimalImage(Animals.animals)),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -177,8 +177,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           offset: const Offset(0, 3),
                         ),
                       ],
-                      image: const DecorationImage(
-                        image: AssetImage('assets/body/body.jpg'),
+                      image:  DecorationImage(
+                        image: AssetImage(AssetsPath.getBodyImage(Body.body)),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -215,8 +215,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           offset: const Offset(0, 3),
                         ),
                       ],
-                      image: const DecorationImage(
-                        image: AssetImage('assets/images/birds.jpg'),
+                      image:  DecorationImage(
+                        image: AssetImage(AssetsPath.getBirdImage(Birds.birds)),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -253,9 +253,9 @@ class _MyHomePageState extends State<MyHomePage> {
                           offset: const Offset(0, 3),
                         ),
                       ],
-                      image: const DecorationImage(
+                      image:  DecorationImage(
                         image: AssetImage(
-                            'assets/colours/colours-cover.png'),
+                            AssetsPath.getColoursImage(ColorImages.colorsCover)),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -292,8 +292,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           offset: const Offset(0, 3),
                         ),
                       ],
-                      image: const DecorationImage(
-                        image: AssetImage('assets/images/flowers/flower_banner.jpeg'),
+                      image:  DecorationImage(
+                        image: AssetImage(AssetsPath.getFlowerImage(Flowers.flowerBanner)),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -305,6 +305,44 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 const Text("Explore beauty of nature flowers."),
+                const SizedBox(height: 20),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _isImageClicked4 = !_isImageClicked4;
+                    });
+                    Future.delayed(const Duration(milliseconds: 300), () {
+                      Navigator.pushNamed(context, AllRoutes.fruitRoute);
+                    });
+                  },
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.easeInOut,
+                    height: _isImageClicked4 ? 325 : 350,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: Colors.black, width: 2),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.2),
+                          spreadRadius: 2,
+                          blurRadius: 5,
+                          offset: const Offset(0, 3),
+                        ),
+                      ],
+                      image: const DecorationImage(
+                        image: AssetImage('assets/fruitsVeges/cover.jpg'),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                const Text(
+                  'Fruits & Vegetables',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                const Text("Explore and learn about Fruits and Vegetables!"),
               ],
             ),
           ),

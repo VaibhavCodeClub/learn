@@ -2,61 +2,62 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:learn/utils/assets_path.dart';
 import 'package:learn/models/planet_model.dart';
 
 class PlanetsPage extends StatelessWidget {
   final List<Planet> planets = [
     Planet(
       name: 'Sun',
-      svgAsset: 'assets/solar/sun.svg',
+      svgAsset: AssetsPath.getSolarImage(SolarSystem.sun),
       description: 'Sun is the biggest star in the solar system.',
       backgroundColor: const Color.fromARGB(255, 208, 211, 23),
     ),
     Planet(
       name: 'Mercury',
-      svgAsset: 'assets/solar/mercury.svg',
+      svgAsset: AssetsPath.getSolarImage(SolarSystem.mercury),
       description: 'Mercury is the closest planet to the Sun.',
       backgroundColor: const Color.fromARGB(255, 221, 221, 221),
     ),
     Planet(
       name: 'Venus',
-      svgAsset: 'assets/solar/venus.svg',
+      svgAsset: AssetsPath.getSolarImage(SolarSystem.venus),
       description: 'Venus is known for its thick atmosphere.',
       backgroundColor: const Color.fromARGB(255, 240, 193, 95),
     ),
     Planet(
       name: 'Earth',
-      svgAsset: 'assets/solar/earth.svg',
+      svgAsset: AssetsPath.getSolarImage(SolarSystem.earth),
       description: 'Earth is the third planet from the Sun.',
       backgroundColor: const Color.fromARGB(255, 81, 149, 192),
     ),
     Planet(
       name: 'Mars',
-      svgAsset: 'assets/solar/mars.svg',
+      svgAsset: AssetsPath.getSolarImage(SolarSystem.mars),
       description: 'Mars is often called the Red Planet.',
       backgroundColor: const Color.fromARGB(255, 238, 118, 96),
     ),
     Planet(
       name: 'Jupiter',
-      svgAsset: 'assets/solar/jupiter.svg',
+      svgAsset: AssetsPath.getSolarImage(SolarSystem.jupiter),
       description: 'Jupiter is the largest planet in our solar system.',
       backgroundColor: const Color.fromARGB(255, 204, 164, 122),
     ),
     Planet(
       name: 'Saturn',
-      svgAsset: 'assets/solar/saturn.svg',
+      svgAsset: AssetsPath.getSolarImage(SolarSystem.saturn),
       description: 'Saturn is known for its beautiful rings.',
       backgroundColor: const Color.fromARGB(255, 229, 215, 194),
     ),
     Planet(
       name: 'Uranus',
-      svgAsset: 'assets/solar/uranus.png',
+      svgAsset: AssetsPath.getSolarImage(SolarSystem.uranus),
       description: 'Uranus is an ice giant with a unique rotation axis.',
       backgroundColor: const Color.fromARGB(255, 169, 222, 246),
     ),
     Planet(
       name: 'Neptune',
-      svgAsset: 'assets/solar/neptune.svg',
+      svgAsset: AssetsPath.getSolarImage(SolarSystem.neptune),
       description: 'Neptune is the farthest planet from the Sun.',
       backgroundColor: const Color.fromARGB(255, 64, 90, 200),
     ),
