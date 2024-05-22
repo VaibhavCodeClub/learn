@@ -2,6 +2,9 @@ name: ✨ Feature Request
 description: Suggest a feature
 title: "[Feature Request]: "
 body:
+  - type: markdown
+    attributes:
+      value: "We are not going to add new modules!"
   - type: checkboxes
     id: existing-issue
     attributes:
