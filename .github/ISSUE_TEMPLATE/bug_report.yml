@@ -31,15 +31,16 @@ body:
       label: Add ScreenShots
       description: Add sufficient ScreenShots to explain your issue.
   - type: dropdown
-    id: browsers
+    id: devices
     attributes:
-      label: What browsers are you seeing the problem on?
+      label: On which device are you experiencing this bug?
       multiple: true
       options:
-        - Firefox
+        - Android
+        - iPhone
+        - Linux
         - Chrome
-        - Safari
-        - Microsoft Edge
+        - Windows
   - type: checkboxes
     id: terms
     attributes:
@@ -48,6 +49,6 @@ body:
         - label: "I have read the Contributing Guidelines"
           required: true
         - label: "I'm a GSSOC'24 contributor"
-          required: true
+          required: False
         - label: "I have starred the repository"
           required: true
