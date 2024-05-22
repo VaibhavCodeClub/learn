@@ -9,8 +9,8 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: SingleChildScrollView(
-        child: SafeArea(
+      child: SafeArea(
+        child: SingleChildScrollView(
           child: Container(
             color: Theme.of(context).canvasColor,
             child: Column(
