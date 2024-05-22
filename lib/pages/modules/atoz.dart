@@ -1,9 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:async';
 import 'package:flutter_tts/flutter_tts.dart';
-import 'package:learn/models/itemdata_model.dart';
 import 'package:learn/utils/constants.dart';
 
 class ItemTile extends StatelessWidget {
@@ -36,31 +34,28 @@ class ItemTile extends StatelessWidget {
             },
           );
         },
-        child: Padding(
-          padding: const EdgeInsets.all(6),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text(
-                item.title,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 25,
-                ),
-                textAlign: TextAlign.center,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              item.title,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 23,
               ),
-              const SizedBox(height: 3),
-              SvgPicture.asset(
-                item.iconAsset,
-                width: MediaQuery.of(context).size.width * 0.3,
-                height: MediaQuery.of(context).size.width * 0.3,
-                alignment: Alignment.center,
-              ),
-              const SizedBox(height: 3),
-              Text(item.description, textAlign: TextAlign.center),
-            ],
-          ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 2),
+            SvgPicture.asset(
+              item.iconAsset,
+              width: MediaQuery.of(context).size.width * 0.25,
+              height: MediaQuery.of(context).size.width * 0.2,
+              alignment: Alignment.center,
+            ),
+            const SizedBox(height: 2),
+            Text(item.description, textAlign: TextAlign.center),
+          ],
         ),
       ),
     );
@@ -142,85 +137,101 @@ class _PopupDialogState extends State<_PopupDialog> {
   @override
   Widget build(BuildContext context) {
     final currentItem = widget.items[currentIndex];
-    return AlertDialog(
-      contentPadding: EdgeInsets.zero,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-      content: Container(
-        padding: EdgeInsets.zero,
-        width: MediaQuery.of(context).size.width * 0.7,
-        decoration: BoxDecoration(
-            color: currentItem.backgroundColor,
-            borderRadius: BorderRadius.circular(15)),
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                currentItem.title,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 40,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 20),
-              GestureDetector(
-                onTap: () {
-                  _speakText(currentItem.description);
-                },
-                child: SvgPicture.asset(
-                  currentItem.iconAsset,
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  height: MediaQuery.of(context).size.width * 0.5,
-                  alignment: Alignment.center,
-                ),
-              ),
-              const SizedBox(height: 20),
-              Text(
-                currentItem.description,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 28,
-                ),
-              ),
-              const SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ElevatedButton(
-                    onPressed: _previousItem,
-                    child: const Text('Prev'),
+    return SingleChildScrollView(
+      child: AlertDialog(
+        contentPadding: EdgeInsets.zero,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+        content: Container(
+          padding: EdgeInsets.zero,
+          width: MediaQuery.of(context).size.width * 0.7,
+          decoration: BoxDecoration(
+              color: currentItem.backgroundColor,
+              borderRadius: BorderRadius.circular(15)),
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  currentItem.title,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 40,
                   ),
-                  ElevatedButton(
-                    onPressed: _nextItem,
-                    child: const Text('Next'),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                    const Color.fromARGB(216, 233, 101, 92),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 20),
+                GestureDetector(
+                  onTap: () {
+                    _speakText(currentItem.description);
+                  },
+                  child: SvgPicture.asset(
+                    currentItem.iconAsset,
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    height: MediaQuery.of(context).size.width * 0.5,
+                    alignment: Alignment.center,
                   ),
                 ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Text(
-                  'Close',
-                  style: TextStyle(color: Colors.white),
+                const SizedBox(height: 20),
+                Text(
+                  currentItem.description,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 28,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 50),
-            ],
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: _previousItem,
+                      child: const Text('Prev'),
+                    ),
+                    ElevatedButton(
+                      onPressed: _nextItem,
+                      child: const Text('Next'),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      const Color.fromARGB(216, 233, 101, 92),
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text(
+                    'Close',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                const SizedBox(height: 50),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
+}
+
+class ItemData {
+  final String iconAsset;
+  final String title;
+  final String description;
+  final Color backgroundColor;
+
+  ItemData({
+    required this.iconAsset,
+    required this.title,
+    required this.description,
+    required this.backgroundColor,
+  });
 }
 
 class AtoZ extends StatefulWidget {
@@ -271,11 +282,11 @@ class _AtoZState extends State<AtoZ> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(9),
+        padding: const EdgeInsets.all(10),
         child: GridView.count(
           crossAxisCount: MediaQuery.of(context).size.width ~/
-              200, // Adjust the value based on screen width
-          childAspectRatio: 1.0, // Aspect ratio of items
+              180, // Adjust the value based on screen width
+          childAspectRatio: 0.8, // Aspect ratio of items
           children: List.generate(
             items.length,
             (index) => ItemTile(
@@ -288,8 +299,4 @@ class _AtoZState extends State<AtoZ> {
       ),
     );
   }
-}
-
-void main() {
-  runApp(const AtoZ());
 }

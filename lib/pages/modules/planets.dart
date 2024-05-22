@@ -118,63 +118,65 @@ class _PlanetWidgetState extends State<PlanetWidget> {
   @override
   Widget build(BuildContext context) {
     Planet planet = widget.planets[currentIndex];
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        GestureDetector(
-          onTap: _navigateToNextPlanet,
-          child: AnimatedContainer(
-            duration: _animationDuration,
-            width: 350,
-            height: MediaQuery.of(context).size.height * 0.6,
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.black),
-              borderRadius: BorderRadius.circular(8.0),
-              color: planet.backgroundColor,
-            ),
-            child: Center(
-              child: AnimatedSize(
-                duration: _animationDuration,
-                child: SvgPicture.asset(
-                  planet.svgAsset,
-                  fit: BoxFit.contain,
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          GestureDetector(
+            onTap: _navigateToNextPlanet,
+            child: AnimatedContainer(
+              duration: _animationDuration,
+              width: 350,
+              height: MediaQuery.of(context).size.height * 0.6,
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black),
+                borderRadius: BorderRadius.circular(8.0),
+                color: planet.backgroundColor,
+              ),
+              child: Center(
+                child: AnimatedSize(
+                  duration: _animationDuration,
+                  child: SvgPicture.asset(
+                    planet.svgAsset,
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
             ),
           ),
-        ),
-        const SizedBox(height: 20),
-        Text(
-          planet.description,
-          style: const TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
+          const SizedBox(height: 20),
+          Text(
+            planet.description,
+            style: const TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.center,
           ),
-          textAlign: TextAlign.center,
-        ),
-        const SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            IconButton(
-              onPressed: _navigateToPreviousPlanet,
-              icon: const Icon(Icons.arrow_back),
-            ),
-            const SizedBox(width: 20),
-            ElevatedButton(
-              onPressed: () {
-                _playPlanetName(planet.name);
-              },
-              child: const Text('Play Sound'),
-            ),
-            const SizedBox(width: 20),
-            IconButton(
-              onPressed: _navigateToNextPlanet,
-              icon: const Icon(Icons.arrow_forward),
-            ),
-          ],
-        ),
-      ],
+          const SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                onPressed: _navigateToPreviousPlanet,
+                icon: const Icon(Icons.arrow_back),
+              ),
+              const SizedBox(width: 20),
+              ElevatedButton(
+                onPressed: () {
+                  _playPlanetName(planet.name);
+                },
+                child: const Text('Play Sound'),
+              ),
+              const SizedBox(width: 20),
+              IconButton(
+                onPressed: _navigateToNextPlanet,
+                icon: const Icon(Icons.arrow_forward),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 

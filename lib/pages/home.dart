@@ -69,281 +69,287 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
         body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(38.0),
-            child: Column(
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _isImageClicked1 = !_isImageClicked1;
-                    });
-                    Future.delayed(const Duration(milliseconds: 300), () {
-                      Navigator.pushNamed(context, AllRoutes.atozRoute);
-                    });
-                  },
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                    height: _isImageClicked1 ? 325 : 350,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: Colors.black, width: 2),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: const Offset(0, 3),
+          child: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(38.0),
+              child: Column(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _isImageClicked1 = !_isImageClicked1;
+                      });
+                      Future.delayed(const Duration(milliseconds: 300), () {
+                        Navigator.pushNamed(context, AllRoutes.atozRoute);
+                      });
+                    },
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                      height: _isImageClicked1 ? 325 : 350,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(color: Colors.black, width: 2),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            spreadRadius: 2,
+                            blurRadius: 5,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
+                        image: DecorationImage(
+                          image: AssetImage(
+                              AssetsPath.getAlphabetImage(Alphabets.alphabets)),
+                          fit: BoxFit.cover,
                         ),
-                      ],
-                      image: DecorationImage(
-                        image: AssetImage(AssetsPath.getAlphabetImage(Alphabets.alphabets)),
-                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 20),
-                const Text(
-                  'ALPHABETS',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-                const Text("Learn A to Z with pronunciation and an example"),
-                const SizedBox(
-                  height: 20,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _isImageClicked2 = !_isImageClicked2;
-                    });
-                    Future.delayed(const Duration(milliseconds: 300), () {
-                      Navigator.pushNamed(context, AllRoutes.animalRoute);
-                    });
-                  },
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                    height: _isImageClicked2 ? 325 : 350,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: Colors.black, width: 2),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: const Offset(0, 3),
+                  const SizedBox(height: 20),
+                  const Text(
+                    'ALPHABETS',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  const Text("Learn A to Z with pronunciation and an example"),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _isImageClicked2 = !_isImageClicked2;
+                      });
+                      Future.delayed(const Duration(milliseconds: 300), () {
+                        Navigator.pushNamed(context, AllRoutes.animalRoute);
+                      });
+                    },
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                      height: _isImageClicked2 ? 325 : 350,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(color: Colors.black, width: 2),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            spreadRadius: 2,
+                            blurRadius: 5,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
+                        image: DecorationImage(
+                          image: AssetImage(
+                              AssetsPath.getAnimalImage(Animals.animals)),
+                          fit: BoxFit.cover,
                         ),
-                      ],
-                      image:  DecorationImage(
-                        image: AssetImage(AssetsPath.getAnimalImage(Animals.animals)),
-                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 20),
-                const Text(
-                  'ANIMALS',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-                const Text("Learn about animals and their voices"),
-                const SizedBox(
-                  height: 20,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _isImageClicked3 = !_isImageClicked3;
-                    });
-                    Future.delayed(const Duration(milliseconds: 300), () {
-                      Navigator.pushNamed(context, AllRoutes.partsRoute);
-                    });
-                  },
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                    height: _isImageClicked3 ? 325 : 350,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: Colors.black, width: 2),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: const Offset(0, 3),
+                  const SizedBox(height: 20),
+                  const Text(
+                    'ANIMALS',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  const Text("Learn about animals and their voices"),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _isImageClicked3 = !_isImageClicked3;
+                      });
+                      Future.delayed(const Duration(milliseconds: 300), () {
+                        Navigator.pushNamed(context, AllRoutes.partsRoute);
+                      });
+                    },
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                      height: _isImageClicked3 ? 325 : 350,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(color: Colors.black, width: 2),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            spreadRadius: 2,
+                            blurRadius: 5,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
+                        image: DecorationImage(
+                          image: AssetImage(AssetsPath.getBodyImage(Body.body)),
+                          fit: BoxFit.cover,
                         ),
-                      ],
-                      image:  DecorationImage(
-                        image: AssetImage(AssetsPath.getBodyImage(Body.body)),
-                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 20),
-                const Text(
-                  'BODY PARTS',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-                const Text("Know about body parts and their pronunciation."),
-                const SizedBox(height: 20),
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _isImageClicked4 = !_isImageClicked4;
-                    });
-                    Future.delayed(const Duration(milliseconds: 300), () {
-                      Navigator.pushNamed(context, AllRoutes.birdsRoute);
-                    });
-                  },
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                    height: _isImageClicked4 ? 325 : 350,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: Colors.black, width: 2),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: const Offset(0, 3),
+                  const SizedBox(height: 20),
+                  const Text(
+                    'BODY PARTS',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  const Text("Know about body parts and their pronunciation."),
+                  const SizedBox(height: 20),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _isImageClicked4 = !_isImageClicked4;
+                      });
+                      Future.delayed(const Duration(milliseconds: 300), () {
+                        Navigator.pushNamed(context, AllRoutes.birdsRoute);
+                      });
+                    },
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                      height: _isImageClicked4 ? 325 : 350,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(color: Colors.black, width: 2),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            spreadRadius: 2,
+                            blurRadius: 5,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
+                        image: DecorationImage(
+                          image:
+                              AssetImage(AssetsPath.getBirdImage(Birds.birds)),
+                          fit: BoxFit.cover,
                         ),
-                      ],
-                      image:  DecorationImage(
-                        image: AssetImage(AssetsPath.getBirdImage(Birds.birds)),
-                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 20),
-                const Text(
-                  'BIRDS',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-                const Text("Look out for Birds with their sounds."),
-                const SizedBox(height: 20),
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _isImageClicked4 = !_isImageClicked4;
-                    });
-                    Future.delayed(const Duration(milliseconds: 300), () {
-                      Navigator.pushNamed(context, AllRoutes.colourRoute);
-                    });
-                  },
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                    height: _isImageClicked4 ? 325 : 350,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: Colors.black, width: 2),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: const Offset(0, 3),
+                  const SizedBox(height: 20),
+                  const Text(
+                    'BIRDS',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  const Text("Look out for Birds with their sounds."),
+                  const SizedBox(height: 20),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _isImageClicked4 = !_isImageClicked4;
+                      });
+                      Future.delayed(const Duration(milliseconds: 300), () {
+                        Navigator.pushNamed(context, AllRoutes.colourRoute);
+                      });
+                    },
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                      height: _isImageClicked4 ? 325 : 350,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(color: Colors.black, width: 2),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            spreadRadius: 2,
+                            blurRadius: 5,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
+                        image: DecorationImage(
+                          image: AssetImage(AssetsPath.getColoursImage(
+                              ColorImages.colorsCover)),
+                          fit: BoxFit.cover,
                         ),
-                      ],
-                      image:  DecorationImage(
-                        image: AssetImage(
-                            AssetsPath.getColoursImage(ColorImages.colorsCover)),
-                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 20),
-                const Text(
-                  'COLOURS',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-                const Text("Explore and learn about the colours!"),
-                const SizedBox(height: 20),
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _isImageClicked5 = !_isImageClicked5;
-                    });
-                    Future.delayed(const Duration(milliseconds: 300), () {
-                      Navigator.pushNamed(context, AllRoutes.flowerRoute);
-                    });
-                  },
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                    height: _isImageClicked5 ? 325 : 350,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: Colors.black, width: 2),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: const Offset(0, 3),
+                  const SizedBox(height: 20),
+                  const Text(
+                    'COLOURS',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  const Text("Explore and learn about the colours!"),
+                  const SizedBox(height: 20),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _isImageClicked5 = !_isImageClicked5;
+                      });
+                      Future.delayed(const Duration(milliseconds: 300), () {
+                        Navigator.pushNamed(context, AllRoutes.flowerRoute);
+                      });
+                    },
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                      height: _isImageClicked5 ? 325 : 350,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(color: Colors.black, width: 2),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            spreadRadius: 2,
+                            blurRadius: 5,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
+                        image: DecorationImage(
+                          image: AssetImage(
+                              AssetsPath.getFlowerImage(Flowers.flowerBanner)),
+                          fit: BoxFit.cover,
                         ),
-                      ],
-                      image:  DecorationImage(
-                        image: AssetImage(AssetsPath.getFlowerImage(Flowers.flowerBanner)),
-                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 20),
-                const Text(
-                  'FLOWERS',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-                const Text("Explore beauty of nature flowers."),
-                const SizedBox(height: 20),
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _isImageClicked4 = !_isImageClicked4;
-                    });
-                    Future.delayed(const Duration(milliseconds: 300), () {
-                      Navigator.pushNamed(context, AllRoutes.fruitRoute);
-                    });
-                  },
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                    height: _isImageClicked4 ? 325 : 350,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: Colors.black, width: 2),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: const Offset(0, 3),
+                  const SizedBox(height: 20),
+                  const Text(
+                    'FLOWERS',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  const Text("Explore beauty of nature flowers."),
+                  const SizedBox(height: 20),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _isImageClicked4 = !_isImageClicked4;
+                      });
+                      Future.delayed(const Duration(milliseconds: 300), () {
+                        Navigator.pushNamed(context, AllRoutes.fruitRoute);
+                      });
+                    },
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                      height: _isImageClicked4 ? 325 : 350,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(color: Colors.black, width: 2),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            spreadRadius: 2,
+                            blurRadius: 5,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
+                        image: const DecorationImage(
+                          image: AssetImage('assets/fruitsVeges/cover.jpg'),
+                          fit: BoxFit.cover,
                         ),
-                      ],
-                      image: const DecorationImage(
-                        image: AssetImage('assets/fruitsVeges/cover.jpg'),
-                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 20),
-                const Text(
-                  'Fruits & Vegetables',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-                const Text("Explore and learn about Fruits and Vegetables!"),
-              ],
+                  const SizedBox(height: 20),
+                  const Text(
+                    'Fruits & Vegetables',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  const Text("Explore and learn about Fruits and Vegetables!"),
+                ],
+              ),
             ),
           ),
         ),

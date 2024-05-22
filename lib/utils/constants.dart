@@ -1,25 +1,7 @@
-import 'dart:ui';
-
-import 'package:learn/models/animal_model.dart';
-import 'package:learn/models/bird_model.dart';
-import 'package:learn/models/itemdata_model.dart';
-import 'package:learn/models/occupation_model.dart';
-import 'package:learn/models/season_model.dart';
-
-import 'package:flutter/material.dart';
-import 'package:learn/pages/fruits.dart';
-
-import 'package:flutter/material.dart';
-import 'package:learn/pages/fruits.dart';
-
-import 'package:flutter/material.dart';
-import 'package:learn/pages/fruits.dart';
-
 import 'package:flutter/material.dart';
 import 'package:learn/pages/fruits.dart';
 
 import '../pages/explore/quiz.dart';
-import 'package:flutter/material.dart';
 import 'package:learn/pages/modules/colours.dart';
 import 'package:learn/pages/modules/parts.dart';
 import 'package:learn/pages/modules/planets.dart';
@@ -39,21 +21,21 @@ class AppConstants {
     Module(
       name: 'A-Z',
       description: 'Learn A to Z with production and an example',
-      thumbnailPath: 'assets/images/alphabets.jpg',
+      thumbnailPath: 'assets/images/alphabet/alphabets.jpg',
       route: MaterialPageRoute(builder: (context) => const AtoZ()),
       backgroundColor: const Color.fromARGB(193, 76, 175, 79),
     ),
     Module(
       name: 'Animals',
       description: 'Learn about animals and their sounds',
-      thumbnailPath: 'assets/images/animals.jpg',
+      thumbnailPath: 'assets/images/animal/animals.jpg',
       route: MaterialPageRoute(builder: (context) => AnimalsPage()),
       backgroundColor: const Color.fromARGB(194, 157, 82, 222),
     ),
     Module(
       name: 'Birds',
       description: 'Look out for Birds with their sounds',
-      thumbnailPath: 'assets/images/birds.jpg',
+      thumbnailPath: 'assets/images/birds/birds.jpg',
       route: MaterialPageRoute(builder: (context) => BirdsPage()),
       backgroundColor: const Color.fromARGB(193, 76, 207, 222),
     ),
@@ -66,7 +48,7 @@ class AppConstants {
     Module(
       name: 'Body Parts',
       description: 'Know about body parts and their pronunciation.',
-      thumbnailPath: 'assets/body/body.jpg',
+      thumbnailPath: 'assets/images/body/body.jpg',
       route: MaterialPageRoute(builder: (context) => const PartsPage()),
       backgroundColor: const Color.fromARGB(157, 251, 0, 0),
     ),
@@ -80,7 +62,7 @@ class AppConstants {
     Module(
       name: 'Solar System',
       description: 'Learn about the solar system',
-      thumbnailPath: 'assets/images/solar.gif',
+      thumbnailPath: 'assets/images/solar/solar.gif',
       route: MaterialPageRoute(builder: (context) => PlanetsPage()),
       backgroundColor: const Color.fromARGB(193, 226, 221, 70),
     ),
@@ -318,7 +300,7 @@ class AppConstants {
     Animal(
       name: 'Goat',
       svgAsset: AssetsPath.getAnimalImage(Animals.goat),
-      soundAsset:AssetsPath.getAnimalSound(Animals.goatSound),
+      soundAsset: AssetsPath.getAnimalSound(Animals.goatSound),
       backgroundColor: const Color.fromARGB(138, 48, 59, 48),
     ),
     Animal(
@@ -366,7 +348,7 @@ class AppConstants {
     Animal(
       name: 'Zebra',
       svgAsset: AssetsPath.getAnimalImage(Animals.zebra),
-      soundAsset:AssetsPath.getAnimalSound(Animals.zebraSound),
+      soundAsset: AssetsPath.getAnimalSound(Animals.zebraSound),
       backgroundColor: const Color.fromARGB(193, 187, 74, 178),
     ),
     Animal(
@@ -384,7 +366,7 @@ class AppConstants {
     Animal(
       name: 'Horse',
       svgAsset: AssetsPath.getAnimalImage(Animals.horse),
-      soundAsset:AssetsPath.getAnimalSound(Animals.horseSound),
+      soundAsset: AssetsPath.getAnimalSound(Animals.horseSound),
       backgroundColor: const Color.fromARGB(98, 243, 201, 33),
     ),
     Animal(
@@ -513,7 +495,7 @@ class AppConstants {
     Bird(
       name: 'Koel',
       svgAsset: AssetsPath.getBirdImage(Birds.koel),
-      soundAsset:AssetsPath.getBirdSound(Birds.koelSound),
+      soundAsset: AssetsPath.getBirdSound(Birds.koelSound),
       backgroundColor: const Color.fromARGB(232, 141, 255, 93),
     ),
     Bird(

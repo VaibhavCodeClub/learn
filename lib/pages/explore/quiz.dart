@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
+
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:learn/utils/constants.dart';
 
@@ -79,102 +79,108 @@ class _QuizPageState extends State<QuizPage> {
       appBar: AppBar(
         title: const Text('Quiz'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: _quizCompleted
-            ? Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Quiz Completed! Your score is $_score/${_questions.length}',
-                    style: const TextStyle(
-                        fontSize: 24, fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 20),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: const Text('Back to Explore'),
-                  ),
-                ],
-              )
-            : Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Question ${_currentQuestionIndex + 1}/${_questions.length}',
-                    style: const TextStyle(
-                        fontSize: 22, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 20),
-                  Text(
-                    _questions[_currentQuestionIndex].question,
-                    style: const TextStyle(fontSize: 18),
-                  ),
-                  const SizedBox(height: 20),
-                  Column(
-                    children: List.generate(
-                      _questions[_currentQuestionIndex].options.length,
-                      (index) => GestureDetector(
-                        onTap: () => _answerQuestion(index),
-                        child: Container(
-                          margin: const EdgeInsets.symmetric(vertical: 4.0),
-                          padding: const EdgeInsets.all(8.0),
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: _quizCompleted
+                ? Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Quiz Completed! Your score is $_score/${_questions.length}',
+                        style: const TextStyle(
+                            fontSize: 24, fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 20),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text('Back to Explore'),
+                      ),
+                    ],
+                  )
+                : Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Question ${_currentQuestionIndex + 1}/${_questions.length}',
+                        style: const TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 20),
+                      Text(
+                        _questions[_currentQuestionIndex].question,
+                        style: const TextStyle(fontSize: 18),
+                      ),
+                      const SizedBox(height: 20),
+                      Column(
+                        children: List.generate(
+                          _questions[_currentQuestionIndex].options.length,
+                          (index) => GestureDetector(
+                            onTap: () => _answerQuestion(index),
+                            child: Container(
+                              margin: const EdgeInsets.symmetric(vertical: 4.0),
+                              padding: const EdgeInsets.all(8.0),
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black, width: 1.0),
+                                borderRadius: BorderRadius.circular(8.0),
+                                color: Colors.blueAccent.withOpacity(0.2),
+                              ),
+                              child: Row(
+                                children: [
+                                  SizedBox(
+                                    width: 30,
+                                    height: 30,
+                                    child: SvgPicture.asset(
+                                        'assets/explore/dot.svg'),
+                                  ),
+                                  const SizedBox(width: 12.0),
+                                  Expanded(
+                                    child: Text(
+                                      _questions[_currentQuestionIndex]
+                                          .options[index],
+                                      style: const TextStyle(fontSize: 16),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      if (_feedbackMessage.isNotEmpty)
+                        Container(
+                          padding: const EdgeInsets.all(12.0),
                           decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black, width: 1.0),
+                            color: _feedbackColor.withOpacity(0.2),
                             borderRadius: BorderRadius.circular(8.0),
-                            color: Colors.blueAccent.withOpacity(0.2),
+                            border:
+                                Border.all(color: _feedbackColor, width: 1.0),
                           ),
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: 30,
-                                height: 30,
-                                child:
-                                    SvgPicture.asset('assets/explore/dot.svg'),
-                              ),
-                              const SizedBox(width: 12.0),
-                              Expanded(
-                                child: Text(
-                                  _questions[_currentQuestionIndex]
-                                      .options[index],
-                                  style: const TextStyle(fontSize: 16),
-                                ),
-                              ),
-                            ],
+                          child: Text(
+                            _feedbackMessage,
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: _feedbackColor,
+                            ),
                           ),
                         ),
-                      ),
-                    ),
+                      const SizedBox(height: 20),
+                      if (_answered && !_quizCompleted)
+                        ElevatedButton(
+                          onPressed: _nextQuestion,
+                          child: const Text('Next Question'),
+                        ),
+                    ],
                   ),
-                  const SizedBox(height: 20),
-                  if (_feedbackMessage.isNotEmpty)
-                    Container(
-                      padding: const EdgeInsets.all(12.0),
-                      decoration: BoxDecoration(
-                        color: _feedbackColor.withOpacity(0.2),
-                        borderRadius: BorderRadius.circular(8.0),
-                        border: Border.all(color: _feedbackColor, width: 1.0),
-                      ),
-                      child: Text(
-                        _feedbackMessage,
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: _feedbackColor,
-                        ),
-                      ),
-                    ),
-                  const SizedBox(height: 20),
-                  if (_answered && !_quizCompleted)
-                    ElevatedButton(
-                      onPressed: _nextQuestion,
-                      child: const Text('Next Question'),
-                    ),
-                ],
-              ),
+          ),
+        ),
       ),
     );
   }
