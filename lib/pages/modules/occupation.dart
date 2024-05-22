@@ -2,23 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:learn/models/occupation_model.dart';
 import 'package:learn/utils/constants.dart';
 
 import '../../utils/const_dimensions.dart';
-
-class Occupation {
-  final String name;
-  final String description;
-  final String svgAsset;
-  final Color backgroundColor;
-
-  Occupation({
-    required this.name,
-    required this.description,
-    required this.svgAsset,
-    required this.backgroundColor,
-  });
-}
 
 class OccupationPage extends StatelessWidget {
   final FlutterTts flutterTts = FlutterTts();

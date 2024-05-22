@@ -4,23 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:learn/models/animal_model.dart';
 import 'package:learn/utils/constants.dart';
 
 import '../../utils/const_dimensions.dart';
-
-class Animal {
-  final String name;
-  final String svgAsset;
-  final String soundAsset;
-  final Color backgroundColor;
-
-  Animal({
-    required this.name,
-    required this.svgAsset,
-    required this.soundAsset,
-    required this.backgroundColor,
-  });
-}
 
 class AnimalsPage extends StatelessWidget {
 

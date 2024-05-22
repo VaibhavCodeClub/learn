@@ -1,22 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:learn/models/season_model.dart';
 import 'package:learn/utils/constants.dart';
-
 import '../../utils/const_dimensions.dart';
-
-class Season {
-  final String name;
-  final String description;
-  final String imageAsset;
-  final Color backgroundColor;
-
-  Season({
-    required this.name,
-    required this.description,
-    required this.imageAsset,
-    required this.backgroundColor,
-  });
-}
 
 class SeasonsPage extends StatelessWidget {
   SeasonsPage({Key? key}) : super(key: key);

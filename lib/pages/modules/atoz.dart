@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:async';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:learn/utils/const_dimensions.dart';
+import 'package:learn/models/itemdata_model.dart';
 import 'package:learn/utils/constants.dart';
 
 class ItemTile extends StatelessWidget {
@@ -223,20 +224,6 @@ class _PopupDialogState extends State<_PopupDialog> {
   }
 }
 
-class ItemData {
-  final String iconAsset;
-  final String title;
-  final String description;
-  final Color backgroundColor;
-
-  ItemData({
-    required this.iconAsset,
-    required this.title,
-    required this.description,
-    required this.backgroundColor,
-  });
-}
-
 class AtoZ extends StatefulWidget {
   const AtoZ({Key? key}) : super(key: key);
 
@@ -302,4 +289,8 @@ class _AtoZState extends State<AtoZ> {
       ),
     );
   }
+}
+
+void main() {
+  runApp(const AtoZ());
 }
