@@ -15,7 +15,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  bool _isImageClicked = false;
+  final List<bool> _isImageClicked = List.generate(7, (index) => false);
   bool _isDarkTheme = false;
 
   Future<bool> _onBackPressed() {
@@ -35,7 +35,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    print(_isImageClicked);
     return WillPopScope(
       onWillPop: _onBackPressed,
       child: Scaffold(
@@ -77,6 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   shortDescription:
                       "Learn A to Z with pronunciation and an example",
                   route: AllRoutes.atozRoute,
+                  index: 0,
                 ),
                 const SizedBox(
                   height: 20,
@@ -87,6 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   image: AssetsPath.getAnimalImage(Animals.animals),
                   shortDescription: "Learn about animals and their voices",
                   route: AllRoutes.animalRoute,
+                  index: 1,
                 ),
                 const SizedBox(
                   height: 20,
@@ -98,6 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   shortDescription:
                       "Know about body parts and their pronunciation.",
                   route: AllRoutes.partsRoute,
+                  index: 2,
                 ),
                 const SizedBox(height: 20),
                 categoryCard(
@@ -106,6 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   image: AssetsPath.getBirdImage(Birds.birds),
                   shortDescription: "Look out for Birds with their sounds.",
                   route: AllRoutes.birdsRoute,
+                  index: 3,
                 ),
                 const SizedBox(height: 20),
                 categoryCard(
@@ -114,6 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   image: AssetsPath.getColoursImage(ColorImages.colorsCover),
                   shortDescription: "Explore and learn about the colours!",
                   route: AllRoutes.colourRoute,
+                  index: 4,
                 ),
                 const SizedBox(height: 20),
                 categoryCard(
@@ -122,6 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   image: AssetsPath.getFlowerImage(Flowers.flowerBanner),
                   shortDescription: "Explore beauty of nature flowers.",
                   route: AllRoutes.flowerRoute,
+                  index: 5,
                 ),
                 const SizedBox(height: 20),
                 categoryCard(
@@ -131,6 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   shortDescription:
                       "Explore and learn about Fruits and Vegetables!",
                   route: AllRoutes.fruitRoute,
+                  index: 6,
                 ),
               ],
             ),
@@ -147,13 +153,14 @@ class _MyHomePageState extends State<MyHomePage> {
     required String image,
     required String shortDescription,
     required String route,
+    required int index,
   }) {
     return Column(
       children: [
         GestureDetector(
           onTap: () {
             setState(() {
-              _isImageClicked = !_isImageClicked;
+              _isImageClicked[index] = !_isImageClicked[index];
             });
             Future.delayed(const Duration(milliseconds: 300), () {
               Navigator.pushNamed(context, route);
@@ -162,7 +169,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 300),
             curve: Curves.easeInOut,
-            height: _isImageClicked ? 325 : 350,
+            height: _isImageClicked[index] ? 325 : 350,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               border: Border.all(color: Colors.black, width: 2),
