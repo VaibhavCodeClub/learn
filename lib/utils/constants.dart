@@ -1,5 +1,11 @@
 import 'dart:ui';
 
+import 'package:learn/models/animal_model.dart';
+import 'package:learn/models/bird_model.dart';
+import 'package:learn/models/itemdata_model.dart';
+import 'package:learn/models/occupation_model.dart';
+import 'package:learn/models/season_model.dart';
+
 import 'package:flutter/material.dart';
 import 'package:learn/pages/fruits.dart';
 
