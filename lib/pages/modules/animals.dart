@@ -72,12 +72,14 @@ class AnimalsPage extends StatelessWidget {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return AnimalPopup(
-          animal: animal,
-          flutterTts: flutterTts,
-          audioPlayer: audioPlayer,
-          animals: AppConstants.animals,
-          currentIndex: currentIndex,
+        return SingleChildScrollView(
+          child: AnimalPopup(
+            animal: animal,
+            flutterTts: flutterTts,
+            audioPlayer: audioPlayer,
+            animals: AppConstants.animals,
+            currentIndex: currentIndex,
+          ),
         );
       },
     );

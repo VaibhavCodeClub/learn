@@ -83,11 +83,13 @@ class PlanetsPage extends StatelessWidget {
           },
         ),
       ),
-      body: Center(
-        child: PlanetWidget(
-          planets: planets,
-          flutterTts: flutterTts,
-          audioPlayer: audioPlayer,
+      body: SingleChildScrollView(
+        child: Center(
+          child: PlanetWidget(
+            planets: planets,
+            flutterTts: flutterTts,
+            audioPlayer: audioPlayer,
+          ),
         ),
       ),
     );

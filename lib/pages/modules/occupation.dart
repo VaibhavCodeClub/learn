@@ -25,11 +25,13 @@ class OccupationPage extends StatelessWidget {
           },
         ),
       ),
-      body: Center(
-        child: OccupationWidget(
-          occupations: AppConstants.occupations,
-          flutterTts: flutterTts,
-          audioPlayer: audioPlayer,
+      body: SingleChildScrollView(
+        child: Center(
+          child: OccupationWidget(
+            occupations: AppConstants.occupations,
+            flutterTts: flutterTts,
+            audioPlayer: audioPlayer,
+          ),
         ),
       ),
     );

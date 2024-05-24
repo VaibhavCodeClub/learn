@@ -60,9 +60,11 @@ class SeasonsPage extends StatelessWidget {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return SeasonPopup(
-          currentIndex: index,
-          seasons: AppConstants.seasons,
+        return SingleChildScrollView(
+          child: SeasonPopup(
+            currentIndex: index,
+            seasons: AppConstants.seasons,
+          ),
         );
       },
     );
