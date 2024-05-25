@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:learn/models/season_model.dart';
@@ -5,7 +7,7 @@ import 'package:learn/utils/constants.dart';
 import '../../utils/const_dimensions.dart';
 
 class SeasonsPage extends StatelessWidget {
-  SeasonsPage({Key? key}) : super(key: key);
+  const SeasonsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +76,8 @@ class SeasonPopup extends StatefulWidget {
   final int currentIndex;
   final List<Season> seasons;
 
-  SeasonPopup({
+  const SeasonPopup({
+    super.key,
     required this.currentIndex,
     required this.seasons,
   });

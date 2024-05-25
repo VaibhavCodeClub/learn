@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tts/flutter_tts.dart';
@@ -73,56 +71,57 @@ class _PartsPagePageState extends State<PartsPage> {
         child: Column(
           children: [
             Expanded(
-              child: ResponsiveScreenProvider.isMobileScreen(context)?CardSwiper(
-          controller: controller,
-          cardsCount: cards.length,
-          onSwipe: (prevIndex, currentIndex, direction) {
-            setState(() {
-              previousIndices.add(topCardIndex);
-              topCardIndex = currentIndex ?? 0;
-            });
-            return true;
-          },
-          onUndo: _onUndo,
-          numberOfCardsDisplayed: 3,
-          backCardOffset: const Offset(40, 40),
-          padding: const EdgeInsets.all(24.0),
-          cardBuilder: (
-              context,
-              index,
-              horizontalThresholdPercentage,
-              verticalThresholdPercentage,
-              ) =>
-          cards[index],
-        ) :
-              Center(
-                child: SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.4,
-                  width: MediaQuery.of(context).size.height * 0.6,
-                  child: CardSwiper(
-                    controller: controller,
-                    cardsCount: cards.length,
-                    onSwipe: (prevIndex, currentIndex, direction) {
-                      setState(() {
-                        previousIndices.add(topCardIndex);
-                        topCardIndex = currentIndex ?? 0;
-                      });
-                      return true;
-                    },
-                    onUndo: _onUndo,
-                    numberOfCardsDisplayed: 3,
-                    backCardOffset: const Offset(40, 40),
-                    padding: const EdgeInsets.all(24.0),
-                    cardBuilder: (
-                      context,
-                      index,
-                      horizontalThresholdPercentage,
-                      verticalThresholdPercentage,
-                    ) =>
-                        cards[index],
-                  ),
-                ),
-              ),
+              child: ResponsiveScreenProvider.isMobileScreen(context)
+                  ? CardSwiper(
+                      controller: controller,
+                      cardsCount: cards.length,
+                      onSwipe: (prevIndex, currentIndex, direction) {
+                        setState(() {
+                          previousIndices.add(topCardIndex);
+                          topCardIndex = currentIndex ?? 0;
+                        });
+                        return true;
+                      },
+                      onUndo: _onUndo,
+                      numberOfCardsDisplayed: 3,
+                      backCardOffset: const Offset(40, 40),
+                      padding: const EdgeInsets.all(24.0),
+                      cardBuilder: (
+                        context,
+                        index,
+                        horizontalThresholdPercentage,
+                        verticalThresholdPercentage,
+                      ) =>
+                          cards[index],
+                    )
+                  : Center(
+                      child: SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.4,
+                        width: MediaQuery.of(context).size.height * 0.6,
+                        child: CardSwiper(
+                          controller: controller,
+                          cardsCount: cards.length,
+                          onSwipe: (prevIndex, currentIndex, direction) {
+                            setState(() {
+                              previousIndices.add(topCardIndex);
+                              topCardIndex = currentIndex ?? 0;
+                            });
+                            return true;
+                          },
+                          onUndo: _onUndo,
+                          numberOfCardsDisplayed: 3,
+                          backCardOffset: const Offset(40, 40),
+                          padding: const EdgeInsets.all(24.0),
+                          cardBuilder: (
+                            context,
+                            index,
+                            horizontalThresholdPercentage,
+                            verticalThresholdPercentage,
+                          ) =>
+                              cards[index],
+                        ),
+                      ),
+                    ),
             ),
             Expanded(
               child: Padding(

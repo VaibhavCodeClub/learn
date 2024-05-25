@@ -16,11 +16,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  bool _isImageClicked1 = false;
-  bool _isImageClicked2 = false;
-  bool _isImageClicked3 = false;
-  bool _isImageClicked4 = false;
-  bool _isImageClicked5 = false;
+  final List<bool> _isImageClicked = List.generate(7, (index) => false);
   bool _isDarkTheme = false;
 
   Future<bool> _onBackPressed() {
@@ -74,36 +70,14 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: const EdgeInsets.all(38.0),
             child: Column(
               children: [
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _isImageClicked1 = !_isImageClicked1;
-                    });
-                    Future.delayed(const Duration(milliseconds: 300), () {
-                      Navigator.pushNamed(context, AllRoutes.atozRoute);
-                    });
-                  },
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                    height: _isImageClicked1 ? 325 : 350,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: Colors.black, width: 2),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: const Offset(0, 3),
-                        ),
-                      ],
-                      image: DecorationImage(
-                        image: AssetImage(AssetsPath.getAlphabetImage(Alphabets.alphabets)),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
+                categoryCard(
+                  context: context,
+                  title: "ALPHABETS",
+                  image: AssetsPath.getAlphabetImage(Alphabets.alphabets),
+                  shortDescription:
+                      "Learn A to Z with pronunciation and an example",
+                  route: AllRoutes.atozRoute,
+                  index: 0,
                 ),
                 const SizedBox(height: ConstantDimensions.heightMedium),
                 const Text(
@@ -111,6 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 const Text("Learn A to Z with pronunciation and an example"),
+
                 const SizedBox(
                   height: ConstantDimensions.heightMedium,
                 ),
@@ -149,8 +124,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 const Text(
                   'ANIMALS',
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+
                 ),
-                const Text("Learn about animals and their voices"),
                 const SizedBox(
                   height: ConstantDimensions.heightMedium,
                 ),
@@ -342,14 +317,65 @@ class _MyHomePageState extends State<MyHomePage> {
                 const Text(
                   'Fruits & Vegetables',
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+
                 ),
-                const Text("Explore and learn about Fruits and Vegetables!"),
               ],
             ),
           ),
         ),
         drawer: const MyDrawer(),
       ),
+    );
+  }
+
+  Column categoryCard({
+    required BuildContext context,
+    required String title,
+    required String image,
+    required String shortDescription,
+    required String route,
+    required int index,
+  }) {
+    return Column(
+      children: [
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              _isImageClicked[index] = !_isImageClicked[index];
+            });
+            Future.delayed(const Duration(milliseconds: 300), () {
+              Navigator.pushNamed(context, route);
+            });
+          },
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeInOut,
+            height: _isImageClicked[index] ? 325 : 350,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: Colors.black, width: 2),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.2),
+                  spreadRadius: 2,
+                  blurRadius: 5,
+                  offset: const Offset(0, 3),
+                ),
+              ],
+              image: DecorationImage(
+                image: AssetImage(image),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 20),
+        Text(
+          title,
+          style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        ),
+        Text(shortDescription),
+      ],
     );
   }
 }
