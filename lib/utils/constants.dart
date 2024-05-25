@@ -1,25 +1,13 @@
-import 'dart:ui';
+// ignore_for_file: non_constant_identifier_names, constant_identifier_names
 
 import 'package:learn/models/animal_model.dart';
 import 'package:learn/models/bird_model.dart';
 import 'package:learn/models/itemdata_model.dart';
 import 'package:learn/models/occupation_model.dart';
 import 'package:learn/models/season_model.dart';
-
 import 'package:flutter/material.dart';
 import 'package:learn/pages/fruits.dart';
-
-import 'package:flutter/material.dart';
-import 'package:learn/pages/fruits.dart';
-
-import 'package:flutter/material.dart';
-import 'package:learn/pages/fruits.dart';
-
-import 'package:flutter/material.dart';
-import 'package:learn/pages/fruits.dart';
-
 import '../pages/explore/quiz.dart';
-import 'package:flutter/material.dart';
 import 'package:learn/pages/modules/colours.dart';
 import 'package:learn/pages/modules/parts.dart';
 import 'package:learn/pages/modules/planets.dart';
@@ -31,11 +19,16 @@ import 'package:learn/utils/assets_path.dart';
 import '../pages/modules/animals.dart';
 import '../pages/modules/atoz.dart';
 import '../pages/modules/birds.dart';
-import '../pages/modules/seasons.dart';
-import '../pages/modules/occupation.dart';
 
 class AppConstants {
   static List<Module> modules = [
+    Module(
+      name: 'Quiz',
+      description: 'Fun Quizzes for Curious Kids!',
+      thumbnailPath: "./assets/images/quiz.jpg",
+      route: MaterialPageRoute(builder: (context) => const QuizPage()),
+      backgroundColor: const Color.fromARGB(193, 76, 175, 79),
+    ),
     Module(
       name: 'A-Z',
       description: 'Learn A to Z with production and an example',

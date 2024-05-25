@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -131,7 +133,7 @@ class _ColoursPageState extends State<ColoursPage> {
             children: [
               GestureDetector(
                 onTap: _navigateToNextColour,
-                child: Container(
+                child: SizedBox(
                   width: double.infinity,
                   height: 300,
                   child: SvgPicture.asset(
@@ -188,5 +190,4 @@ class _ColoursPageState extends State<ColoursPage> {
       ),
     );
   }
-
 }
