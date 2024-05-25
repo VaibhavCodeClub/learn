@@ -1,5 +1,6 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
-import 'dart:math';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:learn/utils/constants.dart';
 

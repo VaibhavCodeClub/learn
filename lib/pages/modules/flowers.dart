@@ -116,7 +116,7 @@ class _FlowerPageState extends State<FlowerPage> {
             children: [
               GestureDetector(
                 onTap: _navigateToNextFlower,
-                child: Container(
+                child: SizedBox(
                   width: double.infinity,
                   height: 300,
                   child: SvgPicture.asset(
