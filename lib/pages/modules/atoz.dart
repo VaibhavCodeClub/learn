@@ -71,13 +71,6 @@ class ItemTile extends StatelessWidget {
                     );
                   }
                 }
-
-              const SizedBox(height: ConstantDimensions.heightExtraSmall / 2),
-              SvgPicture.asset(
-                item.iconAsset,
-                width: MediaQuery.of(context).size.width * 0.3,
-                height: MediaQuery.of(context).size.width * 0.3,
-                alignment: Alignment.center,
               ),
               const SizedBox(height: ConstantDimensions.heightExtraSmall / 2),
               Text(item.description, textAlign: TextAlign.center),
@@ -188,7 +181,7 @@ class _PopupDialogState extends State<_PopupDialog> {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 20),
+    const SizedBox(height: ConstantDimensions.heightMedium),
                 GestureDetector(
                   onTap: () {
                     _speakText(currentItem.description);
@@ -200,98 +193,29 @@ class _PopupDialogState extends State<_PopupDialog> {
                     alignment: Alignment.center,
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: ConstantDimensions.heightMedium),
                 Text(
                   currentItem.description,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     fontSize: 28,
-    return AlertDialog(
-      contentPadding: EdgeInsets.zero,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-      content: Container(
-        padding: EdgeInsets.zero,
-        width: MediaQuery.of(context).size.width * 0.7,
-        decoration: BoxDecoration(
-            color: currentItem.backgroundColor,
-            borderRadius: BorderRadius.circular(15)),
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                currentItem.title,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 40,
-                ),
-                textAlign: TextAlign.center,
+
+    ),
               ),
-              const SizedBox(height: ConstantDimensions.heightMedium),
-              GestureDetector(
-                onTap: () {
-                  _speakText(currentItem.description);
-                },
-                child: SvgPicture.asset(
-                  currentItem.iconAsset,
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  height: MediaQuery.of(context).size.width * 0.5,
-                  alignment: Alignment.center,
-                ),
-              ),
-              const SizedBox(height: ConstantDimensions.heightMedium),
-              Text(
-                currentItem.description,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 28,
-                ),
-              ),
-              const SizedBox(height: ConstantDimensions.heightMedium),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ElevatedButton(
-                    onPressed: _previousItem,
-                    child: const Text('Prev'),
-                  ),
-                ),
-                const SizedBox(height: 20),
+    const SizedBox(height: ConstantDimensions.heightMedium),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    ElevatedButton(
-                      onPressed: _previousItem,
-                      child: const Text('Prev'),
-                    ),
-                    ElevatedButton(
-                      onPressed: _nextItem,
-                      child: const Text('Next'),
-                    ),
+                  ElevatedButton(
+                  onPressed: _previousItem,
+                  child: const Text('Prev'),
+                  ),
+                  ElevatedButton(
+                  onPressed: _nextItem,
+                  child: const Text('Next'),
+                  ),
                   ],
                 ),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(
-                      const Color.fromARGB(216, 233, 101, 92),
-                    ),
-                  ),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Text(
-                    'Close',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-                const SizedBox(height: 50),
-              ],
-            ),
-                ],
-              ),
               const SizedBox(height: ConstantDimensions.heightMedium),
               ElevatedButton(
                 style: ButtonStyle(
@@ -312,6 +236,7 @@ class _PopupDialogState extends State<_PopupDialog> {
           ),
         ),
       ),
+      )
     );
   }
 }

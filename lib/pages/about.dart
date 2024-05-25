@@ -85,74 +85,6 @@ class AboutPage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Row(
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      _launchURL(context, "https://github.com/sapatevaibhav");
-                    },
-                    child: SvgPicture.asset(
-                      'assets/images/github.svg',
-                      width: 32.0,
-                      height: 32.0,
-                      color: Theme.of(context).brightness == Brightness.dark
-                          ? Colors.white
-                          : Colors.black,
-                    ),
-
-            ),
-            const SizedBox(height: ConstantDimensions.heightSmall_Medium),
-            const Text(
-              'Version: 1.1.0',
-              style: TextStyle(fontSize: 18.0),
-            ),
-            const SizedBox(height: ConstantDimensions.heightSmall_Medium / 2),
-            const Text(
-              'Developed by: sapatevaibhav',
-              style: TextStyle(fontSize: 18.0),
-            ),
-            const SizedBox(height: ConstantDimensions.heightSmall_Medium),
-            const Text(
-              'Description:',
-              style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: ConstantDimensions.heightSmall_Medium / 2),
-            const Text(
-              AppConstants.description,
-              style: TextStyle(fontSize: 18.0),
-            ),
-            const SizedBox(height: ConstantDimensions.heightExtraSmall),
-            const Text(
-              'Source code:',
-              style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                _launchURL(context, "https://github.com/VaibhavCodeClub/learn");
-              },
-              child: SvgPicture.asset(
-                'assets/images/git.svg',
-                width: ConstantDimensions.widthSmall_Medium * 2,
-                height: ConstantDimensions.heightSmall_Medium * 2,
-                color: Theme.of(context).brightness == Brightness.dark
-                    ? Colors.white
-                    : Colors.black,
-              ),
-            ),
-            const SizedBox(height: ConstantDimensions.heightSmall_Medium),
-            const Text(
-              'Connect:',
-              style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
             Row(
               children: [
                 GestureDetector(
@@ -207,53 +139,20 @@ class AboutPage extends StatelessWidget {
                         ? Colors.white
                         : Colors.black,
                   ),
-                  const SizedBox(width: 16.0),
-                  GestureDetector(
-                    onTap: () {
-                      _launchURL(context, "mailto:sapatevaibhav@duck.com");
-                    },
-                    child: SvgPicture.asset(
-                      'assets/images/email.svg',
-                      width: 32.0,
-                      height: 32.0,
-                      color: Theme.of(context).brightness == Brightness.dark
-                          ? Colors.white
-                          : Colors.black ,
-                    ),
-                  ),
-                  const SizedBox(width: 16.0),
-                  GestureDetector(
-                    onTap: () {
-                      _launchURL(
-                          context, "https://linkedin.com/in/sapatevaibhav");
-                    },
-                    child: SvgPicture.asset(
-                      'assets/images/linkedin.svg',
-                      width: 32.0,
-                      height: 32.0,
-                    ),
-                  ),
-                  const SizedBox(width: 16.0),
-                  GestureDetector(
-                    onTap: () {
-                      _launchURL(context, "https://instagram.com/v.d.r.sapate");
-                    },
-                    child: SvgPicture.asset(
-                      'assets/images/instagram.svg',
-                      width: 32.0,
-                      height: 32.0,
-                      color: Theme.of(context).brightness == Brightness.dark
-                          ? Colors.white
-                          : Colors.black,
-                    ),
-                  ),
+                ),
+
+      ]
+                )
                 ],
+
               ),
-            ],
           ),
+
         ),
-      ),
-    );
+
+      );
+
+
   }
 
   void _launchURL(BuildContext context, String url) async {
