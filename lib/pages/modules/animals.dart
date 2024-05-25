@@ -6,6 +6,9 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:learn/models/animal_model.dart';
 import 'package:learn/utils/constants.dart';
+
+import '../../utils/const_dimensions.dart';
+
 class AnimalsPage extends StatelessWidget {
 
 
@@ -41,11 +44,11 @@ class AnimalsPage extends StatelessWidget {
               child: Row(
                 children: [
                   SizedBox(
-                    width: 50,
-                    height: 50,
+                    width: ConstantDimensions.widthExtraLarge,
+                    height: ConstantDimensions.heightExtraLarge,
                     child: SvgPicture.asset(AppConstants.animals[index].svgAsset),
                   ),
-                  const SizedBox(width: 28.0),
+                  const SizedBox(width: ConstantDimensions.widthMedium_Large),
                   Text(
                     AppConstants.animals[index].name,
                     style: const TextStyle(
@@ -138,15 +141,15 @@ class _AnimalPopupState extends State<AnimalPopup> {
               });
             },
             child: SizedBox(
-              width: 200,
-              height: 200,
+              width: ConstantDimensions.widthExtraLarge * 4,
+              height: ConstantDimensions.heightExtraLarge * 4,
               child: SvgPicture.asset(
                 widget.animal.svgAsset,
                 color: isTapped ? const Color.fromARGB(81, 118, 96, 94) : null,
               ),
             ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: ConstantDimensions.heightSmall_Medium),
           ElevatedButton(
             onPressed: () {
               _playAnimalSound(widget.animal.soundAsset);
@@ -161,8 +164,8 @@ class _AnimalPopupState extends State<AnimalPopup> {
                 },
                 icon: const Icon(Icons.arrow_back),
               ),
-              const SizedBox(
-                width: 135,
+              SizedBox(
+                width: ConstantDimensions.exceptions[0],
               ),
               IconButton(
                 onPressed: () {

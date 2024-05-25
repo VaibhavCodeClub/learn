@@ -4,6 +4,8 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:learn/models/flower_model.dart';
 import 'package:learn/utils/assets_path.dart';
 
+import '../../utils/const_dimensions.dart';
+
 class FlowerPage extends StatefulWidget {
   const FlowerPage({super.key});
 
@@ -164,6 +166,74 @@ class _FlowerPageState extends State<FlowerPage> {
                         Icons.arrow_forward,
                         size: 30,
                       ),
+
+      body: Center(
+        child: Container(
+          padding: const EdgeInsets.all(20),
+          constraints: const BoxConstraints(maxWidth: 400, maxHeight: 700),
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0.7),
+            borderRadius: BorderRadius.circular(7.0),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.white.withOpacity(0.2),
+                spreadRadius: 2,
+                blurRadius: 5,
+                offset: const Offset(0, 3),
+              ),
+            ],
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              GestureDetector(
+                onTap: _navigateToNextFlower,
+                child: SizedBox(
+                  width: double.infinity,
+                  height: ConstantDimensions.heightExtraLarge * 6,
+                  child: SvgPicture.asset(
+                    flower.resource,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+              const SizedBox(height: ConstantDimensions.heightMedium),
+              Text(
+                flower.name,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 60,
+                  fontFamily: 'Comic',
+                ),
+              ),
+              const SizedBox(height: ConstantDimensions.heightMedium),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    onPressed: _navigateToPreviousFlower,
+                    icon: const Icon(
+                      Icons.arrow_back,
+                      size: 30,
+                    ),
+                  ),
+                  const SizedBox(width: ConstantDimensions.widthMedium),
+                  IconButton.outlined(
+                    highlightColor: Colors.amber,
+                    onPressed: () {
+                      readName(flower.name);
+                    },
+                    icon: const Icon(
+                      Icons.volume_up_outlined,
+                      size: 40,
+                    ),
+                  ),
+                  const SizedBox(width: ConstantDimensions.widthMedium),
+                  IconButton(
+                    onPressed: _navigateToNextFlower,
+                    icon: const Icon(
+                      Icons.arrow_forward,
+                      size: 30,
                     ),
                   ],
                 ),

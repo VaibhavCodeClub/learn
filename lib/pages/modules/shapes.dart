@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:learn/utils/constants.dart';
 import 'package:learn/widgets/drawer.dart';
 
+import '../../utils/const_dimensions.dart';
+
 class ShapesPage extends StatelessWidget {
   const ShapesPage({Key? key}) : super(key: key);
 
@@ -22,7 +24,7 @@ class ShapesPage extends StatelessWidget {
             Image.asset(
               'assets/images/shape.gif',
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: ConstantDimensions.heightMedium),
             const Text(
               AppConstants.underConstruction,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),

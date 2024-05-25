@@ -6,6 +6,8 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:learn/utils/constants.dart';
 
+import '../utils/const_dimensions.dart';
+
 class Fruit {
   final String name;
   final String svgAsset;
@@ -66,8 +68,8 @@ class _FruitsPageState extends State<FruitsPage> {
             GestureDetector(
               onTap: _navigateToNextBird,
               child: Container(
-                width: 375,
-                height: 375,
+                width: ConstantDimensions.exceptions[1],
+                height: ConstantDimensions.exceptions[1],
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.black),
                   borderRadius: BorderRadius.circular(8.0),
@@ -77,8 +79,8 @@ class _FruitsPageState extends State<FruitsPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
-                      width: 350,
-                      height: 350,
+                      width: ConstantDimensions.widthExtraLarge * 7,
+                      height: ConstantDimensions.heightExtraLarge * 7,
                       child: SvgPicture.asset(
                           AppConstants.Fruits[_currentIndex].svgAsset),
                     ),
@@ -86,7 +88,7 @@ class _FruitsPageState extends State<FruitsPage> {
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: ConstantDimensions.heightMedium),
             IconButton.outlined(
               onPressed: () {
                 readName(
@@ -103,7 +105,7 @@ class _FruitsPageState extends State<FruitsPage> {
                 fontFamily: 'Comic',
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: ConstantDimensions.heightMedium),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
