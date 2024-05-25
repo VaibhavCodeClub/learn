@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:learn/main.dart';
 import 'package:learn/utils/assets_path.dart';
+import 'package:learn/utils/const_dimensions.dart';
 
-import '../utils/const_dimensions.dart';
 import '../utils/routes.dart';
 import '../widgets/drawer.dart';
 
@@ -79,245 +79,73 @@ class _MyHomePageState extends State<MyHomePage> {
                   route: AllRoutes.atozRoute,
                   index: 0,
                 ),
-                const SizedBox(height: ConstantDimensions.heightMedium),
-                const Text(
-                  'ALPHABETS',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-                const Text("Learn A to Z with pronunciation and an example"),
-
                 const SizedBox(
                   height: ConstantDimensions.heightMedium,
                 ),
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _isImageClicked2 = !_isImageClicked2;
-                    });
-                    Future.delayed(const Duration(milliseconds: 300), () {
-                      Navigator.pushNamed(context, AllRoutes.animalRoute);
-                    });
-                  },
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                    height: _isImageClicked2 ? 325 : 350,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: Colors.black, width: 2),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: const Offset(0, 3),
-                        ),
-                      ],
-                      image:  DecorationImage(
-                        image: AssetImage(AssetsPath.getAnimalImage(Animals.animals)),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: ConstantDimensions.heightMedium),
-                const Text(
-                  'ANIMALS',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-
+                categoryCard(
+                  context: context,
+                  title: "ANIMALS",
+                  image: AssetsPath.getAnimalImage(Animals.animals),
+                  shortDescription: "Learn about animals and their voices",
+                  route: AllRoutes.animalRoute,
+                  index: 1,
                 ),
                 const SizedBox(
                   height: ConstantDimensions.heightMedium,
                 ),
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _isImageClicked3 = !_isImageClicked3;
-                    });
-                    Future.delayed(const Duration(milliseconds: 300), () {
-                      Navigator.pushNamed(context, AllRoutes.partsRoute);
-                    });
-                  },
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                    height: _isImageClicked3 ? 325 : 350,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: Colors.black, width: 2),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: const Offset(0, 3),
-                        ),
-                      ],
-                      image:  DecorationImage(
-                        image: AssetImage(AssetsPath.getBodyImage(Body.body)),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
+                categoryCard(
+                  context: context,
+                  title: "BODY PARTS",
+                  image: AssetsPath.getBodyImage(Body.body),
+                  shortDescription:
+                      "Know about body parts and their pronunciation.",
+                  route: AllRoutes.partsRoute,
+                  index: 2,
                 ),
-                const SizedBox(height: ConstantDimensions.heightMedium),
-                const Text(
-                  'BODY PARTS',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                const SizedBox(
+                  height: ConstantDimensions.heightMedium,
                 ),
-                const Text("Know about body parts and their pronunciation."),
-                const SizedBox(height: ConstantDimensions.heightMedium),
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _isImageClicked4 = !_isImageClicked4;
-                    });
-                    Future.delayed(const Duration(milliseconds: 300), () {
-                      Navigator.pushNamed(context, AllRoutes.birdsRoute);
-                    });
-                  },
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                    height: _isImageClicked4 ? 325 : 350,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: Colors.black, width: 2),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: const Offset(0, 3),
-                        ),
-                      ],
-                      image:  DecorationImage(
-                        image: AssetImage(AssetsPath.getBirdImage(Birds.birds)),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
+                categoryCard(
+                  context: context,
+                  title: "BIRDS",
+                  image: AssetsPath.getBirdImage(Birds.birds),
+                  shortDescription: "Look out for Birds with their sounds.",
+                  route: AllRoutes.birdsRoute,
+                  index: 3,
                 ),
-                const SizedBox(height: ConstantDimensions.heightMedium),
-                const Text(
-                  'BIRDS',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                const SizedBox(
+                  height: ConstantDimensions.heightMedium,
                 ),
-                const Text("Look out for Birds with their sounds."),
-                const SizedBox(height: ConstantDimensions.heightMedium),
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _isImageClicked4 = !_isImageClicked4;
-                    });
-                    Future.delayed(const Duration(milliseconds: 300), () {
-                      Navigator.pushNamed(context, AllRoutes.colourRoute);
-                    });
-                  },
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                    height: _isImageClicked4 ? 325 : 350,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: Colors.black, width: 2),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: const Offset(0, 3),
-                        ),
-                      ],
-                      image:  DecorationImage(
-                        image: AssetImage(
-                            AssetsPath.getColoursImage(ColorImages.colorsCover)),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
+                categoryCard(
+                  context: context,
+                  title: "COLOURS",
+                  image: AssetsPath.getColoursImage(ColorImages.colorsCover),
+                  shortDescription: "Explore and learn about the colours!",
+                  route: AllRoutes.colourRoute,
+                  index: 4,
                 ),
-                const SizedBox(height: ConstantDimensions.heightMedium),
-                const Text(
-                  'COLOURS',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                const SizedBox(
+                  height: ConstantDimensions.heightMedium,
                 ),
-                const Text("Explore and learn about the colours!"),
-                const SizedBox(height: ConstantDimensions.heightMedium),
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _isImageClicked5 = !_isImageClicked5;
-                    });
-                    Future.delayed(const Duration(milliseconds: 300), () {
-                      Navigator.pushNamed(context, AllRoutes.flowerRoute);
-                    });
-                  },
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                    height: _isImageClicked5 ? 325 : 350,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: Colors.black, width: 2),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: const Offset(0, 3),
-                        ),
-                      ],
-                      image:  DecorationImage(
-                        image: AssetImage(AssetsPath.getFlowerImage(Flowers.flowerBanner)),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
+                categoryCard(
+                  context: context,
+                  title: "FLOWERS",
+                  image: AssetsPath.getFlowerImage(Flowers.flowerBanner),
+                  shortDescription: "Explore beauty of nature flowers.",
+                  route: AllRoutes.flowerRoute,
+                  index: 5,
                 ),
-                const SizedBox(height: ConstantDimensions.heightMedium),
-                const Text(
-                  'FLOWERS',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                const SizedBox(
+                  height: ConstantDimensions.heightMedium,
                 ),
-                const Text("Explore beauty of nature flowers."),
-                const SizedBox(height: ConstantDimensions.heightMedium),
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _isImageClicked4 = !_isImageClicked4;
-                    });
-                    Future.delayed(const Duration(milliseconds: 300), () {
-                      Navigator.pushNamed(context, AllRoutes.fruitRoute);
-                    });
-                  },
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                    height: _isImageClicked4 ? 325 : 350,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: Colors.black, width: 2),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: const Offset(0, 3),
-                        ),
-                      ],
-                      image: const DecorationImage(
-                        image: AssetImage('assets/fruitsVeges/cover.jpg'),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: ConstantDimensions.heightMedium),
-                const Text(
-                  'Fruits & Vegetables',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-
+                categoryCard(
+                  context: context,
+                  title: "FRUITS & VEGETABLES",
+                  image: 'assets/fruitsVeges/cover.jpg',
+                  shortDescription:
+                      "Explore and learn about Fruits and Vegetables!",
+                  route: AllRoutes.fruitRoute,
+                  index: 6,
                 ),
               ],
             ),
@@ -350,7 +178,9 @@ class _MyHomePageState extends State<MyHomePage> {
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 300),
             curve: Curves.easeInOut,
-            height: _isImageClicked[index] ? 325 : 350,
+            height: _isImageClicked[index]
+                ? ConstantDimensions.heightSmallImage
+                : ConstantDimensions.heightBigImage,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               border: Border.all(color: Colors.black, width: 2),
@@ -369,7 +199,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
         ),
-        const SizedBox(height: 20),
+        const SizedBox(height: ConstantDimensions.heightMedium),
         Text(
           title,
           style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
