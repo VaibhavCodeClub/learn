@@ -858,6 +858,7 @@ class AppConstants {
   static const String solar = 'Solar System';
   static const String flowers = 'Flowers';
   static const String fruit = 'Fruits & Vegetables';
+  static const String greeting = 'Greetings';
   static const String description =
-      'Interactive app to let your kids learn various things like\n\n - A - Z alphabets.\n - Animals and their sounds.\n - Birds and their sounds.\n - Various shapes.\n - Body parts.\n - Solar system.\n';
+      'Interactive app to let your kids learn various things like\n\n - A - Z alphabets.\n - Animals and their sounds.\n - Birds and their sounds.\n - Various shapes.\n - Body parts.\n - Solar system.\n - ';
 }
