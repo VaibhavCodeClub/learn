@@ -1,8 +1,8 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:learn/utils/constants.dart';
+
+import '../utils/const_dimensions.dart';
 
 // Explore Page
 class ExplorePage extends StatelessWidget {
@@ -36,7 +36,7 @@ class ExplorePage extends StatelessWidget {
                 child: Container(
                     margin: const EdgeInsets.symmetric(
                         horizontal: 24, vertical: 12),
-                    height: 200,
+                    height: ConstantDimensions.heightExtraLarge * 4,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
                       boxShadow: [
@@ -112,39 +112,40 @@ class ExplorePage extends StatelessWidget {
             childCount: AppConstants.modules.length,
           ),
         ),
-        GestureDetector(
-          onTap: () {
-            Navigator.pushNamed(context, '/quiz');
-          },
-          child: Container(
-            margin: const EdgeInsets.all(5.0),
-            padding: const EdgeInsets.all(8.0),
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.black, width: 1.0),
-              borderRadius: BorderRadius.circular(8.0),
-              color: Colors.blueAccent,
-            ),
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 50,
-                  height: 50,
-                  child: SvgPicture.asset('assets/explore/notebook.svg'),
-                ),
-                const SizedBox(width: 28.0),
-                const Text(
-                  'Quiz',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30.0,
-                    fontFamily: 'Comic',
-                    color: Colors.white,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
+
+        // GestureDetector(
+        //   onTap: () {
+        //     Navigator.pushNamed(context, '/quiz');
+        //   },
+        //   child: Container(
+        //     margin: const EdgeInsets.all(5.0),
+        //     padding: const EdgeInsets.all(8.0),
+        //     decoration: BoxDecoration(
+        //       border: Border.all(color: Colors.black, width: 1.0),
+        //       borderRadius: BorderRadius.circular(8.0),
+        //       color: Colors.blueAccent,
+        //     ),
+        //     child: Row(
+        //       children: [
+        //         SizedBox(
+        //           width: 50,
+        //           height: 50,
+        //           child: SvgPicture.asset('assets/explore/notebook.svg'),
+        //         ),
+        //         const SizedBox(width: 28.0),
+        //         const Text(
+        //           'Quiz',
+        //           style: TextStyle(
+        //             fontWeight: FontWeight.bold,
+        //             fontSize: 30.0,
+        //             fontFamily: 'Comic',
+        //             color: Colors.white,
+        //           ),
+        //         ),
+        //       ],
+        //     ),
+        //   ),
+        // ),
       ],
     ));
   }

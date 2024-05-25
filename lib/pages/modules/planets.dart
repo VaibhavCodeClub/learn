@@ -1,8 +1,11 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:learn/utils/assets_path.dart';
+import '../../utils/const_dimensions.dart';
 import 'package:learn/models/planet_model.dart';
 
 class PlanetsPage extends StatelessWidget {
@@ -83,11 +86,13 @@ class PlanetsPage extends StatelessWidget {
           },
         ),
       ),
-      body: Center(
-        child: PlanetWidget(
-          planets: planets,
-          flutterTts: flutterTts,
-          audioPlayer: audioPlayer,
+      body: SingleChildScrollView(
+        child: Center(
+          child: PlanetWidget(
+            planets: planets,
+            flutterTts: flutterTts,
+            audioPlayer: audioPlayer,
+          ),
         ),
       ),
     );
@@ -125,7 +130,7 @@ class _PlanetWidgetState extends State<PlanetWidget> {
           onTap: _navigateToNextPlanet,
           child: AnimatedContainer(
             duration: _animationDuration,
-            width: 350,
+            width: ConstantDimensions.widthExtraLarge * 7,
             height: MediaQuery.of(context).size.height * 0.6,
             decoration: BoxDecoration(
               border: Border.all(color: Colors.black),
@@ -143,7 +148,7 @@ class _PlanetWidgetState extends State<PlanetWidget> {
             ),
           ),
         ),
-        const SizedBox(height: 20),
+        const SizedBox(height: ConstantDimensions.heightMedium),
         Text(
           planet.description,
           style: const TextStyle(
@@ -152,7 +157,7 @@ class _PlanetWidgetState extends State<PlanetWidget> {
           ),
           textAlign: TextAlign.center,
         ),
-        const SizedBox(height: 20),
+        const SizedBox(height: ConstantDimensions.heightMedium),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -160,14 +165,14 @@ class _PlanetWidgetState extends State<PlanetWidget> {
               onPressed: _navigateToPreviousPlanet,
               icon: const Icon(Icons.arrow_back),
             ),
-            const SizedBox(width: 20),
+            const SizedBox(width: ConstantDimensions.widthMedium),
             ElevatedButton(
               onPressed: () {
                 _playPlanetName(planet.name);
               },
               child: const Text('Play Sound'),
             ),
-            const SizedBox(width: 20),
+            const SizedBox(width: ConstantDimensions.widthMedium),
             IconButton(
               onPressed: _navigateToNextPlanet,
               icon: const Icon(Icons.arrow_forward),

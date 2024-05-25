@@ -5,11 +5,11 @@ class FavoritePage extends StatelessWidget {
 
   // Favorite Page
   // All the favorited modules by the user will be placed here
-  // TODO: Implement the Favorite Page
+  // todo: Implement the Favorite Page
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text("Favorited Items here"),
     );
   }

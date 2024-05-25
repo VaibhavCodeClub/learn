@@ -7,6 +7,8 @@ import 'package:just_audio/just_audio.dart';
 import 'package:learn/models/bird_model.dart';
 import 'package:learn/utils/constants.dart';
 
+import '../../utils/const_dimensions.dart';
+
 class BirdsPage extends StatelessWidget {
 
   final FlutterTts flutterTts = FlutterTts();
@@ -75,8 +77,8 @@ class _BirdWidgetState extends State<BirdWidget> {
           GestureDetector(
             onTap: _navigateToNextBird,
             child: Container(
-              width: 375,
-              height: 375,
+              width: ConstantDimensions.exceptions[1],
+              height: ConstantDimensions.exceptions[1],
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black),
                 borderRadius: BorderRadius.circular(8.0),
@@ -86,15 +88,15 @@ class _BirdWidgetState extends State<BirdWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    width: 350,
-                    height: 350,
+                    width:ConstantDimensions.widthExtraLarge * 7,
+                    height: ConstantDimensions.heightExtraLarge * 7,
                     child: SvgPicture.asset(bird.svgAsset),
                   ),
                 ],
               ),
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: ConstantDimensions.heightMedium),
           IconButton.outlined(
             highlightColor: Colors.amber,
             onPressed: () {
@@ -112,7 +114,7 @@ class _BirdWidgetState extends State<BirdWidget> {
               fontFamily: 'Comic',
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: ConstantDimensions.heightMedium),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -120,14 +122,14 @@ class _BirdWidgetState extends State<BirdWidget> {
                 onPressed: _navigateToPreviousBird,
                 icon: const Icon(Icons.arrow_back),
               ),
-              const SizedBox(width: 20),
+              const SizedBox(width: ConstantDimensions.widthMedium),
               ElevatedButton(
                 onPressed: () {
                   _playBirdSound(bird.soundAsset);
                 },
                 child: const Text('Play Sound'),
               ),
-              const SizedBox(width: 20),
+              const SizedBox(width: ConstantDimensions.widthMedium),
               IconButton(
                 onPressed: _navigateToNextBird,
                 icon: const Icon(Icons.arrow_forward),
