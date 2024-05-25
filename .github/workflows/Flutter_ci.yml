@@ -1,0 +1,49 @@
+name: Flutter and Dart CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.19.0'
+
+      - name: Set up Dart
+        uses: dart-lang/setup-dart@v1
+        with:
+          sdk: 'stable'  
+
+      - name: Install Flutter dependencies
+        run: flutter pub get
+
+      - name: Install Dart dependencies
+        run: dart pub get
+
+      - name: Run Flutter tests
+        run: flutter test
+
+      - name: Run Dart tests
+        run: dart test
+
+      - name: Build APK
+        run: flutter build apk --release
+
+      - name: Archive and upload Flutter APK
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: build/app/outputs/flutter-apk/app-release.apk
