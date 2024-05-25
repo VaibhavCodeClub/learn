@@ -21,6 +21,7 @@ import 'package:learn/widgets/navbar/navbar.dart';
 import 'cubit/index_cubit.dart';
 import 'pages/explore/quiz.dart';
 import 'pages/home.dart';
+import 'landing_page.dart';
 
 DateTime? currentBackPressTime;
 
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
               title: 'Home',
               theme: theme,
               darkTheme: darkTheme,
+              initialRoute: '/landing_page',
               home: Scaffold(
                 body: const [
                   MyHomePage(),
@@ -76,6 +78,7 @@ class MyApp extends StatelessWidget {
                 AllRoutes.seasonRoute: (context) => const SeasonsPage(),
                 AllRoutes.occupationRoute: (context) => OccupationPage(),
                 AllRoutes.fruitRoute: (context) => FruitsPage(),
+                "/landing_page": (context) => const LandingPage(),
               },
             );
           },

@@ -45,6 +45,7 @@ dependencies:
   fluttertoast: ^8.2.5
   google_nav_bar: ^5.0.6
   flutter_bloc: ^8.1.5
+  animated_text_kit: ^4.2.2
 
 dev_dependencies:
   flutter_test:
