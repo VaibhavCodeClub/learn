@@ -15,5 +15,9 @@ class ConstantDimensions {
   static const double widthLarge = 30;
   static const double widthExtraLarge = 50;
 
+  
+  static const double heightSmallImage = 325;
+  static const double heightBigImage = 350;
+
   static const List<double> exceptions = [135, 375, 5];
 }
