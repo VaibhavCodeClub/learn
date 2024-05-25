@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:learn/utils/assets_path.dart';
+import '../../utils/const_dimensions.dart';
 import 'package:learn/models/colours_model.dart';
 
 class ColoursPage extends StatefulWidget {
@@ -135,14 +136,14 @@ class _ColoursPageState extends State<ColoursPage> {
                 onTap: _navigateToNextColour,
                 child: SizedBox(
                   width: double.infinity,
-                  height: 300,
+                  height: ConstantDimensions.heightExtraLarge * 6,
                   child: SvgPicture.asset(
                     colour.jpgAsset,
                     fit: BoxFit.contain,
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: ConstantDimensions.heightMedium),
               Text(
                 colour.name,
                 style: TextStyle(
@@ -152,7 +153,7 @@ class _ColoursPageState extends State<ColoursPage> {
                   color: colour.fontColor,
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: ConstantDimensions.heightMedium),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -163,7 +164,7 @@ class _ColoursPageState extends State<ColoursPage> {
                       size: 30,
                     ),
                   ),
-                  const SizedBox(width: 20),
+                  const SizedBox(width: ConstantDimensions.widthMedium),
                   IconButton.outlined(
                     highlightColor: Colors.amber,
                     onPressed: () {
@@ -174,7 +175,7 @@ class _ColoursPageState extends State<ColoursPage> {
                       size: 40,
                     ),
                   ),
-                  const SizedBox(width: 20),
+                  const SizedBox(width: ConstantDimensions.widthMedium),
                   IconButton(
                     onPressed: _navigateToNextColour,
                     icon: const Icon(

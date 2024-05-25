@@ -4,6 +4,8 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:learn/models/flower_model.dart';
 import 'package:learn/utils/assets_path.dart';
 
+import '../../utils/const_dimensions.dart';
+
 class FlowerPage extends StatefulWidget {
   const FlowerPage({super.key});
 
@@ -118,14 +120,14 @@ class _FlowerPageState extends State<FlowerPage> {
                 onTap: _navigateToNextFlower,
                 child: SizedBox(
                   width: double.infinity,
-                  height: 300,
+                  height: ConstantDimensions.heightExtraLarge * 6,
                   child: SvgPicture.asset(
                     flower.resource,
                     fit: BoxFit.contain,
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: ConstantDimensions.heightMedium),
               Text(
                 flower.name,
                 style: const TextStyle(
@@ -134,7 +136,7 @@ class _FlowerPageState extends State<FlowerPage> {
                   fontFamily: 'Comic',
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: ConstantDimensions.heightMedium),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -145,7 +147,7 @@ class _FlowerPageState extends State<FlowerPage> {
                       size: 30,
                     ),
                   ),
-                  const SizedBox(width: 20),
+                  const SizedBox(width: ConstantDimensions.widthMedium),
                   IconButton.outlined(
                     highlightColor: Colors.amber,
                     onPressed: () {
@@ -156,7 +158,7 @@ class _FlowerPageState extends State<FlowerPage> {
                       size: 40,
                     ),
                   ),
-                  const SizedBox(width: 20),
+                  const SizedBox(width: ConstantDimensions.widthMedium),
                   IconButton(
                     onPressed: _navigateToNextFlower,
                     icon: const Icon(

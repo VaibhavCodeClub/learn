@@ -2,6 +2,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:learn/utils/constants.dart';
 
+import '../utils/const_dimensions.dart';
+
 // Explore Page
 class ExplorePage extends StatelessWidget {
   const ExplorePage({super.key});
@@ -34,7 +36,7 @@ class ExplorePage extends StatelessWidget {
                 child: Container(
                     margin: const EdgeInsets.symmetric(
                         horizontal: 24, vertical: 12),
-                    height: 200,
+                    height: ConstantDimensions.heightExtraLarge * 4,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
                       boxShadow: [
@@ -110,6 +112,7 @@ class ExplorePage extends StatelessWidget {
             childCount: AppConstants.modules.length,
           ),
         ),
+
         // GestureDetector(
         //   onTap: () {
         //     Navigator.pushNamed(context, '/quiz');

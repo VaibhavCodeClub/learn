@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:learn/main.dart';
 import 'package:learn/utils/assets_path.dart';
+import 'package:learn/utils/const_dimensions.dart';
 
 import '../utils/routes.dart';
 import '../widgets/drawer.dart';
@@ -79,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   index: 0,
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: ConstantDimensions.heightMedium,
                 ),
                 categoryCard(
                   context: context,
@@ -90,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   index: 1,
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: ConstantDimensions.heightMedium,
                 ),
                 categoryCard(
                   context: context,
@@ -101,7 +102,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   route: AllRoutes.partsRoute,
                   index: 2,
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(
+                  height: ConstantDimensions.heightMedium,
+                ),
                 categoryCard(
                   context: context,
                   title: "BIRDS",
@@ -110,7 +113,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   route: AllRoutes.birdsRoute,
                   index: 3,
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(
+                  height: ConstantDimensions.heightMedium,
+                ),
                 categoryCard(
                   context: context,
                   title: "COLOURS",
@@ -119,7 +124,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   route: AllRoutes.colourRoute,
                   index: 4,
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(
+                  height: ConstantDimensions.heightMedium,
+                ),
                 categoryCard(
                   context: context,
                   title: "FLOWERS",
@@ -128,7 +135,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   route: AllRoutes.flowerRoute,
                   index: 5,
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(
+                  height: ConstantDimensions.heightMedium,
+                ),
                 categoryCard(
                   context: context,
                   title: "FRUITS & VEGETABLES",
@@ -169,7 +178,9 @@ class _MyHomePageState extends State<MyHomePage> {
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 300),
             curve: Curves.easeInOut,
-            height: _isImageClicked[index] ? 325 : 350,
+            height: _isImageClicked[index]
+                ? ConstantDimensions.heightSmallImage
+                : ConstantDimensions.heightBigImage,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               border: Border.all(color: Colors.black, width: 2),
@@ -188,7 +199,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
         ),
-        const SizedBox(height: 20),
+        const SizedBox(height: ConstantDimensions.heightMedium),
         Text(
           title,
           style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
