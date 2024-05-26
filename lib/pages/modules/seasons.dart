@@ -14,7 +14,7 @@ class SeasonsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Seasons Serenade',
+          AppConstants.season,
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
       ),

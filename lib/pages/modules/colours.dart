@@ -7,6 +7,8 @@ import 'package:learn/utils/assets_path.dart';
 import '../../utils/const_dimensions.dart';
 import 'package:learn/models/colours_model.dart';
 
+import '../../utils/constants.dart';
+
 class ColoursPage extends StatefulWidget {
   const ColoursPage({Key? key}) : super(key: key);
 
@@ -15,81 +17,20 @@ class ColoursPage extends StatefulWidget {
 }
 
 class _ColoursPageState extends State<ColoursPage> {
-  final List<Colours> colours = [
-    Colours(
-      name: 'Blue',
-      jpgAsset: AssetsPath.getColoursImage(ColorImages.blue),
-      bgColor: Colors.lightBlueAccent,
-      fontColor: Colors.lightBlueAccent,
-    ),
-    Colours(
-      name: 'Yellow',
-      jpgAsset: AssetsPath.getColoursImage(ColorImages.yellow),
-      bgColor: Colors.yellow.shade600,
-      fontColor: Colors.yellow.shade600,
-    ),
-    Colours(
-      name: 'Black',
-      jpgAsset: AssetsPath.getColoursImage(ColorImages.black),
-      bgColor: Colors.black,
-      fontColor: Colors.black,
-    ),
-    Colours(
-      name: 'Green',
-      jpgAsset: AssetsPath.getColoursImage(ColorImages.green),
-      bgColor: Colors.green,
-      fontColor: Colors.green,
-    ),
-    Colours(
-      name: 'Pink',
-      jpgAsset: AssetsPath.getColoursImage(ColorImages.pink),
-      bgColor: Colors.pink.shade300,
-      fontColor: Colors.pink.shade300,
-    ),
-    Colours(
-      name: 'White',
-      jpgAsset: AssetsPath.getColoursImage(ColorImages.white),
-      bgColor: Colors.grey.shade400,
-      fontColor: Colors.grey.shade400,
-    ),
-    Colours(
-      name: 'Red',
-      jpgAsset: AssetsPath.getColoursImage(ColorImages.red),
-      bgColor: Colors.red,
-      fontColor: Colors.red,
-    ),
-    Colours(
-      name: 'Violet',
-      jpgAsset: AssetsPath.getColoursImage(ColorImages.violet),
-      bgColor: Colors.deepPurple,
-      fontColor: Colors.deepPurple,
-    ),
-    Colours(
-      name: 'Brown',
-      jpgAsset: AssetsPath.getColoursImage(ColorImages.brown),
-      bgColor: const Color(0xFF964B00),
-      fontColor: const Color(0xFF964B00),
-    ),
-    Colours(
-      name: 'Orange',
-      jpgAsset: AssetsPath.getColoursImage(ColorImages.orange),
-      bgColor: Colors.orange,
-      fontColor: Colors.orange,
-    ),
-  ];
+
 
   final FlutterTts flutterTts = FlutterTts();
   int currentIndex = 0;
 
   void _navigateToNextColour() {
     setState(() {
-      currentIndex = (currentIndex + 1) % colours.length;
+      currentIndex = (currentIndex + 1) % AppConstants.colours.length;
     });
   }
 
   void _navigateToPreviousColour() {
     setState(() {
-      currentIndex = (currentIndex - 1 + colours.length) % colours.length;
+      currentIndex = (currentIndex - 1 + AppConstants.colours.length) % AppConstants.colours.length;
     });
   }
 
@@ -100,11 +41,11 @@ class _ColoursPageState extends State<ColoursPage> {
 
   @override
   Widget build(BuildContext context) {
-    Colours colour = colours[currentIndex];
+    Colours colour = AppConstants.colours[currentIndex];
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Colours',
+          AppConstants.color,
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 30,

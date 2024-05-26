@@ -261,7 +261,7 @@ class _AtoZState extends State<AtoZ> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             const Text(
-              'A-Z',
+              AppConstants.a_z,
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             Expanded(
