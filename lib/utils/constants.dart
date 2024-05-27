@@ -8,6 +8,10 @@ import 'package:learn/models/season_model.dart';
 import 'package:flutter/material.dart';
 import 'package:learn/pages/fruits.dart';
 import '../pages/explore/quiz.dart';
+<<<<<<< HEAD
+
+=======
+>>>>>>> 001141a87d4c28a7083b42373d9092e30ece809f
 import 'package:learn/pages/modules/colours.dart';
 import 'package:learn/pages/modules/parts.dart';
 import 'package:learn/pages/modules/planets.dart';
@@ -19,6 +23,10 @@ import 'package:learn/utils/assets_path.dart';
 import '../pages/modules/animals.dart';
 import '../pages/modules/atoz.dart';
 import '../pages/modules/birds.dart';
+<<<<<<< HEAD
+
+=======
+>>>>>>> 001141a87d4c28a7083b42373d9092e30ece809f
 
 class AppConstants {
   static List<Module> modules = [
