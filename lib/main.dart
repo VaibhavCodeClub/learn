@@ -74,7 +74,7 @@ class MyApp extends StatelessWidget {
                 AllRoutes.flowerRoute: (context) => const FlowerPage(),
                 AllRoutes.exploreRoute: (context) => const ExplorePage(),
                 AllRoutes.favoriteRoute: (context) => const FavoritePage(),
-                AllRoutes.quizRoute: (context) => const QuizPage(),
+                AllRoutes.quizRoute: (context) => const Quiz(),
                 AllRoutes.seasonRoute: (context) => const SeasonsPage(),
                 AllRoutes.occupationRoute: (context) => OccupationPage(),
                 AllRoutes.fruitRoute: (context) => FruitsPage(),

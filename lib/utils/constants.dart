@@ -26,7 +26,7 @@ class AppConstants {
       name: 'Quiz',
       description: 'Fun Quizzes for Curious Kids!',
       thumbnailPath: "./assets/images/quiz.jpg",
-      route: MaterialPageRoute(builder: (context) => const QuizPage()),
+      route: MaterialPageRoute(builder: (context) => const Quiz()),
       backgroundColor: const Color.fromARGB(193, 76, 175, 79),
     ),
     Module(
@@ -520,94 +520,6 @@ class AppConstants {
       svgAsset: AssetsPath.getBirdImage(Birds.bagula),
       soundAsset: AssetsPath.getBirdSound(Birds.bagulaSound),
       backgroundColor: const Color.fromARGB(156, 248, 248, 248),
-    ),
-  ];
-
-  static List<QuizQuestion> quizQuestions = [
-    // Animal Questions
-    QuizQuestion(
-      question: "What sound does a cat make?",
-      options: ["Meow", "Woof", "Moo", "Roar"],
-      correctAnswerIndex: 0,
-    ),
-    QuizQuestion(
-      question: "Which animal is known as the king of the jungle?",
-      options: ["Elephant", "Lion", "Tiger", "Deer"],
-      correctAnswerIndex: 1,
-    ),
-    QuizQuestion(
-      question: "Which animal has a long neck and eats leaves?",
-      options: ["Giraffe", "Bear", "Monkey", "Rabbit"],
-      correctAnswerIndex: 0,
-    ),
-    QuizQuestion(
-      question: "Which animal says 'Moo'?",
-      options: ["Pig", "Dog", "Cow", "Cat"],
-      correctAnswerIndex: 2,
-    ),
-    QuizQuestion(
-      question: "What color are zebra's stripes?",
-      options: [
-        "Black and White",
-        "Brown and White",
-        "Black and Yellow",
-        "Gray and White"
-      ],
-      correctAnswerIndex: 0,
-    ),
-
-    // Bird Questions
-    QuizQuestion(
-      question: "Which bird is known for its beautiful singing?",
-      options: ["Crow", "Sparrow", "Duck", "Robin"],
-      correctAnswerIndex: 3,
-    ),
-    QuizQuestion(
-      question: "Which bird is known to peck wood?",
-      options: ["Eagle", "Owl", "Woodpecker", "Parrot"],
-      correctAnswerIndex: 2,
-    ),
-    QuizQuestion(
-      question: "Which bird can mimic human speech?",
-      options: ["Duck", "Parrot", "Swan", "Eagle"],
-      correctAnswerIndex: 1,
-    ),
-    QuizQuestion(
-      question: "Which bird is known for its colorful feathers?",
-      options: ["Penguin", "Crow", "Peacock", "Hummingbird"],
-      correctAnswerIndex: 3,
-    ),
-    QuizQuestion(
-      question: "Which bird is a common pet known for singing?",
-      options: ["Ostrich", "Canary", "Sparrow", "Eagle"],
-      correctAnswerIndex: 1,
-    ),
-
-    // Season Questions
-    QuizQuestion(
-      question: "In which season do flowers bloom?",
-      options: ["Winter", "Spring", "Autumn", "Summer"],
-      correctAnswerIndex: 1,
-    ),
-    QuizQuestion(
-      question: "Which season is the hottest?",
-      options: ["Winter", "Spring", "Autumn", "Summer"],
-      correctAnswerIndex: 3,
-    ),
-    QuizQuestion(
-      question: "During which season do leaves fall from trees?",
-      options: ["Winter", "Spring", "Autumn", "Summer"],
-      correctAnswerIndex: 2,
-    ),
-    QuizQuestion(
-      question: "Which season is the coldest?",
-      options: ["Winter", "Spring", "Autumn", "Summer"],
-      correctAnswerIndex: 0,
-    ),
-    QuizQuestion(
-      question: "In which season do we often see snow?",
-      options: ["Winter", "Spring", "Autumn", "Summer"],
-      correctAnswerIndex: 0,
     ),
   ];
 

@@ -17,10 +17,12 @@ class MyDrawer extends StatelessWidget {
               children: [
                 DrawerHeader(
                   padding: const EdgeInsets.all(0),
-                  decoration: BoxDecoration(color: Theme.of(context).canvasColor),
+                  decoration:
+                      BoxDecoration(color: Theme.of(context).canvasColor),
                   child: UserAccountsDrawerHeader(
                     margin: const EdgeInsets.all(0),
-                    decoration: BoxDecoration(color: Theme.of(context).canvasColor),
+                    decoration:
+                        BoxDecoration(color: Theme.of(context).canvasColor),
                     accountName: Text(
                       "Learning App for kids",
                       style: Theme.of(context)
@@ -41,7 +43,8 @@ class MyDrawer extends StatelessWidget {
                   icon: Icons.home,
                   title: "Home",
                   onTap: () {
-                    Navigator.pushReplacementNamed(context, AllRoutes.homeRoute);
+                    Navigator.pushReplacementNamed(
+                        context, AllRoutes.homeRoute);
                   },
                   context: context,
                 ),
@@ -81,7 +84,8 @@ class MyDrawer extends StatelessWidget {
                   icon: Icons.pentagon_outlined,
                   title: "Shapes",
                   onTap: () {
-                    Navigator.pushReplacementNamed(context, AllRoutes.shapesRoute);
+                    Navigator.pushReplacementNamed(
+                        context, AllRoutes.shapesRoute);
                   },
                   context: context,
                 ),
@@ -130,6 +134,14 @@ class MyDrawer extends StatelessWidget {
                   title: "About us",
                   onTap: () {
                     Navigator.pushNamed(context, AllRoutes.aboutRoute);
+                  },
+                  context: context,
+                ),
+                _buildListTile(
+                  icon: Icons.question_mark_outlined,
+                  title: "Quiz",
+                  onTap: () {
+                    Navigator.pushNamed(context, AllRoutes.quizRoute);
                   },
                   context: context,
                 ),
