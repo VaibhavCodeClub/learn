@@ -16,4 +16,5 @@ class AllRoutes {
   static const String seasonRoute = "/seasons";
   static const String occupationRoute = '/occupations';
   static const String fruitRoute = "/fruit";
+  static const String drawingboardRoute = "/drawingboard.dart";
 }

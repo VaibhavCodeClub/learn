@@ -19,6 +19,7 @@ import 'package:learn/pages/modules/colours.dart';
 import 'package:learn/widgets/navbar/navbar.dart';
 
 import 'cubit/index_cubit.dart';
+import 'pages/explore/drawingboard.dart';
 import 'pages/explore/quiz.dart';
 import 'pages/home.dart';
 import 'landing_page.dart';
@@ -78,6 +79,7 @@ class MyApp extends StatelessWidget {
                 AllRoutes.seasonRoute: (context) => const SeasonsPage(),
                 AllRoutes.occupationRoute: (context) => OccupationPage(),
                 AllRoutes.fruitRoute: (context) => FruitsPage(),
+                AllRoutes.drawingboardRoute: (context) => DrawingBoardPage(),
                 "/landing_page": (context) => const LandingPage(),
               },
             );
