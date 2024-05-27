@@ -1,4 +1,4 @@
-class AllRoutes {
+class AllRoutesConstant {
   static const String loginRoute = "/login";
   static const String homeRoute = "/home";
   static const String exploreRoute = "/explore";
@@ -16,4 +16,6 @@ class AllRoutes {
   static const String seasonRoute = "/seasons";
   static const String occupationRoute = '/occupations';
   static const String fruitRoute = "/fruit";
+  static const String landing = '/landing_page';
+  static const String mainhome = '/mainhome';
 }
