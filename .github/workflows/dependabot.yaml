@@ -1,0 +1,10 @@
+version: 2
+updates:
+  - package-ecosystem: "pub"
+    directory: "/"
+    # Check the pub.dev registry for updates every month
+    schedule:
+      interval: "monthly"
+    # # Add default reviewers
+    # reviewers:
+    #   - "sapatevaibhav"

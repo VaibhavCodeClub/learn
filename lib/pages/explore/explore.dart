@@ -4,6 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:learn/utils/constants.dart';
 import 'package:learn/utils/routes.dart';
 
+import '../../utils/const_dimensions.dart';
+
 // Explore Page
 class ExplorePage extends StatelessWidget {
   const ExplorePage({super.key});
@@ -44,12 +46,12 @@ class ExplorePage extends StatelessWidget {
                     child: Row(
                       children: [
                         SizedBox(
-                          width: 50,
-                          height: 50,
+                          width: ConstantDimensions.widthExtraLarge,
+                          height: ConstantDimensions.heightExtraLarge,
                           child:
                           SvgPicture.asset('assets/explore/notebook.svg'),
                         ),
-                        const SizedBox(width: 28.0),
+                        const SizedBox(width: ConstantDimensions.widthMedium_Large),
                         const Text(
                           'Quiz',
                           style: TextStyle(
@@ -110,6 +112,7 @@ class ExplorePage extends StatelessWidget {
                     AppConstants.modules[index].route,
                   ),
                   child: Container(
+<<<<<<< HEAD
                     margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                     height: 200,
                     decoration: BoxDecoration(
@@ -179,6 +182,19 @@ class ExplorePage extends StatelessWidget {
                                 ],
                               ),
                             ),
+=======
+                      margin: const EdgeInsets.symmetric(
+                          horizontal: 24, vertical: 12),
+                      height: ConstantDimensions.heightExtraLarge * 4,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            spreadRadius: 2,
+                            blurRadius: 5,
+                            offset: const Offset(0, 3),
+>>>>>>> 001141a87d4c28a7083b42373d9092e30ece809f
                           ),
                         ],
                       ),

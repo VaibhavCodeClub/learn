@@ -1,10 +1,13 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:learn/models/season_model.dart';
 import 'package:learn/utils/constants.dart';
+import '../../utils/const_dimensions.dart';
 
 class SeasonsPage extends StatelessWidget {
-  SeasonsPage({Key? key}) : super(key: key);
+  const SeasonsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,12 +36,12 @@ class SeasonsPage extends StatelessWidget {
               child: Row(
                 children: [
                   SizedBox(
-                    width: 50,
-                    height: 50,
+                    width: ConstantDimensions.widthExtraLarge,
+                    height: ConstantDimensions.heightExtraLarge,
                     child: SvgPicture.asset(
                         AppConstants.seasons[index].imageAsset),
                   ),
-                  const SizedBox(width: 28.0),
+                  const SizedBox(width: ConstantDimensions.widthMedium_Large),
                   Text(
                     AppConstants.seasons[index].name,
                     style: const TextStyle(
@@ -60,9 +63,11 @@ class SeasonsPage extends StatelessWidget {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return SeasonPopup(
-          currentIndex: index,
-          seasons: AppConstants.seasons,
+        return SingleChildScrollView(
+          child: SeasonPopup(
+            currentIndex: index,
+            seasons: AppConstants.seasons,
+          ),
         );
       },
     );
@@ -73,7 +78,8 @@ class SeasonPopup extends StatefulWidget {
   final int currentIndex;
   final List<Season> seasons;
 
-  SeasonPopup({
+  const SeasonPopup({
+    super.key,
     required this.currentIndex,
     required this.seasons,
   });
@@ -109,11 +115,11 @@ class _SeasonPopupState extends State<SeasonPopup> {
         mainAxisSize: MainAxisSize.min,
         children: [
           SizedBox(
-            width: 200,
-            height: 200,
+            width: ConstantDimensions.widthExtraLarge * 4,
+            height: ConstantDimensions.heightExtraLarge * 4,
             child: SvgPicture.asset(currentSeason.imageAsset),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: ConstantDimensions.heightSmall_Medium),
           Text(
             currentSeason.description,
             style: const TextStyle(fontSize: 16.0),
