@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:learn/pages/about.dart';
+import 'package:learn/pages/explore/drawingboard.dart';
 import 'package:learn/pages/modules/flowers.dart';
 import 'package:learn/pages/modules/atoz.dart';
 import 'package:learn/pages/modules/birds.dart';
@@ -17,7 +18,6 @@ import 'package:learn/pages/modules/planets.dart';
 import 'package:learn/utils/routes.dart';
 import 'package:learn/pages/modules/colours.dart';
 import 'package:learn/widgets/navbar/navbar.dart';
-
 import 'cubit/index_cubit.dart';
 import 'pages/explore/quiz.dart';
 import 'pages/home.dart';
@@ -76,6 +76,7 @@ class MyApp extends StatelessWidget {
                 AllRoutes.seasonRoute: (context) => SeasonsPage(),
                 AllRoutes.occupationRoute: (context) => OccupationPage(),
                 AllRoutes.fruitRoute: (context) => FruitsPage(),
+                AllRoutes.drawingboardRoute: (context) => DrawingBoardPage(),
               },
             );
           },
