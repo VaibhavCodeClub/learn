@@ -14,6 +14,7 @@ import 'package:learn/pages/modules/parts.dart';
 import 'package:learn/pages/modules/seasons.dart';
 import 'package:learn/pages/modules/shapes.dart';
 import 'package:learn/pages/modules/planets.dart';
+import 'package:learn/utils/route/routes.dart';
 import 'package:learn/utils/routes.dart';
 import 'package:learn/pages/modules/colours.dart';
 import 'package:learn/widgets/navbar/navbar.dart';
@@ -49,7 +50,7 @@ class MyApp extends StatelessWidget {
           builder: (context, index) {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
-              title: 'Home',
+              title: 'Learn',
               theme: theme,
               darkTheme: darkTheme,
               initialRoute: '/landing_page',
@@ -62,6 +63,7 @@ class MyApp extends StatelessWidget {
                 ][index],
                 bottomNavigationBar: const BottomNavBar(),
               ),
+              onGenerateRoute: Routers.generateRoute,
               routes: {
                 AllRoutes.homeRoute: (context) => const MyHomePage(),
                 AllRoutes.atozRoute: (context) => const AtoZ(),
