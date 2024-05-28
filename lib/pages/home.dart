@@ -141,10 +141,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 categoryCard(
                   context: context,
                   title: "FRUITS & VEGETABLES",
-                  image: 'assets/fruitsVeges/cover.jpg',
+                  image:  'assets/fruitsVeges/cover.jpg',
                   shortDescription:
-                      "Explore and learn about Fruits and Vegetables!",
+                      "Learn about different types of expressions",
                   route: AllRoutes.fruitRoute,
+                  index: 6,
+                ),
+                const SizedBox(
+                  height: ConstantDimensions.heightMedium,
+                ),
+                categoryCard(
+                  context: context,
+                  title: "Greetings",
+                  image: 'assets/Greetings/greetings_cover.jpg',
+                  shortDescription:
+                  "Learn about differnet types of expressions",
+                  route: AllRoutes.greetingsRoute,
                   index: 6,
                 ),
               ],
