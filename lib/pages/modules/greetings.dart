@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../utils/constants.dart';
 
@@ -20,40 +21,40 @@ class Greetings {
 
 class AppConstants {
   static const String greetings = 'Greetings';
-  static final List<Greetings> greetingList= [
+  static final List<Greetings> greetingList = [
     Greetings(
       name: 'Hello',
-      imgAsset: 'assets/Greetings/hi.jpg',
+      imgAsset: 'assets/Greetings/hi.svg',
       soundAsset: 'assets/sounds/hi.mp3',
-      backgroundColor: Colors.indigoAccent,
+      backgroundColor: Colors.white,
     ),
     Greetings(
       name: 'Say Cheese',
-      imgAsset: 'assets/Greetings/say_cheeze.jpg',
+      imgAsset: 'assets/Greetings/say_cheese.svg',
       soundAsset: 'assets/sounds/good_morning.mp3',
       backgroundColor: Colors.orange,
     ),
     Greetings(
       name: 'Best of Luck',
-      imgAsset: 'assets/Greetings/all_the_best.jpg',
+      imgAsset: 'assets/Greetings/all_the_best.svg',
       soundAsset: 'assets/sounds/good_night.mp3',
       backgroundColor: Colors.blue,
     ),
     Greetings(
       name: 'Sorry',
-      imgAsset: 'assets/Greetings/sorry.jpg',
+      imgAsset: 'assets/Greetings/sorry.svg',
       soundAsset: 'assets/sounds/good_night.mp3',
       backgroundColor: Colors.orange,
     ),
     Greetings(
       name: 'Please',
-      imgAsset: 'assets/Greetings/please.jpg',
+      imgAsset: 'assets/Greetings/please.svg',
       soundAsset: 'assets/sounds/good_night.mp3',
       backgroundColor: Colors.blue,
     ),
     Greetings(
       name: 'Congratulations',
-      imgAsset: 'assets/Greetings/congrats.jpg',
+      imgAsset: 'assets/Greetings/congrats.svg',
       soundAsset: 'assets/sounds/good_night.mp3',
       backgroundColor: Colors.red,
     ),
@@ -112,8 +113,7 @@ class _GreetingsWidgetState extends State<GreetingsWidget> {
 
   void _navigateToPreviousGreeting() {
     setState(() {
-      currentIndex =
-          (currentIndex - 1 + widget.greetings.length) % widget.greetings.length;
+      currentIndex = (currentIndex - 1 + widget.greetings.length) % widget.greetings.length;
     });
   }
 
@@ -140,14 +140,15 @@ class _GreetingsWidgetState extends State<GreetingsWidget> {
                   SizedBox(
                     width: 350,
                     height: 350,
-                    child: Image.asset(greeting.imgAsset),
+                    child: greeting.imgAsset.endsWith('.svg')
+                        ? SvgPicture.asset(greeting.imgAsset)
+                        : Image.asset(greeting.imgAsset),
                   ),
                 ],
               ),
             ),
           ),
           const SizedBox(height: 20),
-
           Text(
             greeting.name,
             style: const TextStyle(
@@ -185,11 +186,10 @@ class _GreetingsWidgetState extends State<GreetingsWidget> {
                   ),
                 ),
               ),
-
               const SizedBox(width: 20),
               IconButton(
                 onPressed: _navigateToNextGreeting,
-                icon:const Icon(Icons.arrow_forward),
+                icon: const Icon(Icons.arrow_forward),
               ),
             ],
           ),
