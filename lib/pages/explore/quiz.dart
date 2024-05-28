@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import './questions.dart';
+import 'package:learn/utils/constants.dart';
+import 'package:learn/utils/routes.dart';
 
 class Quiz extends StatefulWidget {
   static const routeName = "/quiz";
@@ -7,6 +8,20 @@ class Quiz extends StatefulWidget {
 
   @override
   State<Quiz> createState() => _QuizState();
+}
+
+class Questions {
+  String question;
+  List<String> options;
+  String? image;
+  int answer;
+
+  Questions({
+    required this.question,
+    required this.options,
+    required this.answer,
+    this.image,
+  });
 }
 
 class _QuizState extends State<Quiz> {
@@ -41,7 +56,7 @@ class _QuizState extends State<Quiz> {
                   ),
                 ),
                 Text(
-                  "Question ${questionnumber + 1}/${ques.length}",
+                  "Question ${questionnumber + 1}/${AppConstants.ques.length}",
                   style: const TextStyle(
                     color: Colors.black,
                     fontSize: 20,
@@ -64,13 +79,13 @@ class _QuizState extends State<Quiz> {
               ),
               child: Column(
                 children: [
-                  ques[questionnumber].image != null
+                  AppConstants.ques[questionnumber].image != null
                       ? Container(
                           height: 200,
                           width: 200,
                           color: Colors.white,
                           child: Image.asset(
-                            ques[questionnumber].image!,
+                            AppConstants.ques[questionnumber].image!,
                           ),
                         )
                       : const SizedBox(
@@ -80,7 +95,7 @@ class _QuizState extends State<Quiz> {
                     height: 10,
                   ),
                   Text(
-                    ques[questionnumber].question, // [1]
+                    AppConstants.ques[questionnumber].question, // [1]
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                         color: Colors.black,
@@ -97,7 +112,7 @@ class _QuizState extends State<Quiz> {
               child: ListView.separated(
                 itemBuilder: (context, index) => options(
                     width: width,
-                    option: ques[questionnumber].options[index],
+                    option: AppConstants.ques[questionnumber].options[index],
                     currentindex: index,
                     selectedIndex: SelectedIndex),
                 separatorBuilder: (context, index) => const SizedBox(
@@ -114,7 +129,7 @@ class _QuizState extends State<Quiz> {
                 if (SelectedIndex == -1) {
                   return;
                 }
-                if (questionnumber < ques.length - 1) {
+                if (questionnumber < AppConstants.ques.length - 1) {
                   setState(() {
                     questionnumber++;
                     SelectedIndex = -1;
@@ -122,6 +137,50 @@ class _QuizState extends State<Quiz> {
                   });
                 } else {
                   print("Quiz Completed");
+                  showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                            content: SizedBox(
+                              height: height * 0.4,
+                              width: width * 0.8,
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  const Text(
+                                    "Congratulations !!!",
+                                    style: TextStyle(
+                                        fontSize: 28,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(
+                                    "You Have Scored $_score out of ${AppConstants.ques.length}",
+                                    style: const TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                  ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: Colors.purple,
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 40, vertical: 20),
+                                        maximumSize: Size(width * 0.7, 60),
+                                        minimumSize: Size(width * 0.7, 60),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                        Navigator.of(context)
+                                            .pushReplacementNamed(
+                                                AllRoutes.homeRoute);
+                                      },
+                                      child: Text(
+                                        "Go Back",
+                                        style: TextStyle(color: Colors.white),
+                                      ))
+                                ],
+                              ),
+                            ),
+                          ));
                   // Navigator.of(context).pushNamed(ResultPage.routeName,
                   //     arguments: _score.toString());
                 }
@@ -164,7 +223,7 @@ class _QuizState extends State<Quiz> {
         setState(() {
           if (istappable) {
             SelectedIndex = currentindex;
-            if (currentindex == ques[questionnumber].answer) {
+            if (currentindex == AppConstants.ques[questionnumber].answer) {
               _score++;
               setState(() {});
             }
@@ -177,13 +236,13 @@ class _QuizState extends State<Quiz> {
         width: width * 0.9,
         decoration: BoxDecoration(
           color: selectedIndex == currentindex
-              ? currentindex == ques[questionnumber].answer
+              ? currentindex == AppConstants.ques[questionnumber].answer
                   ? Colors.green.withOpacity(0.3)
                   : Colors.red.withOpacity(0.3)
               : Colors.white,
           border: Border.all(
             color: selectedIndex == currentindex
-                ? currentindex == ques[questionnumber].answer
+                ? currentindex == AppConstants.ques[questionnumber].answer
                     ? Colors.green
                     : Colors.red
                 : Colors.black,
@@ -201,7 +260,7 @@ class _QuizState extends State<Quiz> {
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: selectedIndex == currentindex
-                      ? currentindex == ques[questionnumber].answer
+                      ? currentindex == AppConstants.ques[questionnumber].answer
                           ? Colors.green
                           : Colors.red
                       : Colors.black,
