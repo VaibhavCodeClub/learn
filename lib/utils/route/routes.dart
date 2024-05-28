@@ -58,9 +58,9 @@ class Routers {
         return slidePageRoute(FruitsPage());
       case AllRoutesConstant.drawingboardRoute:
         return slidePageRoute(const DrawingBoardPage());
-      case AllRoutesConstant.landing:
+      case AllRoutesConstant.landingRoute:
         return slidePageRoute(const LandingPage());
-      case AllRoutesConstant.mainhome:
+      case AllRoutesConstant.mainhomeRoute:
         return slidePageRoute(MainHome());
       default:
         return MaterialPageRoute(
