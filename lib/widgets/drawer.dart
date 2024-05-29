@@ -117,8 +117,8 @@ class MyDrawer extends StatelessWidget {
                   },
                   context: context,
                 ),
-                _buildListTileSVG(
-                  icon: AssetsPath.getFlowerImage(Flowers.flowerIcon),
+                _buildListTile(
+                  icon: Icons.local_florist,
                   title: "Flowers",
                   onTap: () {
                     Navigator.pushNamed(context, AllRoutes.flowerRoute);
