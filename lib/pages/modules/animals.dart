@@ -8,6 +8,7 @@ import 'package:learn/models/animal_model.dart';
 import 'package:learn/utils/constants.dart';
 
 import '../../utils/const_dimensions.dart';
+import 'animals_test.dart';
 
 class AnimalsPage extends StatelessWidget {
 
@@ -25,6 +26,17 @@ class AnimalsPage extends StatelessWidget {
           AppConstants.animal,
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.assessment),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const AnimalsTestPage()),
+              );
+            },
+          ),
+        ],
       ),
       body: ListView.builder(
         itemCount: AppConstants.animals.length,

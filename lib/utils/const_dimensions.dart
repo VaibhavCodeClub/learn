@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 class ConstantDimensions {
   static const double heightExtraSmall = 6;
   static const double heightSmall = 10;

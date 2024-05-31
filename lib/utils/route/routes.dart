@@ -58,7 +58,7 @@ class Routers {
       case AllRoutesConstant.landing:
         return slidePageRoute(const LandingPage());
       case AllRoutesConstant.mainhome:
-        return slidePageRoute(MainHome());
+        return slidePageRoute(const MainHome());
       default:
         return MaterialPageRoute(
           builder: (context) => const Scaffold(

@@ -7,6 +7,7 @@ import 'package:just_audio/just_audio.dart';
 import 'package:learn/utils/assets_path.dart';
 import '../../utils/const_dimensions.dart';
 import 'package:learn/models/planet_model.dart';
+import 'planets_test.dart';
 
 class PlanetsPage extends StatelessWidget {
   final List<Planet> planets = [
@@ -70,7 +71,12 @@ class PlanetsPage extends StatelessWidget {
   final AudioPlayer audioPlayer = AudioPlayer();
 
   PlanetsPage({Key? key}) : super(key: key);
-
+ void _navigateToPlanetsTestPage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const PlanetsTestPage()),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,6 +91,14 @@ class PlanetsPage extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.assignment),
+            onPressed: () {
+              _navigateToPlanetsTestPage(context);
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Center(

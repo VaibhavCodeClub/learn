@@ -1,10 +1,11 @@
+// ignore_for_file: unused_element
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:learn/models/flower_model.dart';
 import 'package:learn/utils/assets_path.dart';
-
-import '../../utils/const_dimensions.dart';
+import 'flowers_test.dart';
 
 class FlowerPage extends StatefulWidget {
   const FlowerPage({super.key});
@@ -82,6 +83,12 @@ class _FlowerPageState extends State<FlowerPage> {
     await flutterTts.setPitch(1.0);
     await flutterTts.speak(name);
   }
+  void _navigateToFlowersTestPage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const FlowersTestPage()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -95,6 +102,14 @@ class _FlowerPageState extends State<FlowerPage> {
             fontSize: 30,
           ),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.assignment),
+            onPressed: () {
+              _navigateToFlowersTestPage(context);
+            },
+          ),
+        ],
       ),
       backgroundColor: flower.background,
       body: SingleChildScrollView(
@@ -119,7 +134,7 @@ class _FlowerPageState extends State<FlowerPage> {
               children: [
                 GestureDetector(
                   onTap: _navigateToNextFlower,
-                  child: Container(
+                  child: SizedBox(
                     width: double.infinity,
                     height: 300,
                     child: SvgPicture.asset(
