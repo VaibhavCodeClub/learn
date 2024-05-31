@@ -110,7 +110,7 @@ class _PopupDialogState extends State<_PopupDialog> {
 
     _speakDescription();
     if (isAutoNextEnabled) {
-      timer = Timer.periodic(const Duration(seconds: 3), (Timer t) {
+      timer = Timer.periodic(const Duration(seconds: 2), (Timer t) {
         _nextItem();
       });
     }
