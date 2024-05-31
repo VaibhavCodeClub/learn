@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class DrawingBoardPage extends StatelessWidget {
   const DrawingBoardPage({Key? key});
@@ -20,6 +21,7 @@ class DrawingBoard extends StatefulWidget {
 class _DrawingBoardState extends State<DrawingBoard> {
   Color selectedColor = Colors.black;
   double strokeWidth = 5;
+  bool isEraser = false;
   List<DrawingPoint?> drawingPoints = [];
   List<Color> colors = [
     Colors.pink,
@@ -38,12 +40,20 @@ class _DrawingBoardState extends State<DrawingBoard> {
       appBar: AppBar(
         title: Text("Drawing Board"),
         actions: [
-          IconButton(
-            icon:Icon(Icons.clear),
+          TextButton.icon(
             onPressed: () => setState(() => drawingPoints = []),
+            icon: Icon(Icons.clear),
+            label: Text("Clear Board"),
+            style: TextButton.styleFrom(
+              backgroundColor: Color(0xfff7f2fa),
+            ),
+        ),
+          SizedBox(
+            width: 10,
           ),
         ],
-      ),
+    ),
+
       body: Stack(
         children: [
           GestureDetector(
@@ -53,7 +63,7 @@ class _DrawingBoardState extends State<DrawingBoard> {
                   DrawingPoint(
                     details.localPosition,
                     Paint()
-                      ..color = selectedColor
+                      ..color = isEraser? Color(0xfffef7ff) : selectedColor
                       ..isAntiAlias = true
                       ..strokeWidth = strokeWidth
                       ..strokeCap = StrokeCap.round,
@@ -61,13 +71,14 @@ class _DrawingBoardState extends State<DrawingBoard> {
                 );
               });
             },
+
             onPanUpdate: (details) {
               setState(() {
                 drawingPoints.add(
                   DrawingPoint(
                     details.localPosition,
                     Paint()
-                      ..color = selectedColor
+                      ..color = isEraser? Color(0xfffef7ff) : selectedColor
                       ..isAntiAlias = true
                       ..strokeWidth = strokeWidth
                       ..strokeCap = StrokeCap.round,
@@ -75,11 +86,13 @@ class _DrawingBoardState extends State<DrawingBoard> {
                 );
               });
             },
+
             onPanEnd: (details) {
               setState(() {
                 drawingPoints.add(null);
               });
             },
+
             child: CustomPaint(
               painter: _DrawingPainter(drawingPoints),
               child: Container(
@@ -88,21 +101,33 @@ class _DrawingBoardState extends State<DrawingBoard> {
               ),
             ),
           ),
+
           Positioned(
-            top: 40,
-            right: 30,
+            top: 20,
+            right: 10,
+            left: 10,
             child: Row(
               children: [
                 Slider(
                   min: 0,
                   max: 40,
                   value: strokeWidth,
-                  onChanged:(val) => setState(() => strokeWidth = val),
+                  onChanged: (val) => setState(() => strokeWidth = val),
                 ),
-
-                ElevatedButton.icon(onPressed: () => setState(() => drawingPoints = []),
-                  icon: Icon(Icons.clear),
-                  label: Text("Clear Board"),
+                SizedBox(
+                    width: 50
+                ),
+                ElevatedButton.icon(
+                  onPressed: () {
+                    setState(() {
+                      isEraser =!isEraser;
+                      if (isEraser) {
+                        selectedColor = Color(0xfffef7ff);
+                      }
+                    });
+                  },
+                    icon: Icon(FontAwesomeIcons.eraser),
+                  label: Text("Eraser"),
                 ),
               ],
             ),
@@ -129,7 +154,12 @@ class _DrawingBoardState extends State<DrawingBoard> {
   GestureDetector _buildColorChoser(Color color) {
     bool isSelected = selectedColor == color;
     return GestureDetector(
-      onTap: () => setState(() => selectedColor = color),
+      onTap: () {
+        setState(() {
+          selectedColor = color;
+          isEraser = false;
+        });
+      },
       child: Container(
         height: isSelected ? 47 : 40,
         width: isSelected ? 47 : 40,
