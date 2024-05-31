@@ -74,9 +74,7 @@ class AboutPage extends StatelessWidget {
                 'Body Parts',
                 'Learn about different body parts, how to pronounce them, and gain short information, promoting awareness of their own bodies.',
               ),
-              const SizedBox(height: 16.0),
-              _buildSectionTitle(context, 'Upcoming Features:'),
-              const SizedBox(height: 8.0),
+              
               _buildFeature(
                 context,
                 'Birds',
@@ -86,7 +84,9 @@ class AboutPage extends StatelessWidget {
                 context,
                 'Solar System',
                 'Gain knowledge about the solar system, sparking interest in space and astronomy.',
-              ),
+              ),const SizedBox(height: 16.0),
+              _buildSectionTitle(context, 'Upcoming Features:'),
+              const SizedBox(height: 8.0),
               _buildFeature(
                 context,
                 'Shapes',
