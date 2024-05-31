@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
 import 'package:learn/utils/assets_path.dart';
 import 'package:learn/utils/route/route_constant.dart';
 
@@ -120,8 +120,8 @@ class MyDrawer extends StatelessWidget {
                   },
                   context: context,
                 ),
-                _buildListTileSVG(
-                  icon: AssetsPath.getFlowerImage(Flowers.flowerIcon),
+                _buildListTile(
+                  icon: Icons.local_florist,
                   title: "Flowers",
                   onTap: () {
                     Navigator.pushNamed(context, AllRoutesConstant.flowerRoute);
@@ -160,23 +160,23 @@ class MyDrawer extends StatelessWidget {
     );
   }
 
-  Widget _buildListTileSVG({
-    required BuildContext context,
-    required String icon,
-    required String title,
-    required VoidCallback onTap,
-  }) {
-    return ListTile(
-      leading: SvgPicture.asset(
-        icon,
-        width: 24,
-        height: 24,
-      ),
-      title: Text(
-        title,
-        style: Theme.of(context).textTheme.bodyLarge,
-      ),
-      onTap: onTap,
-    );
-  }
+  // Widget _buildListTileSVG({
+  //   required BuildContext context,
+  //   required String icon,
+  //   required String title,
+  //   required VoidCallback onTap,
+  // }) {
+  //   return ListTile(
+  //     leading: SvgPicture.asset(
+  //       icon,
+  //       width: 24,
+  //       height: 24,
+  //     ),
+  //     title: Text(
+  //       title,
+  //       style: Theme.of(context).textTheme.bodyLarge,
+  //     ),
+  //     onTap: onTap,
+  //   );
+  // }
 }
