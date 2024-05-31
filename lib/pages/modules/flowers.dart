@@ -4,7 +4,7 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:learn/models/flower_model.dart';
 import 'package:learn/utils/assets_path.dart';
 
-import '../../utils/const_dimensions.dart';
+// import '../../utils/const_dimensions.dart';
 
 class FlowerPage extends StatefulWidget {
   const FlowerPage({super.key});
@@ -119,7 +119,7 @@ class _FlowerPageState extends State<FlowerPage> {
               children: [
                 GestureDetector(
                   onTap: _navigateToNextFlower,
-                  child: Container(
+                  child: SizedBox(
                     width: double.infinity,
                     height: 300,
                     child: SvgPicture.asset(
