@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'pages/home.dart';
+import 'package:learn/utils/route/route_constant.dart';
 
 class LandingPage extends StatefulWidget {
-  const LandingPage({super.key});
+  const LandingPage({
+    super.key,
+  });
 
   @override
   State<LandingPage> createState() => _LandingPageState();
@@ -20,32 +22,38 @@ class _LandingPageState extends State<LandingPage> {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-                    
+
               Center(
                 child: Container(
                   width: width,
-                  height: height/2,
+                  height: height / 2,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("assets/images/studying.png"),
-                      fit: BoxFit.contain
-                    ),
+                        image: AssetImage("assets/images/studying.png"),
+                        fit: BoxFit.contain),
                   ),
                 ),
               ),
-                    
+
               Center(
                 child: SizedBox(
                   child: DefaultTextStyle(
                     style: TextStyle(
-                      fontSize: width/19,
+
+                      fontSize: width / 19,
                     ),
                     child: AnimatedTextKit(
                       animatedTexts: [
                         ColorizeAnimatedText(
                           'Learn',
-                          textStyle: TextStyle(fontSize: width/12, fontWeight: FontWeight.w900), 
-                          colors: [ const Color.fromRGBO(255, 183, 77, 1),const Color.fromARGB(255, 231, 225, 208)],
+
+                          textStyle: TextStyle(
+                              fontSize: width / 12,
+                              fontWeight: FontWeight.w900),
+                          colors: [
+                            const Color.fromRGBO(255, 183, 77, 1),
+                            const Color.fromARGB(255, 231, 225, 208)
+                          ],
                         ),
                       ],
                       isRepeatingAnimation: true,
@@ -53,47 +61,48 @@ class _LandingPageState extends State<LandingPage> {
                   ),
                 ),
               ),
-          
-            const Padding(padding: EdgeInsets.only(top: 20)),
+
+              const Padding(padding: EdgeInsets.only(top: 20)),
               //
               Center(
                 child: SizedBox(
                   child: Text(
                     "Learning Made Easy",
                     style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: width/18
-                    ),
+
+                        fontWeight: FontWeight.w400, fontSize: width / 18),
                   ),
                 ),
               ),
-                    
+
               const Padding(padding: EdgeInsets.only(top: 30)),
-          
+
               Center(
                 child: SizedBox(
-                  width: width/1.5,
-                  height: height/10,
+                  width: width / 1.5,
+                  height: height / 10,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromRGBO(255, 183, 77, 1),
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                      )
-                    ),
+                        backgroundColor: const Color.fromRGBO(255, 183, 77, 1),
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                        )),
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const MyHomePage()));
+                      Navigator.popAndPushNamed(
+                        context,
+                        AllRoutesConstant.mainhome,
+                      );
                     },
-                    child: Text("Get started",
+                    child: Text(
+                      "Get started",
                       style: TextStyle(
-                        color: Colors.white,
-                        fontSize: (width < height) ? width/19 : height/19
-                      ),
+                          color: Colors.white,
+                          fontSize:
+                              (width < height) ? width / 19 : height / 19),
                     ),
                   ),
                 ),
               ),
-          
             ],
           ),
         ),
