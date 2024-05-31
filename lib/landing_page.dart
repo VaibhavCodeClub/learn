@@ -22,6 +22,7 @@ class _LandingPageState extends State<LandingPage> {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
+
               Center(
                 child: Container(
                   width: width,
@@ -38,12 +39,14 @@ class _LandingPageState extends State<LandingPage> {
                 child: SizedBox(
                   child: DefaultTextStyle(
                     style: TextStyle(
+
                       fontSize: width / 19,
                     ),
                     child: AnimatedTextKit(
                       animatedTexts: [
                         ColorizeAnimatedText(
                           'Learn',
+
                           textStyle: TextStyle(
                               fontSize: width / 12,
                               fontWeight: FontWeight.w900),
@@ -66,6 +69,7 @@ class _LandingPageState extends State<LandingPage> {
                   child: Text(
                     "Learning Made Easy",
                     style: TextStyle(
+
                         fontWeight: FontWeight.w400, fontSize: width / 18),
                   ),
                 ),
