@@ -287,9 +287,7 @@ class LearnMorePage extends StatelessWidget {
               'Body Parts',
               'This feature includes a diagram of the human body with clickable parts that provide information and pronunciation. It helps children to learn about their own bodies and understand the function of each part.',
             ),
-            const SizedBox(height: 16.0),
-            _buildSectionTitle(context, 'Upcoming Features:'),
-            const SizedBox(height: 8.0),
+            
             _buildFeature(
               context,
               'Birds',
@@ -299,7 +297,9 @@ class LearnMorePage extends StatelessWidget {
               context,
               'Solar System',
               'The solar system feature will teach children about the planets and other celestial bodies, fostering an interest in space and astronomy.',
-            ),
+            ),const SizedBox(height: 16.0),
+            _buildSectionTitle(context, 'Upcoming Features:'),
+            const SizedBox(height: 8.0),
             _buildFeature(
               context,
               'Shapes',
@@ -320,7 +320,7 @@ class LearnMorePage extends StatelessWidget {
               'Q: How do I use the app?\n'
               'A: Simply navigate through the sections using the bottom navigation bar. Each section is designed to be intuitive and easy to use.\n\n'
               'Q: Is the app free?\n'
-              'A: Yes, the app is free to use. Some additional features may be available for purchase in the future.\n\n'
+              'A: Yes, the app is free to use.\n\n'
               'Q: How can I provide feedback?\n'
               'A: You can provide feedback through the contact options available in the About section of the app.',
             ),
