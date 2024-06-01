@@ -1,11 +1,10 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:learn/main.dart';
 import 'package:learn/utils/assets_path.dart';
 import 'package:learn/utils/const_dimensions.dart';
-
-import '../utils/routes.dart';
+import 'package:learn/utils/route/route_constant.dart';
 import '../widgets/drawer.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -19,140 +18,122 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<bool> _isImageClicked = List.generate(7, (index) => false);
   bool _isDarkTheme = false;
 
-  Future<bool> _onBackPressed() {
-    DateTime now = DateTime.now();
-    if (currentBackPressTime == null ||
-        now.difference(currentBackPressTime!) > const Duration(seconds: 2)) {
-      currentBackPressTime = now;
-      Fluttertoast.showToast(
-        msg: "Press back again to exit",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.BOTTOM,
-      );
-      return Future.value(false);
-    }
-    return Future.value(true);
-  }
-
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: _onBackPressed,
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            'Home',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.only(right: 16, top: 1),
-              child: IconButton(
-                icon: Icon(
-                  _isDarkTheme ? Icons.dark_mode : Icons.light_mode,
-                ),
-                onPressed: () {
-                  setState(() {
-                    _isDarkTheme = !_isDarkTheme;
-                  });
-                  final themeMode =
-                      Theme.of(context).brightness == Brightness.dark
-                          ? AdaptiveThemeMode.light
-                          : AdaptiveThemeMode.dark;
-                  AdaptiveTheme.of(context).setThemeMode(themeMode);
-                },
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Home',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 16, top: 1),
+            child: IconButton(
+              icon: Icon(
+                _isDarkTheme ? Icons.dark_mode : Icons.light_mode,
               ),
-            ),
-          ],
-        ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(38.0),
-            child: Column(
-              children: [
-                categoryCard(
-                  context: context,
-                  title: "ALPHABETS",
-                  image: AssetsPath.getAlphabetImage(Alphabets.alphabets),
-                  shortDescription:
-                      "Learn A to Z with pronunciation and an example",
-                  route: AllRoutes.atozRoute,
-                  index: 0,
-                ),
-                const SizedBox(
-                  height: ConstantDimensions.heightMedium,
-                ),
-                categoryCard(
-                  context: context,
-                  title: "ANIMALS",
-                  image: AssetsPath.getAnimalImage(Animals.animals),
-                  shortDescription: "Learn about animals and their voices",
-                  route: AllRoutes.animalRoute,
-                  index: 1,
-                ),
-                const SizedBox(
-                  height: ConstantDimensions.heightMedium,
-                ),
-                categoryCard(
-                  context: context,
-                  title: "BODY PARTS",
-                  image: AssetsPath.getBodyImage(Body.body),
-                  shortDescription:
-                      "Know about body parts and their pronunciation.",
-                  route: AllRoutes.partsRoute,
-                  index: 2,
-                ),
-                const SizedBox(
-                  height: ConstantDimensions.heightMedium,
-                ),
-                categoryCard(
-                  context: context,
-                  title: "BIRDS",
-                  image: AssetsPath.getBirdImage(Birds.birds),
-                  shortDescription: "Look out for Birds with their sounds.",
-                  route: AllRoutes.birdsRoute,
-                  index: 3,
-                ),
-                const SizedBox(
-                  height: ConstantDimensions.heightMedium,
-                ),
-                categoryCard(
-                  context: context,
-                  title: "COLOURS",
-                  image: AssetsPath.getColoursImage(ColorImages.colorsCover),
-                  shortDescription: "Explore and learn about the colours!",
-                  route: AllRoutes.colourRoute,
-                  index: 4,
-                ),
-                const SizedBox(
-                  height: ConstantDimensions.heightMedium,
-                ),
-                categoryCard(
-                  context: context,
-                  title: "FLOWERS",
-                  image: AssetsPath.getFlowerImage(Flowers.flowerBanner),
-                  shortDescription: "Explore beauty of nature flowers.",
-                  route: AllRoutes.flowerRoute,
-                  index: 5,
-                ),
-                const SizedBox(
-                  height: ConstantDimensions.heightMedium,
-                ),
-                categoryCard(
-                  context: context,
-                  title: "FRUITS & VEGETABLES",
-                  image: 'assets/fruitsVeges/cover.jpg',
-                  shortDescription:
-                      "Explore and learn about Fruits and Vegetables!",
-                  route: AllRoutes.fruitRoute,
-                  index: 6,
-                ),
-              ],
+              onPressed: () {
+                setState(() {
+                  _isDarkTheme = !_isDarkTheme;
+                });
+                final themeMode =
+                    Theme.of(context).brightness == Brightness.dark
+                        ? AdaptiveThemeMode.light
+                        : AdaptiveThemeMode.dark;
+                AdaptiveTheme.of(context).setThemeMode(themeMode);
+              },
             ),
           ),
-        ),
-        drawer: const MyDrawer(),
+        ],
       ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(38.0),
+          child: Column(
+            children: [
+              categoryCard(
+                context: context,
+                title: "ALPHABETS",
+                image: AssetsPath.getAlphabetImage(Alphabets.alphabets),
+                shortDescription:
+                    "Learn A to Z with pronunciation and an example",
+                route: AllRoutesConstant.atozRoute,
+                index: 0,
+              ),
+              const SizedBox(
+                height: ConstantDimensions.heightMedium,
+              ),
+              categoryCard(
+                context: context,
+                title: "ANIMALS",
+                image: AssetsPath.getAnimalImage(Animals.animals),
+                shortDescription: "Learn about animals and their voices",
+                route: AllRoutesConstant.animalRoute,
+                index: 1,
+              ),
+              const SizedBox(
+                height: ConstantDimensions.heightMedium,
+              ),
+              categoryCard(
+                context: context,
+                title: "BODY PARTS",
+                image: AssetsPath.getBodyImage(Body.body),
+                shortDescription:
+                    "Know about body parts and their pronunciation.",
+                route: AllRoutesConstant.partsRoute,
+                index: 2,
+              ),
+              const SizedBox(
+                height: ConstantDimensions.heightMedium,
+              ),
+              categoryCard(
+                context: context,
+                title: "BIRDS",
+                image: AssetsPath.getBirdImage(Birds.birds),
+                shortDescription: "Look out for Birds with their sounds.",
+                route: AllRoutesConstant.birdsRoute,
+                index: 3,
+              ),
+              const SizedBox(
+                height: ConstantDimensions.heightMedium,
+              ),
+              categoryCard(
+                context: context,
+                title: "COLOURS",
+                image: AssetsPath.getColoursImage(ColorImages.colorsCover),
+                shortDescription: "Explore and learn about the colours!",
+                route: AllRoutesConstant.colourRoute,
+                index: 4,
+              ),
+              const SizedBox(
+                height: ConstantDimensions.heightMedium,
+              ),
+              categoryCard(
+                context: context,
+                title: "FLOWERS",
+                image: AssetsPath.getFlowerImage(Flowers.flowerBanner),
+                shortDescription: "Explore beauty of nature flowers.",
+                route: AllRoutesConstant.flowerRoute,
+                index: 5,
+              ),
+              const SizedBox(
+                height: ConstantDimensions.heightMedium,
+              ),
+              categoryCard(
+                context: context,
+                title: "FRUITS & VEGETABLES",
+                image: 'assets/fruitsVeges/cover.jpg',
+                shortDescription:
+                    "Explore and learn about Fruits and Vegetables!",
+                route: AllRoutesConstant.fruitRoute,
+                index: 6,
+              ),
+            ],
+          ),
+        ),
+      ),
+      drawer: const MyDrawer(),
     );
   }
 

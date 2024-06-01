@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:learn/utils/assets_path.dart';
-import '../../utils/const_dimensions.dart';
+// import '../../utils/const_dimensions.dart';
 import 'package:learn/models/colours_model.dart';
 
 import '../../utils/constants.dart';
@@ -76,7 +76,7 @@ class _ColoursPageState extends State<ColoursPage> {
               children: [
                 GestureDetector(
                   onTap: _navigateToNextColour,
-                  child: Container(
+                  child: SizedBox(
                     width: double.infinity,
                     height: 300,
                     child: SvgPicture.asset(

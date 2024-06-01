@@ -219,7 +219,7 @@ class _PopupDialogState extends State<_PopupDialog> {
               const SizedBox(height: ConstantDimensions.heightMedium),
               ElevatedButton(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
+                  backgroundColor: WidgetStateProperty.all(
                     const Color.fromARGB(216, 233, 101, 92),
                   ),
                 ),
@@ -270,8 +270,8 @@ class _AtoZState extends State<AtoZ> {
                 child: ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor: isTimerEnabled
-                        ? MaterialStateProperty.all(Colors.green)
-                        : MaterialStateProperty.all(Colors.red),
+                        ? WidgetStateProperty.all(Colors.green)
+                        : WidgetStateProperty.all(Colors.red),
                   ),
                   onPressed: () {
                     setState(() {
