@@ -18,47 +18,47 @@ class _FlowerPageState extends State<FlowerPage> {
     Flower(
         name: "Rose",
         resource: AssetsPath.getFlowerImage(Flowers.rose),
-        background: Colors.redAccent),
+        background: Colors.red.shade600),
     Flower(
         name: "Sunflower",
         resource: AssetsPath.getFlowerImage(Flowers.sunflower),
-        background: Colors.yellowAccent),
+        background: Colors.yellow.shade700),
     Flower(
         name: "Lily",
         resource: AssetsPath.getFlowerImage(Flowers.lily),
-        background: Colors.greenAccent),
+        background: Colors.green.shade300),
     Flower(
         name: "Marigold",
         resource: AssetsPath.getFlowerImage(Flowers.marigold),
-        background: Colors.yellow),
+        background: Colors.orange.shade600),
     Flower(
-        name: "Carnation",
-        resource: AssetsPath.getFlowerImage(Flowers.carnation),
-        background: Colors.redAccent),
+        name: "Dandelion",
+        resource: AssetsPath.getFlowerImage(Flowers.dandelion),
+        background: Colors.green.shade600),
     Flower(
-        name: "Daffodil",
-        resource: AssetsPath.getFlowerImage(Flowers.daffodil),
-        background: Colors.purpleAccent),
+        name: "Lotus",
+        resource: AssetsPath.getFlowerImage(Flowers.lotus),
+        background: Colors.pink.shade300),
     Flower(
         name: "Daisy",
         resource: AssetsPath.getFlowerImage(Flowers.daisy),
-        background: Colors.green),
+        background: Colors.brown.shade400),
     Flower(
-        name: "Poppy",
-        resource: AssetsPath.getFlowerImage(Flowers.poppy),
-        background: Colors.redAccent),
+        name: "Jasmine",
+        resource: AssetsPath.getFlowerImage(Flowers.jasmine),
+        background: Colors.green.shade600),
     Flower(
         name: "Tulip",
         resource: AssetsPath.getFlowerImage(Flowers.tulip),
-        background: Colors.pink),
+        background: Colors.pink.shade400),
     Flower(
         name: "Lavender",
         resource: AssetsPath.getFlowerImage(Flowers.lavender),
-        background: Colors.purple),
+        background: Colors.purple.shade600),
     Flower(
         name: "Hibiscus",
         resource: AssetsPath.getFlowerImage(Flowers.hibiscus),
-        background: Colors.red),
+        background: Colors.pink.shade400),
   ];
 
   final FlutterTts flutterTts = FlutterTts();
@@ -97,79 +97,83 @@ class _FlowerPageState extends State<FlowerPage> {
         ),
       ),
       backgroundColor: flower.background,
-      body: SingleChildScrollView(
-        child: Center(
-          child: Container(
-            padding: const EdgeInsets.all(20),
-            constraints: const BoxConstraints(maxWidth: 400, maxHeight: 700),
-            decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.7),
-              borderRadius: BorderRadius.circular(7.0),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.white.withOpacity(0.2),
-                  spreadRadius: 2,
-                  blurRadius: 5,
-                  offset: const Offset(0, 3),
-                ),
-              ],
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                GestureDetector(
-                  onTap: _navigateToNextFlower,
-                  child: SizedBox(
-                    width: double.infinity,
-                    height: 300,
-                    child: SvgPicture.asset(
-                      flower.resource,
-                      fit: BoxFit.contain,
+
+      body: Center(
+        child: SingleChildScrollView(
+          child: Center(
+            child: Container(
+              padding: const EdgeInsets.all(20),
+              constraints: const BoxConstraints(maxWidth: 400, maxHeight: 700),
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.7),
+                borderRadius: BorderRadius.circular(7.0),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.white.withOpacity(0.2),
+                    spreadRadius: 2,
+                    blurRadius: 5,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: _navigateToNextFlower,
+                    child: Container(
+                      width: double.infinity,
+                      height: 300,
+                      child: SvgPicture.asset(
+                        flower.resource,
+                        fit: BoxFit.contain,
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 20),
-                Text(
-                  flower.name,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 60,
-                    fontFamily: 'Comic',
+                  const SizedBox(height: 20),
+                  Text(
+                    flower.name,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 60,
+                      fontFamily: 'Comic',
+                      color: flower.background,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    IconButton(
-                      onPressed: _navigateToPreviousFlower,
-                      icon: const Icon(
-                        Icons.arrow_back,
-                        size: 30,
+                  const SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                        onPressed: _navigateToPreviousFlower,
+                        icon: const Icon(
+                          Icons.arrow_back,
+                          size: 30,
+                        ),
                       ),
-                    ),
-                    const SizedBox(width: 20),
-                    IconButton.outlined(
-                      highlightColor: Colors.amber,
-                      onPressed: () {
-                        readName(flower.name);
-                      },
-                      icon: const Icon(
-                        Icons.volume_up_outlined,
-                        size: 40,
+                      const SizedBox(width: 20),
+                      IconButton.outlined(
+                        highlightColor: Colors.amber,
+                        onPressed: () {
+                          readName(flower.name);
+                        },
+                        icon: const Icon(
+                          Icons.volume_up_outlined,
+                          size: 40,
+                        ),
                       ),
-                    ),
-                    const SizedBox(width: 20),
-                    IconButton(
-                      onPressed: _navigateToNextFlower,
-                      icon: const Icon(
-                        Icons.arrow_forward,
-                        size: 30,
-                      ),
-                    )
-                  ],
-                ),
-              ],
+                      const SizedBox(width: 20),
+                      IconButton(
+                        onPressed: _navigateToNextFlower,
+                        icon: const Icon(
+                          Icons.arrow_forward,
+                          size: 30,
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
