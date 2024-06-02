@@ -9,6 +9,7 @@ import 'package:learn/pages/modules/colours.dart';
 import 'package:learn/pages/modules/planets.dart';
 import 'package:learn/pages/modules/shapes.dart';
 import 'package:learn/utils/constants.dart';
+import 'package:learn/utils/route/route_constant.dart';
 
 import '../../utils/const_dimensions.dart';
 
@@ -59,11 +60,44 @@ class _ExplorePageState extends State<ExplorePage> {
                           width: ConstantDimensions.widthExtraLarge,
                           height: ConstantDimensions.heightExtraLarge,
                           child:
-                              SvgPicture.asset('assets/explore/notebook.svg'),
+                          SvgPicture.asset('assets/explore/notebook.svg'),
                         ),
                         const SizedBox(width: ConstantDimensions.widthMedium_Large),
                         const Text(
                           'Quiz',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 30.0,
+                            fontFamily: 'Comic',
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, AllRoutesConstant.drawingboardRoute);
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.all(5.0),
+                    padding: const EdgeInsets.all(8.0),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black, width: 1.0),
+                      borderRadius: BorderRadius.circular(8.0),
+                      color: Colors.greenAccent,
+                    ),
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          width: ConstantDimensions.widthExtraLarge,
+                          height: ConstantDimensions.heightExtraLarge,
+                          child: SvgPicture.asset('assets/explore/drawing_board.svg'),
+                        ),
+                        const SizedBox(width: ConstantDimensions.widthMedium_Large),
+                        const Text(
+                          'Drawing Board',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 30.0,
@@ -80,7 +114,7 @@ class _ExplorePageState extends State<ExplorePage> {
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
-              (context, index) {
+                  (context, index) {
                 return GestureDetector(
                   onTap: () {
                     try{
@@ -137,7 +171,7 @@ class _ExplorePageState extends State<ExplorePage> {
                           children: [
                             ImageFiltered(
                               imageFilter:
-                                  ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                              ImageFilter.blur(sigmaX: 5, sigmaY: 5),
                               child: Image.asset(
                                 AppConstants.modules[index].thumbnailPath,
                                 fit: BoxFit.cover,
