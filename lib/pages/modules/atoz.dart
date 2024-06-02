@@ -110,7 +110,7 @@ class _PopupDialogState extends State<_PopupDialog> {
 
     _speakDescription();
     if (isAutoNextEnabled) {
-      timer = Timer.periodic(const Duration(seconds: 2), (Timer t) {
+      timer = Timer.periodic(const Duration(seconds: 3), (Timer t) {
         _nextItem();
       });
     }
@@ -154,20 +154,20 @@ class _PopupDialogState extends State<_PopupDialog> {
   @override
   Widget build(BuildContext context) {
     final currentItem = widget.items[currentIndex];
-    return SingleChildScrollView(
-      child: AlertDialog(
-        contentPadding: EdgeInsets.zero,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        content: Container(
-          padding: EdgeInsets.zero,
-          width: MediaQuery.of(context).size.width * 0.75,
-          height: MediaQuery.of(context).size.height * 0.75,
-          decoration: BoxDecoration(
-              color: currentItem.backgroundColor,
-              borderRadius: BorderRadius.circular(15)),
-          child: Padding(
-            padding: const EdgeInsets.all(18),
-            child: Center(
+    return AlertDialog(
+      contentPadding: EdgeInsets.zero,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      content: Container(
+        padding: EdgeInsets.zero,
+        width: MediaQuery.of(context).size.width * 0.75,
+        height: MediaQuery.of(context).size.height * 0.75,
+        decoration: BoxDecoration(
+            color: currentItem.backgroundColor,
+            borderRadius: BorderRadius.circular(15)),
+        child: Padding(
+          padding: const EdgeInsets.all(18),
+          child: Center(
+            child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisSize: MainAxisSize.min,
