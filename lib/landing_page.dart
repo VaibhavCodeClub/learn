@@ -90,7 +90,7 @@ class _LandingPageState extends State<LandingPage> {
                     onPressed: () {
                       Navigator.popAndPushNamed(
                         context,
-                        AllRoutesConstant.mainhomeRoute,
+                        AllRoutesConstant.homeRoute,
                       );
                     },
                     child: Text(

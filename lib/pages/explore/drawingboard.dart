@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class DrawingBoardPage extends StatelessWidget {
-  const DrawingBoardPage({Key? key});
+  const DrawingBoardPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return DrawingBoard();
+    return const DrawingBoard();
   }
 }
 
@@ -15,10 +15,10 @@ class DrawingBoard extends StatefulWidget {
   const DrawingBoard({Key? key}) : super(key: key);
 
   @override
-  _DrawingBoardState createState() => _DrawingBoardState();
+  DrawingBoardState createState() => DrawingBoardState();
 }
 
-class _DrawingBoardState extends State<DrawingBoard> {
+class DrawingBoardState extends State<DrawingBoard> {
   Color selectedColor = Colors.black;
   double strokeWidth = 5;
   bool isEraser = false;
@@ -38,17 +38,17 @@ class _DrawingBoardState extends State<DrawingBoard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Drawing Board"),
+        title: const Text("Drawing Board"),
         actions: [
           TextButton.icon(
             onPressed: () => setState(() => drawingPoints = []),
-            icon: Icon(Icons.clear),
-            label: Text("Clear Board"),
+            icon: const Icon(Icons.clear),
+            label: const Text("Clear Board"),
             style: TextButton.styleFrom(
-              backgroundColor: Color(0xfff7f2fa),
+              backgroundColor: const Color(0xfff7f2fa),
             ),
         ),
-          SizedBox(
+          const SizedBox(
             width: 10,
           ),
         ],
@@ -63,7 +63,7 @@ class _DrawingBoardState extends State<DrawingBoard> {
                   DrawingPoint(
                     details.localPosition,
                     Paint()
-                      ..color = isEraser? Color(0xfffef7ff) : selectedColor
+                      ..color = isEraser? const Color(0xfffef7ff) : selectedColor
                       ..isAntiAlias = true
                       ..strokeWidth = strokeWidth
                       ..strokeCap = StrokeCap.round,
@@ -78,7 +78,7 @@ class _DrawingBoardState extends State<DrawingBoard> {
                   DrawingPoint(
                     details.localPosition,
                     Paint()
-                      ..color = isEraser? Color(0xfffef7ff) : selectedColor
+                      ..color = isEraser? const Color(0xfffef7ff) : selectedColor
                       ..isAntiAlias = true
                       ..strokeWidth = strokeWidth
                       ..strokeCap = StrokeCap.round,
@@ -95,7 +95,7 @@ class _DrawingBoardState extends State<DrawingBoard> {
 
             child: CustomPaint(
               painter: _DrawingPainter(drawingPoints),
-              child: Container(
+              child: SizedBox(
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
               ),
@@ -114,7 +114,7 @@ class _DrawingBoardState extends State<DrawingBoard> {
                   value: strokeWidth,
                   onChanged: (val) => setState(() => strokeWidth = val),
                 ),
-                SizedBox(
+                const SizedBox(
                     width: 50
                 ),
                 ElevatedButton.icon(
@@ -122,12 +122,12 @@ class _DrawingBoardState extends State<DrawingBoard> {
                     setState(() {
                       isEraser =!isEraser;
                       if (isEraser) {
-                        selectedColor = Color(0xfffef7ff);
+                        selectedColor = const Color(0xfffef7ff);
                       }
                     });
                   },
-                    icon: Icon(FontAwesomeIcons.eraser),
-                  label: Text("Eraser"),
+                    icon: const Icon(FontAwesomeIcons.eraser),
+                  label: const Text("Eraser"),
                 ),
               ],
             ),
@@ -138,7 +138,7 @@ class _DrawingBoardState extends State<DrawingBoard> {
       bottomNavigationBar: BottomAppBar(
         child: Container(
           color: Colors.grey[200],
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: List.generate(

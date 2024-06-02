@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:learn/landing_page.dart';
 import 'package:learn/pages/about.dart';
 import 'package:learn/pages/explore.dart';
-import 'package:learn/pages/explore/drawingboard.dart';
 import 'package:learn/pages/explore/quiz.dart';
 import 'package:learn/pages/favorite.dart';
 import 'package:learn/pages/fruits.dart';
@@ -56,12 +55,10 @@ class Routers {
         return slidePageRoute(OccupationPage());
       case AllRoutesConstant.fruitRoute:
         return slidePageRoute(FruitsPage());
-      case AllRoutesConstant.drawingboardRoute:
-        return slidePageRoute(const DrawingBoardPage());
-      case AllRoutesConstant.landingRoute:
+      case AllRoutesConstant.landing:
         return slidePageRoute(const LandingPage());
-      case AllRoutesConstant.mainhomeRoute:
-        return slidePageRoute(MainHome());
+      case AllRoutesConstant.mainhome:
+        return slidePageRoute(const MainHome());
       default:
         return MaterialPageRoute(
           builder: (context) => const Scaffold(
