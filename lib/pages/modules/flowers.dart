@@ -17,49 +17,60 @@ class FlowerPage extends StatefulWidget {
 class _FlowerPageState extends State<FlowerPage> {
   final List<Flower> flowers = [
     Flower(
-        name: "Rose",
-        resource: AssetsPath.getFlowerImage(Flowers.rose),
-        background: Colors.redAccent),
+      name: "Rose",
+      resource: AssetsPath.getFlowerImage(Flowers.rose),
+      background: Colors.redAccent,
+    ),
     Flower(
-        name: "Sunflower",
-        resource: AssetsPath.getFlowerImage(Flowers.sunflower),
-        background: Colors.yellowAccent),
+      name: "Sunflower",
+      resource: AssetsPath.getFlowerImage(Flowers.sunflower),
+      background: Colors.yellowAccent,
+    ),
     Flower(
-        name: "Lily",
-        resource: AssetsPath.getFlowerImage(Flowers.lily),
-        background: Colors.greenAccent),
+      name: "Lily",
+      resource: AssetsPath.getFlowerImage(Flowers.lily),
+      background: Colors.greenAccent,
+    ),
     Flower(
-        name: "Marigold",
-        resource: AssetsPath.getFlowerImage(Flowers.marigold),
-        background: Colors.yellow),
+      name: "Marigold",
+      resource: AssetsPath.getFlowerImage(Flowers.marigold),
+      background: Colors.yellow,
+    ),
     Flower(
-        name: "Carnation",
-        resource: AssetsPath.getFlowerImage(Flowers.carnation),
-        background: Colors.redAccent),
+      name: "Carnation",
+      resource: AssetsPath.getFlowerImage(Flowers.carnation),
+      background: Colors.redAccent,
+    ),
     Flower(
-        name: "Daffodil",
-        resource: AssetsPath.getFlowerImage(Flowers.daffodil),
-        background: Colors.purpleAccent),
+      name: "Daffodil",
+      resource: AssetsPath.getFlowerImage(Flowers.daffodil),
+      background: Colors.purpleAccent,
+    ),
     Flower(
-        name: "Daisy",
-        resource: AssetsPath.getFlowerImage(Flowers.daisy),
-        background: Colors.green),
+      name: "Daisy",
+      resource: AssetsPath.getFlowerImage(Flowers.daisy),
+      background: Colors.green,
+    ),
     Flower(
-        name: "Poppy",
-        resource: AssetsPath.getFlowerImage(Flowers.poppy),
-        background: Colors.redAccent),
+      name: "Poppy",
+      resource: AssetsPath.getFlowerImage(Flowers.poppy),
+      background: Colors.redAccent,
+    ),
     Flower(
-        name: "Tulip",
-        resource: AssetsPath.getFlowerImage(Flowers.tulip),
-        background: Colors.pink),
+      name: "Tulip",
+      resource: AssetsPath.getFlowerImage(Flowers.tulip),
+      background: Colors.pink,
+    ),
     Flower(
-        name: "Lavender",
-        resource: AssetsPath.getFlowerImage(Flowers.lavender),
-        background: Colors.purple),
+      name: "Lavender",
+      resource: AssetsPath.getFlowerImage(Flowers.lavender),
+      background: Colors.purple,
+    ),
     Flower(
-        name: "Hibiscus",
-        resource: AssetsPath.getFlowerImage(Flowers.hibiscus),
-        background: Colors.red),
+      name: "Hibiscus",
+      resource: AssetsPath.getFlowerImage(Flowers.hibiscus),
+      background: Colors.red,
+    ),
   ];
 
   final FlutterTts flutterTts = FlutterTts();
@@ -83,6 +94,7 @@ class _FlowerPageState extends State<FlowerPage> {
     await flutterTts.setPitch(1.0);
     await flutterTts.speak(name);
   }
+
   void _navigateToFlowersTestPage(BuildContext context) {
     Navigator.push(
       context,
@@ -93,6 +105,10 @@ class _FlowerPageState extends State<FlowerPage> {
   @override
   Widget build(BuildContext context) {
     Flower flower = flowers[currentIndex];
+    String flowerImagePath = flower.resource;
+    // ignore: avoid_print
+    print('Flower image path: $flowerImagePath'); // Debug print
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -138,7 +154,7 @@ class _FlowerPageState extends State<FlowerPage> {
                     width: double.infinity,
                     height: 300,
                     child: SvgPicture.asset(
-                      flower.resource,
+                      flowerImagePath,
                       fit: BoxFit.contain,
                     ),
                   ),

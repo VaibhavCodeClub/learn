@@ -175,3 +175,7 @@ class _FruitsPageState extends State<FruitsPage> {
     bgColorInit();
   }
 }
+
+class WidgetStateProperty {
+  static all(Size size) {}
+}

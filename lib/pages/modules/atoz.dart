@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:async';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:learn/pages/fruits.dart';
 import 'package:learn/utils/const_dimensions.dart';
 import 'package:learn/models/itemdata_model.dart';
 import 'package:learn/utils/constants.dart';
@@ -220,7 +221,7 @@ class _PopupDialogState extends State<_PopupDialog> {
               ElevatedButton(
                 style: ButtonStyle(
                   backgroundColor: WidgetStateProperty.all(
-                    const Color.fromARGB(216, 233, 101, 92),
+                    const Color.fromARGB(216, 233, 101, 92) as Size,
                   ),
                 ),
                 onPressed: () {
@@ -270,8 +271,8 @@ class _AtoZState extends State<AtoZ> {
                 child: ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor: isTimerEnabled
-                        ? WidgetStateProperty.all(Colors.green)
-                        : WidgetStateProperty.all(Colors.red),
+                        ? WidgetStateProperty.all(Colors.green as Size)
+                        : WidgetStateProperty.all(Colors.red as Size),
                   ),
                   onPressed: () {
                     setState(() {
