@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:learn/landing_page.dart';
+import 'package:learn/splash_screen.dart';
 import 'package:learn/utils/route/routes.dart';
 
 DateTime? currentBackPressTime;
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Learn',
       themeMode: ThemeMode.system,
-      home: LandingPage(),
+      home: SplashScreen(),
       onGenerateRoute: Routers.generateRoute,
     );
   }
