@@ -2,14 +2,25 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:learn/pages/explore/quiz.dart';
+import 'package:learn/pages/modules/atoz.dart';
+import 'package:learn/pages/modules/birds.dart';
+import 'package:learn/pages/modules/colours.dart';
+import 'package:learn/pages/modules/planets.dart';
+import 'package:learn/pages/modules/shapes.dart';
 import 'package:learn/utils/constants.dart';
 
 import '../../utils/const_dimensions.dart';
 
 // Explore Page
-class ExplorePage extends StatelessWidget {
+class ExplorePage extends StatefulWidget {
   const ExplorePage({super.key});
 
+  @override
+  State<ExplorePage> createState() => _ExplorePageState();
+}
+
+class _ExplorePageState extends State<ExplorePage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -32,7 +43,7 @@ class ExplorePage extends StatelessWidget {
               [
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, '/quiz');
+                    Navigator.push(context, (MaterialPageRoute(builder: (context) => const QuizPage())));
                   },
                   child: Container(
                     margin: const EdgeInsets.all(5.0),
@@ -71,10 +82,38 @@ class ExplorePage extends StatelessWidget {
             delegate: SliverChildBuilderDelegate(
               (context, index) {
                 return GestureDetector(
-                  onTap: () => Navigator.push(
-                    context,
-                    AppConstants.modules[index].route,
-                  ),
+                  onTap: () {
+                    try{
+                      switch (index) {
+                        case 0:
+                          Navigator.push(context, (MaterialPageRoute(builder: (context) => const QuizPage())));
+                          break;
+                        case 1:
+                          Navigator.push(context, (MaterialPageRoute(builder: (context) => const AtoZ())));
+                          break;
+                        case 2:
+                          Navigator.push(context, (MaterialPageRoute(builder: (context) => BirdsPage())));
+                          break;
+                        case 3:
+                          Navigator.push(context, (MaterialPageRoute(builder: (context) => const ColoursPage())));
+                          break;
+                        case 4:
+                          Navigator.push(context, (MaterialPageRoute(builder: (context) => BirdsPage())));
+                          break;
+                        case 5:
+                          Navigator.push(context, (MaterialPageRoute(builder: (context) => const ShapesPage())));
+                          break;
+                        case 6:
+                          Navigator.push(context, (MaterialPageRoute(builder: (context) => PlanetsPage())));
+                          break;
+                        default:
+                          break;
+                      }
+                    }
+                    catch (e) {
+                      print(e);
+                    }
+                  },
                   child: Container(
                       margin: const EdgeInsets.symmetric(
                           horizontal: 24, vertical: 12),
