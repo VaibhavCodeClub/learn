@@ -14,6 +14,7 @@ import 'package:learn/widgets/navbar/navbar.dart';
 
 class MainHome extends StatefulWidget {
   final AdaptiveThemeMode? savedThemeMode;
+
   const MainHome({
     super.key,
     this.savedThemeMode,
@@ -24,7 +25,7 @@ class MainHome extends StatefulWidget {
 }
 
 class _MainHomeState extends State<MainHome> {
-  Future<bool> _onBackPressed() {
+  bool _onBackPressed(bool canPop) {
     DateTime now = DateTime.now();
     if (currentBackPressTime == null ||
         now.difference(currentBackPressTime!) > const Duration(seconds: 2)) {
@@ -34,15 +35,17 @@ class _MainHomeState extends State<MainHome> {
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.BOTTOM,
       );
-      return Future.value(false);
+      canPop = false;
+    } else {
+      canPop = true;
     }
-    return Future.value(true);
+    return canPop;
   }
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: _onBackPressed,
+    return PopScope(
+      onPopInvoked: _onBackPressed,
       child: AdaptiveTheme(
         light: ThemeData.light(),
         dark: ThemeData.dark(),
