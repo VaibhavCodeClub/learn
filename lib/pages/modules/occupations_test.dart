@@ -23,58 +23,61 @@ class OccupationsTestPage extends StatefulWidget {
 }
 
 class _OccupationsTestPageState extends State<OccupationsTestPage> {
-  List<OccupationQuestion> questions = [
-    OccupationQuestion(
-      imageAsset: 'assets/images/occupations/artist.svg',
-      options: ['Artist', 'Author', 'Carpenter', 'Electrician'],
-      correctAnswer: 'Artist',
-    ),
-    OccupationQuestion(
-      imageAsset: 'assets/images/occupations/author.svg',
-      options: ['Pilot', 'Police', 'Teacher', 'Author'],
-      correctAnswer: 'Author',
-    ),
-    OccupationQuestion(
-      imageAsset: 'assets/images/occupations/carpenter.svg',
-      options: ['Farmer', 'Engineer', 'Carpenter', 'Vet'],
-      correctAnswer: 'Carpenter',
-    ),
-    OccupationQuestion(
-      imageAsset: 'assets/images/occupations/electrician.svg',
-      options: ['Engineer', 'Electrician', 'Farmer', 'Teacher'],
-      correctAnswer: 'Electrician',
-    ),
-    OccupationQuestion(
-      imageAsset: 'assets/images/occupations/engineer.svg',
-      options: ['Engineer', 'Pilot', 'Farmer', 'Lawyer'],
-      correctAnswer: 'Engineer',
-    ),
-    OccupationQuestion(
-      imageAsset: 'assets/images/occupations/farmer.svg',
-      options: ['Teacher', 'Vet', 'Farmer', 'Photographer'],
-      correctAnswer: 'Farmer',
-    ),
-    OccupationQuestion(
-      imageAsset: 'assets/images/occupations/pilot.svg',
-      options: ['Pilot', 'Lawyer', 'Photographer', 'Barber'],
-      correctAnswer: 'Pilot',
-    ),
-    OccupationQuestion(
-      imageAsset: 'assets/images/occupations/police.svg',
-      options: ['Engineer', 'Pilot', 'Police', 'Barber'],
-      correctAnswer: 'Police',
-    ),
-    OccupationQuestion(
-      imageAsset: 'assets/images/occupations/teacher.svg',
-      options: ['Teacher', 'Vet', 'Photographer', 'Author'],
-      correctAnswer: 'Teacher',
-    ),
-    OccupationQuestion(
-      imageAsset: 'assets/images/occupations/vet.svg',
-      options: ['Engineer', 'Lawyer', 'Vet', 'Author'],
-      correctAnswer: 'Vet',
-    ),
-    OccupationQuestion(
+  List<List<OccupationQuestion>> questionSets = [
+    [
+      OccupationQuestion(
+        imageAsset: 'assets/images/occupations/artist.svg',
+        options: ['Artist', 'Author', 'Carpenter', 'Electrician'],
+        correctAnswer: 'Artist',
+      ),
+      OccupationQuestion(
+        imageAsset: 'assets/images/occupations/engineer.svg',
+        options: ['Engineer', 'Pilot', 'Farmer', 'Lawyer'],
+        correctAnswer: 'Engineer',
+      ),
+      OccupationQuestion(
+        imageAsset: 'assets/images/occupations/farmer.svg',
+        options: ['Teacher', 'Vet', 'Farmer', 'Photographer'],
+        correctAnswer: 'Farmer',
+      ),
+      OccupationQuestion(
+        imageAsset: 'assets/images/occupations/police.svg',
+        options: ['Engineer', 'Pilot', 'Police', 'Barber'],
+        correctAnswer: 'Police',
+      ),
+      OccupationQuestion(
+        imageAsset: 'assets/images/occupations/teacher.svg',
+        options: ['Teacher', 'Vet', 'Photographer', 'Author'],
+        correctAnswer: 'Teacher',
+      ),
+    ],
+    [
+      OccupationQuestion(
+        imageAsset: 'assets/images/occupations/author.svg',
+        options: ['Pilot', 'Police', 'Teacher', 'Author'],
+        correctAnswer: 'Author',
+      ),
+      OccupationQuestion(
+        imageAsset: 'assets/images/occupations/carpenter.svg',
+        options: ['Farmer', 'Engineer', 'Carpenter', 'Vet'],
+        correctAnswer: 'Carpenter',
+      ),
+      OccupationQuestion(
+        imageAsset: 'assets/images/occupations/electrician.svg',
+        options: ['Engineer', 'Electrician', 'Farmer', 'Teacher'],
+        correctAnswer: 'Electrician',
+      ),
+      OccupationQuestion(
+        imageAsset: 'assets/images/occupations/vet.svg',
+        options: ['Engineer', 'Lawyer', 'Vet', 'Author'],
+        correctAnswer: 'Vet',
+      ),
+      OccupationQuestion(
+        imageAsset: 'assets/images/occupations/photographer.svg',
+        options: ['Pilot', 'Photographer', 'Carpenter', 'Barber'],
+        correctAnswer: 'Photographer',
+      ),
+      OccupationQuestion(
       imageAsset: 'assets/images/occupations/photographer.svg',
       options: ['Pilot', 'Photographer', 'Carpenter', 'Barber'],
       correctAnswer: 'Photographer',
@@ -89,16 +92,31 @@ class _OccupationsTestPageState extends State<OccupationsTestPage> {
       options: ['Teacher', 'Barber', 'Vet', 'Author'],
       correctAnswer: 'Barber',
     ),
+    ],
+    
   ];
 
+  int currentQuestionSetIndex = 0;
   int currentQuestionIndex = 0;
   int correctAnswers = 0;
   bool showFeedback = false;
   bool isCorrect = false;
 
+  @override
+  void initState() {
+    super.initState();
+    _shuffleQuestions();
+  }
+
+  void _shuffleQuestions() {
+    for (var questionSet in questionSets) {
+      questionSet.shuffle();
+    }
+  }
+
   void _checkAnswer(String answer) {
     setState(() {
-      isCorrect = questions[currentQuestionIndex].correctAnswer == answer;
+      isCorrect = questionSets[currentQuestionSetIndex][currentQuestionIndex].correctAnswer == answer;
       if (isCorrect) {
         correctAnswers++;
       }
@@ -108,21 +126,28 @@ class _OccupationsTestPageState extends State<OccupationsTestPage> {
 
   void _nextQuestion() {
     setState(() {
-      if (currentQuestionIndex < questions.length - 1) {
+      if (currentQuestionIndex < questionSets[currentQuestionSetIndex].length - 1) {
         currentQuestionIndex++;
         showFeedback = false;
       } else {
-        showFeedback = false;
-        _showFinalScore(context);
+        if (currentQuestionSetIndex < questionSets.length - 1) {
+          currentQuestionSetIndex++;
+          currentQuestionIndex = 0;
+        } else {
+          showFeedback = false;
+          _showFinalScore(context);
+          return;
+        }
       }
     });
   }
 
   void _restartQuiz() {
     setState(() {
+      currentQuestionSetIndex = 0;
       currentQuestionIndex = 0;
       correctAnswers = 0;
-      showFeedback = false;
+      _shuffleQuestions();
     });
   }
 
@@ -133,7 +158,7 @@ class _OccupationsTestPageState extends State<OccupationsTestPage> {
         return AlertDialog(
           title: const Text('Quiz Completed'),
           content: Text(
-            'You got $correctAnswers out of ${questions.length} correct!',
+            'You got $correctAnswers out of ${questionSets[currentQuestionSetIndex].length} correct!',
             style: const TextStyle(fontSize: 20),
           ),
           actions: <Widget>[
@@ -158,7 +183,7 @@ class _OccupationsTestPageState extends State<OccupationsTestPage> {
 
   @override
   Widget build(BuildContext context) {
-    OccupationQuestion currentQuestion = questions[currentQuestionIndex];
+    OccupationQuestion currentQuestion = questionSets[currentQuestionSetIndex][currentQuestionIndex];
 
     return Scaffold(
       appBar: AppBar(
@@ -186,17 +211,17 @@ class _OccupationsTestPageState extends State<OccupationsTestPage> {
               ...currentQuestion.options.map((option) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 6.0),
-                  child: Container(
-                    width: 200,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(1),
-                      color: Colors.lightBlueAccent, // Random color
-                    ),
-                    child: Center(
-                      child: GestureDetector(
-                                                onTap: () => _checkAnswer(option),
+                  child: GestureDetector(
+                    onTap: () => _checkAnswer(option),
+                    child: Container(
+                      width: 200,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(1),
+                        color: Colors.lightBlueAccent,
+                      ),
+                      child: Center(
                         child: Text(option, style: const TextStyle(fontSize: 18)),
                       ),
                     ),

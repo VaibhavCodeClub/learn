@@ -23,7 +23,7 @@ class FlowersTestPage extends StatefulWidget {
 }
 
 class _FlowersTestPageState extends State<FlowersTestPage> {
-  List<FlowerQuestion> questions = [
+  List<FlowerQuestion> allQuestions = [
     FlowerQuestion(
       imageAsset: 'assets/images/flowers/carnation.svg',
       options: ['Carnation', 'Daffodil', 'Daisy', 'Hibiscus'],
@@ -33,6 +33,21 @@ class _FlowersTestPageState extends State<FlowersTestPage> {
       imageAsset: 'assets/images/flowers/daffodil.svg',
       options: ['Lavender', 'Lily', 'Marigold', 'Daffodil'],
       correctAnswer: 'Daffodil',
+    ),
+    FlowerQuestion(
+      imageAsset: 'assets/images/flowers/lily.svg',
+      options: ['Lily', 'Carnation', 'Sunflower', 'Marigold'],
+      correctAnswer: 'Lily',
+    ),
+    FlowerQuestion(
+      imageAsset: 'assets/images/flowers/rose.svg',
+      options: ['Tulip', 'Poppy', 'Rose', 'Hibiscus'],
+      correctAnswer: 'Rose',
+    ),
+    FlowerQuestion(
+      imageAsset: 'assets/images/flowers/sunflower.svg',
+      options: ['Sunflower', 'Hibiscus', 'Lavender', 'Daisy'],
+      correctAnswer: 'Sunflower',
     ),
     FlowerQuestion(
       imageAsset: 'assets/images/flowers/daisy.svg',
@@ -50,19 +65,9 @@ class _FlowersTestPageState extends State<FlowersTestPage> {
       correctAnswer: 'Lavender',
     ),
     FlowerQuestion(
-      imageAsset: 'assets/images/flowers/lily.svg',
-      options: ['Lily', 'Carnation', 'Sunflower', 'Marigold'],
-      correctAnswer: 'Lily',
-    ),
-    FlowerQuestion(
       imageAsset: 'assets/images/flowers/marigold.svg',
       options: ['Rose', 'Marigold', 'Daisy', 'Sunflower'],
       correctAnswer: 'Marigold',
-    ),
-    FlowerQuestion(
-      imageAsset: 'assets/images/flowers/rose.svg',
-      options: ['Tulip', 'Poppy', 'Rose', 'Hibiscus'],
-      correctAnswer: 'Rose',
     ),
     FlowerQuestion(
       imageAsset: 'assets/images/flowers/poppy.svg',
@@ -74,17 +79,23 @@ class _FlowersTestPageState extends State<FlowersTestPage> {
       options: ['Lily', 'Tulip', 'Marigold', 'Sunflower'],
       correctAnswer: 'Tulip',
     ),
-    FlowerQuestion(
-      imageAsset: 'assets/images/flowers/sunflower.svg',
-      options: ['Sunflower', 'Hibiscus', 'Lavender', 'Daisy'],
-      correctAnswer: 'Sunflower',
-    ),
   ];
 
+  List<FlowerQuestion> questions = [];
   int currentQuestionIndex = 0;
   int correctAnswers = 0;
   bool showFeedback = false;
   bool isCorrect = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _restartQuiz();
+  }
+
+  void _shuffleQuestions() {
+    questions = (List<FlowerQuestion>.from(allQuestions)..shuffle()).take(5).toList();
+  }
 
   void _checkAnswer(String answer) {
     setState(() {
@@ -113,6 +124,7 @@ class _FlowersTestPageState extends State<FlowersTestPage> {
       currentQuestionIndex = 0;
       correctAnswers = 0;
       showFeedback = false;
+      _shuffleQuestions();
     });
   }
 
@@ -166,7 +178,7 @@ class _FlowersTestPageState extends State<FlowersTestPage> {
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.black),
                   borderRadius: BorderRadius.circular(10),
-                  color: Colors.amberAccent, 
+                  color: Colors.amberAccent,
                 ),
                 child: SvgPicture.asset(
                   currentQuestion.imageAsset,
@@ -174,20 +186,19 @@ class _FlowersTestPageState extends State<FlowersTestPage> {
               ),
               const SizedBox(height: 20),
               ...currentQuestion.options.map((option) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 
-6.0),
-                  child: Container(
-                    width: 200,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(1),
-                      color: Colors.lightBlueAccent, // Random color
-                    ),
-                    child: Center(
-                      child: GestureDetector(
-                        onTap: () => _checkAnswer(option),
+                return GestureDetector(
+                  onTap: () => _checkAnswer(option),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 6.0),
+                    child: Container(
+                      width: 200,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(1),
+                        color: Colors.lightBlueAccent,
+                      ),
+                      child: Center(
                         child: Text(option, style: const TextStyle(fontSize: 18)),
                       ),
                     ),

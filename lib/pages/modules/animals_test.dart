@@ -23,7 +23,7 @@ class AnimalsTestPage extends StatefulWidget {
 }
 
 class _AnimalsTestPageState extends State<AnimalsTestPage> {
-  List<AnimalQuestion> questions = [
+  List<AnimalQuestion> allQuestions = [
     AnimalQuestion(
       imageAsset: 'assets/images/animal/lion.svg',
       options: ['Lion', 'Tiger', 'Leopard', 'Cheetah'],
@@ -35,19 +35,9 @@ class _AnimalsTestPageState extends State<AnimalsTestPage> {
       correctAnswer: 'Elephant',
     ),
     AnimalQuestion(
-      imageAsset: 'assets/images/animal/bear.svg',
-      options: ['Wolf', 'Fox', 'Bear', 'Dog'],
-      correctAnswer: 'Bear',
-    ),
-    AnimalQuestion(
       imageAsset: 'assets/images/animal/cat.svg',
       options: ['Dog', 'Cat', 'Rabbit', 'Squirrel'],
       correctAnswer: 'Cat',
-    ),
-    AnimalQuestion(
-      imageAsset: 'assets/images/animal/cow.svg',
-      options: ['Goat', 'Sheep', 'Buffalo', 'Cow'],
-      correctAnswer: 'Cow',
     ),
     AnimalQuestion(
       imageAsset: 'assets/images/animal/deer.svg',
@@ -84,12 +74,33 @@ class _AnimalsTestPageState extends State<AnimalsTestPage> {
       options: ['Hare', 'Squirrel', 'Guinea Pig', 'Rabbit'],
       correctAnswer: 'Rabbit',
     ),
+    AnimalQuestion(
+      imageAsset: 'assets/images/animal/bear.svg',
+      options: ['Wolf', 'Fox', 'Bear', 'Dog'],
+      correctAnswer: 'Bear',
+    ),
+    AnimalQuestion(
+      imageAsset: 'assets/images/animal/cow.svg',
+      options: ['Goat', 'Sheep', 'Buffalo', 'Cow'],
+      correctAnswer: 'Cow',
+    ),
   ];
 
+  List<AnimalQuestion> questions = [];
   int currentQuestionIndex = 0;
   int correctAnswers = 0;
   bool showFeedback = false;
   bool isCorrect = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _restartQuiz();
+  }
+
+  void _shuffleQuestions() {
+    questions = (List<AnimalQuestion>.from(allQuestions)..shuffle()).take(5).toList();
+  }
 
   void _checkAnswer(String answer) {
     setState(() {
@@ -118,6 +129,7 @@ class _AnimalsTestPageState extends State<AnimalsTestPage> {
       currentQuestionIndex = 0;
       correctAnswers = 0;
       showFeedback = false;
+      _shuffleQuestions();
     });
   }
 
@@ -171,7 +183,7 @@ class _AnimalsTestPageState extends State<AnimalsTestPage> {
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.black),
                   borderRadius: BorderRadius.circular(10),
-                  color: Colors.amberAccent, 
+                  color: Colors.amberAccent,
                 ),
                 child: SvgPicture.asset(
                   currentQuestion.imageAsset,
@@ -179,22 +191,22 @@ class _AnimalsTestPageState extends State<AnimalsTestPage> {
               ),
               const SizedBox(height: 20),
               ...currentQuestion.options.map((option) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 6.0),
-                  child: Container(
-                    width: 200,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(1),
-                      color: Colors.lightBlueAccent, // Random color
-                    ),
-                    child: Center(
-                      child: GestureDetector(
-                        onTap: () => _checkAnswer(option),
+                return GestureDetector(
+                  onTap: () => _checkAnswer(option),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 6.0),
+                    child: Container(
+                      width: 200,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(1),
+                        color: Colors.lightBlueAccent,
+                      ),
+                      child: Center(
                         child: Text(option, style: const TextStyle(fontSize: 18)),
+                      ),
                     ),
-                  ),
                   ),
                 );
               }).toList(),

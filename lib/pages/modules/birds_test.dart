@@ -19,98 +19,108 @@ class BirdsTestPage extends StatefulWidget {
   const BirdsTestPage({Key? key}) : super(key: key);
 
   @override
-  _AnimalsTestPageState createState() => _AnimalsTestPageState();
+  _BirdsTestPageState createState() => _BirdsTestPageState();
 }
 
-class _AnimalsTestPageState extends State<BirdsTestPage> {
-  List<BirdQuestion> questions = [
-  BirdQuestion(
-    imageAsset: 'assets/images/birds/bagula.svg',
-    options: ['Bagula', 'Bulbul', 'Crow', 'Duck'],
-    correctAnswer: 'Bagula',
-  ),
-  BirdQuestion(
-    imageAsset: 'assets/images/birds/bulbul.svg',
-    options: ['Eagle', 'Goose', 'Bulbul', 'Hen'],
-    correctAnswer: 'Bulbul',
-  ),
-  BirdQuestion(
-    imageAsset: 'assets/images/birds/crow.svg',
-    options: ['Koel', 'Maina', 'Crow', 'Ostrich'],
-    correctAnswer: 'Crow',
-  ),
-  BirdQuestion(
-    imageAsset: 'assets/images/birds/duck.svg',
-    options: ['Owl', 'Parrot', 'Pigeon', 'Duck'],
-    correctAnswer: 'Duck',
-  ),
-  BirdQuestion(
-    imageAsset: 'assets/images/birds/eagle.svg',
-    options: ['Eagle', 'Sparrow', 'Swan', 'Vulture'],
-    correctAnswer: 'Eagle',
-  ),
-  BirdQuestion(
-    imageAsset: 'assets/images/birds/goose.svg',
-    options: ['Crow', 'Goose', 'Hen', 'Koel'],
-    correctAnswer: 'Goose',
-  ),
-  BirdQuestion(
-    imageAsset: 'assets/images/birds/hen.svg',
-    options: ['Maina', 'Ostrich', 'Hen', 'Parrot'],
-    correctAnswer: 'Hen',
-  ),
-  BirdQuestion(
-    imageAsset: 'assets/images/birds/koel.svg',
-    options: ['Pigeon', 'Koel', 'Sparrow', 'Swan'],
-    correctAnswer: 'Koel',
-  ),
-  BirdQuestion(
-    imageAsset: 'assets/images/birds/maina.svg',
-    options: ['Vulture', 'Maina', 'Eagle', 'Goose'],
-    correctAnswer: 'Maina',
-  ),
-  BirdQuestion(
-    imageAsset: 'assets/images/birds/ostrich.svg',
-    options: ['Duck', 'Ostrich', 'Owl', 'Parrot'],
-    correctAnswer: 'Ostrich',
-  ),
-  BirdQuestion(
-    imageAsset: 'assets/images/birds/owl.svg',
-    options: ['Pigeon', 'Owl', 'Sparrow', 'Swan'],
-    correctAnswer: 'Owl',
-  ),
-  BirdQuestion(
-    imageAsset: 'assets/images/birds/parrot.svg',
-    options: ['Vulture', 'Bagula', 'Parrot', 'Bulbul'],
-    correctAnswer: 'Parrot',
-  ),
-  BirdQuestion(
-    imageAsset: 'assets/images/birds/pigeon.svg',
-    options: ['Crow', 'Duck', 'Pigeon', 'Eagle'],
-    correctAnswer: 'Pigeon',
-  ),
-  BirdQuestion(
-    imageAsset: 'assets/images/birds/sparrow.svg',
-    options: ['Goose', 'Hen', 'Sparrow', 'Koel'],
-    correctAnswer: 'Sparrow',
-  ),
-  BirdQuestion(
-    imageAsset: 'assets/images/birds/swan.svg',
-    options: ['Maina', 'Ostrich', 'Swan', 'Owl'],
-    correctAnswer: 'Swan',
-  ),
-  BirdQuestion(
-    imageAsset: 'assets/images/birds/vulture.svg',
-    options: ['Parrot', 'Pigeon', 'Vulture', 'Sparrow'],
-    correctAnswer: 'Vulture',
-  ),
-];
+class _BirdsTestPageState extends State<BirdsTestPage> {
+  List<BirdQuestion> allQuestions = [
+    BirdQuestion(
+      imageAsset: 'assets/images/birds/duck.svg',
+      options: ['Owl', 'Parrot', 'Pigeon', 'Duck'],
+      correctAnswer: 'Duck',
+    ),
+    BirdQuestion(
+      imageAsset: 'assets/images/birds/hen.svg',
+      options: ['Maina', 'Ostrich', 'Hen', 'Parrot'],
+      correctAnswer: 'Hen',
+    ),
+    BirdQuestion(
+      imageAsset: 'assets/images/birds/maina.svg',
+      options: ['Vulture', 'Maina', 'Eagle', 'Goose'],
+      correctAnswer: 'Maina',
+    ),
+    BirdQuestion(
+      imageAsset: 'assets/images/birds/pigeon.svg',
+      options: ['Crow', 'Duck', 'Pigeon', 'Eagle'],
+      correctAnswer: 'Pigeon',
+    ),
+    BirdQuestion(
+      imageAsset: 'assets/images/birds/sparrow.svg',
+      options: ['Goose', 'Hen', 'Sparrow', 'Koel'],
+      correctAnswer: 'Sparrow',
+    ),
+    BirdQuestion(
+      imageAsset: 'assets/images/birds/bagula.svg',
+      options: ['Bagula', 'Bulbul', 'Crow', 'Duck'],
+      correctAnswer: 'Bagula',
+    ),
+    BirdQuestion(
+      imageAsset: 'assets/images/birds/bulbul.svg',
+      options: ['Eagle', 'Goose', 'Bulbul', 'Hen'],
+      correctAnswer: 'Bulbul',
+    ),
+    BirdQuestion(
+      imageAsset: 'assets/images/birds/crow.svg',
+      options: ['Koel', 'Maina', 'Crow', 'Ostrich'],
+      correctAnswer: 'Crow',
+    ),
+    BirdQuestion(
+      imageAsset: 'assets/images/birds/eagle.svg',
+      options: ['Eagle', 'Sparrow', 'Swan', 'Vulture'],
+      correctAnswer: 'Eagle',
+    ),
+    BirdQuestion(
+      imageAsset: 'assets/images/birds/goose.svg',
+      options: ['Crow', 'Goose', 'Hen', 'Koel'],
+      correctAnswer: 'Goose',
+    ),
+    BirdQuestion(
+      imageAsset: 'assets/images/birds/koel.svg',
+      options: ['Pigeon', 'Koel', 'Sparrow', 'Swan'],
+      correctAnswer: 'Koel',
+    ),
+    BirdQuestion(
+      imageAsset: 'assets/images/birds/ostrich.svg',
+      options: ['Duck', 'Ostrich', 'Owl', 'Parrot'],
+      correctAnswer: 'Ostrich',
+    ),
+    BirdQuestion(
+      imageAsset: 'assets/images/birds/owl.svg',
+      options: ['Pigeon', 'Owl', 'Sparrow', 'Swan'],
+      correctAnswer: 'Owl',
+    ),
+    BirdQuestion(
+      imageAsset: 'assets/images/birds/parrot.svg',
+      options: ['Vulture', 'Bagula', 'Parrot', 'Bulbul'],
+      correctAnswer: 'Parrot',
+    ),
+    BirdQuestion(
+      imageAsset: 'assets/images/birds/swan.svg',
+      options: ['Maina', 'Ostrich', 'Swan', 'Owl'],
+      correctAnswer: 'Swan',
+    ),
+    BirdQuestion(
+      imageAsset: 'assets/images/birds/vulture.svg',
+      options: ['Parrot', 'Pigeon', 'Vulture', 'Sparrow'],
+      correctAnswer: 'Vulture',
+    ),
+  ];
 
-
+  List<BirdQuestion> questions = [];
   int currentQuestionIndex = 0;
   int correctAnswers = 0;
   bool showFeedback = false;
   bool isCorrect = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _restartQuiz();
+  }
+
+  void _shuffleQuestions() {
+    questions = (List<BirdQuestion>.from(allQuestions)..shuffle()).take(5).toList();
+  }
 
   void _checkAnswer(String answer) {
     setState(() {
@@ -139,6 +149,7 @@ class _AnimalsTestPageState extends State<BirdsTestPage> {
       currentQuestionIndex = 0;
       correctAnswers = 0;
       showFeedback = false;
+      _shuffleQuestions();
     });
   }
 
@@ -178,7 +189,7 @@ class _AnimalsTestPageState extends State<BirdsTestPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Animals Test'),
+        title: const Text('Birds Test'),
       ),
       body: Center(
         child: Padding(
@@ -192,7 +203,7 @@ class _AnimalsTestPageState extends State<BirdsTestPage> {
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.black),
                   borderRadius: BorderRadius.circular(10),
-                  color: Colors.amberAccent, 
+                  color: Colors.amberAccent,
                 ),
                 child: SvgPicture.asset(
                   currentQuestion.imageAsset,
@@ -200,22 +211,23 @@ class _AnimalsTestPageState extends State<BirdsTestPage> {
               ),
               const SizedBox(height: 20),
               ...currentQuestion.options.map((option) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 6.0),
-                  child: Container(
-                    width: 200,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(1),
-                      color: Colors.lightBlueAccent, // Random color
-                    ),
-                    child: Center(
-                      child: GestureDetector(
-                        onTap: () => _checkAnswer(option),
+                return GestureDetector(
+                  onTap: () => _checkAnswer(option),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 6.0),
+                    child: Container(
+                      width: 200,
+                      height: 40,
+                     
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(1),
+                        color: Colors.lightBlueAccent,
+                      ),
+                      child: Center(
                         child: Text(option, style: const TextStyle(fontSize: 18)),
+                      ),
                     ),
-                  ),
                   ),
                 );
               }).toList(),

@@ -23,16 +23,37 @@ class PartsTestPage extends StatefulWidget {
 }
 
 class _PartsTestPageState extends State<PartsTestPage> {
-  List<PartQuestion> questions = [
+  List<PartQuestion> allQuestions = [
+    // Define all PartQuestion objects here
+    PartQuestion(
+      imageAsset: 'assets/images/body/arm.svg',
+      options: ['Ankle', 'Back', 'Arm', 'Belly'],
+      correctAnswer: 'Arm',
+    ),
+    PartQuestion(
+      imageAsset: 'assets/images/body/eye.svg',
+      options: ['Ear', 'Eye', 'Nose', 'Mouth'],
+      correctAnswer: 'Eye',
+    ),
+    PartQuestion(
+      imageAsset: 'assets/images/body/foot.svg',
+      options: ['Hand', 'Fingers', 'Toes', 'Foot'],
+      correctAnswer: 'Foot',
+    ),
+    PartQuestion(
+      imageAsset: 'assets/images/body/nose.svg',
+      options: ['Nose', 'Mouth', 'Ear', 'Eye'],
+      correctAnswer: 'Nose',
+    ),
+    PartQuestion(
+      imageAsset: 'assets/images/body/tongue.svg',
+      options: ['Teeth', 'Lips', 'Tongue', 'Mouth'],
+      correctAnswer: 'Tongue',
+    ),
     PartQuestion(
       imageAsset: 'assets/images/body/ankle.svg',
       options: ['Ankle', 'Arm', 'Back', 'Belly'],
       correctAnswer: 'Ankle',
-    ),
-    PartQuestion(
-      imageAsset: 'assets/images/body/arm.svg',
-      options: ['Arm', 'Ankle', 'Back', 'Belly'],
-      correctAnswer: 'Arm',
     ),
     PartQuestion(
       imageAsset: 'assets/images/body/back.svg',
@@ -60,19 +81,9 @@ class _PartsTestPageState extends State<PartsTestPage> {
       correctAnswer: 'Chin',
     ),
     PartQuestion(
-      imageAsset: 'assets/images/body/eye.svg',
-      options: ['Eye', 'Ear', 'Nose', 'Mouth'],
-      correctAnswer: 'Eye',
-    ),
-    PartQuestion(
       imageAsset: 'assets/images/body/fingers.svg',
       options: ['Fingers', 'Toes', 'Hand', 'Feet'],
       correctAnswer: 'Fingers',
-    ),
-    PartQuestion(
-      imageAsset: 'assets/images/body/foot.svg',
-      options: ['Foot', 'Hand', 'Fingers', 'Toes'],
-      correctAnswer: 'Foot',
     ),
     PartQuestion(
       imageAsset: 'assets/images/body/lips.svg',
@@ -90,19 +101,9 @@ class _PartsTestPageState extends State<PartsTestPage> {
       correctAnswer: 'Hips',
     ),
     PartQuestion(
-      imageAsset: 'assets/images/body/legs.svg',
-      options: ['Legs', 'Arms', 'Feet', 'Hands'],
-      correctAnswer: 'Legs',
-    ),
-    PartQuestion(
       imageAsset: 'assets/images/body/stomach.svg',
       options: ['Stomach', 'Chest', 'Back', 'Neck'],
       correctAnswer: 'Stomach',
-    ),
-    PartQuestion(
-      imageAsset: 'assets/images/body/nose.svg',
-      options: ['Nose', 'Mouth', 'Ear', 'Eye'],
-      correctAnswer: 'Nose',
     ),
     PartQuestion(
       imageAsset: 'assets/images/body/neck.svg',
@@ -115,21 +116,27 @@ class _PartsTestPageState extends State<PartsTestPage> {
       correctAnswer: 'Teeth',
     ),
     PartQuestion(
-      imageAsset: 'assets/images/body/tongue.svg',
-      options: ['Tongue', 'Teeth', 'Lips', 'Mouth'],
-      correctAnswer: 'Tongue',
-    ),
-    PartQuestion(
       imageAsset: 'assets/images/body/wrist.svg',
       options: ['Wrist', 'Elbow', 'Arm', 'Hand'],
       correctAnswer: 'Wrist',
     ),
   ];
 
+  List<PartQuestion> questions = [];
   int currentQuestionIndex = 0;
   int correctAnswers = 0;
   bool showFeedback = false;
   bool isCorrect = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _restartQuiz();
+  }
+
+  void _shuffleQuestions() {
+    questions = (List<PartQuestion>.from(allQuestions)..shuffle()).take(5).toList();
+  }
 
   void _checkAnswer(String answer) {
     setState(() {
@@ -158,6 +165,7 @@ class _PartsTestPageState extends State<PartsTestPage> {
       currentQuestionIndex = 0;
       correctAnswers = 0;
       showFeedback = false;
+      _shuffleQuestions();
     });
   }
 
@@ -211,7 +219,7 @@ class _PartsTestPageState extends State<PartsTestPage> {
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.black),
                   borderRadius: BorderRadius.circular(10),
-                  color: Colors.amberAccent, 
+                  color: Colors.amberAccent,
                 ),
                 child: SvgPicture.asset(
                   currentQuestion.imageAsset,
@@ -219,20 +227,19 @@ class _PartsTestPageState extends State<PartsTestPage> {
               ),
               const SizedBox(height: 20),
               ...currentQuestion.options.map((option) {
-                return Padding(
-                  padding: const EdgeInsets
-.symmetric(vertical: 6.0),
-                  child: Container(
-                    width: 200,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(1),
-                      color: Colors.lightBlueAccent, // Random color
-                    ),
-                    child: Center(
-                      child: GestureDetector(
-                        onTap: () => _checkAnswer(option),
+                return GestureDetector(
+                  onTap: () => _checkAnswer(option),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 6.0),
+                    child: Container(
+                      width: 200,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(1),
+                        color: Colors.lightBlueAccent,
+                      ),
+                      child: Center(
                         child: Text(option, style: const TextStyle(fontSize: 18)),
                       ),
                     ),

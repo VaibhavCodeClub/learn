@@ -23,7 +23,7 @@ class PlanetsTestPage extends StatefulWidget {
 }
 
 class _PlanetsTestPageState extends State<PlanetsTestPage> {
-  List<PlanetQuestion> questions = [
+  List<PlanetQuestion> allQuestions = [
     PlanetQuestion(
       imageAsset: 'assets/images/solar/earth.svg',
       options: ['Earth', 'Mars', 'Jupiter', 'Neptune'],
@@ -36,7 +36,7 @@ class _PlanetsTestPageState extends State<PlanetsTestPage> {
     ),
     PlanetQuestion(
       imageAsset: 'assets/images/solar/jupiter.svg',
-      options: ['Saturn', 'Jupiter', 'Uranus', 'Neptune'],
+      options: ['Saturn', 'Uranus', 'Jupiter', 'Neptune'],
       correctAnswer: 'Jupiter',
     ),
     PlanetQuestion(
@@ -45,18 +45,8 @@ class _PlanetsTestPageState extends State<PlanetsTestPage> {
       correctAnswer: 'Neptune',
     ),
     PlanetQuestion(
-      imageAsset: 'assets/images/solar/mercury.svg',
-      options: ['Venus', 'Mercury', 'Sun', 'Earth'],
-      correctAnswer: 'Mercury',
-    ),
-    PlanetQuestion(
-      imageAsset: 'assets/images/solar/saturn.svg',
-      options: ['Jupiter', 'Mars', 'Saturn', 'Sun'],
-      correctAnswer: 'Saturn',
-    ),
-    PlanetQuestion(
       imageAsset: 'assets/images/solar/sun.svg',
-      options: ['Venus', 'Sun', 'Earth', 'Mercury'],
+      options: ['Venus', 'Earth', 'Mercury', 'Sun'],
       correctAnswer: 'Sun',
     ),
     PlanetQuestion(
@@ -69,12 +59,33 @@ class _PlanetsTestPageState extends State<PlanetsTestPage> {
       options: ['Saturn', 'Jupiter', 'Neptune', 'Uranus'],
       correctAnswer: 'Uranus',
     ),
+    PlanetQuestion(
+      imageAsset: 'assets/images/solar/mercury.svg',
+      options: ['Venus', 'Mercury', 'Sun', 'Earth'],
+      correctAnswer: 'Mercury',
+    ),
+    PlanetQuestion(
+      imageAsset: 'assets/images/solar/saturn.svg',
+      options: ['Jupiter', 'Mars', 'Saturn', 'Sun'],
+      correctAnswer: 'Saturn',
+    ),
   ];
 
+  List<PlanetQuestion> questions = [];
   int currentQuestionIndex = 0;
   int correctAnswers = 0;
   bool showFeedback = false;
   bool isCorrect = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _restartQuiz();
+  }
+
+  void _shuffleQuestions() {
+    questions = (List<PlanetQuestion>.from(allQuestions)..shuffle()).take(5).toList();
+  }
 
   void _checkAnswer(String answer) {
     setState(() {
@@ -103,6 +114,7 @@ class _PlanetsTestPageState extends State<PlanetsTestPage> {
       currentQuestionIndex = 0;
       correctAnswers = 0;
       showFeedback = false;
+      _shuffleQuestions();
     });
   }
 
@@ -156,7 +168,7 @@ class _PlanetsTestPageState extends State<PlanetsTestPage> {
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.black),
                   borderRadius: BorderRadius.circular(10),
-                  color: Colors.amberAccent, 
+                  color: Colors.amberAccent,
                 ),
                 child: SvgPicture.asset(
                   currentQuestion.imageAsset,
@@ -164,20 +176,19 @@ class _PlanetsTestPageState extends State<PlanetsTestPage> {
               ),
               const SizedBox(height: 20),
               ...currentQuestion.options.map((option) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 
-6.0),
-                  child: Container(
-                    width: 200,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(1),
-                      color: Colors.lightBlueAccent, // Random color
-                    ),
-                    child: Center(
-                      child: GestureDetector(
-                        onTap: () => _checkAnswer(option),
+                return GestureDetector(
+                  onTap: () => _checkAnswer(option),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 6.0),
+                    child: Container(
+                      width: 200,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(1),
+                        color: Colors.lightBlueAccent,
+                      ),
+                      child: Center(
                         child: Text(option, style: const TextStyle(fontSize: 18)),
                       ),
                     ),
