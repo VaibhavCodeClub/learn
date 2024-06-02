@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:learn/landing_page.dart';
+import 'package:learn/splash_screen.dart';
 import 'package:learn/utils/route/routes.dart';
 import 'package:learn/theme_provider.dart';
 import 'package:provider/provider.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData.light(),
           darkTheme: ThemeData.dark(),
           themeMode: themeProvider.themeMode,
-          home: const LandingPage(),
+          home: SplashScreen(),
           onGenerateRoute: Routers.generateRoute,
         );
       },
