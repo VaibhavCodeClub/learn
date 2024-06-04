@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:async';
@@ -39,7 +38,7 @@ class ItemTile extends StatelessWidget {
           );
         },
         child: Padding(
-          padding: const EdgeInsets.all(6),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -52,27 +51,25 @@ class ItemTile extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 3),
               LayoutBuilder(
-                builder: (BuildContext context, BoxConstraints constraints){
-                  if (MediaQuery.of(context).orientation ==
-                      Orientation.portrait) {
-                    return SvgPicture.asset(
-                      item.iconAsset,
-                      width: MediaQuery.of(context).size.width * 0.3,
-                      height: MediaQuery.of(context).size.width * 0.3,
-                      alignment: Alignment.center,
-                    );
-                  } else {
-                    return SvgPicture.asset(
-                      item.iconAsset,
-                      width: MediaQuery.of(context).size.width * 0.3,
-                      height: MediaQuery.of(context).size.width * 0.2,
-                      alignment: Alignment.center,
-                    );
-                  }
+                  builder: (BuildContext context, BoxConstraints constraints) {
+                if (MediaQuery.of(context).orientation ==
+                    Orientation.portrait) {
+                  return SvgPicture.asset(
+                    item.iconAsset,
+                    width: MediaQuery.of(context).size.width * 0.2,
+                    height: MediaQuery.of(context).size.height * 0.1,
+                    alignment: Alignment.center,
+                  );
+                } else {
+                  return SvgPicture.asset(
+                    item.iconAsset,
+                    width: MediaQuery.of(context).size.width * 0.2,
+                    height: MediaQuery.of(context).size.height * 0.2,
+                    alignment: Alignment.center,
+                  );
                 }
-              ),
+              }),
               const SizedBox(height: ConstantDimensions.heightExtraSmall / 2),
               Text(item.description, textAlign: TextAlign.center),
             ],
@@ -158,86 +155,74 @@ class _PopupDialogState extends State<_PopupDialog> {
   @override
   Widget build(BuildContext context) {
     final currentItem = widget.items[currentIndex];
-    return SingleChildScrollView(
-      child: AlertDialog(
-        contentPadding: EdgeInsets.zero,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        content: Container(
-          padding: EdgeInsets.zero,
-          width: MediaQuery.of(context).size.width * 0.7,
-          decoration: BoxDecoration(
-              color: currentItem.backgroundColor,
-              borderRadius: BorderRadius.circular(15)),
-          child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  currentItem.title,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 40,
+    return AlertDialog(
+      contentPadding: EdgeInsets.zero,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      content: Container(
+        padding: EdgeInsets.zero,
+        width: MediaQuery.of(context).size.width * 0.75,
+        height: MediaQuery.of(context).size.height * 0.75,
+        decoration: BoxDecoration(
+            color: currentItem.backgroundColor,
+            borderRadius: BorderRadius.circular(15)),
+        child: Padding(
+          padding: const EdgeInsets.all(18),
+          child: Center(
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    currentItem.title,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 40,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
-                ),
-    const SizedBox(height: ConstantDimensions.heightMedium),
-                GestureDetector(
-                  onTap: () {
-                    _speakText(currentItem.description);
-                  },
-                  child: SvgPicture.asset(
-                    currentItem.iconAsset,
-                    width: MediaQuery.of(context).size.width * 0.5,
-                    height: MediaQuery.of(context).size.width * 0.5,
-                    alignment: Alignment.center,
+                  const SizedBox(height: ConstantDimensions.heightMedium),
+                  GestureDetector(
+                    onTap: () {
+                      _speakText(currentItem.description);
+                    },
+                    child: SvgPicture.asset(
+                      currentItem.iconAsset,
+                      width: MediaQuery.of(context).size.width * 0.5,
+                      height: MediaQuery.of(context).size.height * 0.3,
+                      alignment: Alignment.center,
+                    ),
                   ),
-                ),
-                const SizedBox(height: ConstantDimensions.heightMedium),
-                Text(
-                  currentItem.description,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 28,
+                  const SizedBox(height: ConstantDimensions.heightMedium),
+                  Text(
+                    currentItem.description,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      fontSize: 28,
+                    ),
+                  ),
+                  const SizedBox(height: ConstantDimensions.heightMedium),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(
+                        onPressed: _previousItem,
+                        child: const Text('Prev'),
+                      ),
+                      ElevatedButton(
+                        onPressed: _nextItem,
+                        child: const Text('Next'),
+                      ),
+                    ],
+                  ),
 
-    ),
+                  ),
+                ],
               ),
-    const SizedBox(height: ConstantDimensions.heightMedium),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                  ElevatedButton(
-                  onPressed: _previousItem,
-                  child: const Text('Prev'),
-                  ),
-                  ElevatedButton(
-                  onPressed: _nextItem,
-                  child: const Text('Next'),
-                  ),
-                  ],
-                ),
-              const SizedBox(height: ConstantDimensions.heightMedium),
-              ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: WidgetStateProperty.all(
-                    const Color.fromARGB(216, 233, 101, 92) as Size,
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Text(
-                  'Close',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-              const SizedBox(height: ConstantDimensions.heightExtraLarge),
-            ],
+            ),
           ),
         ),
       ),
-      )
     );
   }
 }
@@ -294,7 +279,7 @@ class _AtoZState extends State<AtoZ> {
         child: GridView.count(
           crossAxisCount: MediaQuery.of(context).size.width ~/
               200, // Adjust the value based on screen width
-          childAspectRatio: 1.0, // Aspect ratio of items
+          childAspectRatio: 0.8, // Aspect ratio of items
           children: List.generate(
             items.length,
             (index) => ItemTile(
