@@ -49,7 +49,7 @@ class Routers {
       case AllRoutesConstant.favoriteRoute:
         return slidePageRoute(const FavoritePage());
       case AllRoutesConstant.quizRoute:
-        return slidePageRoute(const QuizPage());
+        return slidePageRoute(const Quiz());
       case AllRoutesConstant.seasonRoute:
         return slidePageRoute(const SeasonsPage());
       case AllRoutesConstant.occupationRoute:

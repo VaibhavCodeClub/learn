@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn/utils/constants.dart';
-import 'package:learn/utils/routes.dart';
+import 'package:learn/utils/route/route_constant.dart';
 
 class Quiz extends StatefulWidget {
   static const routeName = "/quiz";
@@ -171,7 +171,7 @@ class _QuizState extends State<Quiz> {
                                         Navigator.of(context).pop();
                                         Navigator.of(context)
                                             .pushReplacementNamed(
-                                                AllRoutes.homeRoute);
+                                                AllRoutesConstant.homeRoute);
                                       },
                                       child: Text(
                                         "Go Back",

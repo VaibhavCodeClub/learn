@@ -44,7 +44,7 @@ class MyDrawer extends StatelessWidget {
                   title: "Home",
                   onTap: () {
                     Navigator.pushReplacementNamed(
-                        context, AllRoutes.homeRoute);
+                        context, AllRoutesConstant.homeRoute);
                   },
                   context: context,
                 ),
@@ -85,7 +85,7 @@ class MyDrawer extends StatelessWidget {
                   title: "Shapes",
                   onTap: () {
                     Navigator.pushReplacementNamed(
-                        context, AllRoutes.shapesRoute);
+                        context, AllRoutesConstant.shapesRoute);
                   },
                   context: context,
                 ),
@@ -142,7 +142,7 @@ class MyDrawer extends StatelessWidget {
                   icon: Icons.question_mark_outlined,
                   title: "Quiz",
                   onTap: () {
-                    Navigator.pushNamed(context, AllRoutes.quizRoute);
+                    Navigator.pushNamed(context, AllRoutesConstant.quizRoute);
                   },
                   context: context,
                 ),

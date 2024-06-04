@@ -44,41 +44,8 @@ class _ExplorePageState extends State<ExplorePage> {
               [
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(context, (MaterialPageRoute(builder: (context) => const QuizPage())));
-                  },
-                  child: Container(
-                    margin: const EdgeInsets.all(5.0),
-                    padding: const EdgeInsets.all(8.0),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black, width: 1.0),
-                      borderRadius: BorderRadius.circular(8.0),
-                      color: Colors.blueAccent,
-                    ),
-                    child: Row(
-                      children: [
-                        SizedBox(
-                          width: ConstantDimensions.widthExtraLarge,
-                          height: ConstantDimensions.heightExtraLarge,
-                          child:
-                          SvgPicture.asset('assets/explore/notebook.svg'),
-                        ),
-                        const SizedBox(width: ConstantDimensions.widthMedium_Large),
-                        const Text(
-                          'Quiz',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 30.0,
-                            fontFamily: 'Comic',
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, AllRoutesConstant.drawingboardRoute);
+                    Navigator.pushNamed(
+                        context, AllRoutesConstant.drawingboardRoute);
                   },
                   child: Container(
                     margin: const EdgeInsets.all(5.0),
@@ -93,9 +60,11 @@ class _ExplorePageState extends State<ExplorePage> {
                         SizedBox(
                           width: ConstantDimensions.widthExtraLarge,
                           height: ConstantDimensions.heightExtraLarge,
-                          child: SvgPicture.asset('assets/explore/drawing_board.svg'),
+                          child: SvgPicture.asset(
+                              'assets/explore/drawing_board.svg'),
                         ),
-                        const SizedBox(width: ConstantDimensions.widthMedium_Large),
+                        const SizedBox(
+                            width: ConstantDimensions.widthMedium_Large),
                         const Text(
                           'Drawing Board',
                           style: TextStyle(
@@ -114,37 +83,57 @@ class _ExplorePageState extends State<ExplorePage> {
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
-                  (context, index) {
+              (context, index) {
                 return GestureDetector(
                   onTap: () {
-                    try{
+                    try {
                       switch (index) {
                         case 0:
-                          Navigator.push(context, (MaterialPageRoute(builder: (context) => const QuizPage())));
+                          Navigator.push(
+                              context,
+                              (MaterialPageRoute(
+                                  builder: (context) => const Quiz())));
                           break;
                         case 1:
-                          Navigator.push(context, (MaterialPageRoute(builder: (context) => const AtoZ())));
+                          Navigator.push(
+                              context,
+                              (MaterialPageRoute(
+                                  builder: (context) => const AtoZ())));
                           break;
                         case 2:
-                          Navigator.push(context, (MaterialPageRoute(builder: (context) => BirdsPage())));
+                          Navigator.push(
+                              context,
+                              (MaterialPageRoute(
+                                  builder: (context) => BirdsPage())));
                           break;
                         case 3:
-                          Navigator.push(context, (MaterialPageRoute(builder: (context) => const ColoursPage())));
+                          Navigator.push(
+                              context,
+                              (MaterialPageRoute(
+                                  builder: (context) => const ColoursPage())));
                           break;
                         case 4:
-                          Navigator.push(context, (MaterialPageRoute(builder: (context) => BirdsPage())));
+                          Navigator.push(
+                              context,
+                              (MaterialPageRoute(
+                                  builder: (context) => BirdsPage())));
                           break;
                         case 5:
-                          Navigator.push(context, (MaterialPageRoute(builder: (context) => const ShapesPage())));
+                          Navigator.push(
+                              context,
+                              (MaterialPageRoute(
+                                  builder: (context) => const ShapesPage())));
                           break;
                         case 6:
-                          Navigator.push(context, (MaterialPageRoute(builder: (context) => PlanetsPage())));
+                          Navigator.push(
+                              context,
+                              (MaterialPageRoute(
+                                  builder: (context) => PlanetsPage())));
                           break;
                         default:
                           break;
                       }
-                    }
-                    catch (e) {
+                    } catch (e) {
                       print(e);
                     }
                   },
@@ -171,7 +160,7 @@ class _ExplorePageState extends State<ExplorePage> {
                           children: [
                             ImageFiltered(
                               imageFilter:
-                              ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                                  ImageFilter.blur(sigmaX: 5, sigmaY: 5),
                               child: Image.asset(
                                 AppConstants.modules[index].thumbnailPath,
                                 fit: BoxFit.cover,
