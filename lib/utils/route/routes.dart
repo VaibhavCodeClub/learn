@@ -60,6 +60,8 @@ class Routers {
         return slidePageRoute(const DrawingBoardPage());
       case AllRoutesConstant.landingRoute:
         return slidePageRoute(const LandingPage());
+        case AllRoutesConstant.mainhomeRoute:
+        return slidePageRoute(const MainHome());
 
 
       default:

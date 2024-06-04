@@ -175,6 +175,7 @@ class _BirdsTestPageState extends State<BirdsTestPage> {
               child: const Text('Close'),
               onPressed: () {
                 Navigator.of(context).pop();
+                Navigator.of(context).pop();
               },
             ),
           ],

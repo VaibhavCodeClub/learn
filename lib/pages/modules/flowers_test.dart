@@ -150,6 +150,7 @@ class _FlowersTestPageState extends State<FlowersTestPage> {
               child: const Text('Close'),
               onPressed: () {
                 Navigator.of(context).pop();
+                Navigator.of(context).pop();
               },
             ),
           ],

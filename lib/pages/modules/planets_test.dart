@@ -140,6 +140,7 @@ class _PlanetsTestPageState extends State<PlanetsTestPage> {
               child: const Text('Close'),
               onPressed: () {
                 Navigator.of(context).pop();
+                Navigator.of(context).pop();
               },
             ),
           ],

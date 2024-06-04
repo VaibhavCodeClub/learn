@@ -18,5 +18,5 @@ class AllRoutesConstant {
   static const String fruitRoute = "/fruit";
   static const String drawingboardRoute = "/drawingboard";
   static const String landingRoute = '/landing_page';
-  static const String mainhomeRoute = '/mainhome';
+  static const String mainhomeRoute = '/main_home';
 }

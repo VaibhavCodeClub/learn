@@ -155,6 +155,7 @@ class _AnimalsTestPageState extends State<AnimalsTestPage> {
               child: const Text('Close'),
               onPressed: () {
                 Navigator.of(context).pop();
+                Navigator.of(context).pop();
               },
             ),
           ],

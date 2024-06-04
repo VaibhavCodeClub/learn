@@ -191,6 +191,7 @@ class _PartsTestPageState extends State<PartsTestPage> {
               child: const Text('Close'),
               onPressed: () {
                 Navigator.of(context).pop();
+                Navigator.of(context).pop();
               },
             ),
           ],
