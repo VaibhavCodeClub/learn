@@ -1,6 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:learn/utils/constants.dart';
+import 'package:learn/utils/route/route_constant.dart';
 
 import '../utils/const_dimensions.dart';
 
@@ -11,29 +13,29 @@ class ExplorePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: CustomScrollView(
-      slivers: [
-        SliverAppBar(
-          title: Padding(
-            padding: const EdgeInsets.fromLTRB(0, 12, 16, 4),
-            child: Text(
-              "Explore",
-              style: Theme.of(context)
-                  .textTheme
-                  .headlineLarge!
-                  .copyWith(fontWeight: FontWeight.bold, fontSize: 30.0),
+      child: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            title: Padding(
+              padding: const EdgeInsets.fromLTRB(0, 12, 16, 4),
+              child: Text(
+                "Explore",
+                style: Theme.of(context)
+                    .textTheme
+                    .headlineLarge!
+                    .copyWith(fontWeight: FontWeight.bold, fontSize: 30.0),
+              ),
             ),
           ),
-        ),
-        SliverList(
-          delegate: SliverChildBuilderDelegate(
-            (context, index) {
-              return GestureDetector(
-                onTap: () => Navigator.push(
-                  context,
-                  AppConstants.modules[index].route,
-                ),
-                child: Container(
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                return GestureDetector(
+                  onTap: () => Navigator.push(
+                    context,
+                    AppConstants.modules[index].route,
+                  ),
+                  child: Container(
                     margin: const EdgeInsets.symmetric(
                         horizontal: 24, vertical: 12),
                     height: ConstantDimensions.heightExtraLarge * 4,
@@ -106,13 +108,87 @@ class ExplorePage extends StatelessWidget {
                           ),
                         ],
                       ),
-                    )),
+                    ),
+                  ),
+                );
+              },
+              childCount: AppConstants.modules.length,
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                AllRoutesConstant.drawingboardRoute,
               );
             },
-            childCount: AppConstants.modules.length,
+            child: Container(
+              margin: const EdgeInsets.all(5.0),
+              padding: const EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black, width: 1.0),
+                borderRadius: BorderRadius.circular(8.0),
+                color: Colors.greenAccent,
+              ),
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 50,
+                    height: 50,
+                    child: SvgPicture.asset(
+                      'assets/explore/drawing_board.svg',
+                    ),
+                  ),
+                  const SizedBox(width: 28.0),
+                  const Text(
+                    'Drawing Board',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30.0,
+                      fontFamily: 'Comic',
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
-        ),
-      ],
-    ));
+        ],
+      ),
+    );
   }
 }
+
+            // GestureDetector(
+            //   onTap: () {
+            //     Navigator.pushNamed(context, '/quiz');
+            //   },
+            //   child: Container(
+            //     margin: const EdgeInsets.all(5.0),
+            //     padding: const EdgeInsets.all(8.0),
+            //     decoration: BoxDecoration(
+            //       border: Border.all(color: Colors.black, width: 1.0),
+            //       borderRadius: BorderRadius.circular(8.0),
+            //       color: Colors.blueAccent,
+            //     ),
+            //     child: Row(
+            //       children: [
+            //         SizedBox(
+            //           width: 50,
+            //           height: 50,
+            //           child: SvgPicture.asset('assets/explore/notebook.svg'),
+            //         ),
+            //         const SizedBox(width: 28.0),
+            //         const Text(
+            //           'Quiz',
+            //           style: TextStyle(
+            //             fontWeight: FontWeight.bold,
+            //             fontSize: 30.0,
+            //             fontFamily: 'Comic',
+            //             color: Colors.white,
+            //           ),
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // ),

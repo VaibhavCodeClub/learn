@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
 import 'package:learn/utils/assets_path.dart';
-import 'package:learn/utils/routes.dart';
+import 'package:learn/utils/route/route_constant.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
@@ -52,7 +52,7 @@ class MyDrawer extends StatelessWidget {
                   icon: Icons.text_fields,
                   title: "A - Z",
                   onTap: () {
-                    Navigator.pushNamed(context, AllRoutes.atozRoute);
+                    Navigator.pushNamed(context, AllRoutesConstant.atozRoute);
                   },
                   context: context,
                 ),
@@ -60,7 +60,7 @@ class MyDrawer extends StatelessWidget {
                   icon: Icons.pest_control_rodent_outlined,
                   title: "Animals",
                   onTap: () {
-                    Navigator.pushNamed(context, AllRoutes.animalRoute);
+                    Navigator.pushNamed(context, AllRoutesConstant.animalRoute);
                   },
                   context: context,
                 ),
@@ -68,7 +68,7 @@ class MyDrawer extends StatelessWidget {
                   icon: Icons.egg,
                   title: "Birds",
                   onTap: () {
-                    Navigator.pushNamed(context, AllRoutes.birdsRoute);
+                    Navigator.pushNamed(context, AllRoutesConstant.birdsRoute);
                   },
                   context: context,
                 ),
@@ -76,7 +76,7 @@ class MyDrawer extends StatelessWidget {
                   icon: Icons.cloud,
                   title: "Seasons",
                   onTap: () {
-                    Navigator.pushNamed(context, AllRoutes.seasonRoute);
+                    Navigator.pushNamed(context, AllRoutesConstant.seasonRoute);
                   },
                   context: context,
                 ),
@@ -93,7 +93,7 @@ class MyDrawer extends StatelessWidget {
                   icon: Icons.back_hand_rounded,
                   title: "Body parts",
                   onTap: () {
-                    Navigator.pushNamed(context, AllRoutes.partsRoute);
+                    Navigator.pushNamed(context, AllRoutesConstant.partsRoute);
                   },
                   context: context,
                 ),
@@ -101,7 +101,8 @@ class MyDrawer extends StatelessWidget {
                   icon: Icons.work,
                   title: "Occupations",
                   onTap: () {
-                    Navigator.pushNamed(context, AllRoutes.occupationRoute);
+                    Navigator.pushNamed(
+                        context, AllRoutesConstant.occupationRoute);
                   },
                   context: context,
                 ),
@@ -109,7 +110,7 @@ class MyDrawer extends StatelessWidget {
                   icon: Icons.sunny,
                   title: "Solar System",
                   onTap: () {
-                    Navigator.pushNamed(context, AllRoutes.solarRoute);
+                    Navigator.pushNamed(context, AllRoutesConstant.solarRoute);
                   },
                   context: context,
                 ),
@@ -117,15 +118,15 @@ class MyDrawer extends StatelessWidget {
                   icon: Icons.palette,
                   title: "Colours",
                   onTap: () {
-                    Navigator.pushNamed(context, AllRoutes.colourRoute);
+                    Navigator.pushNamed(context, AllRoutesConstant.colourRoute);
                   },
                   context: context,
                 ),
-                _buildListTileSVG(
-                  icon: AssetsPath.getFlowerImage(Flowers.flowerIcon),
+                _buildListTile(
+                  icon: Icons.local_florist,
                   title: "Flowers",
                   onTap: () {
-                    Navigator.pushNamed(context, AllRoutes.flowerRoute);
+                    Navigator.pushNamed(context, AllRoutesConstant.flowerRoute);
                   },
                   context: context,
                 ),
@@ -133,7 +134,7 @@ class MyDrawer extends StatelessWidget {
                   icon: Icons.question_mark_outlined,
                   title: "About us",
                   onTap: () {
-                    Navigator.pushNamed(context, AllRoutes.aboutRoute);
+                    Navigator.pushNamed(context, AllRoutesConstant.aboutRoute);
                   },
                   context: context,
                 ),
@@ -169,23 +170,23 @@ class MyDrawer extends StatelessWidget {
     );
   }
 
-  Widget _buildListTileSVG({
-    required BuildContext context,
-    required String icon,
-    required String title,
-    required VoidCallback onTap,
-  }) {
-    return ListTile(
-      leading: SvgPicture.asset(
-        icon,
-        width: 24,
-        height: 24,
-      ),
-      title: Text(
-        title,
-        style: Theme.of(context).textTheme.bodyLarge,
-      ),
-      onTap: onTap,
-    );
-  }
+  // Widget _buildListTileSVG({
+  //   required BuildContext context,
+  //   required String icon,
+  //   required String title,
+  //   required VoidCallback onTap,
+  // }) {
+  //   return ListTile(
+  //     leading: SvgPicture.asset(
+  //       icon,
+  //       width: 24,
+  //       height: 24,
+  //     ),
+  //     title: Text(
+  //       title,
+  //       style: Theme.of(context).textTheme.bodyLarge,
+  //     ),
+  //     onTap: onTap,
+  //   );
+  // }
 }
