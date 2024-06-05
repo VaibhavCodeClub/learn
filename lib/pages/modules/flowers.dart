@@ -3,8 +3,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:learn/models/flower_model.dart';
 import 'package:learn/utils/assets_path.dart';
+import 'package:learn/utils/constants.dart';
 
-// import '../../utils/const_dimensions.dart';
+import '../../utils/const_dimensions.dart';
 
 class FlowerPage extends StatefulWidget {
   const FlowerPage({super.key});
@@ -14,65 +15,19 @@ class FlowerPage extends StatefulWidget {
 }
 
 class _FlowerPageState extends State<FlowerPage> {
-  final List<Flower> flowers = [
-    Flower(
-        name: "Rose",
-        resource: AssetsPath.getFlowerImage(Flowers.rose),
-        background: Colors.red.shade600),
-    Flower(
-        name: "Sunflower",
-        resource: AssetsPath.getFlowerImage(Flowers.sunflower),
-        background: Colors.yellow.shade700),
-    Flower(
-        name: "Lily",
-        resource: AssetsPath.getFlowerImage(Flowers.lily),
-        background: Colors.green.shade300),
-    Flower(
-        name: "Marigold",
-        resource: AssetsPath.getFlowerImage(Flowers.marigold),
-        background: Colors.orange.shade600),
-    Flower(
-        name: "Dandelion",
-        resource: AssetsPath.getFlowerImage(Flowers.dandelion),
-        background: Colors.green.shade600),
-    Flower(
-        name: "Lotus",
-        resource: AssetsPath.getFlowerImage(Flowers.lotus),
-        background: Colors.pink.shade300),
-    Flower(
-        name: "Daisy",
-        resource: AssetsPath.getFlowerImage(Flowers.daisy),
-        background: Colors.brown.shade400),
-    Flower(
-        name: "Jasmine",
-        resource: AssetsPath.getFlowerImage(Flowers.jasmine),
-        background: Colors.green.shade600),
-    Flower(
-        name: "Tulip",
-        resource: AssetsPath.getFlowerImage(Flowers.tulip),
-        background: Colors.pink.shade400),
-    Flower(
-        name: "Lavender",
-        resource: AssetsPath.getFlowerImage(Flowers.lavender),
-        background: Colors.purple.shade600),
-    Flower(
-        name: "Hibiscus",
-        resource: AssetsPath.getFlowerImage(Flowers.hibiscus),
-        background: Colors.pink.shade400),
-  ];
 
   final FlutterTts flutterTts = FlutterTts();
   int currentIndex = 0;
 
   void _navigateToNextFlower() {
     setState(() {
-      currentIndex = (currentIndex + 1) % flowers.length;
+      currentIndex = (currentIndex + 1) % AppConstants.flowers.length;
     });
   }
 
   void _navigateToPreviousFlower() {
     setState(() {
-      currentIndex = (currentIndex - 1 + flowers.length) % flowers.length;
+      currentIndex = (currentIndex - 1 + AppConstants.flowers.length) % AppConstants.flowers.length;
     });
   }
 
@@ -85,11 +40,11 @@ class _FlowerPageState extends State<FlowerPage> {
 
   @override
   Widget build(BuildContext context) {
-    Flower flower = flowers[currentIndex];
+    Flower flower = AppConstants.flowers[currentIndex];
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Flowers',
+          AppConstants.flower,
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 30,

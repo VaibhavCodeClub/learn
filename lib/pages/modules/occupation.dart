@@ -17,7 +17,7 @@ class OccupationPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Occupations',
+          AppConstants.occupation,
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
