@@ -1,8 +1,11 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
+
 import '../pages/animals.dart';
 import '../pages/atoz.dart';
 import '../pages/birds.dart';
+import '../pages/transport.dart';
 
 class AppConstants {
   static const List<String> candidates = [
@@ -449,6 +452,69 @@ class AppConstants {
     ),
   ];
 
+  static List<Transport> transports = [
+    Transport(
+      transportname: 'Car',
+      transportsvgAsset: 'assets/transports/carr.svg',
+      transportdesc: 'A car has four wheels and a motor that helps it move. Cars are used to travel on roads and can carry people and cargo. ',
+      transportbackgroundColor: const Color.fromRGBO(179, 229, 252, 1),
+    ),
+    Transport(
+      transportname: 'Bus',
+      transportsvgAsset: 'assets/transports/bus.svg',
+      transportdesc: 'A bus is a larger vehicle with many wheels that can carry many people at once. Buses travel on roads along specific routes and stop at designated stations to pick up and drop off passengers',
+      transportbackgroundColor: const Color.fromRGBO(248, 187, 208, 1),
+    ),
+    Transport(
+      transportname: 'Train',
+      transportsvgAsset: 'assets/transports/train.svg',
+      transportdesc: ' A train is a long line of connected cars that travel on tracks. Trains can be powered by electricity or diesel engines. They are great for traveling long distances and can carry passengers or cargo',
+      transportbackgroundColor: const Color.fromRGBO(179, 229, 252, 1),
+    ),
+    Transport(
+      transportname: 'Truck',
+      transportsvgAsset: 'assets/transports/truck.svg',
+      transportdesc: 'A truck is a large vehicle with a big engine used to transport goods from one place to another. Trucks come in various sizes, some carrying heavy machinery and others carrying lighter boxes.pen_spark',
+      transportbackgroundColor: const Color.fromRGBO(248, 187, 208, 1),
+    ),
+    Transport(
+      transportname: 'Bicycle',
+      transportsvgAsset: 'assets/transports/bicycle.svg',
+      transportdesc: 'A bicycle has two wheels and pedals that you push to make it move. Bicycles are a fun and healthy way to travel short distances.pen_spark',
+      transportbackgroundColor: const Color.fromRGBO(179, 229, 252, 1),
+    ),
+    Transport(
+      transportname: 'Motorcycle',
+      transportsvgAsset: 'assets/transports/motorcycle.svg',
+      transportdesc: 'A motorcycle is a two-wheeled vehicle with a motor. It is faster than a bicycle but requires a helmet and following safety rules.',
+      transportbackgroundColor: const Color.fromRGBO(248, 187, 208, 1),
+    ),
+    Transport(
+      transportname: 'Boat',
+      transportsvgAsset: 'assets/transports/boat.svg',
+      transportdesc: 'A boat is a vessel that floats on water. Boats come in all sizes, from small rowboats to giant cruise ships. They are used for transportation, fishing, and recreation.',
+      transportbackgroundColor: const Color.fromRGBO(179, 229, 252, 1),
+    ),
+    Transport(
+      transportname: 'Ship',
+      transportsvgAsset: 'assets/transports/ship.svg',
+      transportdesc: 'A ship is a very large boat used for traveling long distances on water. Ships carry passengers, cargo, or both. Cruise ships are giant ships designed for vacations and have many fun activities onboard.',
+      transportbackgroundColor: const Color.fromRGBO(248, 187, 208, 1),
+    ),
+    Transport(
+      transportname: 'Airplane',
+      transportsvgAsset: 'assets/transports/airplane.svg',
+      transportdesc: 'An airplane is a flying machine with wings and a powerful engine. Airplanes can travel long distances very quickly. They take off from airports and land on runways.',
+      transportbackgroundColor: const Color.fromRGBO(179, 229, 252, 1),
+    ),
+    Transport(
+      transportname: 'Helicopter',
+      transportsvgAsset: 'assets/transports/helicopter.svg',
+      transportdesc: 'A helicopter is a flying machine with rotating blades that lift it off the ground. Helicopters can take off and land vertically, making them useful for reaching difficult areas.',
+      transportbackgroundColor: const Color.fromRGBO(248, 187, 208, 1),
+    ),
+  ];
+
   static const String underConstruction =
       'Page Under Construction.\nIt will not take much time.';
 
@@ -458,6 +524,7 @@ class AppConstants {
   static const String parts = 'Body Parts';
   static const String shape = 'Shapes';
   static const String solar = 'Solar System';
+  static const String transport = 'Modes of Transport';
   static const String description =
       'Interactive app to let your kids learn various things like\n\n - A - Z alphabets.\n - Animals and their sounds.\n - Birds and their sounds.\n - Various shapes.\n - Body parts.\n - Solar system.\n';
 }

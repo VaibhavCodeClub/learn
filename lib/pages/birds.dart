@@ -22,7 +22,6 @@ class Bird {
 
 class BirdsPage extends StatelessWidget {
 
-
   final FlutterTts flutterTts = FlutterTts();
   final AudioPlayer audioPlayer = AudioPlayer();
 

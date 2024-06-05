@@ -10,5 +10,5 @@ class AllRoutes {
   static String atozRoute = "/atoz";
   static String aboutRoute = "/about";
   static String colourRoute = "/colours";
-
+  static String transportRoute = "/transports";
 }
