@@ -43,7 +43,8 @@ class MyDrawer extends StatelessWidget {
                   icon: Icons.home,
                   title: "Home",
                   onTap: () {
-                    Navigator.pushNamed(context, AllRoutesConstant.homeRoute);
+                    Navigator.pushReplacementNamed(
+                        context, AllRoutesConstant.homeRoute);
                   },
                   context: context,
                 ),
@@ -83,7 +84,8 @@ class MyDrawer extends StatelessWidget {
                   icon: Icons.pentagon_outlined,
                   title: "Shapes",
                   onTap: () {
-                    Navigator.pushNamed(context, AllRoutesConstant.shapesRoute);
+                    Navigator.pushReplacementNamed(
+                        context, AllRoutesConstant.shapesRoute);
                   },
                   context: context,
                 ),
@@ -133,6 +135,14 @@ class MyDrawer extends StatelessWidget {
                   title: "About us",
                   onTap: () {
                     Navigator.pushNamed(context, AllRoutesConstant.aboutRoute);
+                  },
+                  context: context,
+                ),
+                _buildListTile(
+                  icon: Icons.question_mark_outlined,
+                  title: "Quiz",
+                  onTap: () {
+                    Navigator.pushNamed(context, AllRoutesConstant.quizRoute);
                   },
                   context: context,
                 ),
