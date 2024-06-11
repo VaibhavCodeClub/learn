@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:learn/models/flower_model.dart';
-import 'package:learn/utils/assets_path.dart';
 import 'package:learn/utils/constants.dart';
 
-import '../../utils/const_dimensions.dart';
 
 class FlowerPage extends StatefulWidget {
   const FlowerPage({super.key});
