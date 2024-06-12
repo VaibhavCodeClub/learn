@@ -168,10 +168,10 @@ class _QuizState extends State<Quiz> {
                                         minimumSize: Size(width * 0.7, 60),
                                       ),
                                       onPressed: () {
-                                        Navigator.of(context).pop();
+                                        // Navigator.of(context).pop();
                                         Navigator.of(context)
                                             .pushReplacementNamed(
-                                                AllRoutesConstant.homeRoute);
+                                                AllRoutesConstant.mainhomeRoute);
                                       },
                                       child: Text(
                                         "Go Back",
