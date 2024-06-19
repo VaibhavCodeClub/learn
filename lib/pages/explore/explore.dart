@@ -145,6 +145,7 @@ class _ExplorePageState extends State<ExplorePage> {
                       }
                     }
                     catch (e) {
+                      // ignore: avoid_print
                       print(e);
                     }
                   },

@@ -3,6 +3,7 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:learn/landing_page.dart';
 import 'package:learn/utils/route/routes.dart';
 import 'package:learn/theme_provider.dart';
+// ignore: depend_on_referenced_packages
 import 'package:provider/provider.dart';
 
 DateTime? currentBackPressTime;

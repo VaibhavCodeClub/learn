@@ -214,8 +214,7 @@ class _PopupDialogState extends State<_PopupDialog> {
                         child: const Text('Next'),
                       ),
                     ],
-                  ),
-
+                  
                   ),
                 ],
               ),
