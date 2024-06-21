@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
-import 'package:learn/utils/assets_path.dart';
 import 'package:learn/utils/route/route_constant.dart';
 
 class MyDrawer extends StatelessWidget {
