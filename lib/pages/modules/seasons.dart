@@ -136,7 +136,7 @@ class _SeasonPopupState extends State<SeasonPopup> {
             ),
             ElevatedButton(
               style: ButtonStyle(
-                backgroundColor: WidgetStateProperty.all(Colors.red),
+                backgroundColor: MaterialStateProperty.all(Colors.red),
               ),
               onPressed: () {
                 Navigator.of(context).pop();
