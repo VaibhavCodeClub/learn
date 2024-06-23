@@ -1,183 +1,282 @@
-// ignore_for_file: library_private_types_in_public_api
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:learn/utils/constants.dart';
+import 'package:learn/utils/route/route_constant.dart';
 
-import '../../utils/const_dimensions.dart';
+class Quiz extends StatefulWidget {
+  static const routeName = "/quiz";
+  const Quiz({super.key});
 
-class QuizQuestion {
-  final String question;
-  final List<String> options;
-  final int correctAnswerIndex;
+  @override
+  State<Quiz> createState() => _QuizState();
+}
 
-  QuizQuestion({
+class Questions {
+  String question;
+  List<String> options;
+  String? image;
+  int answer;
+
+  Questions({
     required this.question,
     required this.options,
-    required this.correctAnswerIndex,
+    required this.answer,
+    this.image,
   });
 }
 
-class QuizPage extends StatefulWidget {
-  const QuizPage({super.key});
-
-  @override
-  _QuizPageState createState() => _QuizPageState();
-}
-
-class _QuizPageState extends State<QuizPage> {
-  late List<QuizQuestion> _questions;
-  int _currentQuestionIndex = 0;
+class _QuizState extends State<Quiz> {
   int _score = 0;
-  bool _quizCompleted = false;
-  String _feedbackMessage = '';
-  Color _feedbackColor = Colors.transparent;
-  bool _answered = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _questions = List.from(AppConstants.quizQuestions);
-    _questions.shuffle();
-    if (_questions.length > 10) {
-      _questions = _questions.sublist(0, 10);
-    }
-  }
-
-  void _answerQuestion(int selectedIndex) {
-    if (_answered) return;
-
-    bool isCorrect =
-        selectedIndex == _questions[_currentQuestionIndex].correctAnswerIndex;
-    setState(() {
-      _answered = true;
-      if (isCorrect) {
-        _score++;
-        _feedbackMessage = 'Correct! Good job!';
-        _feedbackColor = Colors.green;
-      } else {
-        _feedbackMessage =
-            'Incorrect. The correct answer is: ${_questions[_currentQuestionIndex].options[_questions[_currentQuestionIndex].correctAnswerIndex]}';
-        _feedbackColor = Colors.red;
-      }
-    });
-  }
-
-  void _nextQuestion() {
-    setState(() {
-      if (_currentQuestionIndex < _questions.length - 1) {
-        _currentQuestionIndex++;
-        _feedbackMessage = '';
-        _feedbackColor = Colors.transparent;
-        _answered = false;
-      } else {
-        _quizCompleted = true;
-      }
-    });
-  }
-
+  int SelectedIndex = -1;
+  bool istappable = true;
+  int questionnumber = 0;
   @override
   Widget build(BuildContext context) {
+    print(_score);
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+    double toppadding = MediaQuery.of(context).padding.top;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Quiz'),
-      ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: _quizCompleted
-            ? Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+        padding: EdgeInsets.all(10),
+        child: Column(
+          children: [
+            SizedBox(
+              height: toppadding,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  icon: const Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.black,
+                  ),
+                ),
+                Text(
+                  "Question ${questionnumber + 1}/${AppConstants.ques.length}",
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                  ),
+                ),
+                const SizedBox(
+                  width: 50,
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              width: width * 0.90,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Column(
                 children: [
+                  AppConstants.ques[questionnumber].image != null
+                      ? Container(
+                          height: 200,
+                          width: 200,
+                          color: Colors.white,
+                          child: Image.asset(
+                            AppConstants.ques[questionnumber].image!,
+                          ),
+                        )
+                      : const SizedBox(
+                          height: 10,
+                        ),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   Text(
-                    'Quiz Completed! Your score is $_score/${_questions.length}',
-                    style: const TextStyle(
-                        fontSize: 24, fontWeight: FontWeight.bold),
+                    AppConstants.ques[questionnumber].question, // [1]
                     textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: ConstantDimensions.heightMedium),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: const Text('Back to Explore'),
-                  ),
-                ],
-              )
-            : Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Question ${_currentQuestionIndex + 1}/${_questions.length}',
                     style: const TextStyle(
-                        fontSize: 22, fontWeight: FontWeight.bold),
+                        color: Colors.black,
+                        fontSize: 25,
+                        fontWeight: FontWeight.w600),
                   ),
-                  const SizedBox(height: ConstantDimensions.heightMedium),
-                  Text(
-                    _questions[_currentQuestionIndex].question,
-                    style: const TextStyle(fontSize: 18),
-                  ),
-                  const SizedBox(height: ConstantDimensions.heightMedium),
-                  Column(
-                    children: List.generate(
-                      _questions[_currentQuestionIndex].options.length,
-                      (index) => GestureDetector(
-                        onTap: () => _answerQuestion(index),
-                        child: Container(
-                          margin: const EdgeInsets.symmetric(vertical: 4.0),
-                          padding: const EdgeInsets.all(8.0),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black, width: 1.0),
-                            borderRadius: BorderRadius.circular(8.0),
-                            color: Colors.blueAccent.withOpacity(0.2),
-                          ),
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: ConstantDimensions.widthLarge,
-                                height: ConstantDimensions.heightLarge,
-                                child:
-                                    SvgPicture.asset('assets/explore/dot.svg'),
-                              ),
-                              const SizedBox(width: ConstantDimensions.heightExtraSmall * 2),
-                              Expanded(
-                                child: Text(
-                                  _questions[_currentQuestionIndex]
-                                      .options[index],
-                                  style: const TextStyle(fontSize: 16),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: ConstantDimensions.heightMedium),
-                  if (_feedbackMessage.isNotEmpty)
-                    Container(
-                      padding: const EdgeInsets.all(12.0),
-                      decoration: BoxDecoration(
-                        color: _feedbackColor.withOpacity(0.2),
-                        borderRadius: BorderRadius.circular(8.0),
-                        border: Border.all(color: _feedbackColor, width: 1.0),
-                      ),
-                      child: Text(
-                        _feedbackMessage,
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: _feedbackColor,
-                        ),
-                      ),
-                    ),
-                  const SizedBox(height: ConstantDimensions.heightMedium),
-                  if (_answered && !_quizCompleted)
-                    ElevatedButton(
-                      onPressed: _nextQuestion,
-                      child: const Text('Next Question'),
-                    ),
                 ],
               ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Expanded(
+              child: ListView.separated(
+                itemBuilder: (context, index) => options(
+                    width: width,
+                    option: AppConstants.ques[questionnumber].options[index],
+                    currentindex: index,
+                    selectedIndex: SelectedIndex),
+                separatorBuilder: (context, index) => const SizedBox(
+                  height: 20,
+                ),
+                itemCount: 4,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                if (SelectedIndex == -1) {
+                  return;
+                }
+                if (questionnumber < AppConstants.ques.length - 1) {
+                  setState(() {
+                    questionnumber++;
+                    SelectedIndex = -1;
+                    istappable = true;
+                  });
+                } else {
+                  print("Quiz Completed");
+                  showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                            content: SizedBox(
+                              height: height * 0.4,
+                              width: width * 0.8,
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  const Text(
+                                    "Congratulations !!!",
+                                    style: TextStyle(
+                                        fontSize: 28,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(
+                                    "You Have Scored $_score out of ${AppConstants.ques.length}",
+                                    style: const TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                  ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: Colors.purple,
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 40, vertical: 20),
+                                        maximumSize: Size(width * 0.7, 60),
+                                        minimumSize: Size(width * 0.7, 60),
+                                      ),
+                                      onPressed: () {
+                                        // Navigator.of(context).pop();
+                                        Navigator.of(context)
+                                            .pushReplacementNamed(
+                                                AllRoutesConstant.mainhomeRoute);
+                                      },
+                                      child: Text(
+                                        "Go Back",
+                                        style: TextStyle(color: Colors.white),
+                                      ))
+                                ],
+                              ),
+                            ),
+                          ));
+                  // Navigator.of(context).pushNamed(ResultPage.routeName,
+                  //     arguments: _score.toString());
+                }
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.purple,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                maximumSize: Size(width * 0.7, 60),
+                minimumSize: Size(width * 0.7, 60),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(40),
+                ),
+              ),
+              child: const Text(
+                "Continue",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  options(
+      {required double width,
+      required String option,
+      required int currentindex,
+      required selectedIndex}) {
+    return InkWell(
+      onTap: () {
+        setState(() {
+          if (istappable) {
+            SelectedIndex = currentindex;
+            if (currentindex == AppConstants.ques[questionnumber].answer) {
+              _score++;
+              setState(() {});
+            }
+            istappable = false;
+          }
+        });
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        width: width * 0.9,
+        decoration: BoxDecoration(
+          color: selectedIndex == currentindex
+              ? currentindex == AppConstants.ques[questionnumber].answer
+                  ? Colors.green.withOpacity(0.3)
+                  : Colors.red.withOpacity(0.3)
+              : Colors.white,
+          border: Border.all(
+            color: selectedIndex == currentindex
+                ? currentindex == AppConstants.ques[questionnumber].answer
+                    ? Colors.green
+                    : Colors.red
+                : Colors.black,
+            width: 1,
+          ),
+          borderRadius: BorderRadius.circular(14),
+        ),
+        child: Row(
+          children: [
+            Container(
+              height: 25,
+              width: 25,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: selectedIndex == currentindex
+                      ? currentindex == AppConstants.ques[questionnumber].answer
+                          ? Colors.green
+                          : Colors.red
+                      : Colors.black,
+                  width: selectedIndex == currentindex ? 5 : 1,
+                ),
+              ),
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            Text(
+              option,
+              style: const TextStyle(fontSize: 22, color: Colors.black),
+            ),
+          ],
+        ),
       ),
     );
   }

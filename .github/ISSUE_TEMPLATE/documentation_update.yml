@@ -55,5 +55,7 @@ body:
           required: true
         - label: "I'm a GSSOC'24 contributor"
           required: false
+        - label: "I'm a VSoC'24 contributor"
+          required: false
         - label: "I have starred the repository"
           required: true
