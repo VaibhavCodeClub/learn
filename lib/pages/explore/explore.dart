@@ -44,7 +44,7 @@ class _ExplorePageState extends State<ExplorePage> {
               [
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(context, (MaterialPageRoute(builder: (context) => const QuizPage())));
+                    Navigator.push(context, (MaterialPageRoute(builder: (context) => const Quiz())));
                   },
                   child: Container(
                     margin: const EdgeInsets.all(5.0),
@@ -120,7 +120,7 @@ class _ExplorePageState extends State<ExplorePage> {
                     try{
                       switch (index) {
                         case 0:
-                          Navigator.push(context, (MaterialPageRoute(builder: (context) => const QuizPage())));
+                          Navigator.push(context, (MaterialPageRoute(builder: (context) => const Quiz())));
                           break;
                         case 1:
                           Navigator.push(context, (MaterialPageRoute(builder: (context) => const AtoZ())));
