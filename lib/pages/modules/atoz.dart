@@ -255,8 +255,8 @@ class _AtoZState extends State<AtoZ> {
                 child: ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor: isTimerEnabled
-                        ? WidgetStateProperty.all(Colors.green as Size)
-                        : WidgetStateProperty.all(Colors.red as Size),
+                        ? MaterialStateProperty.all(Colors.green)
+                        : MaterialStateProperty.all(Colors.red ),
                   ),
                   onPressed: () {
                     setState(() {
