@@ -1,13 +1,16 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class DrawingBoardPage extends StatelessWidget {
-  const DrawingBoardPage({Key? key});
+  const DrawingBoardPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return DrawingBoard();
+    return const DrawingBoard();
   }
 }
 
@@ -20,7 +23,7 @@ class DrawingBoard extends StatefulWidget {
 
 class _DrawingBoardState extends State<DrawingBoard> {
   Color selectedColor = Colors.black;
-  double strokeWidth = 5;
+  double strokeWidth = 5.0;
   bool isEraser = false;
   List<DrawingPoint?> drawingPoints = [];
   List<Color> colors = [
@@ -38,22 +41,20 @@ class _DrawingBoardState extends State<DrawingBoard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Drawing Board"),
+        title: const Text("Drawing Board"),
         actions: [
           TextButton.icon(
             onPressed: () => setState(() => drawingPoints = []),
-            icon: Icon(Icons.clear),
-            label: Text("Clear Board"),
+            icon: const Icon(Icons.clear),
+            label: const Text("Clear Board"),
             style: TextButton.styleFrom(
-              backgroundColor: Color(0xfff7f2fa),
+              foregroundColor: Colors.black, // Changed for better visibility
+              backgroundColor: const Color(0xfff7f2fa),
             ),
-        ),
-          SizedBox(
-            width: 10,
           ),
+          const SizedBox(width: 10),
         ],
-    ),
-
+      ),
       body: Stack(
         children: [
           GestureDetector(
@@ -63,7 +64,7 @@ class _DrawingBoardState extends State<DrawingBoard> {
                   DrawingPoint(
                     details.localPosition,
                     Paint()
-                      ..color = isEraser? Color(0xfffef7ff) : selectedColor
+                      ..color = isEraser ? const Color(0xfffef7ff) : selectedColor
                       ..isAntiAlias = true
                       ..strokeWidth = strokeWidth
                       ..strokeCap = StrokeCap.round,
@@ -71,14 +72,13 @@ class _DrawingBoardState extends State<DrawingBoard> {
                 );
               });
             },
-
             onPanUpdate: (details) {
               setState(() {
                 drawingPoints.add(
                   DrawingPoint(
                     details.localPosition,
                     Paint()
-                      ..color = isEraser? Color(0xfffef7ff) : selectedColor
+                      ..color = isEraser ? const Color(0xfffef7ff) : selectedColor
                       ..isAntiAlias = true
                       ..strokeWidth = strokeWidth
                       ..strokeCap = StrokeCap.round,
@@ -86,72 +86,65 @@ class _DrawingBoardState extends State<DrawingBoard> {
                 );
               });
             },
-
             onPanEnd: (details) {
               setState(() {
                 drawingPoints.add(null);
               });
             },
-
             child: CustomPaint(
               painter: _DrawingPainter(drawingPoints),
-              child: Container(
+              child: SizedBox(
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
               ),
             ),
           ),
-
           Positioned(
             top: 20,
             right: 10,
             left: 10,
             child: Row(
               children: [
-                Slider(
-                  min: 0,
-                  max: 40,
-                  value: strokeWidth,
-                  onChanged: (val) => setState(() => strokeWidth = val),
+                Expanded(
+                  child: Slider(
+                    min: 0,
+                    max: 40,
+                    value: strokeWidth,
+                    onChanged: (val) => setState(() => strokeWidth = val),
+                  ),
                 ),
-                SizedBox(
-                    width: 50
-                ),
+                const SizedBox(width: 10),
                 ElevatedButton.icon(
                   onPressed: () {
                     setState(() {
-                      isEraser =!isEraser;
+                      isEraser = !isEraser;
                       if (isEraser) {
-                        selectedColor = Color(0xfffef7ff);
+                        selectedColor = const Color(0xfffef7ff);
                       }
                     });
                   },
-                    icon: Icon(FontAwesomeIcons.eraser),
-                  label: Text("Eraser"),
+                  icon: const Icon(FontAwesomeIcons.eraser),
+                  label: const Text("Eraser"),
                 ),
               ],
             ),
           ),
         ],
       ),
-
       bottomNavigationBar: BottomAppBar(
         child: Container(
           color: Colors.grey[200],
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: List.generate(
-              colors.length,
-                  (index) => _buildColorChoser(colors[index]),
-            ),
+            children: colors.map((color) => _buildColorChooser(color)).toList(),
           ),
         ),
       ),
     );
   }
 
-  GestureDetector _buildColorChoser(Color color) {
+  GestureDetector _buildColorChooser(Color color) {
     bool isSelected = selectedColor == color;
     return GestureDetector(
       onTap: () {
@@ -168,9 +161,9 @@ class _DrawingBoardState extends State<DrawingBoard> {
           shape: BoxShape.circle,
           border: isSelected
               ? Border.all(
-            color: Colors.white,
-            width: 3,
-          )
+                  color: Colors.white,
+                  width: 3,
+                )
               : null,
         ),
       ),
@@ -207,8 +200,8 @@ class _DrawingPainter extends CustomPainter {
 }
 
 class DrawingPoint {
-  Offset offset;
-  Paint paint;
+  final Offset offset;
+  final Paint paint;
 
   DrawingPoint(this.offset, this.paint);
 }

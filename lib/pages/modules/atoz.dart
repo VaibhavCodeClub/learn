@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:async';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:learn/pages/fruits.dart';
 import 'package:learn/utils/const_dimensions.dart';
 import 'package:learn/models/itemdata_model.dart';
 import 'package:learn/utils/constants.dart';
@@ -213,21 +214,7 @@ class _PopupDialogState extends State<_PopupDialog> {
                         child: const Text('Next'),
                       ),
                     ],
-                  ),
-                  const SizedBox(height: ConstantDimensions.heightMedium),
-                  ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(
-                        const Color.fromARGB(216, 233, 101, 92),
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: const Text(
-                      'Close',
-                      style: TextStyle(color: Colors.white),
-                    ),
+                  
                   ),
                 ],
               ),
@@ -259,7 +246,7 @@ class _AtoZState extends State<AtoZ> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             const Text(
-              AppConstants.a_z,
+              'A-Z',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             Expanded(
@@ -269,7 +256,7 @@ class _AtoZState extends State<AtoZ> {
                   style: ButtonStyle(
                     backgroundColor: isTimerEnabled
                         ? MaterialStateProperty.all(Colors.green)
-                        : MaterialStateProperty.all(Colors.red),
+                        : MaterialStateProperty.all(Colors.red ),
                   ),
                   onPressed: () {
                     setState(() {

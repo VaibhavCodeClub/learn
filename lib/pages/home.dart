@@ -1,7 +1,10 @@
+// ignore: unused_import
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:learn/utils/assets_path.dart';
 import 'package:learn/utils/const_dimensions.dart';
 import 'package:learn/utils/route/route_constant.dart';
+// ignore: depend_on_referenced_packages
 import 'package:provider/provider.dart';
 import '../widgets/drawer.dart';
 import '../theme_provider.dart';

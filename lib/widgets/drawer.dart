@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
+// ignore: unused_import
+import 'package:learn/utils/assets_path.dart';
 import 'package:learn/utils/route/route_constant.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -41,8 +44,7 @@ class MyDrawer extends StatelessWidget {
                   icon: Icons.home,
                   title: "Home",
                   onTap: () {
-                    Navigator.pushReplacementNamed(
-                        context, AllRoutesConstant.homeRoute);
+                    Navigator.pushNamed(context, AllRoutesConstant.homeRoute);
                   },
                   context: context,
                 ),
@@ -82,8 +84,7 @@ class MyDrawer extends StatelessWidget {
                   icon: Icons.pentagon_outlined,
                   title: "Shapes",
                   onTap: () {
-                    Navigator.pushReplacementNamed(
-                        context, AllRoutesConstant.shapesRoute);
+                    Navigator.pushNamed(context, AllRoutesConstant.shapesRoute);
                   },
                   context: context,
                 ),
@@ -133,14 +134,6 @@ class MyDrawer extends StatelessWidget {
                   title: "About us",
                   onTap: () {
                     Navigator.pushNamed(context, AllRoutesConstant.aboutRoute);
-                  },
-                  context: context,
-                ),
-                _buildListTile(
-                  icon: Icons.question_mark_outlined,
-                  title: "Quiz",
-                  onTap: () {
-                    Navigator.pushNamed(context, AllRoutesConstant.quizRoute);
                   },
                   context: context,
                 ),

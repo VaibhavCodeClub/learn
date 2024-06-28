@@ -4,6 +4,7 @@ import 'package:learn/landing_page.dart';
 import 'package:learn/pages/main_home.dart';
 import 'package:learn/utils/route/routes.dart';
 import 'package:learn/theme_provider.dart';
+// ignore: depend_on_referenced_packages
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

@@ -8,6 +8,7 @@ import 'package:learn/models/bird_model.dart';
 import 'package:learn/utils/constants.dart';
 
 import '../../utils/const_dimensions.dart';
+import 'birds_test.dart';
 
 class BirdsPage extends StatelessWidget {
 
@@ -24,6 +25,17 @@ class BirdsPage extends StatelessWidget {
           AppConstants.bird,
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.assessment),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const BirdsTestPage()),
+              );
+            },
+          ),
+        ],
       ),
       body: Center(
         child: BirdWidget(
