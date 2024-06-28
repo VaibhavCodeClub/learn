@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:learn/models/season_model.dart';
+import 'package:learn/pages/fruits.dart';
 import 'package:learn/utils/constants.dart';
 import '../../utils/const_dimensions.dart';
 
@@ -14,7 +15,7 @@ class SeasonsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          AppConstants.season,
+          'Seasons Serenade',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
