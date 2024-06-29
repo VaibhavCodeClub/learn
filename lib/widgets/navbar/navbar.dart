@@ -3,7 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:learn/cubit/index_cubit.dart';
 
 class BottomNavBar extends StatefulWidget {
-  const BottomNavBar({super.key});
+  final PageController pageController;
+
+  const BottomNavBar({
+    super.key,
+    required this.pageController,
+  });
 
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();
@@ -18,6 +23,12 @@ class _BottomNavBarState extends State<BottomNavBar> {
         return NavigationBar(
           selectedIndex: currentPageIndex,
           onDestinationSelected: (index) {
+            // Animate to the selected page
+            widget.pageController.animateToPage(
+              index,
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeInOut,
+            );
             context.read<IndexCubit>().changeIndex(index);
           },
           destinations: const [
