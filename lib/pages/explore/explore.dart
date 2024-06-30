@@ -68,81 +68,125 @@ class _ExplorePageState extends State<ExplorePage> {
             SliverList(
               delegate: SliverChildListDelegate(
                 [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          (MaterialPageRoute(
-                              builder: (context) => const Quiz())));
-                    },
-                    child: Container(
-                      margin: const EdgeInsets.symmetric(
-                          horizontal: 18.0, vertical: 8),
-                      padding: const EdgeInsets.all(8.0),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black, width: 1.0),
-                        borderRadius: BorderRadius.circular(8.0),
-                        color: Colors.blueAccent,
-                      ),
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: ConstantDimensions.widthExtraLarge,
-                            height: ConstantDimensions.heightExtraLarge,
-                            child:
-                                SvgPicture.asset('assets/explore/notebook.svg'),
-                          ),
-                          const SizedBox(
-                              width: ConstantDimensions.widthMedium_Large),
-                          const Text(
-                            'Quiz',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 30.0,
-                              fontFamily: 'Comic',
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  // GestureDetector(
+                  //   onTap: () {
+                  //     Navigator.push(
+                  //         context,
+                  //         (MaterialPageRoute(
+                  //             builder: (context) => const Quiz())));
+                  //   },
+                  //   child: Container(
+                  //     margin: const EdgeInsets.symmetric(
+                  //         horizontal: 18.0, vertical: 8),
+                  //     padding: const EdgeInsets.all(8.0),
+                  //     decoration: BoxDecoration(
+                  //       border: Border.all(color: Colors.black, width: 1.0),
+                  //       borderRadius: BorderRadius.circular(8.0),
+                  //       color: Colors.blueAccent,
+                  //     ),
+                  //     child: Row(
+                  //       children: [
+                  //         SizedBox(
+                  //           width: ConstantDimensions.widthExtraLarge,
+                  //           height: ConstantDimensions.heightExtraLarge,
+                  //           child:
+                  //               SvgPicture.asset('assets/explore/notebook.svg'),
+                  //         ),
+                  //         const SizedBox(
+                  //             width: ConstantDimensions.widthMedium_Large),
+                  //         const Text(
+                  //           'Quiz',
+                  //           style: TextStyle(
+                  //             fontWeight: FontWeight.bold,
+                  //             fontSize: 30.0,
+                  //             fontFamily: 'Comic',
+                  //             color: Colors.white,
+                  //           ),
+                  //         ),
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
                   GestureDetector(
                     onTap: () {
                       Navigator.pushNamed(
                           context, AllRoutesConstant.drawingboardRoute);
                     },
                     child: Container(
-                      margin: const EdgeInsets.symmetric(
-                          horizontal: 18.0, vertical: 5),
-                      padding: const EdgeInsets.all(8.0),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black, width: 1.0),
-                        borderRadius: BorderRadius.circular(8.0),
-                        color: Colors.greenAccent,
-                      ),
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: ConstantDimensions.widthExtraLarge,
-                            height: ConstantDimensions.heightExtraLarge,
-                            child: SvgPicture.asset(
-                                'assets/explore/drawing_board.svg'),
-                          ),
-                          const SizedBox(
-                              width: ConstantDimensions.widthMedium_Large),
-                          const Text(
-                            'Drawing Board',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 30.0,
-                              fontFamily: 'Comic',
-                              color: Colors.white,
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: 24, vertical: 12),
+                        height: ConstantDimensions.heightExtraLarge * 4,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              spreadRadius: 2,
+                              blurRadius: 5,
+                              offset: const Offset(0, 3),
                             ),
+                          ],
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(16),
+                          child: Stack(
+                            fit: StackFit.expand,
+                            alignment: Alignment.center,
+                            children: [
+                              ImageFiltered(
+                                imageFilter:
+                                    ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                                child: SvgPicture.asset(
+                                  'assets/explore/drawing_board.svg',
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              Positioned.fill(
+                                child: Align(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        "Drawing Board",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headlineMedium!
+                                            .copyWith(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          shadows: [
+                                            const Shadow(
+                                              color: Colors.black,
+                                              offset: Offset(2, 1),
+                                              blurRadius: 4,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Text(
+                                        "Drawing Board for Artist Kids!",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium!
+                                            .copyWith(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          shadows: [
+                                            const Shadow(
+                                              color: Colors.black,
+                                              offset: Offset(2, 1),
+                                              blurRadius: 2,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                    ),
+                        )),
                   ),
                 ],
               ),
