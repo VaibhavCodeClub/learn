@@ -15,7 +15,7 @@ import '../../favorite_page_provider.dart';
 import '../../theme_provider.dart';
 import '../../utils/const_dimensions.dart';
 import '../../widgets/drawer.dart';
-
+f
 // Explore Page
 class FavoritePage extends StatefulWidget {
   const FavoritePage({super.key});
@@ -225,7 +225,6 @@ class _FavoritePageState extends State<FavoritePage> {
                         delegate: SliverChildBuilderDelegate(
                           childCount: AppConstants.modules.length,
                           (context, index) {
-                            print(selectItem);
 
                             return GestureDetector(
                               onTap: () {
@@ -401,7 +400,6 @@ class _FavoritePageState extends State<FavoritePage> {
                                                               .selectedItemList
                                                               .contains(
                                                                   index)) {
-                                                            print(selectItem);
                                                             item.removeList(
                                                                 index);
                                                             setState(() {});
