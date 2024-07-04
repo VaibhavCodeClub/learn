@@ -28,7 +28,7 @@ More exciting features are planned for future updates, such as birds and their v
   </thead>
   <tbody>
     <tr>
-      <td><img src="https://user-images.githubusercontent.com/63473496/213306239-9e8fc317-ce2f-4127-8bfe-17f5df06ee99.png#gh-light-mode-only" alt="GirlScript Summer of Code 2024 Logo"></td>
+      <td><img src="readme/Gssoc Label.png" alt="GirlScript Summer of Code 2024 Logo"></td>
       <td>GirlScript Summer of Code 2024</td>
       <td>GirlScript Summer of Code is a three-month-long Open Source Program conducted every summer by GirlScript Foundation. It is an initiative to bring more beginners to Open-Source Software Development.</td>
     </tr>
