@@ -35,10 +35,6 @@ More exciting features are planned for future updates, such as birds and their v
   </tbody>
 </table>
 
-## Learn More
-
-For more information about the project and how it works, please refer to our [Learn Guide](LEARN.md).
-
 ## Code of Conduct
 
 Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
@@ -79,6 +75,12 @@ That's it! The app should now be running on your device/emulator.
 
 
 **Note:** If you encounter any issues or have suggestions for improvement, please feel free to [create an issue](https://github.com/VaibhavCodeClub/learn/issues/new/choose) on our GitHub repository. We appreciate your feedback!
+
+
+## Guidelines for Contributors
+
+Before starting contributing please refer to [Contributors Guidelines](contributors.md)
+
 
 
 <h2 align = "center">Our Contributors ❤️</h2>
