@@ -35,6 +35,18 @@ More exciting features are planned for future updates, such as birds and their v
   </tbody>
 </table>
 
+## Learn More
+
+For more information about the project and how it works, please refer to our [Learn Guide](LEARN.md).
+
+## Code of Conduct
+
+Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+
+## Contibuting Guidelines
+
+We believe in the power of collaboration. If you have ideas to improve College.ai, feel free to contribute! Check out our [Contribution Guidelines](CONTRIBUTING.md) to get started.
+
 
 ### Getting Started
 
@@ -68,13 +80,10 @@ That's it! The app should now be running on your device/emulator.
 
 **Note:** If you encounter any issues or have suggestions for improvement, please feel free to [create an issue](https://github.com/VaibhavCodeClub/learn/issues/new/choose) on our GitHub repository. We appreciate your feedback!
 
+
 <h2 align = "center">Our Contributors ❤️</h2>
 <div align = "center">
  <h3>Thank you for contributing to our repository</h3>
-
- ### Contibuting Guidelines
-
-We believe in the power of collaboration. If you have ideas to improve College.ai, feel free to contribute! Check out our [Contribution Guidelines](CONTRIBUTING.md) to get started.
 
 ![Contributors](https://contrib.rocks/image?repo=VaibhavCodeClub/learn)
 
