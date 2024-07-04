@@ -72,6 +72,10 @@ That's it! The app should now be running on your device/emulator.
 <div align = "center">
  <h3>Thank you for contributing to our repository</h3>
 
+ ### Contibuting Guidelines
+
+We believe in the power of collaboration. If you have ideas to improve College.ai, feel free to contribute! Check out our [Contribution Guidelines](CONTRIBUTING.md) to get started.
+
 ![Contributors](https://contrib.rocks/image?repo=VaibhavCodeClub/learn)
 
 
