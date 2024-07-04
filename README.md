@@ -35,11 +35,21 @@ More exciting features are planned for future updates, such as birds and their v
   </tbody>
 </table>
 
+## Table of Contents
+
+- [Code of Conduct](#code-of-conduct)
+- [Contributing Guidelines](#contributing-guidelines)
+- [Getting Started](#getting-started)
+  - [Clone the Git Repository](#clone-the-git-repository)
+  - [Run the Flutter Project](#run-the-flutter-project)
+- [Screenshots](#screenshots)
+- [License](#license)
+
 ## Code of Conduct
 
 Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
-## Contibuting Guidelines
+## Contributing Guidelines
 
 We believe in the power of collaboration. If you have ideas to improve College.ai, feel free to contribute! Check out our [Contribution Guidelines](CONTRIBUTING.md) to get started.
 
@@ -76,12 +86,10 @@ That's it! The app should now be running on your device/emulator.
 
 **Note:** If you encounter any issues or have suggestions for improvement, please feel free to [create an issue](https://github.com/VaibhavCodeClub/learn/issues/new/choose) on our GitHub repository. We appreciate your feedback!
 
+## License
 
-## Guidelines for Contributors
-
-Before starting contributing please refer to [CONTRIBUTORS](CONTRIBUTORS.md)
-
-
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+<br>
 
 <h2 align = "center">Our Contributors ❤️</h2>
 <div align = "center">
