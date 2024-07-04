@@ -79,7 +79,7 @@ That's it! The app should now be running on your device/emulator.
 
 ## Guidelines for Contributors
 
-Before starting contributing please refer to [Contributors Guidelines](contributors.md)
+Before starting contributing please refer to [CONTRIBUTORS](CONTRIBUTORS.md)
 
 
 
