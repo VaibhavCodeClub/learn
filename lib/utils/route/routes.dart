@@ -55,7 +55,7 @@ class Routers {
         return slidePageRoute(OccupationPage());
       case AllRoutesConstant.fruitRoute:
         return slidePageRoute(FruitsPage());
-      case AllRoutesConstant.landing:
+      case AllRoutesConstant.landingRoute:
         return slidePageRoute(const LandingPage());
         case AllRoutesConstant.mainhomeRoute:
         return slidePageRoute(const MainHome());

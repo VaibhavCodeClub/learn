@@ -15,7 +15,7 @@ import '../../favorite_page_provider.dart';
 import '../../theme_provider.dart';
 import '../../utils/const_dimensions.dart';
 import '../../widgets/drawer.dart';
-f
+
 // Explore Page
 class FavoritePage extends StatefulWidget {
   const FavoritePage({super.key});
