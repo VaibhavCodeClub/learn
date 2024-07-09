@@ -1,6 +1,6 @@
-<center>
+<div align="center">
 <img  src="https://readme-typing-svg.herokuapp.com?color=45ffaa&size=40&width=900&height=80&lines=Welcome-to-Learn"/>
-</center>
+</div>
 
 <div align="center">
 <a href="https://android.izzysoft.de/repo/apk/vdrs.sappu.lafk.learn"> <img src='readme/IzzyOnDroid.png' width='150'/> </a> 
@@ -31,6 +31,11 @@ More exciting features are planned for future updates, such as birds and their v
       <td><img src="readme/Gssoc Label.png" alt="GirlScript Summer of Code 2024 Logo"></td>
       <td>GirlScript Summer of Code 2024</td>
       <td>GirlScript Summer of Code is a three-month-long Open Source Program conducted every summer by GirlScript Foundation. It is an initiative to bring more beginners to Open-Source Software Development.</td>
+    </tr>
+    <tr>
+      <td><img src="readme/vsoc.png" alt="GirlScript Summer of Code 2024 Logo"></td>
+      <td>Vinyasa Summer of Code 2024</td>
+      <td>Vinyasa Summer of Code represents an exciting opportunity for students in computer science and design to delve into innovative projects and collaborative learning.</td>
     </tr>
   </tbody>
 </table>
