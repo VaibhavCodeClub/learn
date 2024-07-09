@@ -2,7 +2,7 @@ name: learn
 description: "Learning app for kids"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.1.0+15
 
 environment:
-  sdk: '>=3.2.0 <4.0.0'
+  sdk: ">=3.2.0 <4.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -31,7 +31,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   google_fonts: ^6.1.0
@@ -42,15 +41,17 @@ dependencies:
   card_swiper: ^3.0.1
   flutter_card_swiper: ^7.0.0
   adaptive_theme: ^3.6.0
-  fluttertoast: 8.0.9
+  fluttertoast: ^8.2.5
   google_nav_bar: ^5.0.6
   flutter_bloc: ^8.1.5
   animated_text_kit: ^4.2.2
   font_awesome_flutter: ^10.1.0
+  shared_preferences: ^2.2.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  provider: ^6.0.3
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -64,7 +65,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -85,7 +85,7 @@ flutter:
     - assets/explore/
     - assets/seasons/
     - assets/occupations/
-
+    - assets/quiz/
     - assets/fruitsVeges/
 
   # An image asset can refer to one or more resolution-specific "variants", see

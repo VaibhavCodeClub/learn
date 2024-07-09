@@ -48,7 +48,7 @@ class Routers {
       case AllRoutesConstant.favoriteRoute:
         return slidePageRoute(const FavoritePage());
       case AllRoutesConstant.quizRoute:
-        return slidePageRoute(const QuizPage());
+        return slidePageRoute(const Quiz());
       case AllRoutesConstant.seasonRoute:
         return slidePageRoute(const SeasonsPage());
       case AllRoutesConstant.occupationRoute:
@@ -57,8 +57,10 @@ class Routers {
         return slidePageRoute(FruitsPage());
       case AllRoutesConstant.landing:
         return slidePageRoute(const LandingPage());
-      case AllRoutesConstant.mainhome:
+        case AllRoutesConstant.mainhomeRoute:
         return slidePageRoute(const MainHome());
+
+
       default:
         return MaterialPageRoute(
           builder: (context) => const Scaffold(

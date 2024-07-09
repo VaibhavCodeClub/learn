@@ -1,3 +1,5 @@
+// ignore_for_file: unused_element
+
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -8,6 +10,7 @@ import 'package:learn/utils/functions.dart';
 import 'package:learn/utils/responsive_screen_provider.dart';
 
 import '../../utils/const_dimensions.dart';
+import 'parts_test.dart';
 
 void main() {
   runApp(
@@ -57,6 +60,12 @@ class _PartsPagePageState extends State<PartsPage> {
     controller.dispose();
     super.dispose();
   }
+  void _navigateToPartsTestPage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const PartsTestPage()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +75,14 @@ class _PartsPagePageState extends State<PartsPage> {
           AppConstants.parts,
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.assignment),
+            onPressed: () {
+              _navigateToPartsTestPage(context);
+            },
+          ),
+        ],
       ),
       body: SafeArea(
         child: Column(

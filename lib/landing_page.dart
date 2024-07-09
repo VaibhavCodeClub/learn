@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:learn/utils/route/route_constant.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({
@@ -22,7 +23,6 @@ class _LandingPageState extends State<LandingPage> {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-
               Center(
                 child: Container(
                   width: width,
@@ -39,14 +39,12 @@ class _LandingPageState extends State<LandingPage> {
                 child: SizedBox(
                   child: DefaultTextStyle(
                     style: TextStyle(
-
                       fontSize: width / 19,
                     ),
                     child: AnimatedTextKit(
                       animatedTexts: [
                         ColorizeAnimatedText(
                           'Learn',
-
                           textStyle: TextStyle(
                               fontSize: width / 12,
                               fontWeight: FontWeight.w900),
@@ -69,7 +67,6 @@ class _LandingPageState extends State<LandingPage> {
                   child: Text(
                     "Learning Made Easy",
                     style: TextStyle(
-
                         fontWeight: FontWeight.w400, fontSize: width / 18),
                   ),
                 ),
@@ -87,7 +84,14 @@ class _LandingPageState extends State<LandingPage> {
                         shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(20)),
                         )),
-                    onPressed: () {
+                    onPressed: () async {
+                      //bool check initiates
+                      final SharedPreferences prefs =
+                          await SharedPreferences.getInstance();
+                      if (!prefs.containsKey('visitedGettingStartedPageOnce') || prefs.getBool('visitedGettingStartedPageOnce')==false) { //if it never existed or if it is false somehow
+                        await prefs.setBool(
+                            'visitedGettingStartedPageOnce', true); //set to true
+                      }
                       Navigator.popAndPushNamed(
                         context,
                         AllRoutesConstant.homeRoute,

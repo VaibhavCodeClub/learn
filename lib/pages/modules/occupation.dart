@@ -6,6 +6,7 @@ import 'package:learn/models/occupation_model.dart';
 import 'package:learn/utils/constants.dart';
 
 import '../../utils/const_dimensions.dart';
+import 'occupations_test.dart';
 
 class OccupationPage extends StatelessWidget {
   final FlutterTts flutterTts = FlutterTts();
@@ -17,7 +18,7 @@ class OccupationPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Occupations',
+          AppConstants.occupation,
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
@@ -26,6 +27,17 @@ class OccupationPage extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.assessment),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const OccupationsTestPage()),
+              );
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Center(

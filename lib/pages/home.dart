@@ -1,11 +1,13 @@
-// ignore_for_file: deprecated_member_use
-
+// ignore: unused_import
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:learn/utils/assets_path.dart';
 import 'package:learn/utils/const_dimensions.dart';
 import 'package:learn/utils/route/route_constant.dart';
+// ignore: depend_on_referenced_packages
+import 'package:provider/provider.dart';
 import '../widgets/drawer.dart';
+import '../theme_provider.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -16,10 +18,10 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<bool> _isImageClicked = List.generate(7, (index) => false);
-  bool _isDarkTheme = false;
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -31,17 +33,10 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: const EdgeInsets.only(right: 16, top: 1),
             child: IconButton(
               icon: Icon(
-                _isDarkTheme ? Icons.dark_mode : Icons.light_mode,
+                themeProvider.themeMode == ThemeMode.dark ? Icons.dark_mode : Icons.light_mode,
               ),
               onPressed: () {
-                setState(() {
-                  _isDarkTheme = !_isDarkTheme;
-                });
-                final themeMode =
-                    Theme.of(context).brightness == Brightness.dark
-                        ? AdaptiveThemeMode.light
-                        : AdaptiveThemeMode.dark;
-                AdaptiveTheme.of(context).setThemeMode(themeMode);
+                themeProvider.toggleTheme();
               },
             ),
           ),
@@ -56,8 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 context: context,
                 title: "ALPHABETS",
                 image: AssetsPath.getAlphabetImage(Alphabets.alphabets),
-                shortDescription:
-                    "Learn A to Z with pronunciation and an example",
+                shortDescription: "Learn A to Z with pronunciation and an example",
                 route: AllRoutesConstant.atozRoute,
                 index: 0,
               ),
@@ -79,8 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 context: context,
                 title: "BODY PARTS",
                 image: AssetsPath.getBodyImage(Body.body),
-                shortDescription:
-                    "Know about body parts and their pronunciation.",
+                shortDescription: "Know about body parts and their pronunciation.",
                 route: AllRoutesConstant.partsRoute,
                 index: 2,
               ),
@@ -124,8 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 context: context,
                 title: "FRUITS & VEGETABLES",
                 image: 'assets/fruitsVeges/cover.jpg',
-                shortDescription:
-                    "Explore and learn about Fruits and Vegetables!",
+                shortDescription: "Explore and learn about Fruits and Vegetables!",
                 route: AllRoutesConstant.fruitRoute,
                 index: 6,
               ),

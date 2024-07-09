@@ -8,10 +8,9 @@ import 'package:learn/models/animal_model.dart';
 import 'package:learn/utils/constants.dart';
 
 import '../../utils/const_dimensions.dart';
+import 'animals_test.dart';
 
 class AnimalsPage extends StatelessWidget {
-
-
   final FlutterTts flutterTts = FlutterTts();
   final AudioPlayer audioPlayer = AudioPlayer();
 
@@ -25,13 +24,24 @@ class AnimalsPage extends StatelessWidget {
           AppConstants.animal,
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.assessment),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const AnimalsTestPage()),
+              );
+            },
+          ),
+        ],
       ),
       body: ListView.builder(
         itemCount: AppConstants.animals.length,
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
-              _showAnimalPopup(context, AppConstants.animals[index],index);
+              _showAnimalPopup(context, AppConstants.animals[index], index);
             },
             child: Container(
               margin: const EdgeInsets.all(5.0),
@@ -46,7 +56,8 @@ class AnimalsPage extends StatelessWidget {
                   SizedBox(
                     width: ConstantDimensions.widthExtraLarge,
                     height: ConstantDimensions.heightExtraLarge,
-                    child: SvgPicture.asset(AppConstants.animals[index].svgAsset),
+                    child:
+                        SvgPicture.asset(AppConstants.animals[index].svgAsset),
                   ),
                   const SizedBox(width: ConstantDimensions.widthMedium_Large),
                   Text(
@@ -66,7 +77,8 @@ class AnimalsPage extends StatelessWidget {
     );
   }
 
-  Future<void> _showAnimalPopup(BuildContext context, Animal animal, int currentIndex) async {
+  Future<void> _showAnimalPopup(
+      BuildContext context, Animal animal, int currentIndex) async {
     await flutterTts.setVolume(1.0);
     await flutterTts.setSpeechRate(.5);
     await flutterTts.setLanguage("EN-IN");
@@ -140,13 +152,11 @@ class _AnimalPopupState extends State<AnimalPopup> {
                 isTapped = !isTapped;
               });
             },
-            child: SizedBox(
-              width: ConstantDimensions.widthExtraLarge * 4,
-              height: ConstantDimensions.heightExtraLarge * 4,
-              child: SvgPicture.asset(
-                widget.animal.svgAsset,
-                color: isTapped ? const Color.fromARGB(81, 118, 96, 94) : null,
-              ),
+            child: SvgPicture.asset(
+              widget.animal.svgAsset,
+              color: isTapped ? const Color.fromARGB(81, 118, 96, 94) : null,
+              width: MediaQuery.of(context).size.width * 0.3,
+              height: MediaQuery.of(context).size.height * 0.3,
             ),
           ),
           const SizedBox(height: ConstantDimensions.heightSmall_Medium),
@@ -157,12 +167,14 @@ class _AnimalPopupState extends State<AnimalPopup> {
             child: const Text('Play Sound'),
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               IconButton(
                 onPressed: () {
                   _navigateToPreviousAnimal();
                 },
                 icon: const Icon(Icons.arrow_back),
+                iconSize: 30,
               ),
               SizedBox(
                 width: ConstantDimensions.exceptions[0],
@@ -172,6 +184,7 @@ class _AnimalPopupState extends State<AnimalPopup> {
                   _navigateToNextAnimal();
                 },
                 icon: const Icon(Icons.arrow_forward),
+                iconSize: 30,
               ),
             ],
           )
@@ -195,7 +208,7 @@ class _AnimalPopupState extends State<AnimalPopup> {
     );
   }
 
-void _navigateToPreviousAnimal() {
+  void _navigateToPreviousAnimal() {
     setState(() {
       widget.currentIndex = (widget.currentIndex - 1) % widget.animals.length;
       if (widget.currentIndex < 0) {
@@ -211,7 +224,6 @@ void _navigateToPreviousAnimal() {
       widget.animal = widget.animals[widget.currentIndex];
     });
   }
-
 
   Future<void> _playAnimalSound(String soundAsset) async {
     await widget.audioPlayer.setAsset(soundAsset);

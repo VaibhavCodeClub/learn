@@ -256,9 +256,10 @@ class Flowers {
   static const String dandelion = 'dandelion.svg';
   static const String jasmine = 'jasmine.svg';
   static const String lotus = 'lotus.svg';
-  static const String carnation = 'carnation.svg';
-  static const String daffodil = 'daffodil.svg';
-  static const String poppy = 'poppy.svg';
+ static const String carnation= 'carnation.svg';
+ static const String poppy= 'poppy.svg';
+ static const String daffodil = 'daffodil.svg';
+
 }
 
 class SolarSystem {

@@ -7,6 +7,9 @@ import 'package:learn/models/occupation_model.dart';
 import 'package:learn/models/season_model.dart';
 import 'package:flutter/material.dart';
 import 'package:learn/pages/fruits.dart';
+import '../models/colours_model.dart';
+import '../models/flower_model.dart';
+import '../models/planet_model.dart';
 import '../pages/explore/quiz.dart';
 import 'package:learn/pages/modules/colours.dart';
 import 'package:learn/pages/modules/parts.dart';
@@ -21,12 +24,179 @@ import '../pages/modules/atoz.dart';
 import '../pages/modules/birds.dart';
 
 class AppConstants {
+  static List<Planet> planets = [
+    Planet(
+      name: 'Sun',
+      svgAsset: AssetsPath.getSolarImage(SolarSystem.sun),
+      description: 'Sun is the biggest star in the solar system.',
+      backgroundColor: const Color.fromARGB(255, 208, 211, 23),
+    ),
+    Planet(
+      name: 'Mercury',
+      svgAsset: AssetsPath.getSolarImage(SolarSystem.mercury),
+      description: 'Mercury is the closest planet to the Sun.',
+      backgroundColor: const Color.fromARGB(255, 221, 221, 221),
+    ),
+    Planet(
+      name: 'Venus',
+      svgAsset: AssetsPath.getSolarImage(SolarSystem.venus),
+      description: 'Venus is known for its thick atmosphere.',
+      backgroundColor: const Color.fromARGB(255, 240, 193, 95),
+    ),
+    Planet(
+      name: 'Earth',
+      svgAsset: AssetsPath.getSolarImage(SolarSystem.earth),
+      description: 'Earth is the third planet from the Sun.',
+      backgroundColor: const Color.fromARGB(255, 81, 149, 192),
+    ),
+    Planet(
+      name: 'Mars',
+      svgAsset: AssetsPath.getSolarImage(SolarSystem.mars),
+      description: 'Mars is often called the Red Planet.',
+      backgroundColor: const Color.fromARGB(255, 238, 118, 96),
+    ),
+    Planet(
+      name: 'Jupiter',
+      svgAsset: AssetsPath.getSolarImage(SolarSystem.jupiter),
+      description: 'Jupiter is the largest planet in our solar system.',
+      backgroundColor: const Color.fromARGB(255, 204, 164, 122),
+    ),
+    Planet(
+      name: 'Saturn',
+      svgAsset: AssetsPath.getSolarImage(SolarSystem.saturn),
+      description: 'Saturn is known for its beautiful rings.',
+      backgroundColor: const Color.fromARGB(255, 229, 215, 194),
+    ),
+    Planet(
+      name: 'Uranus',
+      svgAsset: AssetsPath.getSolarImage(SolarSystem.uranus),
+      description: 'Uranus is an ice giant with a unique rotation axis.',
+      backgroundColor: const Color.fromARGB(255, 169, 222, 246),
+    ),
+    Planet(
+      name: 'Neptune',
+      svgAsset: AssetsPath.getSolarImage(SolarSystem.neptune),
+      description: 'Neptune is the farthest planet from the Sun.',
+      backgroundColor: const Color.fromARGB(255, 64, 90, 200),
+    ),
+  ];
+
+  static List<Flower> flowers = [
+    Flower(
+        name: "Rose",
+        resource: AssetsPath.getFlowerImage(Flowers.rose),
+        background: Colors.redAccent),
+    Flower(
+        name: "Sunflower",
+        resource: AssetsPath.getFlowerImage(Flowers.sunflower),
+        background: Colors.yellowAccent),
+    Flower(
+        name: "Lily",
+        resource: AssetsPath.getFlowerImage(Flowers.lily),
+        background: Colors.greenAccent),
+    Flower(
+        name: "Marigold",
+        resource: AssetsPath.getFlowerImage(Flowers.marigold),
+        background: Colors.yellow),
+    Flower(
+        name: "Carnation",
+        resource: AssetsPath.getFlowerImage(Flowers.carnation),
+        background: Colors.redAccent),
+    Flower(
+        name: "Daffodil",
+        resource: AssetsPath.getFlowerImage(Flowers.daffodil),
+        background: Colors.purpleAccent),
+    Flower(
+        name: "Daisy",
+        resource: AssetsPath.getFlowerImage(Flowers.daisy),
+        background: Colors.green),
+    Flower(
+        name: "Poppy",
+        resource: AssetsPath.getFlowerImage(Flowers.poppy),
+        background: Colors.redAccent),
+    Flower(
+        name: "Tulip",
+        resource: AssetsPath.getFlowerImage(Flowers.tulip),
+        background: Colors.pink),
+    Flower(
+        name: "Lavender",
+        resource: AssetsPath.getFlowerImage(Flowers.lavender),
+        background: Colors.purple),
+    Flower(
+        name: "Hibiscus",
+        resource: AssetsPath.getFlowerImage(Flowers.hibiscus),
+        background: Colors.red),
+  ];
+
+  static List<Colours> colours = [
+    Colours(
+      name: 'Blue',
+      jpgAsset: AssetsPath.getColoursImage(ColorImages.blue),
+      bgColor: Colors.lightBlueAccent,
+      fontColor: Colors.lightBlueAccent,
+    ),
+    Colours(
+      name: 'Yellow',
+      jpgAsset: AssetsPath.getColoursImage(ColorImages.yellow),
+      bgColor: Colors.yellow.shade600,
+      fontColor: Colors.yellow.shade600,
+    ),
+    Colours(
+      name: 'Black',
+      jpgAsset: AssetsPath.getColoursImage(ColorImages.black),
+      bgColor: Colors.black,
+      fontColor: Colors.black,
+    ),
+    Colours(
+      name: 'Green',
+      jpgAsset: AssetsPath.getColoursImage(ColorImages.green),
+      bgColor: Colors.green,
+      fontColor: Colors.green,
+    ),
+    Colours(
+      name: 'Pink',
+      jpgAsset: AssetsPath.getColoursImage(ColorImages.pink),
+      bgColor: Colors.pink.shade300,
+      fontColor: Colors.pink.shade300,
+    ),
+    Colours(
+      name: 'White',
+      jpgAsset: AssetsPath.getColoursImage(ColorImages.white),
+      bgColor: Colors.grey.shade400,
+      fontColor: Colors.grey.shade400,
+    ),
+    Colours(
+      name: 'Red',
+      jpgAsset: AssetsPath.getColoursImage(ColorImages.red),
+      bgColor: Colors.red,
+      fontColor: Colors.red,
+    ),
+    Colours(
+      name: 'Violet',
+      jpgAsset: AssetsPath.getColoursImage(ColorImages.violet),
+      bgColor: Colors.deepPurple,
+      fontColor: Colors.deepPurple,
+    ),
+    Colours(
+      name: 'Brown',
+      jpgAsset: AssetsPath.getColoursImage(ColorImages.brown),
+      bgColor: const Color(0xFF964B00),
+      fontColor: const Color(0xFF964B00),
+    ),
+    Colours(
+      name: 'Orange',
+      jpgAsset: AssetsPath.getColoursImage(ColorImages.orange),
+      bgColor: Colors.orange,
+      fontColor: Colors.orange,
+    ),
+  ];
+
   static List<Module> modules = [
     Module(
       name: 'Quiz',
       description: 'Fun Quizzes for Curious Kids!',
       thumbnailPath: "./assets/images/quiz.jpg",
-      route: MaterialPageRoute(builder: (context) => const QuizPage()),
+      route: MaterialPageRoute(builder: (context) => const Quiz()),
       backgroundColor: const Color.fromARGB(193, 76, 175, 79),
     ),
     Module(
@@ -110,6 +280,61 @@ class AppConstants {
     "Tongue",
     "Waist",
     "Wrist"
+  ];
+  static List<Questions> ques = [
+    Questions(
+      question: "How many Orange Cars are there?",
+      options: ["5", "6", "1", "2"],
+      image: "assets/quiz/q1.jpg",
+      answer: 3, // Index of the correct option, in this case, "Paris"
+    ),
+    Questions(
+      question: "Count the Pokemons.",
+      image: "assets/quiz/q2.jpg",
+
+      options: ["11", "9", "10", "8"],
+      answer: 2, // Index of the correct option, in this case, "Au"
+    ),
+    Questions(
+      question: "1,2,_,4,5",
+      options: ["5", "3", "6", "4"],
+      answer: 1, // Index of the correct option, in this case, "105"
+    ),
+    Questions(
+      question: "10,20_,40,50",
+      options: ["60", "20", "30", "70"],
+      answer: 2, // Index of the correct option, in this case, "Dart"
+    ),
+    Questions(
+      question: "Count Yellow Bears.",
+      image: "assets/quiz/q5.jpg",
+      options: ["2", "3", "4", "5"],
+      answer: 1, // Index of the correct option, in this case, "1492"
+    ),
+    Questions(
+      question: "Count the Number of Balls",
+      image: "assets/quiz/q6.jpg",
+      options: ["5", "6", "4", "7"],
+      answer: 0, // Index of the correct option, in this case, "1492"
+    ),
+    Questions(
+      question: "Count Hearts",
+      image: "assets/quiz/q7.jpg",
+      options: ["10", "6", "9", "7"],
+      answer: 3, // Index of the correct option, in this case, "1492"
+    ),
+    Questions(
+      question: "Count Buckets",
+      image: "assets/quiz/q9.jpg",
+      options: ["1", "2", "3", "4"],
+      answer: 0, // Index of the correct option, in this case, "1492"
+    ),
+    Questions(
+      question: "Count the pencils",
+      image: "assets/quiz/q10.jpg",
+      options: ["10", "12", "13", "11"],
+      answer: 2, // Index of the correct option, in this case, "1492"
+    ),
   ];
 
   static List<ItemData> alphabetItems = [
@@ -523,94 +748,6 @@ class AppConstants {
     ),
   ];
 
-  static List<QuizQuestion> quizQuestions = [
-    // Animal Questions
-    QuizQuestion(
-      question: "What sound does a cat make?",
-      options: ["Meow", "Woof", "Moo", "Roar"],
-      correctAnswerIndex: 0,
-    ),
-    QuizQuestion(
-      question: "Which animal is known as the king of the jungle?",
-      options: ["Elephant", "Lion", "Tiger", "Deer"],
-      correctAnswerIndex: 1,
-    ),
-    QuizQuestion(
-      question: "Which animal has a long neck and eats leaves?",
-      options: ["Giraffe", "Bear", "Monkey", "Rabbit"],
-      correctAnswerIndex: 0,
-    ),
-    QuizQuestion(
-      question: "Which animal says 'Moo'?",
-      options: ["Pig", "Dog", "Cow", "Cat"],
-      correctAnswerIndex: 2,
-    ),
-    QuizQuestion(
-      question: "What color are zebra's stripes?",
-      options: [
-        "Black and White",
-        "Brown and White",
-        "Black and Yellow",
-        "Gray and White"
-      ],
-      correctAnswerIndex: 0,
-    ),
-
-    // Bird Questions
-    QuizQuestion(
-      question: "Which bird is known for its beautiful singing?",
-      options: ["Crow", "Sparrow", "Duck", "Robin"],
-      correctAnswerIndex: 3,
-    ),
-    QuizQuestion(
-      question: "Which bird is known to peck wood?",
-      options: ["Eagle", "Owl", "Woodpecker", "Parrot"],
-      correctAnswerIndex: 2,
-    ),
-    QuizQuestion(
-      question: "Which bird can mimic human speech?",
-      options: ["Duck", "Parrot", "Swan", "Eagle"],
-      correctAnswerIndex: 1,
-    ),
-    QuizQuestion(
-      question: "Which bird is known for its colorful feathers?",
-      options: ["Penguin", "Crow", "Peacock", "Hummingbird"],
-      correctAnswerIndex: 3,
-    ),
-    QuizQuestion(
-      question: "Which bird is a common pet known for singing?",
-      options: ["Ostrich", "Canary", "Sparrow", "Eagle"],
-      correctAnswerIndex: 1,
-    ),
-
-    // Season Questions
-    QuizQuestion(
-      question: "In which season do flowers bloom?",
-      options: ["Winter", "Spring", "Autumn", "Summer"],
-      correctAnswerIndex: 1,
-    ),
-    QuizQuestion(
-      question: "Which season is the hottest?",
-      options: ["Winter", "Spring", "Autumn", "Summer"],
-      correctAnswerIndex: 3,
-    ),
-    QuizQuestion(
-      question: "During which season do leaves fall from trees?",
-      options: ["Winter", "Spring", "Autumn", "Summer"],
-      correctAnswerIndex: 2,
-    ),
-    QuizQuestion(
-      question: "Which season is the coldest?",
-      options: ["Winter", "Spring", "Autumn", "Summer"],
-      correctAnswerIndex: 0,
-    ),
-    QuizQuestion(
-      question: "In which season do we often see snow?",
-      options: ["Winter", "Spring", "Autumn", "Summer"],
-      correctAnswerIndex: 0,
-    ),
-  ];
-
   static List<Season> seasons = [
     Season(
       name: 'Spring',
@@ -856,8 +993,11 @@ class AppConstants {
   static const String parts = 'Body Parts';
   static const String shape = 'Shapes';
   static const String solar = 'Solar System';
-  static const String flowers = 'Flowers';
+  static const String color = 'Colours';
+  static const String flower = 'Flowers';
   static const String fruit = 'Fruits & Vegetables';
+  static const String occupation = 'Occupations';
+  static const String season = 'Seasons Serenade';
   static const String description =
       'Interactive app to let your kids learn various things like\n\n - A - Z alphabets.\n - Animals and their sounds.\n - Birds and their sounds.\n - Various shapes.\n - Body parts.\n - Solar system.\n';
 }
