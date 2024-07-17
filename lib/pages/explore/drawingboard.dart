@@ -18,10 +18,10 @@ class DrawingBoard extends StatefulWidget {
   const DrawingBoard({Key? key}) : super(key: key);
 
   @override
-  _DrawingBoardState createState() => _DrawingBoardState();
+  DrawingBoardState createState() => DrawingBoardState();
 }
 
-class _DrawingBoardState extends State<DrawingBoard> {
+class DrawingBoardState extends State<DrawingBoard> {
   Color selectedColor = Colors.black;
   double strokeWidth = 5.0;
   bool isEraser = false;

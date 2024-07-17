@@ -99,7 +99,7 @@ class _LandingPageState extends State<LandingPage> {
                       }
                       Navigator.popAndPushNamed(
                         context,
-                        AllRoutesConstant.mainhomeRoute,
+                        AllRoutesConstant.homeRoute,
                       );
                     },
                     child: Text(
