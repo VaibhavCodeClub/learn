@@ -3,6 +3,7 @@ class AssetsPath {
   static const String _images = 'assets/images/';
   static const String _flowerImages = 'assets/images/flowers/';
   static const String _alphabetImages = 'assets/images/alphabet/';
+  static const String _numberImages = 'assets/images/numbers/';
   static const String _animalImages = 'assets/images/animal/';
   static const String _birdImages = 'assets/images/birds/';
   static const String _bodyImages = 'assets/images/body/';
@@ -14,7 +15,6 @@ class AssetsPath {
   static const String _animalSound = 'assets/sounds/animals/';
   static const String _birdSound = 'assets/sounds/birds/';
 
-
   //Image assets
 
   static String getImage(String name) {
@@ -23,6 +23,10 @@ class AssetsPath {
 
   static String getAlphabetImage(String name) {
     return _alphabetImages + name;
+  }
+
+  static getNumberImage(String name) {
+    return _numberImages + name;
   }
 
   static String getAnimalImage(String name) {
@@ -45,11 +49,9 @@ class AssetsPath {
     return _coloursImages + name;
   }
 
-
   static String getFlowerImage(String name) {
     return _flowerImages + name;
   }
-
 
   //Sound assets
 
@@ -64,10 +66,9 @@ class AssetsPath {
   static String getBirdSound(String name) {
     return _birdSound + name;
   }
-
 }
 
-class Alphabets{
+class Alphabets {
   static const String alphabets = 'alphabets.jpg';
   static const String apple = 'apple.svg';
   static const String ball = 'ball.svg';
@@ -97,7 +98,21 @@ class Alphabets{
   static const String zero = 'zero.svg';
 }
 
-class Animals{
+class Numbers {
+  static const String numbers = 'numbers.jpg';
+  static const String zero = 'zero.png';
+  static const String one = 'one.png';
+  static const String two = 'two.png';
+  static const String three = 'three.png';
+  static const String four = 'four.png';
+  static const String five = 'five.png';
+  static const String six = 'six.png';
+  static const String seven = 'seven.png';
+  static const String eight = 'eight.png';
+  static const String nine = 'nine.png';
+}
+
+class Animals {
   static const String animals = 'animals.jpg';
   static const String bear = 'bear.svg';
   static const String cat = 'cat.svg';
@@ -141,10 +156,9 @@ class Animals{
   static const String squirrelSound = 'squirrel_sound.mp3';
   static const String tigerSound = 'tiger_sound.mp3';
   static const String zebraSound = 'zebra_sound.mp3';
-
 }
 
-class Birds{
+class Birds {
   static const String birds = 'birds.jpg';
   static const String bagula = 'Bagula.svg';
   static const String baya = 'Baya.svg';
@@ -229,7 +243,7 @@ class Body {
   static const String wrist = 'Wrist.svg';
 }
 
-class ColorImages{
+class ColorImages {
   static const String colorsCover = 'colours-cover.png';
   static const String black = 'black.svg';
   static const String blue = 'blue.svg';
@@ -256,10 +270,9 @@ class Flowers {
   static const String dandelion = 'dandelion.svg';
   static const String jasmine = 'jasmine.svg';
   static const String lotus = 'lotus.svg';
- static const String carnation= 'carnation.svg';
- static const String poppy= 'poppy.svg';
- static const String daffodil = 'daffodil.svg';
-
+  static const String carnation = 'carnation.svg';
+  static const String poppy = 'poppy.svg';
+  static const String daffodil = 'daffodil.svg';
 }
 
 class SolarSystem {

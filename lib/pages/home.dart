@@ -17,7 +17,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<bool> _isImageClicked = List.generate(7, (index) => false);
+  final List<bool> _isImageClicked = List.generate(8, (index) => false);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,9 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: const EdgeInsets.only(right: 16, top: 1),
             child: IconButton(
               icon: Icon(
-                themeProvider.themeMode == ThemeMode.dark ? Icons.dark_mode : Icons.light_mode,
+                themeProvider.themeMode == ThemeMode.dark
+                    ? Icons.dark_mode
+                    : Icons.light_mode,
               ),
               onPressed: () {
                 themeProvider.toggleTheme();
@@ -51,9 +53,21 @@ class _MyHomePageState extends State<MyHomePage> {
                 context: context,
                 title: "ALPHABETS",
                 image: AssetsPath.getAlphabetImage(Alphabets.alphabets),
-                shortDescription: "Learn A to Z with pronunciation and an example",
+                shortDescription:
+                    "Learn A to Z with pronunciation and an example",
                 route: AllRoutesConstant.atozRoute,
                 index: 0,
+              ),
+              const SizedBox(
+                height: ConstantDimensions.heightMedium,
+              ),
+              categoryCard(
+                context: context,
+                title: "NUMBERS", // Added this block for "NUMBERS"
+                image: 'assets/numbers/numbers.jpg',
+                shortDescription: "Learn numbers and their pronunciations.",
+                route: AllRoutesConstant.numberRoute,
+                index: 7,
               ),
               const SizedBox(
                 height: ConstantDimensions.heightMedium,
@@ -73,7 +87,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 context: context,
                 title: "BODY PARTS",
                 image: AssetsPath.getBodyImage(Body.body),
-                shortDescription: "Know about body parts and their pronunciation.",
+                shortDescription:
+                    "Know about body parts and their pronunciation.",
                 route: AllRoutesConstant.partsRoute,
                 index: 2,
               ),
@@ -117,7 +132,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 context: context,
                 title: "FRUITS & VEGETABLES",
                 image: 'assets/fruitsVeges/cover.jpg',
-                shortDescription: "Explore and learn about Fruits and Vegetables!",
+                shortDescription:
+                    "Explore and learn about Fruits and Vegetables!",
                 route: AllRoutesConstant.fruitRoute,
                 index: 6,
               ),

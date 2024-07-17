@@ -82,6 +82,7 @@ flutter:
     - assets/images/solar/
     - assets/colours/
     - assets/images/flowers/
+    - assets/images/numbers/
     - assets/explore/
     - assets/seasons/
     - assets/occupations/

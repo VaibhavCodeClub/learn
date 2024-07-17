@@ -9,6 +9,7 @@ class AllRoutesConstant {
   static const String partsRoute = "/parts";
   static const String solarRoute = "/solar";
   static const String atozRoute = "/atoz";
+  static const String numberRoute = "/number";
   static const String aboutRoute = "/about";
   static const String colourRoute = "/colours";
   static const String flowerRoute = "/flowers";

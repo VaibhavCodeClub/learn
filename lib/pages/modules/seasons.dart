@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:learn/models/season_model.dart';
-import 'package:learn/pages/fruits.dart';
 import 'package:learn/utils/constants.dart';
 import '../../utils/const_dimensions.dart';
 
@@ -40,7 +39,8 @@ class SeasonsPage extends StatelessWidget {
                     width: ConstantDimensions.widthExtraLarge,
                     height: ConstantDimensions.heightExtraLarge,
                     child: SvgPicture.asset(
-                        AppConstants.seasons[index].imageAsset),
+                      AppConstants.seasons[index].imageAsset,
+                    ),
                   ),
                   const SizedBox(width: ConstantDimensions.widthMedium_Large),
                   Text(
@@ -80,10 +80,10 @@ class SeasonPopup extends StatefulWidget {
   final List<Season> seasons;
 
   const SeasonPopup({
-    super.key,
+    Key? key,
     required this.currentIndex,
     required this.seasons,
-  });
+  }) : super(key: key);
 
   @override
   _SeasonPopupState createState() => _SeasonPopupState();
@@ -137,7 +137,7 @@ class _SeasonPopupState extends State<SeasonPopup> {
             ),
             ElevatedButton(
               style: ButtonStyle(
-                backgroundColor: WidgetStateProperty.all(Colors.red as Size),
+                backgroundColor: WidgetStateProperty.all(Colors.red),
               ),
               onPressed: () {
                 Navigator.of(context).pop();
@@ -168,5 +168,24 @@ class _SeasonPopupState extends State<SeasonPopup> {
     setState(() {
       currentIndex = (currentIndex + 1) % widget.seasons.length;
     });
+  }
+}
+
+void main() {
+  runApp(const SeasonsApp());
+}
+
+class SeasonsApp extends StatelessWidget {
+  const SeasonsApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Seasons App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const SeasonsPage(),
+    );
   }
 }

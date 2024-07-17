@@ -9,6 +9,7 @@ import 'package:learn/pages/fruits.dart';
 import 'package:learn/pages/home.dart';
 import 'package:learn/pages/main_home.dart';
 import 'package:learn/pages/modules/animals.dart';
+import 'package:learn/pages/modules/numbers.dart';
 import 'package:learn/pages/modules/atoz.dart';
 import 'package:learn/pages/modules/birds.dart';
 import 'package:learn/pages/modules/colours.dart';
@@ -40,6 +41,8 @@ class Routers {
         return slidePageRoute(PlanetsPage());
       case AllRoutesConstant.animalRoute:
         return slidePageRoute(AnimalsPage());
+      case AllRoutesConstant.numberRoute:
+        return slidePageRoute(const NumbersPage());
       case AllRoutesConstant.colourRoute:
         return slidePageRoute(const ColoursPage());
       case AllRoutesConstant.aboutRoute:
@@ -60,9 +63,8 @@ class Routers {
         return slidePageRoute(const DrawingBoardPage());
       case AllRoutesConstant.landingRoute:
         return slidePageRoute(const LandingPage());
-        case AllRoutesConstant.mainhomeRoute:
+      case AllRoutesConstant.mainhomeRoute:
         return slidePageRoute(const MainHome());
-
 
       default:
         return MaterialPageRoute(

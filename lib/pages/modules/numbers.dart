@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:async';
 import 'package:flutter_tts/flutter_tts.dart';
-// ignore: unused_import
-import 'package:learn/pages/fruits.dart';
 import 'package:learn/utils/const_dimensions.dart';
 import 'package:learn/models/itemdata_model.dart';
-import 'package:learn/utils/constants.dart';
+import 'package:learn/utils/constants.dart'; // Adjust the import as per your project structure
 
 class ItemTile extends StatelessWidget {
   final int index;
@@ -53,24 +51,25 @@ class ItemTile extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               LayoutBuilder(
-                  builder: (BuildContext context, BoxConstraints constraints) {
-                if (MediaQuery.of(context).orientation ==
-                    Orientation.portrait) {
-                  return SvgPicture.asset(
-                    item.iconAsset,
-                    width: MediaQuery.of(context).size.width * 0.2,
-                    height: MediaQuery.of(context).size.height * 0.1,
-                    alignment: Alignment.center,
-                  );
-                } else {
-                  return SvgPicture.asset(
-                    item.iconAsset,
-                    width: MediaQuery.of(context).size.width * 0.2,
-                    height: MediaQuery.of(context).size.height * 0.2,
-                    alignment: Alignment.center,
-                  );
-                }
-              }),
+                builder: (BuildContext context, BoxConstraints constraints) {
+                  if (MediaQuery.of(context).orientation ==
+                      Orientation.portrait) {
+                    return SvgPicture.asset(
+                      item.iconAsset,
+                      width: MediaQuery.of(context).size.width * 0.2,
+                      height: MediaQuery.of(context).size.height * 0.1,
+                      alignment: Alignment.center,
+                    );
+                  } else {
+                    return SvgPicture.asset(
+                      item.iconAsset,
+                      width: MediaQuery.of(context).size.width * 0.2,
+                      height: MediaQuery.of(context).size.height * 0.2,
+                      alignment: Alignment.center,
+                    );
+                  }
+                },
+              ),
               const SizedBox(height: ConstantDimensions.heightExtraSmall / 2),
               Text(item.description, textAlign: TextAlign.center),
             ],
@@ -164,8 +163,9 @@ class _PopupDialogState extends State<_PopupDialog> {
         width: MediaQuery.of(context).size.width * 0.75,
         height: MediaQuery.of(context).size.height * 0.75,
         decoration: BoxDecoration(
-            color: currentItem.backgroundColor,
-            borderRadius: BorderRadius.circular(15)),
+          color: currentItem.backgroundColor,
+          borderRadius: BorderRadius.circular(15),
+        ),
         child: Padding(
           padding: const EdgeInsets.all(18),
           child: Center(
@@ -226,17 +226,18 @@ class _PopupDialogState extends State<_PopupDialog> {
   }
 }
 
-class AtoZ extends StatefulWidget {
-  const AtoZ({Key? key}) : super(key: key);
+class NumbersPage extends StatefulWidget {
+  const NumbersPage({Key? key}) : super(key: key);
 
   @override
-  State<AtoZ> createState() => _AtoZState();
+  State<NumbersPage> createState() => _NumbersState();
 }
 
-class _AtoZState extends State<AtoZ> {
+class _NumbersState extends State<NumbersPage> {
   bool isTimerEnabled = false;
 
-  List<ItemData> items = AppConstants.alphabetItems;
+  List<ItemData> items = AppConstants
+      .numberItems; // Ensure you have numberItems list in AppConstants
 
   @override
   Widget build(BuildContext context) {
@@ -246,7 +247,7 @@ class _AtoZState extends State<AtoZ> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             const Text(
-              'A-Z',
+              'Numbers',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             Expanded(
@@ -254,8 +255,7 @@ class _AtoZState extends State<AtoZ> {
                 alignment: Alignment.centerRight,
                 child: ElevatedButton(
                   style: ButtonStyle(
-                    // ignore: deprecated_member_use
-                    backgroundColor: MaterialStateProperty.all(
+                    backgroundColor: WidgetStateProperty.all<Color>(
                       isTimerEnabled ? Colors.green : Colors.red,
                     ),
                   ),
@@ -294,5 +294,7 @@ class _AtoZState extends State<AtoZ> {
 }
 
 void main() {
-  runApp(const AtoZ());
+  runApp(const MaterialApp(
+    home: NumbersPage(),
+  ));
 }

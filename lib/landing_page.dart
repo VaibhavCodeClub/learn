@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:learn/utils/route/route_constant.dart';
@@ -88,9 +90,12 @@ class _LandingPageState extends State<LandingPage> {
                       //bool check initiates
                       final SharedPreferences prefs =
                           await SharedPreferences.getInstance();
-                      if (!prefs.containsKey('visitedGettingStartedPageOnce') || prefs.getBool('visitedGettingStartedPageOnce')==false) { //if it never existed or if it is false somehow
-                        await prefs.setBool(
-                            'visitedGettingStartedPageOnce', true); //set to true
+                      if (!prefs.containsKey('visitedGettingStartedPageOnce') ||
+                          prefs.getBool('visitedGettingStartedPageOnce') ==
+                              false) {
+                        //if it never existed or if it is false somehow
+                        await prefs.setBool('visitedGettingStartedPageOnce',
+                            true); //set to true
                       }
                       Navigator.popAndPushNamed(
                         context,
