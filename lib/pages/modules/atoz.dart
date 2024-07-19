@@ -251,16 +251,10 @@ class _AtoZState extends State<AtoZ> {
                 alignment: Alignment.centerRight,
                 child: ElevatedButton(
                   style: ButtonStyle(
-<<<<<<< HEAD
-                    backgroundColor: isTimerEnabled
-                        ? MaterialStateProperty.all(Colors.green)
-                        : MaterialStateProperty.all(Colors.red),
-=======
                     // ignore: deprecated_member_use
                     backgroundColor: MaterialStateProperty.all(
                       isTimerEnabled ? Colors.green : Colors.red,
                     ),
->>>>>>> upstream/master
                   ),
                   onPressed: () {
                     setState(() {
