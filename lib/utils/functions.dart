@@ -1,5 +1,8 @@
 import 'dart:ui';
 
+import 'package:flutter_tts/flutter_tts.dart';
+import 'package:just_audio/just_audio.dart';
+
 class AppFunctions {
   String getDescription(String name) {
     switch (name) {
@@ -76,4 +79,22 @@ class AppFunctions {
     return Color.fromRGBO(red, green, blue, 1.0);
   }
 
+  final AudioPlayer audioPlayer = AudioPlayer();
+  final FlutterTts flutterTts = FlutterTts();
+
+  Future<void> playSound(String soundAsset) async {
+    await audioPlayer.setAsset(soundAsset);
+    await audioPlayer.play();
+  }
+
+   Future<void> stopSound() async {
+    await audioPlayer.stop();
+  }
+
+  Future<void> readName(String name) async {
+    await flutterTts.setVolume(1.0);
+    await flutterTts.setLanguage("EN-IN");
+    await flutterTts.setPitch(1.0);
+    await flutterTts.speak(name);
+  }
 }

@@ -7,6 +7,7 @@ import 'package:learn/pages/fruits.dart';
 import 'package:learn/utils/const_dimensions.dart';
 import 'package:learn/models/itemdata_model.dart';
 import 'package:learn/utils/constants.dart';
+import 'package:learn/utils/functions.dart';
 
 class ItemTile extends StatelessWidget {
   final int index;
@@ -131,10 +132,6 @@ class _PopupDialogState extends State<_PopupDialog> {
     await flutterTts.speak(currentItem.description);
   }
 
-  Future<void> _speakText(String text) async {
-    await flutterTts.speak(text);
-  }
-
   void _previousItem() {
     setState(() {
       if (currentIndex > 0) {
@@ -185,7 +182,7 @@ class _PopupDialogState extends State<_PopupDialog> {
                   const SizedBox(height: ConstantDimensions.heightMedium),
                   GestureDetector(
                     onTap: () {
-                      _speakText(currentItem.description);
+                      AppFunctions().readName(currentItem.description);
                     },
                     child: SvgPicture.asset(
                       currentItem.iconAsset,

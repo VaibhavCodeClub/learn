@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:learn/utils/assets_path.dart';
 
 import 'package:learn/models/colours_model.dart';
+import 'package:learn/utils/functions.dart';
 
 class ColoursPage extends StatefulWidget {
   const ColoursPage({Key? key}) : super(key: key);
@@ -93,11 +94,6 @@ class _ColoursPageState extends State<ColoursPage> {
     });
   }
 
-  Future<void> readName(String name) async {
-    await flutterTts.setLanguage("EN-IN");
-    await flutterTts.speak(name);
-  }
-
   @override
   Widget build(BuildContext context) {
     Colours colour = colours[currentIndex];
@@ -169,7 +165,7 @@ class _ColoursPageState extends State<ColoursPage> {
                     IconButton.outlined(
                       highlightColor: Colors.amber,
                       onPressed: () {
-                        readName(colour.name);
+                        AppFunctions().readName(colour.name);
                       },
                       icon: const Icon(
                         Icons.volume_up_outlined,

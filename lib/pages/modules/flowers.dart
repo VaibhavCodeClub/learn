@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:learn/models/flower_model.dart';
 import 'package:learn/utils/assets_path.dart';
+import 'package:learn/utils/functions.dart';
 import 'flowers_test.dart';
 
 class FlowerPage extends StatefulWidget {
@@ -87,13 +88,6 @@ class _FlowerPageState extends State<FlowerPage> {
     setState(() {
       currentIndex = (currentIndex - 1 + flowers.length) % flowers.length;
     });
-  }
-
-  Future<void> readName(String name) async {
-    await flutterTts.setVolume(1.0);
-    await flutterTts.setLanguage("EN-IN");
-    await flutterTts.setPitch(1.0);
-    await flutterTts.speak(name);
   }
 
   void _navigateToFlowersTestPage(BuildContext context) {
@@ -184,7 +178,7 @@ class _FlowerPageState extends State<FlowerPage> {
                     IconButton.outlined(
                       highlightColor: Colors.amber,
                       onPressed: () {
-                        readName(flower.name);
+                        AppFunctions().readName(flower.name);
                       },
                       icon: const Icon(
                         Icons.volume_up_outlined,
