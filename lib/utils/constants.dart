@@ -5,6 +5,8 @@ import 'package:learn/models/bird_model.dart';
 import 'package:learn/models/itemdata_model.dart';
 import 'package:learn/models/occupation_model.dart';
 import 'package:learn/models/season_model.dart';
+// ignore: unused_import
+import 'package:learn/models/number_model.dart';
 import 'package:flutter/material.dart';
 import 'package:learn/pages/fruits.dart';
 import '../models/colours_model.dart';
@@ -207,6 +209,13 @@ class AppConstants {
       backgroundColor: const Color.fromARGB(193, 76, 175, 79),
     ),
     Module(
+      name: 'Number',
+      description: 'Learn numbers with production and an example',
+      thumbnailPath: AssetsPath.getNumberImage(Numbers.numbers),
+      route: MaterialPageRoute(builder: (context) => const AtoZ()),
+      backgroundColor: const Color.fromARGB(193, 76, 175, 79),
+    ),
+    Module(
       name: 'Animals',
       description: 'Learn about animals and their sounds',
       thumbnailPath: AssetsPath.getAnimalImage(Animals.animals),
@@ -336,7 +345,68 @@ class AppConstants {
       answer: 2, // Index of the correct option, in this case, "1492"
     ),
   ];
-
+  static List<ItemData> numberItems = [
+    ItemData(
+      iconAsset: AssetsPath.getNumberImage(Numbers.zero),
+      title: '0',
+      description: 'zero',
+      backgroundColor: const Color.fromARGB(115, 171, 171, 171),
+    ),
+    ItemData(
+      iconAsset: AssetsPath.getNumberImage(Numbers.one),
+      title: '1',
+      description: 'one',
+      backgroundColor: const Color.fromARGB(115, 171, 171, 171),
+    ),
+    ItemData(
+      iconAsset: AssetsPath.getNumberImage(Numbers.two),
+      title: '2',
+      description: 'two',
+      backgroundColor: const Color.fromARGB(115, 171, 171, 171),
+    ),
+    ItemData(
+      iconAsset: AssetsPath.getNumberImage(Numbers.three),
+      title: '3',
+      description: 'three',
+      backgroundColor: const Color.fromARGB(115, 171, 171, 171),
+    ),
+    ItemData(
+      iconAsset: AssetsPath.getNumberImage(Numbers.four),
+      title: '4',
+      description: 'four',
+      backgroundColor: const Color.fromARGB(115, 171, 171, 171),
+    ),
+    ItemData(
+      iconAsset: AssetsPath.getNumberImage(Numbers.five),
+      title: '5',
+      description: 'five',
+      backgroundColor: const Color.fromARGB(115, 171, 171, 171),
+    ),
+    ItemData(
+      iconAsset: AssetsPath.getNumberImage(Numbers.six),
+      title: '6',
+      description: 'six',
+      backgroundColor: const Color.fromARGB(115, 171, 171, 171),
+    ),
+    ItemData(
+      iconAsset: AssetsPath.getNumberImage(Numbers.seven),
+      title: '7',
+      description: 'seven',
+      backgroundColor: const Color.fromARGB(115, 171, 171, 171),
+    ),
+    ItemData(
+      iconAsset: AssetsPath.getNumberImage(Numbers.eight),
+      title: '8',
+      description: 'eight',
+      backgroundColor: const Color.fromARGB(115, 171, 171, 171),
+    ),
+    ItemData(
+      iconAsset: AssetsPath.getNumberImage(Numbers.nine),
+      title: '9',
+      description: 'nine',
+      backgroundColor: const Color.fromARGB(115, 171, 171, 171),
+    ),
+  ];
   static List<ItemData> alphabetItems = [
     ItemData(
       iconAsset: AssetsPath.getAlphabetImage(Alphabets.apple),
@@ -988,6 +1058,7 @@ class AppConstants {
       'Page Under Construction.\nIt will not take much time.';
 
   static const String a_z = 'A-Z';
+  static const String numbers = 'Numbers';
   static const String bird = 'Birds';
   static const String animal = 'Animals';
   static const String parts = 'Body Parts';

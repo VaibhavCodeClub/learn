@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:learn/utils/constants.dart';
 import 'package:learn/utils/route/route_constant.dart';
@@ -31,13 +33,12 @@ class _QuizState extends State<Quiz> {
   int questionnumber = 0;
   @override
   Widget build(BuildContext context) {
-    print(_score);
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     double toppadding = MediaQuery.of(context).padding.top;
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: Column(
           children: [
             SizedBox(
@@ -136,7 +137,6 @@ class _QuizState extends State<Quiz> {
                     istappable = true;
                   });
                 } else {
-                  print("Quiz Completed");
                   showDialog(
                       context: context,
                       builder: (context) => AlertDialog(
@@ -171,9 +171,10 @@ class _QuizState extends State<Quiz> {
                                         // Navigator.of(context).pop();
                                         Navigator.of(context)
                                             .pushReplacementNamed(
-                                                AllRoutesConstant.mainhomeRoute);
+                                                AllRoutesConstant
+                                                    .mainhomeRoute);
                                       },
-                                      child: Text(
+                                      child: const Text(
                                         "Go Back",
                                         style: TextStyle(color: Colors.white),
                                       ))

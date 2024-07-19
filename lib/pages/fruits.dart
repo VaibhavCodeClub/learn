@@ -116,7 +116,7 @@ class _FruitsPageState extends State<FruitsPage> {
                 ),
                 ElevatedButton(
                   style: ButtonStyle(
-                      fixedSize: MaterialStateProperty.all(
+                      fixedSize: WidgetStateProperty.all(
                           Size(MediaQuery.of(context).size.width * .3, 50))),
                   onPressed: () {
                     if (AppConstants.Fruits[_currentIndex].isfruit == true) {
@@ -132,7 +132,7 @@ class _FruitsPageState extends State<FruitsPage> {
                 ),
                 ElevatedButton(
                   style: ButtonStyle(
-                      fixedSize: MaterialStateProperty.all(
+                      fixedSize: WidgetStateProperty.all(
                           Size(MediaQuery.of(context).size.width * .3, 50))),
                   onPressed: () {
                     if (AppConstants.Fruits[_currentIndex].isfruit == false) {
