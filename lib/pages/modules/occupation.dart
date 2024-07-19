@@ -4,6 +4,7 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:learn/models/occupation_model.dart';
 import 'package:learn/utils/constants.dart';
+import 'package:learn/utils/functions.dart';
 
 import '../../utils/const_dimensions.dart';
 import 'occupations_test.dart';
@@ -125,7 +126,7 @@ class _OccupationWidgetState extends State<OccupationWidget> {
             const SizedBox(width: ConstantDimensions.widthMedium),
             ElevatedButton(
               onPressed: () {
-                _playOccupationName(occupation.name);
+                AppFunctions().readName(occupation.name);
               },
               child: const Text("Play Sound"),
             ),
@@ -151,10 +152,5 @@ class _OccupationWidgetState extends State<OccupationWidget> {
       currentIndex = (currentIndex - 1 + widget.occupations.length) %
           widget.occupations.length;
     });
-  }
-
-  Future<void> _playOccupationName(String name) async {
-    await widget.flutterTts.setLanguage('en-US');
-    await widget.flutterTts.speak(name);
   }
 }

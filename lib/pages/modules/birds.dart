@@ -6,6 +6,7 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:learn/models/bird_model.dart';
 import 'package:learn/utils/constants.dart';
+import 'package:learn/utils/functions.dart';
 
 import '../../utils/const_dimensions.dart';
 import 'birds_test.dart';
@@ -112,7 +113,7 @@ class _BirdWidgetState extends State<BirdWidget> {
           IconButton.outlined(
             highlightColor: Colors.amber,
             onPressed: () {
-              readName(
+              AppFunctions().readName(
                 bird.name,
               );
             },
@@ -137,7 +138,7 @@ class _BirdWidgetState extends State<BirdWidget> {
               const SizedBox(width: ConstantDimensions.widthMedium),
               ElevatedButton(
                 onPressed: () {
-                  _playBirdSound(bird.soundAsset);
+                  AppFunctions().playSound(bird.soundAsset);
                 },
                 child: const Text('Play Sound'),
               ),
@@ -151,15 +152,5 @@ class _BirdWidgetState extends State<BirdWidget> {
         ],
       ),
     );
-  }
-
-  Future<void> _playBirdSound(String soundAsset) async {
-    await widget.audioPlayer.setAsset(soundAsset);
-    await widget.audioPlayer.play();
-  }
-
-  Future<void> readName(String name) async {
-    await widget.flutterTts.setLanguage("EN-IN");
-    await widget.flutterTts.speak(name);
   }
 }

@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:learn/utils/constants.dart';
+import 'package:learn/utils/functions.dart';
 
 import '../utils/const_dimensions.dart';
 
@@ -91,7 +92,7 @@ class _FruitsPageState extends State<FruitsPage> {
             const SizedBox(height: ConstantDimensions.heightMedium),
             IconButton.outlined(
               onPressed: () {
-                readName(
+                AppFunctions().readName(
                   AppConstants.Fruits[_currentIndex].name,
                 );
               },
@@ -154,11 +155,6 @@ class _FruitsPageState extends State<FruitsPage> {
         ),
       ),
     );
-  }
-
-  Future<void> readName(String name) async {
-    await flutterTts.setLanguage("EN-IN");
-    await flutterTts.speak(name);
   }
 
   void _navigateToNextBird() {

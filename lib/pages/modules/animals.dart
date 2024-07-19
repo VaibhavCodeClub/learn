@@ -6,6 +6,7 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:learn/models/animal_model.dart';
 import 'package:learn/utils/constants.dart';
+import 'package:learn/utils/functions.dart';
 
 import '../../utils/const_dimensions.dart';
 import 'animals_test.dart';
@@ -137,7 +138,7 @@ class _AnimalPopupState extends State<AnimalPopup> {
           ),
           IconButton(
             onPressed: () {
-              _speakAnimalName(widget.animal.name);
+              AppFunctions().readName(widget.animal.name);
             },
             icon: const Icon(Icons.volume_up),
           ),
@@ -162,7 +163,7 @@ class _AnimalPopupState extends State<AnimalPopup> {
           const SizedBox(height: ConstantDimensions.heightSmall_Medium),
           ElevatedButton(
             onPressed: () {
-              _playAnimalSound(widget.animal.soundAsset);
+              AppFunctions().playSound(widget.animal.soundAsset);
             },
             child: const Text('Play Sound'),
           ),
@@ -196,7 +197,7 @@ class _AnimalPopupState extends State<AnimalPopup> {
             backgroundColor: MaterialStateProperty.all(Colors.red),
           ),
           onPressed: () {
-            _stopAnimalSound();
+            AppFunctions().stopSound();
             Navigator.of(context).pop();
           },
           child: const Text(
@@ -223,18 +224,5 @@ class _AnimalPopupState extends State<AnimalPopup> {
       widget.currentIndex = (widget.currentIndex + 1) % widget.animals.length;
       widget.animal = widget.animals[widget.currentIndex];
     });
-  }
-
-  Future<void> _playAnimalSound(String soundAsset) async {
-    await widget.audioPlayer.setAsset(soundAsset);
-    await widget.audioPlayer.play();
-  }
-
-  Future<void> _stopAnimalSound() async {
-    await widget.audioPlayer.stop();
-  }
-
-  Future<void> _speakAnimalName(String name) async {
-    await widget.flutterTts.speak(name);
   }
 }

@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:learn/utils/constants.dart';
+import 'package:learn/utils/functions.dart';
 import '../../utils/const_dimensions.dart';
 import 'package:learn/models/planet_model.dart';
 import 'planets_test.dart';
@@ -126,7 +127,7 @@ class _PlanetWidgetState extends State<PlanetWidget> {
             const SizedBox(width: ConstantDimensions.widthMedium),
             ElevatedButton(
               onPressed: () {
-                _playPlanetName(planet.name);
+                AppFunctions().readName(planet.name);
               },
               child: const Text('Play Sound'),
             ),
@@ -152,10 +153,5 @@ class _PlanetWidgetState extends State<PlanetWidget> {
       currentIndex =
           (currentIndex - 1 + widget.planets.length) % widget.planets.length;
     });
-  }
-
-  Future<void> _playPlanetName(String name) async {
-    await widget.flutterTts.setLanguage("en-US");
-    await widget.flutterTts.speak(name);
   }
 }

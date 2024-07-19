@@ -164,7 +164,7 @@ class _PartsPagePageState extends State<PartsPage> {
                               size: 40,
                             ),
                             onPressed: () {
-                              _speakText(cards[topCardIndex].name);
+                              AppFunctions().readName(cards[topCardIndex].name);
                             },
                           ),
                           const SizedBox(
@@ -204,12 +204,6 @@ class _PartsPagePageState extends State<PartsPage> {
         ),
       ),
     );
-  }
-
-  Future<void> _speakText(String text) async {
-    await flutterTts.setLanguage("EN-IN");
-
-    await flutterTts.speak(text);
   }
 
   bool _onUndo(
