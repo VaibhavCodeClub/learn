@@ -2,18 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-class FlowerQuestion {
-  final String imageAsset;
-  final List<String> options;
-  final String correctAnswer;
-
-  FlowerQuestion({
-    required this.imageAsset,
-    required this.options,
-    required this.correctAnswer,
-  });
-}
+import 'package:learn/models/questions/flower_question.dart';
 
 class FlowersTestPage extends StatefulWidget {
   const FlowersTestPage({Key? key}) : super(key: key);
