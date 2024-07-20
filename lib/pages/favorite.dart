@@ -48,11 +48,11 @@ class _FavoritePageState extends State<FavoritePage> {
         Provider.of<FavouriteScreenProvider>(context, listen: false);
     List<int> selectItem = provider.selectedItemList;
     return (provider.selectedItemList.isEmpty && !provider.drawingBoard)
-        ? Center(
+        ? const Center(
             child: Text("No Favorite Items"),
           )
         : _isLoading
-            ? Center(child: CircularProgressIndicator())
+            ? const Center(child: CircularProgressIndicator())
             : Scaffold(
                 appBar: AppBar(
                   title: const Text(

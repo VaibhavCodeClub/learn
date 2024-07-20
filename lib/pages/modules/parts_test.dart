@@ -26,7 +26,7 @@ class _PartsTestPageState extends State<PartsTestPage> {
   List<PartQuestion> allQuestions = [
     // Define all PartQuestion objects here
     PartQuestion(
-      imageAsset: 'assets/images/body/arm.svg',
+      imageAsset: 'assets/images/body/Arm.svg',
       options: ['Ankle', 'Back', 'Arm', 'Belly'],
       correctAnswer: 'Arm',
     ),
