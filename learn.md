@@ -1,3 +1,17 @@
+## Table of Contents
+
+1. [What is the repo all about?](#what-is-the-repo-all-about)
+2. [What is the solution trying to solve?](#what-is-the-solution-trying-to-solve)
+3. [Contributing Guidelines 📄](#contributing-guidelines-)
+4. [Need some help regarding the basics? 🤔](#need-some-help-regarding-the-basics-)
+5. [Alternatively Contribute Using GitHub Desktop](#alternatively-contribute-using-github-desktop)
+6. [Issue Report Process 📌](#issue-report-process-)
+7. [Pull Request Process 🚀](#pull-request-process-)
+8. [To Whom Should I Reach Out?](#to-whom-should-i-reach-out)
+9. [Tech Stack Used](#tech-stack-used)
+10. [How to Set Up on a Local System](#how-to-set-up-on-a-local-system)
+
+
 ## What is the repo all about?
 
 Learn is a simple learning app built using Flutter for kids. This app is designed to provide an engaging learning experience for children, covering a wide range of topics including:
