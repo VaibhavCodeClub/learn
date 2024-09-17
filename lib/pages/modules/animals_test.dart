@@ -2,18 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-class AnimalQuestion {
-  final String imageAsset;
-  final List<String> options;
-  final String correctAnswer;
-
-  AnimalQuestion({
-    required this.imageAsset,
-    required this.options,
-    required this.correctAnswer,
-  });
-}
+import 'package:learn/models/questions/animal_question.dart';
 
 class AnimalsTestPage extends StatefulWidget {
   const AnimalsTestPage({Key? key}) : super(key: key);

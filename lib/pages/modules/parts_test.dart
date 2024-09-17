@@ -2,18 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-class PartQuestion {
-  final String imageAsset;
-  final List<String> options;
-  final String correctAnswer;
-
-  PartQuestion({
-    required this.imageAsset,
-    required this.options,
-    required this.correctAnswer,
-  });
-}
+import 'package:learn/models/questions/part_question.dart';
 
 class PartsTestPage extends StatefulWidget {
   const PartsTestPage({Key? key}) : super(key: key);

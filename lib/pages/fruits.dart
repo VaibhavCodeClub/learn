@@ -9,20 +9,6 @@ import 'package:learn/utils/functions.dart';
 
 import '../utils/const_dimensions.dart';
 
-class Fruit {
-  final String name;
-  final String svgAsset;
-  final bool isfruit;
-  final Color backgroundColor;
-
-  Fruit({
-    required this.name,
-    required this.isfruit,
-    required this.svgAsset,
-    required this.backgroundColor,
-  });
-}
-
 class FruitsPage extends StatefulWidget {
   FruitsPage({Key? key}) : super(key: key);
 
