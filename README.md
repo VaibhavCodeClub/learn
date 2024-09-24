@@ -4,7 +4,8 @@
 
 <div align="center">
 <a href="https://android.izzysoft.de/repo/apk/vdrs.sappu.lafk.learn"> <img src='readme/IzzyOnDroid.png' width='150'/> </a> 
-<a href="https://github.com/VaibhavCodeClub/learn/releases"> <img src='readme/GitHub.png' width='150'/> </a> <br>
+<a href="https://github.com/VaibhavCodeClub/learn/releases"> <img src='readme/GitHub.png' width='150'/> </a> 
+  <a href='https://indusapp.store/yb8ybhhm'><img alt='Get it on Indus Appstore' src='https://docstore.indusappstore.com/public/external/developerdashboard-static/badge-black-background-english.png' width='135'/></a>
 </div>
 <br>
 
