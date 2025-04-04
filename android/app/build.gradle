@@ -29,7 +29,7 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     namespace "vdrs.sappu.lafk.learn"
-    compileSdkVersion 35
+    compileSdkVersion 34
     ndkVersion flutter.ndkVersion
 
     compileOptions {
