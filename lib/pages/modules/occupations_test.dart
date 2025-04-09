@@ -2,18 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-class OccupationQuestion {
-  final String imageAsset;
-  final List<String> options;
-  final String correctAnswer;
-
-  OccupationQuestion({
-    required this.imageAsset,
-    required this.options,
-    required this.correctAnswer,
-  });
-}
+import 'package:learn/models/questions/occupation_question.dart';
 
 class OccupationsTestPage extends StatefulWidget {
   const OccupationsTestPage({Key? key}) : super(key: key);
