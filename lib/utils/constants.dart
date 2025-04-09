@@ -1036,7 +1036,7 @@ class AppConstants {
     ),
     Fruit(
       name: 'Strawberry',
-      svgAsset: 'assets/fruitsVeges/strawberry.svg',
+      svgAsset: 'assets/fruitsVeges/download-Copy.svg',
       backgroundColor: Colors.white,
       isfruit: true,
     ),
