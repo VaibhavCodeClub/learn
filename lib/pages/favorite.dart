@@ -43,7 +43,7 @@ class _FavoritePageState extends State<FavoritePage> {
     List<int> selectItem = provider.selectedItemList;
     return (provider.selectedItemList.isEmpty && !provider.drawingBoard)
         ? const Center(
-            child: Text("No Favorite Items"),
+            child: Text("No Favorite Items\nAdd favourites from explore"),
           )
         : _isLoading
             ? const Center(child: CircularProgressIndicator())

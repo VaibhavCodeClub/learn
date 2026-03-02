@@ -11,17 +11,17 @@ import 'package:learn/models/planet_model.dart';
 import 'planets_test.dart';
 
 class PlanetsPage extends StatelessWidget {
-
   final FlutterTts flutterTts = FlutterTts();
   final AudioPlayer audioPlayer = AudioPlayer();
 
   PlanetsPage({Key? key}) : super(key: key);
- void _navigateToPlanetsTestPage(BuildContext context) {
+  void _navigateToPlanetsTestPage(BuildContext context) {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const PlanetsTestPage()),
     );
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,11 +46,14 @@ class PlanetsPage extends StatelessWidget {
         ],
       ),
       body: SingleChildScrollView(
-        child: Center(
-          child: PlanetWidget(
-            planets: AppConstants.planets,
-            flutterTts: flutterTts,
-            audioPlayer: audioPlayer,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 20.0),
+          child: Center(
+            child: PlanetWidget(
+              planets: AppConstants.planets,
+              flutterTts: flutterTts,
+              audioPlayer: audioPlayer,
+            ),
           ),
         ),
       ),

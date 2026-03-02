@@ -31,7 +31,8 @@ class AnimalsPage extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const AnimalsTestPage()),
+                MaterialPageRoute(
+                    builder: (context) => const AnimalsTestPage()),
               );
             },
           ),
@@ -88,13 +89,15 @@ class AnimalsPage extends StatelessWidget {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return SingleChildScrollView(
-          child: AnimalPopup(
-            animal: animal,
-            flutterTts: flutterTts,
-            audioPlayer: audioPlayer,
-            animals: AppConstants.animals,
-            currentIndex: currentIndex,
+        return Dialog(
+          child: SingleChildScrollView(
+            child: AnimalPopup(
+              animal: animal,
+              flutterTts: flutterTts,
+              audioPlayer: audioPlayer,
+              animals: AppConstants.animals,
+              currentIndex: currentIndex,
+            ),
           ),
         );
       },
@@ -128,84 +131,107 @@ class _AnimalPopupState extends State<AnimalPopup> {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            widget.animal.name,
-            style: const TextStyle(fontWeight: FontWeight.bold),
-          ),
-          IconButton(
-            onPressed: () {
-              AppFunctions().readName(widget.animal.name);
-            },
-            icon: const Icon(Icons.volume_up),
-          ),
-        ],
+    return Container(
+      constraints: BoxConstraints(
+        maxHeight: MediaQuery.of(context).size.height * 0.8,
       ),
-      content: Column(
+      child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          GestureDetector(
-            onTap: () {
-              setState(() {
-                isTapped = !isTapped;
-              });
-            },
-            child: SvgPicture.asset(
-              widget.animal.svgAsset,
-              color: isTapped ? const Color.fromARGB(81, 118, 96, 94) : null,
-              width: MediaQuery.of(context).size.width * 0.3,
-              height: MediaQuery.of(context).size.height * 0.3,
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Text(
+                    widget.animal.name,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {
+                    AppFunctions().readName(widget.animal.name);
+                  },
+                  icon: const Icon(Icons.volume_up),
+                ),
+              ],
             ),
           ),
-          const SizedBox(height: ConstantDimensions.heightSmall_Medium),
-          ElevatedButton(
-            onPressed: () {
-              AppFunctions().playSound(widget.animal.soundAsset);
-            },
-            child: const Text('Play Sound'),
+          Flexible(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          isTapped = !isTapped;
+                        });
+                      },
+                      child: SvgPicture.asset(
+                        widget.animal.svgAsset,
+                        color: isTapped
+                            ? const Color.fromARGB(81, 118, 96, 94)
+                            : null,
+                        width: MediaQuery.of(context).size.width * 0.5,
+                        height: MediaQuery.of(context).size.height * 0.3,
+                      ),
+                    ),
+                    const SizedBox(
+                        height: ConstantDimensions.heightSmall_Medium),
+                    ElevatedButton(
+                      onPressed: () {
+                        AppFunctions().playSound(widget.animal.soundAsset);
+                      },
+                      child: const Text('Play Sound'),
+                    ),
+                    const SizedBox(height: 16),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            _navigateToPreviousAnimal();
+                          },
+                          icon: const Icon(Icons.arrow_back),
+                          iconSize: 30,
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            _navigateToNextAnimal();
+                          },
+                          icon: const Icon(Icons.arrow_forward),
+                          iconSize: 30,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 8),
+                    ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.red),
+                      ),
+                      onPressed: () {
+                        AppFunctions().stopSound();
+                        Navigator.of(context).pop();
+                      },
+                      child: const Text(
+                        'Close',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              IconButton(
-                onPressed: () {
-                  _navigateToPreviousAnimal();
-                },
-                icon: const Icon(Icons.arrow_back),
-                iconSize: 30,
-              ),
-              SizedBox(
-                width: ConstantDimensions.exceptions[0],
-              ),
-              IconButton(
-                onPressed: () {
-                  _navigateToNextAnimal();
-                },
-                icon: const Icon(Icons.arrow_forward),
-                iconSize: 30,
-              ),
-            ],
-          )
         ],
       ),
-      actions: [
-        ElevatedButton(
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.red),
-          ),
-          onPressed: () {
-            AppFunctions().stopSound();
-            Navigator.of(context).pop();
-          },
-          child: const Text(
-            'Close',
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
-      ],
     );
   }
 

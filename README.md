@@ -69,6 +69,53 @@ To get started with the **Learn** app, follow these simple steps :
 ```bash
 git clone https://github.com/VaibhavCodeClub/learn
 ```
+
+### Flutter Version Setup
+
+This project uses **Flutter 3.19.0** and **Dart 3.3.0** to ensure compatibility and stability. We highly recommend using the exact same version to avoid any issues.
+
+#### Option 1: Using FVM (Recommended)
+
+[FVM (Flutter Version Management)](https://fvm.app/) helps you manage multiple Flutter versions easily.
+
+1. Install FVM:
+```bash
+# On macOS/Linux
+brew tap leoafarias/fvm
+brew install fvm
+
+# On Windows (using Chocolatey)
+choco install fvm
+
+# Or using Dart pub
+dart pub global activate fvm
+```
+
+2. Install and use Flutter 3.19.0:
+```bash
+cd learn
+fvm install 3.19.0
+fvm use 3.19.0
+```
+
+3. Run Flutter commands with FVM:
+```bash
+fvm flutter pub get
+fvm flutter run
+```
+
+#### Option 2: Manual Flutter Installation
+
+If you prefer not to use FVM, install Flutter 3.19.0 manually:
+
+1. Download Flutter 3.19.0 from the [Flutter SDK Archive](https://docs.flutter.dev/release/archive)
+2. Extract and add to your PATH
+3. Verify the version:
+```bash
+flutter --version
+# Should show: Flutter 3.19.0 • Dart 3.3.0
+```
+
 ### Run the Flutter Project
 
 Please ensure you have Flutter installed. If not, you can follow the instructions on [Flutter.dev](https://flutter.dev/) to get it installed on your machine.
@@ -78,10 +125,14 @@ Navigate to the project directory using the terminal.
 Run the following command to fetch the dependencies:
 ```bash 
 flutter pub get
+# Or if using FVM:
+fvm flutter pub get
 ```
 Once the dependencies are fetched, run the app on your preferred device using :
 ```bash
 flutter run
+# Or if using FVM:
+fvm flutter run
 ```
 That's it! The app should now be running on your device/emulator.
 

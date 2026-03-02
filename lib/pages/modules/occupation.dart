@@ -34,18 +34,22 @@ class OccupationPage extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const OccupationsTestPage()),
+                MaterialPageRoute(
+                    builder: (context) => const OccupationsTestPage()),
               );
             },
           ),
         ],
       ),
       body: SingleChildScrollView(
-        child: Center(
-          child: OccupationWidget(
-            occupations: AppConstants.occupations,
-            flutterTts: flutterTts,
-            audioPlayer: audioPlayer,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 20.0),
+          child: Center(
+            child: OccupationWidget(
+              occupations: AppConstants.occupations,
+              flutterTts: flutterTts,
+              audioPlayer: audioPlayer,
+            ),
           ),
         ),
       ),

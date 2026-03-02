@@ -6,7 +6,24 @@ Thank you for helping out and remember, **no contribution is too small.**
 <br>
 Please note we have a [code of conduct](CODE_OF_CONDUCT.md)  please follow it in all your interactions with the project.
 
+<br>
 
+## **⚠️ Important: Flutter Version**
+
+This project uses **Flutter 3.19.0** and **Dart 3.3.0**. Please ensure you're using the exact same version to avoid compatibility issues.
+
+**Quick Setup:**
+```bash
+# Using FVM (recommended)
+fvm install 3.19.0
+fvm use 3.19.0
+fvm flutter pub get
+
+# Or verify your Flutter version
+flutter --version
+```
+
+For detailed setup instructions, see [SETUP.md](SETUP.md).
 
 <br>
 

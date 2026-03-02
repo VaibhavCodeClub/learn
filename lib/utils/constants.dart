@@ -295,8 +295,8 @@ class AppConstants {
       backgroundColor: const Color.fromARGB(193, 135, 206, 250),
     ),
     Module(
-      name: 'Professions',
-      description: 'Learn about different professions',
+      name: 'Occupations',
+      description: 'Learn about different occupations',
       thumbnailPath: 'assets/images/quiz.jpg',
       route: MaterialPageRoute(builder: (context) => OccupationPage()),
       routeName: AllRoutesConstant.occupationRoute,
