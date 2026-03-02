@@ -33,21 +33,21 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  google_fonts: ^6.1.0
-  url_launcher: ^6.2.4
-  flutter_svg: ^2.0.9
-  just_audio: ^0.9.36
-  flutter_tts: ^3.8.5
-  card_swiper: ^3.0.1
-  flutter_card_swiper: ^7.0.0
-  adaptive_theme: ^3.6.0
-  fluttertoast: ^8.2.5
-  google_nav_bar: ^5.0.6
-  flutter_bloc: ^8.1.5
-  animated_text_kit: ^4.2.2
-  font_awesome_flutter: ^10.1.0
-  shared_preferences: ^2.2.3
-  provider: ^6.1.2
+  google_fonts: 6.1.0
+  url_launcher: 6.2.4
+  flutter_svg: 2.0.9
+  just_audio: 0.9.36
+  flutter_tts: 3.8.5
+  card_swiper: 3.0.1
+  flutter_card_swiper: 7.0.0
+  adaptive_theme: 3.6.0
+  fluttertoast: 8.2.5
+  google_nav_bar: 5.0.6
+  flutter_bloc: 8.1.5
+  animated_text_kit: 4.2.2
+  font_awesome_flutter: 10.1.0
+  shared_preferences: 2.2.3
+  provider: 6.1.2
 
 dev_dependencies:
   flutter_test:
@@ -58,7 +58,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+  flutter_lints: 2.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

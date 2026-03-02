@@ -255,7 +255,7 @@ class _NumbersState extends State<NumbersPage> {
                 alignment: Alignment.centerRight,
                 child: ElevatedButton(
                   style: ButtonStyle(
-                    backgroundColor: WidgetStateProperty.all<Color>(
+                    backgroundColor: MaterialStateProperty.all<Color>(
                       isTimerEnabled ? Colors.green : Colors.red,
                     ),
                   ),
