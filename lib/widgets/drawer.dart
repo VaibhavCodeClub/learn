@@ -44,7 +44,8 @@ class MyDrawer extends StatelessWidget {
                   icon: Icons.home,
                   title: "Home",
                   onTap: () {
-                    Navigator.pushNamed(context, AllRoutesConstant.homeRoute);
+                    Navigator.pushNamed(
+                        context, AllRoutesConstant.mainhomeRoute);
                   },
                   context: context,
                 ),
@@ -130,10 +131,11 @@ class MyDrawer extends StatelessWidget {
                   context: context,
                 ),
                 _buildListTile(
-                  icon: Icons.question_mark_outlined,
-                  title: "About us",
+                  icon: Icons.edit,
+                  title: "Drawing Board",
                   onTap: () {
-                    Navigator.pushNamed(context, AllRoutesConstant.aboutRoute);
+                    Navigator.pushNamed(
+                        context, AllRoutesConstant.drawingboardRoute);
                   },
                   context: context,
                 ),

@@ -6,9 +6,7 @@ import 'package:learn/utils/constants.dart';
 import 'package:learn/utils/route/route_constant.dart';
 import 'package:provider/provider.dart';
 import '../../favorite_page_provider.dart';
-import '../../theme_provider.dart';
 import '../../utils/const_dimensions.dart';
-import '../../widgets/drawer.dart';
 
 // Explore Page
 class FavoritePage extends StatefulWidget {
@@ -37,7 +35,6 @@ class _FavoritePageState extends State<FavoritePage> {
 
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
     final provider =
         Provider.of<FavouriteScreenProvider>(context, listen: false);
     List<int> selectItem = provider.selectedItemList;
@@ -47,353 +44,311 @@ class _FavoritePageState extends State<FavoritePage> {
           )
         : _isLoading
             ? const Center(child: CircularProgressIndicator())
-            : Scaffold(
-                appBar: AppBar(
-                  title: const Text(
-                    'Favorite',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  actions: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 16, top: 1),
-                      child: IconButton(
-                        icon: Icon(
-                          themeProvider.themeMode == ThemeMode.dark
-                              ? Icons.dark_mode
-                              : Icons.light_mode,
-                        ),
-                        onPressed: () {
-                          themeProvider.toggleTheme();
+            : SafeArea(
+                child: CustomScrollView(
+                  slivers: [
+                    SliverList(
+                      delegate: SliverChildListDelegate(
+                        [
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(
+                                  context, AllRoutesConstant.drawingboardRoute);
+                            },
+                            child: !provider.drawingBoard
+                                ? Container(
+                                    height: 0,
+                                  )
+                                : Container(
+                                    margin: const EdgeInsets.symmetric(
+                                        horizontal: 24, vertical: 12),
+                                    height:
+                                        ConstantDimensions.heightExtraLarge * 4,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(16),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.black.withOpacity(0.2),
+                                          spreadRadius: 2,
+                                          blurRadius: 5,
+                                          offset: const Offset(0, 3),
+                                        ),
+                                      ],
+                                    ),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(16),
+                                      child: Stack(
+                                        fit: StackFit.expand,
+                                        alignment: Alignment.center,
+                                        children: [
+                                          ImageFiltered(
+                                            imageFilter: ImageFilter.blur(
+                                                sigmaX: 5, sigmaY: 5),
+                                            child: SvgPicture.asset(
+                                              'assets/explore/drawing_board.svg',
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                          Positioned.fill(
+                                            child: Align(
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    "Drawing Board",
+                                                    style: Theme.of(context)
+                                                        .textTheme
+                                                        .headlineMedium!
+                                                        .copyWith(
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      shadows: [
+                                                        const Shadow(
+                                                          color: Colors.black,
+                                                          offset: Offset(2, 1),
+                                                          blurRadius: 4,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    "Drawing Board for Artist Kids!",
+                                                    style: Theme.of(context)
+                                                        .textTheme
+                                                        .bodyMedium!
+                                                        .copyWith(
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      shadows: [
+                                                        const Shadow(
+                                                          color: Colors.black,
+                                                          offset: Offset(2, 1),
+                                                          blurRadius: 2,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            children: [
+                                              Container(
+                                                width: 40,
+                                                height: 40,
+                                                margin: const EdgeInsets.all(5),
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
+                                                ),
+                                                child: Consumer<
+                                                    FavouriteScreenProvider>(
+                                                  builder:
+                                                      (context, item, child) {
+                                                    return IconButton(
+                                                      onPressed: () {
+                                                        item.setDrawingBoard();
+                                                        setState(() {});
+                                                      },
+                                                      icon: item.drawingBoard
+                                                          ? const Icon(
+                                                              Icons.favorite,
+                                                              size: 25,
+                                                              color: Colors.red,
+                                                            )
+                                                          : const Icon(
+                                                              Icons
+                                                                  .favorite_border,
+                                                              size: 25,
+                                                            ),
+                                                    );
+                                                  },
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    )),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                        childCount: AppConstants.modules.length,
+                        (context, index) {
+                          return GestureDetector(
+                            onTap: () {
+                              try {
+                                final module = AppConstants.modules[index];
+                                if (module.routeName != null) {
+                                  Navigator.pushNamed(
+                                      context, module.routeName!);
+                                } else {
+                                  Navigator.push(context, module.route);
+                                }
+                              } catch (e) {
+                                // ignore: avoid_print
+                                print(e);
+                              }
+                            },
+                            child: !(selectItem.contains(index))
+                                ? Container()
+                                : Container(
+                                    margin: const EdgeInsets.symmetric(
+                                        horizontal: 24, vertical: 12),
+                                    height:
+                                        ConstantDimensions.heightExtraLarge * 4,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(16),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.black.withOpacity(0.2),
+                                          spreadRadius: 2,
+                                          blurRadius: 5,
+                                          offset: const Offset(0, 3),
+                                        ),
+                                      ],
+                                    ),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(16),
+                                      child: Stack(
+                                        fit: StackFit.expand,
+                                        alignment: Alignment.center,
+                                        children: [
+                                          ImageFiltered(
+                                            imageFilter: ImageFilter.blur(
+                                                sigmaX: 5, sigmaY: 5),
+                                            child: AppConstants.modules[index]
+                                                    .thumbnailPath
+                                                    .endsWith('.svg')
+                                                ? SvgPicture.asset(
+                                                    AppConstants.modules[index]
+                                                        .thumbnailPath,
+                                                    fit: BoxFit.cover,
+                                                  )
+                                                : Image.asset(
+                                                    AppConstants.modules[index]
+                                                        .thumbnailPath,
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                          ),
+                                          Positioned.fill(
+                                            child: Align(
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    AppConstants
+                                                        .modules[index].name,
+                                                    style: Theme.of(context)
+                                                        .textTheme
+                                                        .headlineMedium!
+                                                        .copyWith(
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      shadows: [
+                                                        const Shadow(
+                                                          color: Colors.black,
+                                                          offset: Offset(2, 1),
+                                                          blurRadius: 4,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    AppConstants.modules[index]
+                                                        .description,
+                                                    style: Theme.of(context)
+                                                        .textTheme
+                                                        .bodyMedium!
+                                                        .copyWith(
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      shadows: [
+                                                        const Shadow(
+                                                          color: Colors.black,
+                                                          offset: Offset(2, 1),
+                                                          blurRadius: 2,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            children: [
+                                              Container(
+                                                width: 40,
+                                                height: 40,
+                                                margin: const EdgeInsets.all(5),
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
+                                                ),
+                                                child: Consumer<
+                                                    FavouriteScreenProvider>(
+                                                  builder:
+                                                      (context, item, child) {
+                                                    return IconButton(
+                                                      onPressed: () {
+                                                        if (item
+                                                            .selectedItemList
+                                                            .contains(index)) {
+                                                          item.removeList(
+                                                              index);
+                                                          setState(() {});
+                                                        } else {
+                                                          item.setList(index);
+                                                        }
+                                                      },
+                                                      icon: selectItem
+                                                              .contains(index)
+                                                          ? const Icon(
+                                                              Icons.favorite,
+                                                              size: 25,
+                                                              color: Colors.red,
+                                                            )
+                                                          : const Icon(
+                                                              Icons
+                                                                  .favorite_border,
+                                                              size: 25,
+                                                            ),
+                                                    );
+                                                  },
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    )),
+                          );
                         },
                       ),
                     ),
                   ],
                 ),
-                body: SafeArea(
-                  child: CustomScrollView(
-                    slivers: [
-                      SliverList(
-                        delegate: SliverChildListDelegate(
-                          [
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.pushNamed(context,
-                                    AllRoutesConstant.drawingboardRoute);
-                              },
-                              child: !provider.drawingBoard
-                                  ? Container(
-                                      height: 0,
-                                    )
-                                  : Container(
-                                      margin: const EdgeInsets.symmetric(
-                                          horizontal: 24, vertical: 12),
-                                      height:
-                                          ConstantDimensions.heightExtraLarge *
-                                              4,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(16),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color:
-                                                Colors.black.withOpacity(0.2),
-                                            spreadRadius: 2,
-                                            blurRadius: 5,
-                                            offset: const Offset(0, 3),
-                                          ),
-                                        ],
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(16),
-                                        child: Stack(
-                                          fit: StackFit.expand,
-                                          alignment: Alignment.center,
-                                          children: [
-                                            ImageFiltered(
-                                              imageFilter: ImageFilter.blur(
-                                                  sigmaX: 5, sigmaY: 5),
-                                              child: SvgPicture.asset(
-                                                'assets/explore/drawing_board.svg',
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
-                                            Positioned.fill(
-                                              child: Align(
-                                                child: Column(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      "Drawing Board",
-                                                      style: Theme.of(context)
-                                                          .textTheme
-                                                          .headlineMedium!
-                                                          .copyWith(
-                                                        color: Colors.white,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        shadows: [
-                                                          const Shadow(
-                                                            color: Colors.black,
-                                                            offset:
-                                                                Offset(2, 1),
-                                                            blurRadius: 4,
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      "Drawing Board for Artist Kids!",
-                                                      style: Theme.of(context)
-                                                          .textTheme
-                                                          .bodyMedium!
-                                                          .copyWith(
-                                                        color: Colors.white,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        shadows: [
-                                                          const Shadow(
-                                                            color: Colors.black,
-                                                            offset:
-                                                                Offset(2, 1),
-                                                            blurRadius: 2,
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                            Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.end,
-                                              children: [
-                                                Container(
-                                                  width: 40,
-                                                  height: 40,
-                                                  margin:
-                                                      const EdgeInsets.all(5),
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.white,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10),
-                                                  ),
-                                                  child: Consumer<
-                                                      FavouriteScreenProvider>(
-                                                    builder:
-                                                        (context, item, child) {
-                                                      return IconButton(
-                                                        onPressed: () {
-                                                          item.setDrawingBoard();
-                                                          setState(() {});
-                                                        },
-                                                        icon: item.drawingBoard
-                                                            ? const Icon(
-                                                                Icons.favorite,
-                                                                size: 25,
-                                                                color:
-                                                                    Colors.red,
-                                                              )
-                                                            : const Icon(
-                                                                Icons
-                                                                    .favorite_border,
-                                                                size: 25,
-                                                              ),
-                                                      );
-                                                    },
-                                                  ),
-                                                ),
-                                              ],
-                                            )
-                                          ],
-                                        ),
-                                      )),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SliverList(
-                        delegate: SliverChildBuilderDelegate(
-                          childCount: AppConstants.modules.length,
-                          (context, index) {
-                            return GestureDetector(
-                              onTap: () {
-                                try {
-                                  final module = AppConstants.modules[index];
-                                  if (module.routeName != null) {
-                                    Navigator.pushNamed(
-                                        context, module.routeName!);
-                                  } else {
-                                    Navigator.push(context, module.route);
-                                  }
-                                } catch (e) {
-                                  // ignore: avoid_print
-                                  print(e);
-                                }
-                              },
-                              child: !(selectItem.contains(index))
-                                  ? Container()
-                                  : Container(
-                                      margin: const EdgeInsets.symmetric(
-                                          horizontal: 24, vertical: 12),
-                                      height:
-                                          ConstantDimensions.heightExtraLarge *
-                                              4,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(16),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color:
-                                                Colors.black.withOpacity(0.2),
-                                            spreadRadius: 2,
-                                            blurRadius: 5,
-                                            offset: const Offset(0, 3),
-                                          ),
-                                        ],
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(16),
-                                        child: Stack(
-                                          fit: StackFit.expand,
-                                          alignment: Alignment.center,
-                                          children: [
-                                            ImageFiltered(
-                                              imageFilter: ImageFilter.blur(
-                                                  sigmaX: 5, sigmaY: 5),
-                                              child: AppConstants.modules[index]
-                                                      .thumbnailPath
-                                                      .endsWith('.svg')
-                                                  ? SvgPicture.asset(
-                                                      AppConstants
-                                                          .modules[index]
-                                                          .thumbnailPath,
-                                                      fit: BoxFit.cover,
-                                                    )
-                                                  : Image.asset(
-                                                      AppConstants
-                                                          .modules[index]
-                                                          .thumbnailPath,
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                            ),
-                                            Positioned.fill(
-                                              child: Align(
-                                                child: Column(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      AppConstants
-                                                          .modules[index].name,
-                                                      style: Theme.of(context)
-                                                          .textTheme
-                                                          .headlineMedium!
-                                                          .copyWith(
-                                                        color: Colors.white,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        shadows: [
-                                                          const Shadow(
-                                                            color: Colors.black,
-                                                            offset:
-                                                                Offset(2, 1),
-                                                            blurRadius: 4,
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      AppConstants
-                                                          .modules[index]
-                                                          .description,
-                                                      style: Theme.of(context)
-                                                          .textTheme
-                                                          .bodyMedium!
-                                                          .copyWith(
-                                                        color: Colors.white,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        shadows: [
-                                                          const Shadow(
-                                                            color: Colors.black,
-                                                            offset:
-                                                                Offset(2, 1),
-                                                            blurRadius: 2,
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                            Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.end,
-                                              children: [
-                                                Container(
-                                                  width: 40,
-                                                  height: 40,
-                                                  margin:
-                                                      const EdgeInsets.all(5),
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.white,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10),
-                                                  ),
-                                                  child: Consumer<
-                                                      FavouriteScreenProvider>(
-                                                    builder:
-                                                        (context, item, child) {
-                                                      return IconButton(
-                                                        onPressed: () {
-                                                          if (item
-                                                              .selectedItemList
-                                                              .contains(
-                                                                  index)) {
-                                                            item.removeList(
-                                                                index);
-                                                            setState(() {});
-                                                          } else {
-                                                            item.setList(index);
-                                                          }
-                                                        },
-                                                        icon: selectItem
-                                                                .contains(index)
-                                                            ? const Icon(
-                                                                Icons.favorite,
-                                                                size: 25,
-                                                                color:
-                                                                    Colors.red,
-                                                              )
-                                                            : const Icon(
-                                                                Icons
-                                                                    .favorite_border,
-                                                                size: 25,
-                                                              ),
-                                                      );
-                                                    },
-                                                  ),
-                                                ),
-                                              ],
-                                            )
-                                          ],
-                                        ),
-                                      )),
-                            );
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                drawer: const MyDrawer(),
               );
   }
 }

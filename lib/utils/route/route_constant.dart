@@ -1,6 +1,6 @@
 class AllRoutesConstant {
   static const String loginRoute = "/login";
-  static const String homeRoute = "/home";
+  static const String mainhomeRoute = '/main_home';
   static const String exploreRoute = "/explore";
   static const String favoriteRoute = "/favorite";
   static const String animalRoute = "/animals";
@@ -19,5 +19,4 @@ class AllRoutesConstant {
   static const String fruitRoute = "/fruit";
   static const String drawingboardRoute = "/drawingboard";
   static const String landingRoute = '/landing_page';
-  static const String mainhomeRoute = '/main_home';
 }

@@ -17,18 +17,6 @@ class ExplorePage extends StatelessWidget {
     return SafeArea(
       child: CustomScrollView(
         slivers: [
-          SliverAppBar(
-            title: Padding(
-              padding: const EdgeInsets.fromLTRB(0, 12, 16, 4),
-              child: Text(
-                "Explore",
-                style: Theme.of(context)
-                    .textTheme
-                    .headlineLarge!
-                    .copyWith(fontWeight: FontWeight.bold, fontSize: 30.0),
-              ),
-            ),
-          ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) {

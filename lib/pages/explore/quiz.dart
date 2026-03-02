@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:learn/utils/constants.dart';
-import 'package:learn/utils/route/route_constant.dart';
 
 class Quiz extends StatefulWidget {
   static const routeName = "/quiz";
@@ -31,43 +30,31 @@ class _QuizState extends State<Quiz> {
   int SelectedIndex = -1;
   bool istappable = true;
   int questionnumber = 0;
+
+  void _resetQuiz() {
+    setState(() {
+      _score = 0;
+      SelectedIndex = -1;
+      istappable = true;
+      questionnumber = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    double toppadding = MediaQuery.of(context).padding.top;
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Question ${questionnumber + 1}/${AppConstants.ques.length}",
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(
           children: [
-            SizedBox(
-              height: toppadding,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  icon: const Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.black,
-                  ),
-                ),
-                Text(
-                  "Question ${questionnumber + 1}/${AppConstants.ques.length}",
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
-                  ),
-                ),
-                const SizedBox(
-                  width: 50,
-                ),
-              ],
-            ),
             const SizedBox(
               height: 10,
             ),
@@ -75,16 +62,23 @@ class _QuizState extends State<Quiz> {
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               width: width * 0.90,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).cardColor,
                 borderRadius: BorderRadius.circular(8),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    spreadRadius: 1,
+                    blurRadius: 3,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
               ),
               child: Column(
                 children: [
                   AppConstants.ques[questionnumber].image != null
-                      ? Container(
+                      ? SizedBox(
                           height: 200,
                           width: 200,
-                          color: Colors.white,
                           child: Image.asset(
                             AppConstants.ques[questionnumber].image!,
                           ),
@@ -96,12 +90,11 @@ class _QuizState extends State<Quiz> {
                     height: 10,
                   ),
                   Text(
-                    AppConstants.ques[questionnumber].question, // [1]
+                    AppConstants.ques[questionnumber].question,
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 25,
-                        fontWeight: FontWeight.w600),
+                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                          fontWeight: FontWeight.w600,
+                        ),
                   ),
                 ],
               ),
@@ -139,6 +132,7 @@ class _QuizState extends State<Quiz> {
                 } else {
                   showDialog(
                       context: context,
+                      barrierDismissible: false,
                       builder: (context) => AlertDialog(
                             content: SizedBox(
                               height: height * 0.4,
@@ -147,47 +141,46 @@ class _QuizState extends State<Quiz> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  const Text(
+                                  Text(
                                     "Congratulations !!!",
-                                    style: TextStyle(
-                                        fontSize: 28,
-                                        fontWeight: FontWeight.bold),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headlineMedium
+                                        ?.copyWith(
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                   ),
                                   Text(
                                     "You Have Scored $_score out of ${AppConstants.ques.length}",
-                                    style: const TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w500),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleLarge
+                                        ?.copyWith(
+                                          fontWeight: FontWeight.w500,
+                                        ),
                                   ),
                                   ElevatedButton(
                                       style: ElevatedButton.styleFrom(
-                                        backgroundColor: Colors.purple,
                                         padding: const EdgeInsets.symmetric(
                                             horizontal: 40, vertical: 20),
                                         maximumSize: Size(width * 0.7, 60),
                                         minimumSize: Size(width * 0.7, 60),
                                       ),
                                       onPressed: () {
-                                        // Navigator.of(context).pop();
+                                        _resetQuiz();
                                         Navigator.of(context)
-                                            .pushReplacementNamed(
-                                                AllRoutesConstant
-                                                    .mainhomeRoute);
+                                            .pop(); // Close dialog
+                                        Navigator.of(context)
+                                            .pop(); // Go back to explore
                                       },
-                                      child: const Text(
-                                        "Go Back",
-                                        style: TextStyle(color: Colors.white),
-                                      ))
+                                      child: const Text("Go Back"))
                                 ],
                               ),
                             ),
                           ));
-                  // Navigator.of(context).pushNamed(ResultPage.routeName,
-                  //     arguments: _score.toString());
                 }
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.purple,
                 padding:
                     const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
                 maximumSize: Size(width * 0.7, 60),
@@ -199,7 +192,6 @@ class _QuizState extends State<Quiz> {
               child: const Text(
                 "Continue",
                 style: TextStyle(
-                  color: Colors.white,
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
                 ),
@@ -240,13 +232,13 @@ class _QuizState extends State<Quiz> {
               ? currentindex == AppConstants.ques[questionnumber].answer
                   ? Colors.green.withOpacity(0.3)
                   : Colors.red.withOpacity(0.3)
-              : Colors.white,
+              : Theme.of(context).cardColor,
           border: Border.all(
             color: selectedIndex == currentindex
                 ? currentindex == AppConstants.ques[questionnumber].answer
                     ? Colors.green
                     : Colors.red
-                : Colors.black,
+                : Theme.of(context).dividerColor,
             width: 1,
           ),
           borderRadius: BorderRadius.circular(14),
@@ -257,14 +249,14 @@ class _QuizState extends State<Quiz> {
               height: 25,
               width: 25,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).cardColor,
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: selectedIndex == currentindex
                       ? currentindex == AppConstants.ques[questionnumber].answer
                           ? Colors.green
                           : Colors.red
-                      : Colors.black,
+                      : Theme.of(context).dividerColor,
                   width: selectedIndex == currentindex ? 5 : 1,
                 ),
               ),
@@ -274,7 +266,7 @@ class _QuizState extends State<Quiz> {
             ),
             Text(
               option,
-              style: const TextStyle(fontSize: 22, color: Colors.black),
+              style: Theme.of(context).textTheme.titleLarge,
             ),
           ],
         ),

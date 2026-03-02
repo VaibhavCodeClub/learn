@@ -25,7 +25,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Home',
+          '',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         actions: [
@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               categoryCard(
                 context: context,
-                title: "NUMBERS", // Added this block for "NUMBERS"
+                title: "NUMBERS",
                 image: 'assets/images/numbers/numbers.jpg',
                 shortDescription: "Learn numbers and their pronunciations.",
                 route: AllRoutesConstant.numberRoute,

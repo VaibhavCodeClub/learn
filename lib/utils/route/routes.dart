@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:learn/landing_page.dart';
-import 'package:learn/pages/about.dart';
-import 'package:learn/pages/explore.dart';
 import 'package:learn/pages/explore/drawingboard.dart';
 import 'package:learn/pages/explore/quiz.dart';
 import 'package:learn/pages/favorite.dart';
 import 'package:learn/pages/fruits.dart';
-import 'package:learn/pages/home.dart';
 import 'package:learn/pages/main_home.dart';
 import 'package:learn/pages/modules/animals.dart';
 import 'package:learn/pages/modules/numbers.dart';
@@ -25,10 +22,8 @@ import 'package:learn/utils/route/route_constant.dart';
 class Routers {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case AllRoutesConstant.homeRoute:
-        return slidePageRoute(const MyHomePage());
-      case AllRoutesConstant.exploreRoute:
-        return slidePageRoute(const ExplorePage());
+      case AllRoutesConstant.mainhomeRoute:
+        return slidePageRoute(const MainHome());
       case AllRoutesConstant.atozRoute:
         return slidePageRoute(const AtoZ());
       case AllRoutesConstant.birdsRoute:
@@ -45,8 +40,6 @@ class Routers {
         return slidePageRoute(const NumbersPage());
       case AllRoutesConstant.colourRoute:
         return slidePageRoute(const ColoursPage());
-      case AllRoutesConstant.aboutRoute:
-        return slidePageRoute(const AboutPage());
       case AllRoutesConstant.flowerRoute:
         return slidePageRoute(const FlowerPage());
       case AllRoutesConstant.favoriteRoute:
@@ -63,8 +56,6 @@ class Routers {
         return slidePageRoute(const DrawingBoardPage());
       case AllRoutesConstant.landingRoute:
         return slidePageRoute(const LandingPage());
-      case AllRoutesConstant.mainhomeRoute:
-        return slidePageRoute(const MainHome());
 
       default:
         return MaterialPageRoute(
