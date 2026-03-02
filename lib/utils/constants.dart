@@ -20,10 +20,15 @@ import 'package:learn/pages/modules/shapes.dart';
 
 import '../model/module.dart';
 import 'package:learn/utils/assets_path.dart';
+import 'package:learn/utils/route/route_constant.dart';
 
 import '../pages/modules/animals.dart';
 import '../pages/modules/atoz.dart';
 import '../pages/modules/birds.dart';
+import '../pages/modules/flowers.dart';
+import '../pages/modules/seasons.dart';
+import '../pages/modules/occupation.dart';
+import '../pages/modules/numbers.dart';
 
 class AppConstants {
   static List<Planet> planets = [
@@ -199,6 +204,7 @@ class AppConstants {
       description: 'Fun Quizzes for Curious Kids!',
       thumbnailPath: "./assets/images/quiz.jpg",
       route: MaterialPageRoute(builder: (context) => const Quiz()),
+      routeName: AllRoutesConstant.quizRoute,
       backgroundColor: const Color.fromARGB(193, 76, 175, 79),
     ),
     Module(
@@ -206,13 +212,15 @@ class AppConstants {
       description: 'Learn A to Z with production and an example',
       thumbnailPath: AssetsPath.getAlphabetImage(Alphabets.alphabets),
       route: MaterialPageRoute(builder: (context) => const AtoZ()),
+      routeName: AllRoutesConstant.atozRoute,
       backgroundColor: const Color.fromARGB(193, 76, 175, 79),
     ),
     Module(
       name: 'Number',
       description: 'Learn numbers with production and an example',
       thumbnailPath: AssetsPath.getNumberImage(Numbers.numbers),
-      route: MaterialPageRoute(builder: (context) => const AtoZ()),
+      route: MaterialPageRoute(builder: (context) => const NumbersPage()),
+      routeName: AllRoutesConstant.numberRoute,
       backgroundColor: const Color.fromARGB(193, 76, 175, 79),
     ),
     Module(
@@ -220,6 +228,7 @@ class AppConstants {
       description: 'Learn about animals and their sounds',
       thumbnailPath: AssetsPath.getAnimalImage(Animals.animals),
       route: MaterialPageRoute(builder: (context) => AnimalsPage()),
+      routeName: AllRoutesConstant.animalRoute,
       backgroundColor: const Color.fromARGB(194, 157, 82, 222),
     ),
     Module(
@@ -227,6 +236,7 @@ class AppConstants {
       description: 'Look out for Birds with their sounds',
       thumbnailPath: AssetsPath.getBirdImage(Birds.birds),
       route: MaterialPageRoute(builder: (context) => BirdsPage()),
+      routeName: AllRoutesConstant.birdsRoute,
       backgroundColor: const Color.fromARGB(193, 76, 207, 222),
     ),
     Module(
@@ -234,12 +244,14 @@ class AppConstants {
         description: "Explore and Learn about the colors",
         thumbnailPath: AssetsPath.getColoursImage(ColorImages.colorsCover),
         route: MaterialPageRoute(builder: (context) => const ColoursPage()),
+        routeName: AllRoutesConstant.colourRoute,
         backgroundColor: const Color.fromARGB(193, 21, 234, 28)),
     Module(
       name: 'Body Parts',
       description: 'Know about body parts and their pronunciation.',
       thumbnailPath: AssetsPath.getBodyImage(Body.body),
       route: MaterialPageRoute(builder: (context) => const PartsPage()),
+      routeName: AllRoutesConstant.partsRoute,
       backgroundColor: const Color.fromARGB(157, 251, 0, 0),
     ),
     Module(
@@ -247,6 +259,7 @@ class AppConstants {
       description: 'Learn about shapes',
       thumbnailPath: 'assets/images/shape.gif',
       route: MaterialPageRoute(builder: (context) => const ShapesPage()),
+      routeName: AllRoutesConstant.shapesRoute,
       backgroundColor: const Color.fromARGB(193, 21, 234, 28),
     ),
     Module(
@@ -254,7 +267,40 @@ class AppConstants {
       description: 'Learn about the solar system',
       thumbnailPath: "assets/images/solar/solar.gif",
       route: MaterialPageRoute(builder: (context) => PlanetsPage()),
+      routeName: AllRoutesConstant.solarRoute,
       backgroundColor: const Color.fromARGB(193, 226, 221, 70),
+    ),
+    Module(
+      name: 'Flowers',
+      description: 'Discover beautiful flowers',
+      thumbnailPath: AssetsPath.getFlowerImage(Flowers.flowerBanner),
+      route: MaterialPageRoute(builder: (context) => const FlowerPage()),
+      routeName: AllRoutesConstant.flowerRoute,
+      backgroundColor: const Color.fromARGB(193, 255, 105, 180),
+    ),
+    Module(
+      name: 'Fruits & Vegetables',
+      description: 'Learn about healthy fruits and vegetables',
+      thumbnailPath: 'assets/fruitsVeges/cover.jpg',
+      route: MaterialPageRoute(builder: (context) => FruitsPage()),
+      routeName: AllRoutesConstant.fruitRoute,
+      backgroundColor: const Color.fromARGB(193, 255, 165, 0),
+    ),
+    Module(
+      name: 'Seasons',
+      description: 'Explore the four seasons',
+      thumbnailPath: 'assets/seasons/summer.svg',
+      route: MaterialPageRoute(builder: (context) => const SeasonsPage()),
+      routeName: AllRoutesConstant.seasonRoute,
+      backgroundColor: const Color.fromARGB(193, 135, 206, 250),
+    ),
+    Module(
+      name: 'Professions',
+      description: 'Learn about different professions',
+      thumbnailPath: 'assets/images/quiz.jpg',
+      route: MaterialPageRoute(builder: (context) => OccupationPage()),
+      routeName: AllRoutesConstant.occupationRoute,
+      backgroundColor: const Color.fromARGB(193, 100, 149, 237),
     ),
   ];
 

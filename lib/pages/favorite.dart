@@ -2,12 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:learn/pages/explore/quiz.dart';
-import 'package:learn/pages/modules/atoz.dart';
-import 'package:learn/pages/modules/birds.dart';
-import 'package:learn/pages/modules/colours.dart';
-import 'package:learn/pages/modules/planets.dart';
-import 'package:learn/pages/modules/shapes.dart';
 import 'package:learn/utils/constants.dart';
 import 'package:learn/utils/route/route_constant.dart';
 import 'package:provider/provider.dart';
@@ -225,62 +219,15 @@ class _FavoritePageState extends State<FavoritePage> {
                         delegate: SliverChildBuilderDelegate(
                           childCount: AppConstants.modules.length,
                           (context, index) {
-
                             return GestureDetector(
                               onTap: () {
                                 try {
-                                  switch (index) {
-                                    case 0:
-                                      Navigator.push(
-                                          context,
-                                          (MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const Quiz())));
-                                      break;
-                                    case 1:
-                                      Navigator.push(
-                                          context,
-                                          (MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const AtoZ())));
-                                      break;
-                                    case 2:
-                                      Navigator.push(
-                                          context,
-                                          (MaterialPageRoute(
-                                              builder: (context) =>
-                                                  BirdsPage())));
-                                      break;
-                                    case 3:
-                                      Navigator.push(
-                                          context,
-                                          (MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const ColoursPage())));
-                                      break;
-                                    case 4:
-                                      Navigator.push(
-                                          context,
-                                          (MaterialPageRoute(
-                                              builder: (context) =>
-                                                  BirdsPage())));
-                                      break;
-                                    case 5:
-                                      Navigator.push(
-                                          context,
-                                          (MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const ShapesPage())));
-                                      break;
-                                    case 6:
-                                      Navigator.push(
-                                          context,
-                                          (MaterialPageRoute(
-                                              builder: (context) =>
-                                                  PlanetsPage())));
-                                      break;
-                                    default:
-                                      break;
+                                  final module = AppConstants.modules[index];
+                                  if (module.routeName != null) {
+                                    Navigator.pushNamed(
+                                        context, module.routeName!);
+                                  } else {
+                                    Navigator.push(context, module.route);
                                   }
                                 } catch (e) {
                                   // ignore: avoid_print
@@ -316,11 +263,21 @@ class _FavoritePageState extends State<FavoritePage> {
                                             ImageFiltered(
                                               imageFilter: ImageFilter.blur(
                                                   sigmaX: 5, sigmaY: 5),
-                                              child: Image.asset(
-                                                AppConstants.modules[index]
-                                                    .thumbnailPath,
-                                                fit: BoxFit.cover,
-                                              ),
+                                              child: AppConstants.modules[index]
+                                                      .thumbnailPath
+                                                      .endsWith('.svg')
+                                                  ? SvgPicture.asset(
+                                                      AppConstants
+                                                          .modules[index]
+                                                          .thumbnailPath,
+                                                      fit: BoxFit.cover,
+                                                    )
+                                                  : Image.asset(
+                                                      AppConstants
+                                                          .modules[index]
+                                                          .thumbnailPath,
+                                                      fit: BoxFit.cover,
+                                                    ),
                                             ),
                                             Positioned.fill(
                                               child: Align(
