@@ -114,7 +114,7 @@ class _PopupDialog extends StatefulWidget {
 class _PopupDialogState extends State<_PopupDialog> {
   late FlutterTts flutterTts;
   late int currentIndex;
-  late Timer? timer;
+  Timer? timer;
   late bool isAutoNextEnabled;
 
   @override

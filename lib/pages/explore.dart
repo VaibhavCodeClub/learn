@@ -115,41 +115,43 @@ class ExplorePage extends StatelessWidget {
               childCount: AppConstants.modules.length,
             ),
           ),
-          GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(
-                context,
-                AllRoutesConstant.drawingboardRoute,
-              );
-            },
-            child: Container(
-              margin: const EdgeInsets.all(5.0),
-              padding: const EdgeInsets.all(8.0),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.black, width: 1.0),
-                borderRadius: BorderRadius.circular(8.0),
-                color: Colors.greenAccent,
-              ),
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 50,
-                    height: 50,
-                    child: SvgPicture.asset(
-                      'assets/explore/drawing_board.svg',
+          SliverToBoxAdapter(
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  AllRoutesConstant.drawingboardRoute,
+                );
+              },
+              child: Container(
+                margin: const EdgeInsets.all(5.0),
+                padding: const EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black, width: 1.0),
+                  borderRadius: BorderRadius.circular(8.0),
+                  color: Colors.greenAccent,
+                ),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: SvgPicture.asset(
+                        'assets/explore/drawing_board.svg',
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: 28.0),
-                  const Text(
-                    'Drawing Board',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30.0,
-                      fontFamily: 'Comic',
-                      color: Colors.white,
+                    const SizedBox(width: 28.0),
+                    const Text(
+                      'Drawing Board',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 30.0,
+                        fontFamily: 'Comic',
+                        color: Colors.white,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
