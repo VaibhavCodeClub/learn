@@ -1,0 +1,6 @@
+1.2.0
+Change log:
+    - Added lots of more things like numbers, solar system, occupations, etc.
+    - Added tests
+    - Added explore and favorites page
+    - Bug fixes and lots of improvements
