@@ -52,21 +52,36 @@ class ItemTile extends StatelessWidget {
               ),
               LayoutBuilder(
                 builder: (BuildContext context, BoxConstraints constraints) {
+                  final isPng = item.iconAsset.endsWith('.png');
                   if (MediaQuery.of(context).orientation ==
                       Orientation.portrait) {
-                    return SvgPicture.asset(
-                      item.iconAsset,
-                      width: MediaQuery.of(context).size.width * 0.2,
-                      height: MediaQuery.of(context).size.height * 0.1,
-                      alignment: Alignment.center,
-                    );
+                    return isPng
+                        ? Image.asset(
+                            item.iconAsset,
+                            width: MediaQuery.of(context).size.width * 0.2,
+                            height: MediaQuery.of(context).size.height * 0.1,
+                            alignment: Alignment.center,
+                          )
+                        : SvgPicture.asset(
+                            item.iconAsset,
+                            width: MediaQuery.of(context).size.width * 0.2,
+                            height: MediaQuery.of(context).size.height * 0.1,
+                            alignment: Alignment.center,
+                          );
                   } else {
-                    return SvgPicture.asset(
-                      item.iconAsset,
-                      width: MediaQuery.of(context).size.width * 0.2,
-                      height: MediaQuery.of(context).size.height * 0.2,
-                      alignment: Alignment.center,
-                    );
+                    return isPng
+                        ? Image.asset(
+                            item.iconAsset,
+                            width: MediaQuery.of(context).size.width * 0.2,
+                            height: MediaQuery.of(context).size.height * 0.2,
+                            alignment: Alignment.center,
+                          )
+                        : SvgPicture.asset(
+                            item.iconAsset,
+                            width: MediaQuery.of(context).size.width * 0.2,
+                            height: MediaQuery.of(context).size.height * 0.2,
+                            alignment: Alignment.center,
+                          );
                   }
                 },
               ),
@@ -187,12 +202,19 @@ class _PopupDialogState extends State<_PopupDialog> {
                     onTap: () {
                       _speakText(currentItem.description);
                     },
-                    child: SvgPicture.asset(
-                      currentItem.iconAsset,
-                      width: MediaQuery.of(context).size.width * 0.5,
-                      height: MediaQuery.of(context).size.height * 0.3,
-                      alignment: Alignment.center,
-                    ),
+                    child: currentItem.iconAsset.endsWith('.png')
+                        ? Image.asset(
+                            currentItem.iconAsset,
+                            width: MediaQuery.of(context).size.width * 0.5,
+                            height: MediaQuery.of(context).size.height * 0.3,
+                            alignment: Alignment.center,
+                          )
+                        : SvgPicture.asset(
+                            currentItem.iconAsset,
+                            width: MediaQuery.of(context).size.width * 0.5,
+                            height: MediaQuery.of(context).size.height * 0.3,
+                            alignment: Alignment.center,
+                          ),
                   ),
                   const SizedBox(height: ConstantDimensions.heightMedium),
                   Text(
