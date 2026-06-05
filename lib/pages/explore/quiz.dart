@@ -11,21 +11,6 @@ class Quiz extends StatefulWidget {
   @override
   State<Quiz> createState() => _QuizState();
 }
-
-class Questions {
-  String question;
-  List<String> options;
-  String? image;
-  int answer;
-
-  Questions({
-    required this.question,
-    required this.options,
-    required this.answer,
-    this.image,
-  });
-}
-
 class _QuizState extends State<Quiz> {
   int _score = 0;
   int SelectedIndex = -1;

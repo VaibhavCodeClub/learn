@@ -2,8 +2,10 @@
 
 import 'package:learn/models/animal_model.dart';
 import 'package:learn/models/bird_model.dart';
+import 'package:learn/models/fruit_model.dart';
 import 'package:learn/models/itemdata_model.dart';
 import 'package:learn/models/occupation_model.dart';
+import 'package:learn/models/questions/question.dart';
 import 'package:learn/models/season_model.dart';
 // ignore: unused_import
 import 'package:learn/models/number_model.dart';

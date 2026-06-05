@@ -2,18 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-class PlanetQuestion {
-  final String imageAsset;
-  final List<String> options;
-  final String correctAnswer;
-
-  PlanetQuestion({
-    required this.imageAsset,
-    required this.options,
-    required this.correctAnswer,
-  });
-}
+import 'package:learn/models/questions/planet_question.dart';
 
 class PlanetsTestPage extends StatefulWidget {
   const PlanetsTestPage({Key? key}) : super(key: key);
