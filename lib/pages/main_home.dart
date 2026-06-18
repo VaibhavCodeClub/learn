@@ -8,7 +8,6 @@ import 'package:learn/pages/explore/explore.dart';
 import 'package:learn/pages/favorite.dart';
 import 'package:learn/pages/home.dart';
 import 'package:learn/widgets/navbar/navbar.dart';
-import 'package:adaptive_theme/adaptive_theme.dart';
 
 class MainHome extends StatefulWidget {
   final AdaptiveThemeMode? savedThemeMode;
